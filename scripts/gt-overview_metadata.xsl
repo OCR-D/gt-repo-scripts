@@ -1911,9 +1911,19 @@
             
         
                 
-                <xsl:if test="$READSME//div[@id='extent']">
+                <xsl:choose>
+                <xsl:when test="$READSME//div[@id='extent']">
                     <xsl:copy-of select="$READSME//div[@id='extent']"/>
-            </xsl:if>
+            </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:element name="div">
+                            <xsl:attribute name="id">extent</xsl:attribute>
+                            <xsl:element name="p">
+                                In this section they can insert additional information, instructions or notes.
+                            </xsl:element>
+                        </xsl:element>
+                    </xsl:otherwise>
+                </xsl:choose>
         
         
         
