@@ -1,7 +1,7 @@
 #!/bin/bash
 
 file=README.md
-if [ -d "$file" ];
+if [ -f "$file" ];
 then
     mv README.md README.xml
 else
