@@ -1918,6 +1918,8 @@
                     <xsl:otherwise>
                         <xsl:element name="div">
                             <xsl:attribute name="id">extent</xsl:attribute>
+                            <xsl:element name="h2">Extent</xsl:element>
+                            
                             <xsl:element name="p">
                                 In this section they can insert additional information, instructions or notes.
                             </xsl:element>
