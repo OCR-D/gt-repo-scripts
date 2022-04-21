@@ -22,7 +22,7 @@
     
     
     <xsl:variable name="READSME">
-        <xsl:copy-of select="document('../liesmich.xml')"/>
+        <xsl:copy-of select="document('../README.xml')"/>
     </xsl:variable>
     
     
