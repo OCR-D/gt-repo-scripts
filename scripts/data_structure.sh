@@ -15,8 +15,8 @@ if test -f "mets.xml"; then
 
 else
     ocrd workspace --directory $p init
-    cat $path/ghout/mets.sh # for GH actions log
-    sh $path/ghout/mets.sh
+    cat $path/scripts/mets.sh # for GH actions log
+    sh $path/scripts/mets.sh
     cd $p
     ocrd zip bag -i ocrd_data_structur_${PWD##*/}
     cd $p
