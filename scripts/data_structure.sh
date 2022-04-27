@@ -21,6 +21,8 @@ else
     ocrd zip bag -i ocrd_data_structur_${PWD##*/}
     cd $p
     cd ..
+    pwd
+    echo "Hallo"
     sudo mv *.zip $path/ocrdzip_out/
     
     # pwd;ls -l
