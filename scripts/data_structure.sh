@@ -20,12 +20,7 @@ else
     cd $p
     ocrd zip bag -i ocrd_data_structur_${PWD##*/}
     cd $p
-    echo "Hallo1"
-    pwd
-    echo "Hallo2"
     cd ..
-    echo "Hallo3"
-    ls -l
     sudo mv *.zip $path/ocrdzip_out/
     
     # pwd;ls -l
