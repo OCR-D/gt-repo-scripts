@@ -24,6 +24,8 @@ else
     pwd
     echo "Hallo2"
     cd ..
+    echo "Hallo3"
+    ls -l
     sudo mv *.zip $path/ocrdzip_out/
     
     # pwd;ls -l
