@@ -1400,6 +1400,7 @@
             
         </xsl:if>
         <xsl:if test="$output = 'METS'">
+            <xsl:message select="$conImg"/>
             <!-- Mets Control -->
             
             <xsl:variable name="cMets">
