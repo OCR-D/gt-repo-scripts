@@ -19,10 +19,9 @@ else
     sh $path/scripts/mets.sh
     cd $p
     ocrd zip bag -i ocrd_data_structur_${PWD##*/}
-    sudo mv *.zip $path/ocrdzip_out/
-    # cd $p
+    cd $p
     # cd ..
-    # sudo mv *.zip $path/ocrdzip_out/
+    sudo mv *.zip $path/ocrdzip_out/
     
     # pwd;ls -l
     
