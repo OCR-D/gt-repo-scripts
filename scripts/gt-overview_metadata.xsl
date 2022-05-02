@@ -3085,7 +3085,7 @@
                                 <xsl:for-each-group select="$holeMetric//*" group-by="@key1">
                                     
                                     <xsl:variable name="content"><list><xsl:copy-of select="current-group()"/></list></xsl:variable>
-                                    elect="if (@isbn!='') then ('(ISBN: ', @isbn, ')') else() (: in diesem Fall nichts ausgeben :)"/>
+                                    
                                     <tr>
                                         <th><xsl:value-of select="current-grouping-key()"/></th>
                                         <xsl:if test="sum(current-group()//*[@key=$key1]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key1])"/></td></xsl:if>
