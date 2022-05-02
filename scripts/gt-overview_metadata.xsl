@@ -108,130 +108,6 @@
         </xsl:element>
     </xsl:variable>
     
-   
-   <xsl:variable name="test">
-       <xsl:variable name="k15">
-           <xsl:for-each select="$holeMetric/array">
-               <xsl:value-of select="sum($holeMetric//string[@key=$key15])"/>
-           </xsl:for-each>
-       </xsl:variable>
-       
-       <xsl:variable name="k16">
-           
-           <xsl:for-each select="$holeMetric/array">
-               <xsl:value-of select="sum($holeMetric//string[@key=$key16])"/>
-           </xsl:for-each>
-       </xsl:variable>
-       
-       <xsl:variable name="k1">
-           
-           <xsl:for-each select="$holeMetric/array">
-               <xsl:value-of select="sum($holeMetric//string[@key=$key1])"/>
-           </xsl:for-each>
-       </xsl:variable>
-       
-       <xsl:variable name="k2">
-           
-           <xsl:for-each select="$holeMetric/array">
-               <xsl:value-of select="sum($holeMetric//string[@key=$key2])"/>
-           </xsl:for-each>
-       </xsl:variable>
-       
-       <xsl:variable name="k3">
-           
-           <xsl:for-each select="$holeMetric/array">
-               <xsl:value-of select="sum($holeMetric//string[@key=$key3])"/>
-           </xsl:for-each>
-       </xsl:variable>
-       
-       <xsl:variable name="k4">
-           
-           <xsl:for-each select="$holeMetric/array">
-               <xsl:value-of select="sum($holeMetric//string[@key=$key4])"/>
-           </xsl:for-each>
-       </xsl:variable>
-       
-       <xsl:variable name="k5">
-           
-           <xsl:for-each select="$holeMetric/array">
-               <xsl:value-of select="sum($holeMetric//string[@key=$key5])"/>
-           </xsl:for-each>
-       </xsl:variable>
-       
-       
-       <xsl:variable name="k6">
-           
-           <xsl:for-each select="$holeMetric/array">
-               <xsl:value-of select="sum($holeMetric//string[@key=$key6])"/>
-           </xsl:for-each>
-       </xsl:variable>
-       
-       <xsl:variable name="k7">
-           
-           <xsl:for-each select="$holeMetric/array">
-               <xsl:value-of select="sum($holeMetric//string[@key=$key7])"/>
-           </xsl:for-each>
-       </xsl:variable>
-       
-       <xsl:variable name="k8">
-           <xsl:for-each select="$holeMetric/array">
-               <xsl:value-of select="sum($holeMetric//string[@key=$key8])"/>
-           </xsl:for-each>
-       </xsl:variable>
-       
-       <xsl:variable name="k9">
-           
-           <xsl:for-each select="$holeMetric/array">
-               <xsl:value-of select="sum($holeMetric//string[@key=$key9])"/>
-           </xsl:for-each>
-       </xsl:variable>
-       
-       <xsl:variable name="k10">
-           
-           <xsl:for-each select="$holeMetric/array">
-               <xsl:value-of select="sum($holeMetric//string[@key=$key10])"/>
-           </xsl:for-each>
-       </xsl:variable>
-       
-       <xsl:variable name="k11">
-           
-           <xsl:for-each select="$holeMetric/array">
-               <xsl:value-of select="sum($holeMetric//string[@key=$key11])"/>
-           </xsl:for-each>
-       </xsl:variable>
-       
-       <xsl:variable name="k12">
-           
-           <xsl:for-each select="$holeMetric/array">
-               <xsl:value-of select="sum($holeMetric//string[@key=$key12])"/>
-           </xsl:for-each>
-       </xsl:variable>
-       
-       <xsl:variable name="k13">
-           
-           <xsl:for-each select="$holeMetric/array">
-               <xsl:value-of select="sum($holeMetric//string[@key=$key13])"/>
-           </xsl:for-each>
-       </xsl:variable>
-       
-       <xsl:variable name="k14">
-           
-           <xsl:for-each select="$holeMetric/array">
-               <xsl:value-of select="sum($holeMetric//string[@key=$key14])"/>
-           </xsl:for-each>
-       </xsl:variable>
-       
-       
-       
-   </xsl:variable>
-   
-   
-   
-   
-   
-   
-   
-   
     
     <xsl:template match="/">
    <xsl:variable name="holeMetric">
@@ -281,6 +157,127 @@
                     </xsl:for-each>
                     </xsl:element>
               </xsl:variable>
+        
+        
+        <xsl:variable name="test">
+            <xsl:variable name="k15">
+                <xsl:for-each select="$holeMetric/array">
+                    <xsl:value-of select="sum($holeMetric//string[@key=$key15])"/>
+                </xsl:for-each>
+            </xsl:variable>
+            
+            <xsl:variable name="k16">
+                
+                <xsl:for-each select="$holeMetric/array">
+                    <xsl:value-of select="sum($holeMetric//string[@key=$key16])"/>
+                </xsl:for-each>
+            </xsl:variable>
+            
+            <xsl:variable name="k1">
+                
+                <xsl:for-each select="$holeMetric/array">
+                    <xsl:value-of select="sum($holeMetric//string[@key=$key1])"/>
+                </xsl:for-each>
+            </xsl:variable>
+            
+            <xsl:variable name="k2">
+                
+                <xsl:for-each select="$holeMetric/array">
+                    <xsl:value-of select="sum($holeMetric//string[@key=$key2])"/>
+                </xsl:for-each>
+            </xsl:variable>
+            
+            <xsl:variable name="k3">
+                
+                <xsl:for-each select="$holeMetric/array">
+                    <xsl:value-of select="sum($holeMetric//string[@key=$key3])"/>
+                </xsl:for-each>
+            </xsl:variable>
+            
+            <xsl:variable name="k4">
+                
+                <xsl:for-each select="$holeMetric/array">
+                    <xsl:value-of select="sum($holeMetric//string[@key=$key4])"/>
+                </xsl:for-each>
+            </xsl:variable>
+            
+            <xsl:variable name="k5">
+                
+                <xsl:for-each select="$holeMetric/array">
+                    <xsl:value-of select="sum($holeMetric//string[@key=$key5])"/>
+                </xsl:for-each>
+            </xsl:variable>
+            
+            
+            <xsl:variable name="k6">
+                
+                <xsl:for-each select="$holeMetric/array">
+                    <xsl:value-of select="sum($holeMetric//string[@key=$key6])"/>
+                </xsl:for-each>
+            </xsl:variable>
+            
+            <xsl:variable name="k7">
+                
+                <xsl:for-each select="$holeMetric/array">
+                    <xsl:value-of select="sum($holeMetric//string[@key=$key7])"/>
+                </xsl:for-each>
+            </xsl:variable>
+            
+            <xsl:variable name="k8">
+                <xsl:for-each select="$holeMetric/array">
+                    <xsl:value-of select="sum($holeMetric//string[@key=$key8])"/>
+                </xsl:for-each>
+            </xsl:variable>
+            
+            <xsl:variable name="k9">
+                
+                <xsl:for-each select="$holeMetric/array">
+                    <xsl:value-of select="sum($holeMetric//string[@key=$key9])"/>
+                </xsl:for-each>
+            </xsl:variable>
+            
+            <xsl:variable name="k10">
+                
+                <xsl:for-each select="$holeMetric/array">
+                    <xsl:value-of select="sum($holeMetric//string[@key=$key10])"/>
+                </xsl:for-each>
+            </xsl:variable>
+            
+            <xsl:variable name="k11">
+                
+                <xsl:for-each select="$holeMetric/array">
+                    <xsl:value-of select="sum($holeMetric//string[@key=$key11])"/>
+                </xsl:for-each>
+            </xsl:variable>
+            
+            <xsl:variable name="k12">
+                
+                <xsl:for-each select="$holeMetric/array">
+                    <xsl:value-of select="sum($holeMetric//string[@key=$key12])"/>
+                </xsl:for-each>
+            </xsl:variable>
+            
+            <xsl:variable name="k13">
+                
+                <xsl:for-each select="$holeMetric/array">
+                    <xsl:value-of select="sum($holeMetric//string[@key=$key13])"/>
+                </xsl:for-each>
+            </xsl:variable>
+            
+            <xsl:variable name="k14">
+                
+                <xsl:for-each select="$holeMetric/array">
+                    <xsl:value-of select="sum($holeMetric//string[@key=$key14])"/>
+                </xsl:for-each>
+            </xsl:variable>
+            
+            
+            
+        </xsl:variable>
+        
+        
+        
+        
    <xsl:if test="$output = 'METADATA'">
             <link rel="stylesheet" href="table_hide.css"/>
                 <xsl:element name="div">
@@ -2356,7 +2353,7 @@
         <h2>Sources</h2>
             <h3>The volume of transcriptions:</h3>
         
-                <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text()='data_structure_and_text'">
+            <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text()='data_structure_and_text'">
                     
                     <xsl:variable name="k15">
                         <xsl:for-each select="$holeMetric/array">
