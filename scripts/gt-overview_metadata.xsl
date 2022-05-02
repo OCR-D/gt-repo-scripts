@@ -3077,7 +3077,7 @@
                         <table class="noStyle">
                             
                         </table>
-                        <table id="table_id" class="display" style="border-spacing: 0; border-radius: 6px; border-collapse: separate; border: solid silver 1.5px;">
+                        <table id="table_id" class="display">
                             
                             <xsl:copy-of select="$tableHeader0"/>
                             
