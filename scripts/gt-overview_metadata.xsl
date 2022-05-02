@@ -2204,7 +2204,7 @@
             <h2>Metadata</h2>
                 
             <dl class="grid">
-                <dt id="Language">Language:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:array[@key='language']/fn:string"/></dd>
+                <dt id="Language">Language:</dt><dd><xsl:value-of separator=", " select="$docMETADATA//fn:map/fn:array[@key='language']/fn:string"/></dd>
                 <dt id="Format">Format:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='format']"/></dd>
                 <dt id="Time">Time:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:map[@key='time']/fn:string[@key='notBefore']"/>-<xsl:value-of select="$docMETADATA//fn:map/fn:map[@key='time']/fn:string[@key='notAfter']"/></dd>
                 <dt id="GTT">GT Type:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='gtTyp']"/></dd>
