@@ -2202,6 +2202,7 @@
          <p id="paragraph"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='description']"/></p>
             
             <h2>Metadata</h2>
+                <xsl:message select="$docMETADATA"/>
             <dl class="grid">
                 <dt id="Language">Language:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:array[@key='language']/fn:string"/></dd>
                 <dt id="Format">Format:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='format']"/></dd>
