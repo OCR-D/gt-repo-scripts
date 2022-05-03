@@ -20,6 +20,8 @@
         <xsl:copy-of select="json-to-xml(unparsed-text('../METADATA.json'))"/>
     </xsl:variable>
     
+   
+    
     
     <xsl:variable name="READSME">
         <xsl:copy-of select="document('../README.xml')"/>
@@ -110,7 +112,8 @@
     
     
     <xsl:template match="/">
-   <xsl:variable name="holeMetric">
+        <xsl:message select="$docMETADATA"/>
+        <xsl:variable name="holeMetric">
                 <xsl:element name="array">
                   <xsl:for-each select="collection($coll)">
                       <xsl:variable name="gtTypPath" select="replace($path, '../(.+)', '$1/')"/>
