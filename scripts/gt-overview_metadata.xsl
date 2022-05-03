@@ -112,7 +112,6 @@
     
     
     <xsl:template match="/">
-        <xsl:message select="$docMETADATA"/>
         <xsl:variable name="holeMetric">
                 <xsl:element name="array">
                   <xsl:for-each select="collection($coll)">
