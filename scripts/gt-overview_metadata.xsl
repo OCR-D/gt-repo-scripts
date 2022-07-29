@@ -5,6 +5,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:fn="http://www.w3.org/2005/xpath-functions"
     xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15"
+    xmlns:pt="http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15"
     xmlns:in="http://www.intern.de"
     
     exclude-result-prefixes="#all"
@@ -132,26 +133,26 @@
                              <xsl:attribute name="key1" select="substring-after(substring-before($filename, '/GT-PAGE/')[1], 'data/')"/>
                              <xsl:attribute name="key2" select="substring-after($filename, '/GT-PAGE/')"/>
                              <xsl:attribute name="file" select="$filename"/>
-                             <image1><xsl:value-of select="document($filename)//*/pc:Metadata/@externalRef"/></image1>
-                             <image2><xsl:value-of select="document($filename)//*/pc:Page/@imageFilename"/></image2>
-                             <image3><xsl:value-of select="document($filename)//*/pc:TranskribusMetadata/@imgUrl"/></image3>
+                             <image1><xsl:value-of select="document($filename)//*/*[local-name()='Metadata/@externalRef']"/></image1>
+                             <image2><xsl:value-of select="document($filename)//*/*[local-name()='Page/@imageFilename']"/></image2>
+                             <image3><xsl:value-of select="document($filename)//*/*[local-name()='TranskribusMetadata/@imgUrl']"/></image3>
                              <page><xsl:value-of select="substring-after($filename, '/GT-PAGE/')"/></page>
-                             <string key="{$key1}"><xsl:value-of select="count(document($filename)//*/pc:TextRegion)"/></string>
-                             <string key="{$key2}"><xsl:value-of select="count(document($filename)//*/pc:ImageRegion)"/></string>
-                             <string key="{$key3}"><xsl:value-of select="count(document($filename)//*/pc:LineDrawingRegion)"/></string>
-                             <string key="{$key4}"><xsl:value-of select="count(document($filename)//*/pc:GraphicRegion)"/></string>
-                             <string key="{$key5}"><xsl:value-of select="count(document($filename)//*/pc:TableRegion)"/></string>
-                             <string key="{$key6}"><xsl:value-of select="count(document($filename)//*/pc:ChartRegion)"/></string>
-                             <string key="{$key7}"><xsl:value-of select="count(document($filename)//*/pc:SeparatorRegion)"/></string>
-                             <string key="{$key8}"><xsl:value-of select="count(document($filename)//*/pc:MathsRegion)"/></string>
-                             <string key="{$key9}"><xsl:value-of select="count(document($filename)//*/pc:ChemRegion)"/></string>
-                             <string key="{$key10}"><xsl:value-of select="count(document($filename)//*/pc:MusicRegion)"/></string>
-                             <string key="{$key11}"><xsl:value-of select="count(document($filename)//*/pc:AdvertRegion)"/></string>
-                             <string key="{$key12}"><xsl:value-of select="count(document($filename)//*/pc:NoiseRegion)"/></string>
-                             <string key="{$key13}"><xsl:value-of select="count(document($filename)//*/pc:UnkownRegion)"/></string>
-                             <string key="{$key14}"><xsl:value-of select="count(document($filename)//*/pc:CustomRegion)"/></string>
-                             <string key="{$key15}"><xsl:value-of select="count(document($filename)//*/pc:TextLine)"/></string>
-                             <string key="{$key16}"><xsl:value-of select="count(document($filename)//*/pc:Page)"/></string>
+                             <string key="{$key1}"><xsl:value-of select="count(document($filename)//*/*[local-name()='TextRegion'])"/></string>
+                             <string key="{$key2}"><xsl:value-of select="count(document($filename)//*/*[local-name()='ImageRegion'])"/></string>
+                             <string key="{$key3}"><xsl:value-of select="count(document($filename)//*/*[local-name()='LineDrawingRegion'])"/></string>
+                             <string key="{$key4}"><xsl:value-of select="count(document($filename)//*/*[local-name()='GraphicRegion'])"/></string>
+                             <string key="{$key5}"><xsl:value-of select="count(document($filename)//*/*[local-name()='TableRegion'])"/></string>
+                             <string key="{$key6}"><xsl:value-of select="count(document($filename)//*/*[local-name()='ChartRegion'])"/></string>
+                             <string key="{$key7}"><xsl:value-of select="count(document($filename)//*/*[local-name()='SeparatorRegion'])"/></string>
+                             <string key="{$key8}"><xsl:value-of select="count(document($filename)//*/*[local-name()='MathsRegion'])"/></string>
+                             <string key="{$key9}"><xsl:value-of select="count(document($filename)//*/*[local-name()='ChemRegion'])"/></string>
+                             <string key="{$key10}"><xsl:value-of select="count(document($filename)//*/*[local-name()='MusicRegion'])"/></string>
+                             <string key="{$key11}"><xsl:value-of select="count(document($filename)//*/*[local-name()='AdvertRegion'])"/></string>
+                             <string key="{$key12}"><xsl:value-of select="count(document($filename)//*/*[local-name()='NoiseRegion'])"/></string>
+                             <string key="{$key13}"><xsl:value-of select="count(document($filename)//*/*[local-name()='UnkownRegion'])"/></string>
+                             <string key="{$key14}"><xsl:value-of select="count(document($filename)//*/*[local-name()='CustomRegion'])"/></string>
+                             <string key="{$key15}"><xsl:value-of select="count(document($filename)//*/*[local-name()='TextLine'])"/></string>
+                             <string key="{$key16}"><xsl:value-of select="count(document($filename)//*/*[local-name()='Page'])"/></string>
                             
                             
                         </xsl:element>
