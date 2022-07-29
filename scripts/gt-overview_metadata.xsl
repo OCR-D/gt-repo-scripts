@@ -162,7 +162,7 @@
                     </xsl:element>
               </xsl:variable>
         
-        <xsl:message select="$holeMetric"></xsl:message>
+        <!--<xsl:message select="$holeMetric"></xsl:message>-->
         
             <xsl:variable name="k15">
                 <xsl:for-each select="$holeMetric/array">
@@ -2287,7 +2287,7 @@
             
         </xsl:if>
         <xsl:if test="$output = 'METS'">
-            
+            <xsl:variable name="metsout">
             <!-- Mets Control -->
             
             <xsl:variable name="cMets">
@@ -2357,6 +2357,8 @@
 
                 </xsl:for-each>
             </xsl:if>
+            </xsl:variable>
+            <xsl:message select="$metsout"/>
           </xsl:if>
         <xsl:if test="$output = 'README'">
             <xsl:element name="div">
