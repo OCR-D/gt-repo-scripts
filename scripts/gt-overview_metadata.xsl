@@ -133,9 +133,9 @@
                              <xsl:attribute name="key1" select="substring-after(substring-before($filename, '/GT-PAGE/')[1], 'data/')"/>
                              <xsl:attribute name="key2" select="substring-after($filename, '/GT-PAGE/')"/>
                              <xsl:attribute name="file" select="$filename"/>
-                             <image1><xsl:value-of select="document($filename)//*/*[local-name()='Metadata/@externalRef']"/></image1>
-                             <image2><xsl:value-of select="document($filename)//*/*[local-name()='Page/@imageFilename']"/></image2>
-                             <image3><xsl:value-of select="document($filename)//*/*[local-name()='Metadata']/[local-name()='TranskribusMetadata/@imgUrl']"/></image3>
+                             <image1><xsl:value-of select="document($filename)//*/*[local-name()='Metadat']/@*[local-name()='externalRef']"/></image1>
+                             <image2><xsl:value-of select="document($filename)//*/*[local-name()='Page']//@*[local-name()='imageFilename']"/></image2>
+                             <image3><xsl:value-of select="document($filename)//*/*[local-name()='Metadata']/[local-name()='TranskribusMetadata']/@*[local-name()='imgUrl']"/></image3>
                              <page><xsl:value-of select="substring-after($filename, '/GT-PAGE/')"/></page>
                              <string key="{$key1}"><xsl:value-of select="count(document($filename)//*/*[local-name()='TextRegion'])"/></string>
                              <string key="{$key2}"><xsl:value-of select="count(document($filename)//*/*[local-name()='ImageRegion'])"/></string>
