@@ -2286,7 +2286,7 @@
             
         </xsl:if>
         <xsl:if test="$output = 'METS'">
-            <xsl:variable name="metsout">
+            
             <!-- Mets Control -->
             
             <xsl:variable name="cMets">
@@ -2342,17 +2342,9 @@
                         ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-GT-SEG-BLOCK -i OCR-D-GT-SEG-BLOCK_<xsl:number format="0001"/> -m text/xml <xsl:value-of select="substring-after(map/@file, 'file:')"/>
                     </xsl:if>
                     </xsl:if>
-
-
-                    
-
-
                 </xsl:for-each>
             </xsl:if>
-            </xsl:variable>
-            <xsl:message select="$metsout"/>
-            <xsl:value-of select="$metsout"/>
-          </xsl:if>
+            </xsl:if>
         <xsl:if test="$output = 'README'">
             <xsl:element name="div">
         <h1 id="title"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></h1>
