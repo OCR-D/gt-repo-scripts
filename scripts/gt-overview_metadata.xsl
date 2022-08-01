@@ -2351,6 +2351,7 @@
             </xsl:if>
             </xsl:variable>
             <xsl:message select="$metsout"/>
+            <xsl:value-of select="$metsout"/>
           </xsl:if>
         <xsl:if test="$output = 'README'">
             <xsl:element name="div">
