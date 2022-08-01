@@ -2333,7 +2333,7 @@
 
 
 
-                    <xsl:if test="$Image1 = '' or $Image3 = ''">
+                    <xsl:if test="$Image1 = '' and $Image3 = ''">
                     <xsl:if test="$Image2 = $Page">
                         cd <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>
                         ocrd workspace add -g P<xsl:number format="0001"/> -G DEFAULT -i DEFAULT_<xsl:number format="0001"/> -m image/<xsl:value-of select="substring-after(tokenize(map/image1, '/')[last()], '.')"/>GT-PAGE/<xsl:value-of select="map/image2"/>
