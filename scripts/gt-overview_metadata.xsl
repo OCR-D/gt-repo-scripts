@@ -3095,38 +3095,22 @@
                                     
                                     <tr>
                                         <td><xsl:value-of select="current-grouping-key()"/></td>
-                                        <xsl:if test="sum(current-group()//*[@key=$key1]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key1])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key1]) &lt;0"><td><xsl:value-of select="sum(current-group()//*[@key=$key1])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key2]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key2])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key2]) &lt;0"><td><xsl:value-of select="sum(current-group()//*[@key=$key2])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key3]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key3])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key3]) &lt;0"><td><xsl:value-of select="sum(current-group()//*[@key=$key3])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key4]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key4])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key4]) &lt;0"><td><xsl:value-of select="sum(current-group()//*[@key=$key4])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key5]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key5])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key5]) &lt;0"><td><xsl:value-of select="sum(current-group()//*[@key=$key5])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key6]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key6])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key6]) &lt;0"><td><xsl:value-of select="sum(current-group()//*[@key=$key6])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key7]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key7])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key7]) &lt;0"><td><xsl:value-of select="sum(current-group()//*[@key=$key7])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key8]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key8])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key8]) &lt;0"><td><xsl:value-of select="sum(current-group()//*[@key=$key8])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key9]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key9])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key9]) &lt;0"><td><xsl:value-of select="sum(current-group()//*[@key=$key9])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key10]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key10])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key10]) &lt;0"><td><xsl:value-of select="sum(current-group()//*[@key=$key10])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key11]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key11])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key11]) &lt;0"><td><xsl:value-of select="sum(current-group()//*[@key=$key11])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key12]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key12])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key12]) &lt;0"><td><xsl:value-of select="sum(current-group()//*[@key=$key12])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key13]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key13])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key13]) &lt;0"><td><xsl:value-of select="sum(current-group()//*[@key=$key13])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key14]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key14])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key14]) &lt;0"><td><xsl:value-of select="sum(current-group()//*[@key=$key14])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key15]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key15])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key15]) &lt;0"><td><xsl:value-of select="sum(current-group()//*[@key=$key15])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key16]) >0"><td><xsl:value-of select="sum(current-group()//*[@key=$key16])"/></td></xsl:if>
-                                        <xsl:if test="sum(current-group()//*[@key=$key16]) &lt;0"><td><xsl:value-of select="sum(current-group()//*[@key=$key16])"/></td></xsl:if>
+                                        <td><xsl:if test="sum(current-group()//*[@key=$key1]) >0"><xsl:value-of select="sum(current-group()//*[@key=$key1])"/></xsl:if></td>
+                                        <td><xsl:if test="sum(current-group()//*[@key=$key2]) >0"><xsl:value-of select="sum(current-group()//*[@key=$key2])"/></xsl:if></td>
+                                        <td><xsl:if test="sum(current-group()//*[@key=$key3]) >0"><xsl:value-of select="sum(current-group()//*[@key=$key3])"/></xsl:if></td>
+                                        <td><xsl:if test="sum(current-group()//*[@key=$key4]) >0"><xsl:value-of select="sum(current-group()//*[@key=$key4])"/></xsl:if></td>
+                                        <td><xsl:if test="sum(current-group()//*[@key=$key5]) >0"><xsl:value-of select="sum(current-group()//*[@key=$key5])"/></xsl:if></td>
+                                        <td><xsl:if test="sum(current-group()//*[@key=$key6]) >0"><xsl:value-of select="sum(current-group()//*[@key=$key6])"/></xsl:if></td>
+                                        <td><xsl:if test="sum(current-group()//*[@key=$key7]) >0"><xsl:value-of select="sum(current-group()//*[@key=$key7])"/></xsl:if></td>
+                                        <td><xsl:if test="sum(current-group()//*[@key=$key8]) >0"><xsl:value-of select="sum(current-group()//*[@key=$key8])"/></xsl:if></td>
+                                        <td><xsl:if test="sum(current-group()//*[@key=$key9]) >0"><xsl:value-of select="sum(current-group()//*[@key=$key9])"/></xsl:if></td>
+                                        <td><xsl:if test="sum(current-group()//*[@key=$key10]) >0"><xsl:value-of select="sum(current-group()//*[@key=$key10])"/></xsl:if></td>
+                                        <td><xsl:if test="sum(current-group()//*[@key=$key11]) >0"><xsl:value-of select="sum(current-group()//*[@key=$key11])"/></xsl:if></td>
+                                        <td><xsl:if test="sum(current-group()//*[@key=$key12]) >0"><xsl:value-of select="sum(current-group()//*[@key=$key12])"/></xsl:if></td>
+                                        <td><xsl:if test="sum(current-group()//*[@key=$key13]) >0"><xsl:value-of select="sum(current-group()//*[@key=$key13])"/></xsl:if></td>
+                                        <td><xsl:if test="sum(current-group()//*[@key=$key14]) >0"><xsl:value-of select="sum(current-group()//*[@key=$key14])"/></xsl:if></td>
+                                        <td><xsl:if test="sum(current-group()//*[@key=$key15]) >0"><xsl:value-of select="sum(current-group()//*[@key=$key15])"/></xsl:if></td>
+                                        <td><xsl:if test="sum(current-group()//*[@key=$key16]) >0"><xsl:value-of select="sum(current-group()//*[@key=$key16])"/></xsl:if></td>
                                         
                                     </tr>
                                     
