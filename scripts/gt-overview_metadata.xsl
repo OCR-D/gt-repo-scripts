@@ -539,7 +539,7 @@
                                 <td>
                                     <div class="grid-container">
                                         
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide1')"><i><xsl:value-of select="$tableHeader//th[16]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide1')"><i><xsl:value-of select="$tableHeader//th[16]"/></i></button>
                                         <button onclick="document.getElementById('table_id').classList.toggle('hide2')"><i><xsl:value-of select="$tableHeader//th[17]"/></i></button>
                                         
                                         
@@ -2175,6 +2175,15 @@
                     
                     } );
                     } );
+                </script>
+                <script>
+                    function setColor(e, btn, color) {
+                    var target = e.target,
+                    count = +target.dataset.count;
+                    
+                    target.style.backgroundColor = count === 1 ? "#ddd" : '#999999';
+                    target.dataset.count = count === 1 ? 0 : 1;
+                    }
                 </script>
             
             
