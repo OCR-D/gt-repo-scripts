@@ -540,88 +540,88 @@
                                     <div class="grid-container">
                                         
                                         <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide1')"><i><xsl:value-of select="$tableHeader//th[16]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide2')"><i><xsl:value-of select="$tableHeader//th[17]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide2')"><i><xsl:value-of select="$tableHeader//th[17]"/></i></button>
                                         
                                         
                                         <xsl:if test="$k1 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide3')"><i><xsl:value-of select="$tableHeader//th[2]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide3')"><i><xsl:value-of select="$tableHeader//th[2]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         <xsl:if test="$k2 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide4')"><i><xsl:value-of select="$tableHeader//th[3]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide4')"><i><xsl:value-of select="$tableHeader//th[3]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k3 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide5')"><i><xsl:value-of select="$tableHeader//th[4]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide5')"><i><xsl:value-of select="$tableHeader//th[4]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k4 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide6')"><i><xsl:value-of select="$tableHeader//th[5]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide6')"><i><xsl:value-of select="$tableHeader//th[5]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k5 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide7')"><i><xsl:value-of select="$tableHeader//th[6]"/></i></button>    
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide7')"><i><xsl:value-of select="$tableHeader//th[6]"/></i></button>    
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k6 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide8')"><i><xsl:value-of select="$tableHeader//th[7]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide8')"><i><xsl:value-of select="$tableHeader//th[7]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k7 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide9')"><i><xsl:value-of select="$tableHeader//th[8]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide9')"><i><xsl:value-of select="$tableHeader//th[8]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k8 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide10')"><i><xsl:value-of select="$tableHeader//th[9]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide10')"><i><xsl:value-of select="$tableHeader//th[9]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k9 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide11')"><i><xsl:value-of select="$tableHeader//th[10]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide11')"><i><xsl:value-of select="$tableHeader//th[10]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k10 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide12')"><i><xsl:value-of select="$tableHeader//th[11]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide12')"><i><xsl:value-of select="$tableHeader//th[11]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k11 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide13')"><i><xsl:value-of select="$tableHeader//th[12]"/></i></button>   
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide13')"><i><xsl:value-of select="$tableHeader//th[12]"/></i></button>   
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k12 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide14')"><i><xsl:value-of select="$tableHeader//th[13]"/></i></button>    
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide14')"><i><xsl:value-of select="$tableHeader//th[13]"/></i></button>    
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k13 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide15')"><i><xsl:value-of select="$tableHeader//th[14]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide15')"><i><xsl:value-of select="$tableHeader//th[14]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k14 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide16')"><i><xsl:value-of select="$tableHeader//th[15]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide16')"><i><xsl:value-of select="$tableHeader//th[15]"/></i></button>
                                         </xsl:if>
                                         
                                         
@@ -858,22 +858,22 @@
                             
                             <td>
                                 <div class="grid-container">
-                                    <button onclick="document.getElementById('table_id').classList.toggle('hide1')"><i><xsl:value-of select="$tableHeader//th[2]"/></i></button>
-                                    <button onclick="document.getElementById('table_id').classList.toggle('hide2')"><i><xsl:value-of select="$tableHeader//th[3]"/></i></button>
-                                    <button onclick="document.getElementById('table_id').classList.toggle('hide3')"><i><xsl:value-of select="$tableHeader//th[4]"/></i></button>
-                                    <button onclick="document.getElementById('table_id').classList.toggle('hide4')"><i><xsl:value-of select="$tableHeader//th[5]"/></i></button>
-                                    <button onclick="document.getElementById('table_id').classList.toggle('hide5')"><i><xsl:value-of select="$tableHeader//th[6]"/></i></button>
-                                    <button onclick="document.getElementById('table_id').classList.toggle('hide6')"><i><xsl:value-of select="$tableHeader//th[7]"/></i></button>
-                                    <button onclick="document.getElementById('table_id').classList.toggle('hide7')"><i><xsl:value-of select="$tableHeader//th[8]"/></i></button>
-                                    <button onclick="document.getElementById('table_id').classList.toggle('hide8')"><i><xsl:value-of select="$tableHeader//th[9]"/></i></button>
-                                    <button onclick="document.getElementById('table_id').classList.toggle('hide9')"><i><xsl:value-of select="$tableHeader//th[10]"/></i></button>
-                                    <button onclick="document.getElementById('table_id').classList.toggle('hide10')"><i><xsl:value-of select="$tableHeader//th[11]"/></i></button>
-                                    <button onclick="document.getElementById('table_id').classList.toggle('hide11')"><i><xsl:value-of select="$tableHeader//th[12]"/></i></button>
-                                    <button onclick="document.getElementById('table_id').classList.toggle('hide12')"><i><xsl:value-of select="$tableHeader//th[13]"/></i></button>
-                                    <button onclick="document.getElementById('table_id').classList.toggle('hide13')"><i><xsl:value-of select="$tableHeader//th[14]"/></i></button>
-                                    <button onclick="document.getElementById('table_id').classList.toggle('hide14')"><i><xsl:value-of select="$tableHeader//th[15]"/></i></button>
-                                    <button onclick="document.getElementById('table_id').classList.toggle('hide15')"><i><xsl:value-of select="$tableHeader//th[16]"/></i></button>
-                                    <button onclick="document.getElementById('table_id').classList.toggle('hide16')"><i><xsl:value-of select="$tableHeader//th[17]"/></i></button>
+                                    <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide1')"><i><xsl:value-of select="$tableHeader//th[2]"/></i></button>
+                                    <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide2')"><i><xsl:value-of select="$tableHeader//th[3]"/></i></button>
+                                    <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide3')"><i><xsl:value-of select="$tableHeader//th[4]"/></i></button>
+                                    <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide4')"><i><xsl:value-of select="$tableHeader//th[5]"/></i></button>
+                                    <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide5')"><i><xsl:value-of select="$tableHeader//th[6]"/></i></button>
+                                    <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide6')"><i><xsl:value-of select="$tableHeader//th[7]"/></i></button>
+                                    <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide7')"><i><xsl:value-of select="$tableHeader//th[8]"/></i></button>
+                                    <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide8')"><i><xsl:value-of select="$tableHeader//th[9]"/></i></button>
+                                    <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide9')"><i><xsl:value-of select="$tableHeader//th[10]"/></i></button>
+                                    <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide10')"><i><xsl:value-of select="$tableHeader//th[11]"/></i></button>
+                                    <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide11')"><i><xsl:value-of select="$tableHeader//th[12]"/></i></button>
+                                    <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide12')"><i><xsl:value-of select="$tableHeader//th[13]"/></i></button>
+                                    <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide13')"><i><xsl:value-of select="$tableHeader//th[14]"/></i></button>
+                                    <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide14')"><i><xsl:value-of select="$tableHeader//th[15]"/></i></button>
+                                    <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide15')"><i><xsl:value-of select="$tableHeader//th[16]"/></i></button>
+                                    <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide16')"><i><xsl:value-of select="$tableHeader//th[17]"/></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -1205,89 +1205,89 @@
                                 <td>
                                     <div class="grid-container">
                                         
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide1')"><i><xsl:value-of select="$tableHeader//th[16]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide2')"><i><xsl:value-of select="$tableHeader//th[17]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide1')"><i><xsl:value-of select="$tableHeader//th[16]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide2')"><i><xsl:value-of select="$tableHeader//th[17]"/></i></button>
                                         
                                         
                                         <xsl:if test="$k1 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide3')"><i><xsl:value-of select="$tableHeader//th[2]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide3')"><i><xsl:value-of select="$tableHeader//th[2]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         <xsl:if test="$k2 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide4')"><i><xsl:value-of select="$tableHeader//th[3]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide4')"><i><xsl:value-of select="$tableHeader//th[3]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k3 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide5')"><i><xsl:value-of select="$tableHeader//th[4]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide5')"><i><xsl:value-of select="$tableHeader//th[4]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k4 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide6')"><i><xsl:value-of select="$tableHeader//th[5]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide6')"><i><xsl:value-of select="$tableHeader//th[5]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k5 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide7')"><i><xsl:value-of select="$tableHeader//th[6]"/></i></button>    
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide7')"><i><xsl:value-of select="$tableHeader//th[6]"/></i></button>    
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k6 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide8')"><i><xsl:value-of select="$tableHeader//th[7]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide8')"><i><xsl:value-of select="$tableHeader//th[7]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k7 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide9')"><i><xsl:value-of select="$tableHeader//th[8]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide9')"><i><xsl:value-of select="$tableHeader//th[8]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k8 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide10')"><i><xsl:value-of select="$tableHeader//th[9]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide10')"><i><xsl:value-of select="$tableHeader//th[9]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k9 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide11')"><i><xsl:value-of select="$tableHeader//th[10]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide11')"><i><xsl:value-of select="$tableHeader//th[10]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k10 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide12')"><i><xsl:value-of select="$tableHeader//th[11]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide12')"><i><xsl:value-of select="$tableHeader//th[11]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k11 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide13')"><i><xsl:value-of select="$tableHeader//th[12]"/></i></button>   
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide13')"><i><xsl:value-of select="$tableHeader//th[12]"/></i></button>   
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k12 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide14')"><i><xsl:value-of select="$tableHeader//th[13]"/></i></button>    
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide14')"><i><xsl:value-of select="$tableHeader//th[13]"/></i></button>    
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k13 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide15')"><i><xsl:value-of select="$tableHeader//th[14]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide15')"><i><xsl:value-of select="$tableHeader//th[14]"/></i></button>
                                         </xsl:if>
                                         
                                         
                                         
                                         <xsl:if test="$k14 > 0">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide16')"><i><xsl:value-of select="$tableHeader//th[15]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide16')"><i><xsl:value-of select="$tableHeader//th[15]"/></i></button>
                                         </xsl:if>
                                         
                                         
@@ -1598,22 +1598,22 @@
                                     
                                     <td>
                                         <div class="grid-container">
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide2')"><i><xsl:value-of select="$tableHeader//th[16]"/></i></button>
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide3')"><i><xsl:value-of select="$tableHeader//th[17]"/></i></button>
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide4')"><i><xsl:value-of select="$tableHeader//th[2]"/></i></button>
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide5')"><i><xsl:value-of select="$tableHeader//th[3]"/></i></button>
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide6')"><i><xsl:value-of select="$tableHeader//th[4]"/></i></button>
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide7')"><i><xsl:value-of select="$tableHeader//th[5]"/></i></button>
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide8')"><i><xsl:value-of select="$tableHeader//th[6]"/></i></button>
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide9')"><i><xsl:value-of select="$tableHeader//th[7]"/></i></button>
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide10')"><i><xsl:value-of select="$tableHeader//th[8]"/></i></button>
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide11')"><i><xsl:value-of select="$tableHeader//th[9]"/></i></button>
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide12')"><i><xsl:value-of select="$tableHeader//th[10]"/></i></button>
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide13')"><i><xsl:value-of select="$tableHeader//th[11]"/></i></button>
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide14')"><i><xsl:value-of select="$tableHeader//th[12]"/></i></button>
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide15')"><i><xsl:value-of select="$tableHeader//th[13]"/></i></button>
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide16')"><i><xsl:value-of select="$tableHeader//th[14]"/></i></button>
-                                            <button onclick="document.getElementById('table_id').classList.toggle('hide17')"><i><xsl:value-of select="$tableHeader//th[15]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide2')"><i><xsl:value-of select="$tableHeader//th[16]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide3')"><i><xsl:value-of select="$tableHeader//th[17]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide4')"><i><xsl:value-of select="$tableHeader//th[2]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide5')"><i><xsl:value-of select="$tableHeader//th[3]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide6')"><i><xsl:value-of select="$tableHeader//th[4]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide7')"><i><xsl:value-of select="$tableHeader//th[5]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide8')"><i><xsl:value-of select="$tableHeader//th[6]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide9')"><i><xsl:value-of select="$tableHeader//th[7]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide10')"><i><xsl:value-of select="$tableHeader//th[8]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide11')"><i><xsl:value-of select="$tableHeader//th[9]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide12')"><i><xsl:value-of select="$tableHeader//th[10]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide13')"><i><xsl:value-of select="$tableHeader//th[11]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide14')"><i><xsl:value-of select="$tableHeader//th[12]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide15')"><i><xsl:value-of select="$tableHeader//th[13]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide16')"><i><xsl:value-of select="$tableHeader//th[14]"/></i></button>
+                                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide17')"><i><xsl:value-of select="$tableHeader//th[15]"/></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -1831,20 +1831,20 @@
                             
                         <td>
                         <div class="grid-container">
-                            <button onclick="document.getElementById('table_id').classList.toggle('hide2')"><i><xsl:value-of select="$tableHeader//th[2]"/></i></button>
-                            <button onclick="document.getElementById('table_id').classList.toggle('hide3')"><i><xsl:value-of select="$tableHeader//th[3]"/></i></button>
-                            <button onclick="document.getElementById('table_id').classList.toggle('hide4')"><i><xsl:value-of select="$tableHeader//th[4]"/></i></button>
-                            <button onclick="document.getElementById('table_id').classList.toggle('hide5')"><i><xsl:value-of select="$tableHeader//th[5]"/></i></button>
-                            <button onclick="document.getElementById('table_id').classList.toggle('hide6')"><i><xsl:value-of select="$tableHeader//th[6]"/></i></button>
-                            <button onclick="document.getElementById('table_id').classList.toggle('hide7')"><i><xsl:value-of select="$tableHeader//th[7]"/></i></button>
-                            <button onclick="document.getElementById('table_id').classList.toggle('hide8')"><i><xsl:value-of select="$tableHeader//th[8]"/></i></button>
-                            <button onclick="document.getElementById('table_id').classList.toggle('hide9')"><i><xsl:value-of select="$tableHeader//th[9]"/></i></button>
-                            <button onclick="document.getElementById('table_id').classList.toggle('hide10')"><i><xsl:value-of select="$tableHeader//th[10]"/></i></button>
-                            <button onclick="document.getElementById('table_id').classList.toggle('hide11')"><i><xsl:value-of select="$tableHeader//th[11]"/></i></button>
-                            <button onclick="document.getElementById('table_id').classList.toggle('hide12')"><i><xsl:value-of select="$tableHeader//th[12]"/></i></button>
-                            <button onclick="document.getElementById('table_id').classList.toggle('hide13')"><i><xsl:value-of select="$tableHeader//th[13]"/></i></button>
-                            <button onclick="document.getElementById('table_id').classList.toggle('hide14')"><i><xsl:value-of select="$tableHeader//th[14]"/></i></button>
-                            <button onclick="document.getElementById('table_id').classList.toggle('hide15')"><i><xsl:value-of select="$tableHeader//th[15]"/></i></button>
+                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide2')"><i><xsl:value-of select="$tableHeader//th[2]"/></i></button>
+                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide3')"><i><xsl:value-of select="$tableHeader//th[3]"/></i></button>
+                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide4')"><i><xsl:value-of select="$tableHeader//th[4]"/></i></button>
+                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide5')"><i><xsl:value-of select="$tableHeader//th[5]"/></i></button>
+                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide6')"><i><xsl:value-of select="$tableHeader//th[6]"/></i></button>
+                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide7')"><i><xsl:value-of select="$tableHeader//th[7]"/></i></button>
+                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide8')"><i><xsl:value-of select="$tableHeader//th[8]"/></i></button>
+                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide9')"><i><xsl:value-of select="$tableHeader//th[9]"/></i></button>
+                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide10')"><i><xsl:value-of select="$tableHeader//th[10]"/></i></button>
+                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide11')"><i><xsl:value-of select="$tableHeader//th[11]"/></i></button>
+                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide12')"><i><xsl:value-of select="$tableHeader//th[12]"/></i></button>
+                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide13')"><i><xsl:value-of select="$tableHeader//th[13]"/></i></button>
+                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide14')"><i><xsl:value-of select="$tableHeader//th[14]"/></i></button>
+                            <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide15')"><i><xsl:value-of select="$tableHeader//th[15]"/></i></button>
                         </div>
                         </td>
                         </tr>
@@ -2009,22 +2009,22 @@
                                 
                                 <td>
                                     <div class="grid-container">
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide2')"><i><xsl:value-of select="$tableHeader//th[16]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide3')"><i><xsl:value-of select="$tableHeader//th[17]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide4')"><i><xsl:value-of select="$tableHeader//th[2]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide5')"><i><xsl:value-of select="$tableHeader//th[3]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide6')"><i><xsl:value-of select="$tableHeader//th[4]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide7')"><i><xsl:value-of select="$tableHeader//th[5]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide8')"><i><xsl:value-of select="$tableHeader//th[6]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide9')"><i><xsl:value-of select="$tableHeader//th[7]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide10')"><i><xsl:value-of select="$tableHeader//th[8]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide11')"><i><xsl:value-of select="$tableHeader//th[9]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide12')"><i><xsl:value-of select="$tableHeader//th[10]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide13')"><i><xsl:value-of select="$tableHeader//th[11]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide14')"><i><xsl:value-of select="$tableHeader//th[12]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide15')"><i><xsl:value-of select="$tableHeader//th[13]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide16')"><i><xsl:value-of select="$tableHeader//th[14]"/></i></button>
-                                        <button onclick="document.getElementById('table_id').classList.toggle('hide17')"><i><xsl:value-of select="$tableHeader//th[15]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide2')"><i><xsl:value-of select="$tableHeader//th[16]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide3')"><i><xsl:value-of select="$tableHeader//th[17]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide4')"><i><xsl:value-of select="$tableHeader//th[2]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide5')"><i><xsl:value-of select="$tableHeader//th[3]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide6')"><i><xsl:value-of select="$tableHeader//th[4]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide7')"><i><xsl:value-of select="$tableHeader//th[5]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide8')"><i><xsl:value-of select="$tableHeader//th[6]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide9')"><i><xsl:value-of select="$tableHeader//th[7]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide10')"><i><xsl:value-of select="$tableHeader//th[8]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide11')"><i><xsl:value-of select="$tableHeader//th[9]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide12')"><i><xsl:value-of select="$tableHeader//th[10]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide13')"><i><xsl:value-of select="$tableHeader//th[11]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide14')"><i><xsl:value-of select="$tableHeader//th[12]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide15')"><i><xsl:value-of select="$tableHeader//th[13]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide16')"><i><xsl:value-of select="$tableHeader//th[14]"/></i></button>
+                                        <button onclick="setColor(event, 'button', '#101010');document.getElementById('table_id').classList.toggle('hide17')"><i><xsl:value-of select="$tableHeader//th[15]"/></i></button>
                                     </div>
                                 </td>
                             </tr>
