@@ -3228,7 +3228,7 @@
                         <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="DVLINKS">
                             <mets:xmlData>
                                 <dv:links xmlns:dv="http://dfg-viewer.de/">
-                                    <dv:presentation>https://<xsl:value-of select="fn:tokenize($repoBase, '/')[1]"/>.github.io/<xsl:value-of select="fn:tokenize($repoBase, '/')[2]"/></dv:presentation>
+                                    <dv:presentation>https://<xsl:value-of select="fn:tokenize($repoName, '/')[1]"/>.github.io/<xsl:value-of select="fn:tokenize($repoName, '/')[2]"/></dv:presentation>
                                 </dv:links>
                             </mets:xmlData>
                         </mets:mdWrap>
