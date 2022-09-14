@@ -162,7 +162,7 @@
                     </xsl:element>
               </xsl:variable>
         
-        <xsl:message select="$holeMetric"></xsl:message>
+        <!--<xsl:message select="$holeMetric"></xsl:message>-->
         
             <xsl:variable name="k15">
                 <xsl:for-each select="$holeMetric/array">
@@ -1739,14 +1739,6 @@
             
             
             
-            
-            
-            
-            
-            
-            
-            
-            
             <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text()='data_structure'">
                 
                 <xsl:element name="div">
@@ -3235,18 +3227,29 @@
                     </mets:digiprovMD>
                 </mets:amdSec>
                 
+                $holeMetric
+                
                 <!-- Die hierarchische Struktur des Mehrteiligen Dokuments -->
                 <mets:structMap TYPE="LOGICAL">
                     <mets:div ADMID="amd_01" DMDID="dmd_001" ID="LOG_0000" TYPE="multivolume work">
                         <xsl:attribute name="LABEL"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></xsl:attribute>
                         
-                        <mets:div ID="LOG_0001" LABEL="Meine Kekse, deine Kekse" TYPE="volume" ORDER="1" ORDERLABEL="Band 1">
-                            <mets:mptr LOCTYPE="URL" xlink:href="http://LinkZumDatensatz.de/ID7777777_1.xml"/>
-                        </mets:div>
+                        <xsl:for-each select="distinct-values($holeMetric//@key1)">
+                            <xsl:variable name="fileList">
+                                <item><xsl:value-of select="."/></item>
+                            </xsl:variable>
+                            
+                            <mets:div TYPE="volume">
+                                <xsl:attribute name="LABEL"><xsl:value-of select="."/></xsl:attribute>
+                                <xsl:attribute name="ID">LOG_<xsl:value-of select="$fileList/item/fn:position()"/></xsl:attribute>
+                                <xsl:attribute name="ORDER"><xsl:value-of select="$fileList/item/fn:position()"/></xsl:attribute>
+                                <xsl:attribute name="ORDERLABEL">file <xsl:value-of select="$fileList/item/fn:position()"/></xsl:attribute>
+                                <mets:mptr LOCTYPE="URL" xlink:href="http://LinkZumDatensatz.de/ID7777777_1.xml"/>
+                            </mets:div>
+                            
+                        </xsl:for-each>
                         
-                        <mets:div ID="LOG_0002" TYPE="volume" ORDER="1" ORDERLABEL="Band 2">
-                            <mets:mptr LOCTYPE="URL" xlink:href="http://LinkZumDatensatz.de/ID7777777_2.xml"/>
-                        </mets:div>            
+                        
                     </mets:div>
                 </mets:structMap>
             </mets:mets>
