@@ -3214,13 +3214,21 @@
                         </mets:mdWrap>
                     </mets:rightsMD>
                     
+                    
+                    tboenig/gt-guideline-examples
+                    
+                    
+                    
+                    https://tboenig.github.io/gt-guideline-examples/
+                    
+                    
+                    
                     <!-- Links zu weiteren Repräsentationen der Daten -->
                     <mets:digiprovMD ID="digiprov_01">
                         <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="DVLINKS">
                             <mets:xmlData>
                                 <dv:links xmlns:dv="http://dfg-viewer.de/">
-                                    <dv:reference>http://example.de/opac/ID7777777</dv:reference>
-                                    <dv:presentation>http://resolver.example.de/ID7777777</dv:presentation>
+                                    <dv:presentation>https://<xsl:value-of select="fn:tokenize($repoBase, '/')[1]"/>.github.io/<xsl:value-of select="fn:tokenize($repoBase, '/')[2]"/></dv:presentation>
                                 </dv:links>
                             </mets:xmlData>
                         </mets:mdWrap>
@@ -3236,15 +3244,11 @@
                         
                         <xsl:for-each select="distinct-values($holeMetric//@key1)">
                             <xsl:variable name="filenum" select="position()"/>
-                                
-                            
-                            
                             <mets:div TYPE="volume">
                                 <xsl:attribute name="LABEL"><xsl:value-of select="."/></xsl:attribute>
-                                <xsl:attribute name="ID">LOG_<xsl:value-of select="position()"/>_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
-                                <xsl:attribute name="ORDER"><xsl:value-of select="position()"/></xsl:attribute>
-                                
-                                <xsl:attribute name="ORDERLABEL">file <xsl:number value="position()" format="1" /><xsl:value-of select="position()"/></xsl:attribute>
+                                <xsl:attribute name="ID">LOG_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
+                                <xsl:attribute name="ORDER"><xsl:value-of select="$filenum"/></xsl:attribute>
+                                <xsl:attribute name="ORDERLABEL">file <xsl:value-of select="$filenum"/></xsl:attribute>
                                 <mets:mptr LOCTYPE="URL">
                                     <xsl:attribute name="xlink:href"><xsl:value-of select="."/>.ocrd/data/mets.xml</xsl:attribute>
                                 </mets:mptr>
