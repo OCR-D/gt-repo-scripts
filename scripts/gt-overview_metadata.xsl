@@ -162,7 +162,7 @@
                     </xsl:element>
               </xsl:variable>
         
-        <!--<xsl:message select="$holeMetric"></xsl:message>-->
+        <xsl:message select="$holeMetric"></xsl:message>
         
             <xsl:variable name="k15">
                 <xsl:for-each select="$holeMetric/array">
@@ -3237,10 +3237,13 @@
                 
                 <!-- Die hierarchische Struktur des Mehrteiligen Dokuments -->
                 <mets:structMap TYPE="LOGICAL">
-                    <mets:div ADMID="amd_01" DMDID="dmd_001" ID="LOG_0000" LABEL="Vom Keks zum Kuchen : ein mehrbändiges Werk" TYPE="multivolume work">
+                    <mets:div ADMID="amd_01" DMDID="dmd_001" ID="LOG_0000" TYPE="multivolume work">
+                        <xsl:attribute name="LABEL"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></xsl:attribute>
+                        
                         <mets:div ID="LOG_0001" LABEL="Meine Kekse, deine Kekse" TYPE="volume" ORDER="1" ORDERLABEL="Band 1">
                             <mets:mptr LOCTYPE="URL" xlink:href="http://LinkZumDatensatz.de/ID7777777_1.xml"/>
                         </mets:div>
+                        
                         <mets:div ID="LOG_0002" TYPE="volume" ORDER="1" ORDERLABEL="Band 2">
                             <mets:mptr LOCTYPE="URL" xlink:href="http://LinkZumDatensatz.de/ID7777777_2.xml"/>
                         </mets:div>            
