@@ -3145,6 +3145,118 @@
             </xsl:element>
         </xsl:if>
         
+    
+        <xsl:if test="$output = 'METS'">
+            <mets:mets
+                xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/"
+                xmlns:dv="http://dfg-viewer.de/" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:mods="http://www.loc.gov/mods/v3">
+                <mets:metsHdr LASTMODDATE="2017-07-07T14:17:44">
+                    <mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+                        <mets:name>ocrd</mets:name>
+                    </mets:agent>
+                </mets:metsHdr>
+                
+                <!-- Bibliographische Beschreibung des gesamten Dokuments (Gesamtaufnahme) -->
+                <mets:dmdSec ID="dmd_001">
+                    <mets:mdWrap MDTYPE="MODS">
+                        <mets:xmlData>
+                            <mods:mods>
+                                <mods:typeOfResource>text</mods:typeOfResource>
+                                <mods:titleInfo>
+                                    <mods:title><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></mods:title>
+                                    
+                                </mods:titleInfo>
+                                <xsl:for-each select="$docMETADATA//fn:array[@key='authors']/fn:map">
+                                    <mods:name type="personal">
+                                        <mods:displayForm>
+                                            <xsl:value-of select="fn:string[@key='name']"/><xsl:text>, </xsl:text><xsl:value-of select="fn:string[@key='surname']"/>
+                                        </mods:displayForm>
+                                        <xsl:if test="$docMETADATA//fn:array[@key='authors']/fn:map/fn:array[@key='roles'] !=''">
+                                        <mods:role>
+                                            <xsl:for-each select="$docMETADATA//fn:array[@key='authors']/fn:map/fn:array[@key='roles']">
+                                                <mods:roleTerm authority="ocrdrelator" type="code" valueURI="https://raw.githubusercontent.com/tboenig/gt-metadata/master/schema/2022-03-15/schema.json"><xsl:value-of select="fn:string"/></mods:roleTerm>
+                                            </xsl:for-each>
+                                        </mods:role>
+                                        </xsl:if>
+                                    </mods:name>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                </xsl:for-each>
+                                
+                                <mods:genre>Ground Truth</mods:genre>
+                                <!--<mods:originInfo eventType="publication">
+                                    <mods:dateIssued encoding="iso8601" qualifier="approximate">1888</mods:dateIssued>
+                                    <mods:displayDate>wahrscheinlich 1888 erstmals erschienen</mods:displayDate>
+                                    <mods:place>
+                                        <mods:placeTerm type="text">Kuchenberg</mods:placeTerm>
+                                    </mods:place>
+                                    <mods:publisher>Verlag Küche und Keller</mods:publisher>
+                                </mods:originInfo>-->
+                                <mods:originInfo eventType="digitization">
+                                    <mods:dateCaptured encoding="iso8601"><xsl:value-of select="current-date()"/></mods:dateCaptured>
+                                </mods:originInfo>
+                                <mods:language>
+                                    <mods:languageTerm authority="iso639-3" type="code"><xsl:value-of select="$docMETADATA//fn:array[@key='language']/fn:string"/></mods:languageTerm>
+                                </mods:language>
+                                
+                                
+                                
+                                
+                                <mods:recordInfo>
+                                    <mods:recordIdentifier source="DE-666">7777777</mods:recordIdentifier>
+                                </mods:recordInfo>
+                            </mods:mods>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:dmdSec>
+                
+                <mets:amdSec ID="amd_01">
+                    <!-- Informationen zu Rechten am Digitalisat -->
+                    <mets:rightsMD ID="rights_01">
+                        <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="DVRIGHTS">
+                            <mets:xmlData>
+                                <dv:rights xmlns:dv="http://dfg-viewer.de/">
+                                    <dv:license><xsl:value-of select="$docMETADATA//fn:map/fn:array[@key='license']/fn:map/fn:string[@key='url']"/></dv:license>
+                                </dv:rights>
+                            </mets:xmlData>
+                        </mets:mdWrap>
+                    </mets:rightsMD>
+                    
+                    <!-- Links zu weiteren Repräsentationen der Daten -->
+                    <mets:digiprovMD ID="digiprov_01">
+                        <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="DVLINKS">
+                            <mets:xmlData>
+                                <dv:links xmlns:dv="http://dfg-viewer.de/">
+                                    <dv:reference>http://example.de/opac/ID7777777</dv:reference>
+                                    <dv:presentation>http://resolver.example.de/ID7777777</dv:presentation>
+                                </dv:links>
+                            </mets:xmlData>
+                        </mets:mdWrap>
+                    </mets:digiprovMD>
+                </mets:amdSec>
+                
+                <!-- Die hierarchische Struktur des Mehrteiligen Dokuments -->
+                <mets:structMap TYPE="LOGICAL">
+                    <mets:div ADMID="amd_01" DMDID="dmd_001" ID="LOG_0000" LABEL="Vom Keks zum Kuchen : ein mehrbändiges Werk" TYPE="multivolume work">
+                        <mets:div ID="LOG_0001" LABEL="Meine Kekse, deine Kekse" TYPE="volume" ORDER="1" ORDERLABEL="Band 1">
+                            <mets:mptr LOCTYPE="URL" xlink:href="http://LinkZumDatensatz.de/ID7777777_1.xml"/>
+                        </mets:div>
+                        <mets:div ID="LOG_0002" TYPE="volume" ORDER="1" ORDERLABEL="Band 2">
+                            <mets:mptr LOCTYPE="URL" xlink:href="http://LinkZumDatensatz.de/ID7777777_2.xml"/>
+                        </mets:div>            
+                    </mets:div>
+                </mets:structMap>
+            </mets:mets>
+            
+            
+            
+            
+        </xsl:if>
     </xsl:template>
 </xsl:stylesheet>
 
