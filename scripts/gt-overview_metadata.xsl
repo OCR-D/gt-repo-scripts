@@ -3241,9 +3241,9 @@
                             
                             <mets:div TYPE="volume">
                                 <xsl:attribute name="LABEL"><xsl:value-of select="."/></xsl:attribute>
-                                <xsl:attribute name="ID">LOG_<xsl:value-of select="$fileList/item/fn:position()"/></xsl:attribute>
-                                <xsl:attribute name="ORDER"><xsl:value-of select="$fileList/item/fn:position()"/></xsl:attribute>
-                                <xsl:attribute name="ORDERLABEL">file <xsl:value-of select="$fileList/item/fn:position()"/></xsl:attribute>
+                                <xsl:attribute name="ID">LOG_<xsl:value-of select="position()"/></xsl:attribute>
+                                <xsl:attribute name="ORDER"><xsl:value-of select="position()"/></xsl:attribute>
+                                <xsl:attribute name="ORDERLABEL">file <xsl:value-of select="position()"/></xsl:attribute>
                                 <mets:mptr LOCTYPE="URL">
                                     <xsl:attribute name="xlink:href"><xsl:value-of select="."/>.ocrd/data/mets.xml</xsl:attribute>
                                 </mets:mptr>
