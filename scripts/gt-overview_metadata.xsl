@@ -3201,7 +3201,11 @@
                                     <mods:dateCaptured encoding="iso8601"><xsl:value-of select="current-date()"/></mods:dateCaptured>
                                 </mods:originInfo>
                                 <mods:language>
-                                    <mods:languageTerm authority="iso639-3" type="code"><xsl:value-of select="$docMETADATA//fn:array[@key='language']/fn:string"/></mods:languageTerm>
+                                    
+                                    <xsl:for-each select="$docMETADATA//fn:array[@key='language']/fn:string">
+                                            <mods:languageTerm authority="iso639-3" type="code"><xsl:value-of select="."/></mods:languageTerm>
+                                    </xsl:for-each>
+                                        
                                 </mods:language>
                                 
                                 
