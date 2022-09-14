@@ -3246,7 +3246,7 @@
                                 <xsl:attribute name="ORDER"><xsl:value-of select="$filenum"/></xsl:attribute>
                                 <xsl:attribute name="ORDERLABEL">vol. <xsl:value-of select="$filenum"/></xsl:attribute>
                                 <mets:mptr LOCTYPE="URL">
-                                    <xsl:attribute name="xlink:href"><xsl:value-of select="."/>.ocrd/data/mets.xml</xsl:attribute>
+                                    <xsl:attribute name="xlink:href">file:///./<xsl:value-of select="."/>.ocrd/data/mets.xml</xsl:attribute>
                                 </mets:mptr>
                             </mets:div>
                             
