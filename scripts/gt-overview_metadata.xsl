@@ -3175,8 +3175,8 @@
                                         </mods:displayForm>
                                         <xsl:if test="$docMETADATA//fn:array[@key='authors']/fn:map/fn:array[@key='roles'] !=''">
                                         <mods:role>
-                                            <xsl:for-each select="$docMETADATA//fn:array[@key='authors']/fn:map/fn:array[@key='roles']">
-                                                <mods:roleTerm authority="ocrdrelator" type="code" valueURI="https://raw.githubusercontent.com/tboenig/gt-metadata/master/schema/2022-03-15/schema.json"><xsl:value-of select="fn:string"/></mods:roleTerm>
+                                            <xsl:for-each select="$docMETADATA//fn:array[@key='authors']/fn:map/fn:array[@key='roles']/fn:string">
+                                                <mods:roleTerm authority="ocrdrelator" type="code" valueURI="https://raw.githubusercontent.com/tboenig/gt-metadata/master/schema/2022-03-15/schema.json"><xsl:value-of select="."/></mods:roleTerm>
                                             </xsl:for-each>
                                         </mods:role>
                                         </xsl:if>
