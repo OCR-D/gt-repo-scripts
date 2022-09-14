@@ -3186,7 +3186,7 @@
                                     <mods:publisher>Verlag Küche und Keller</mods:publisher>
                                 </mods:originInfo>-->
                                 <mods:originInfo eventType="digitization">
-                                    <mods:dateCaptured encoding="iso8601"><xsl:value-of select="format-date(current-date(), '[Y]-[M]-[D]')"/>/></mods:dateCaptured>
+                                    <mods:dateCaptured encoding="iso8601"><xsl:value-of select="format-date(current-date(), '[Y]-[M]-[D]')"/></mods:dateCaptured>
                                 </mods:originInfo>
                                 <mods:language>
                                     
