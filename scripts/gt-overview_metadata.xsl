@@ -3227,7 +3227,7 @@
                     </mets:digiprovMD>
                 </mets:amdSec>
                 
-                $holeMetric
+                
                 
                 <!-- Die hierarchische Struktur des Mehrteiligen Dokuments -->
                 <mets:structMap TYPE="LOGICAL">
@@ -3244,7 +3244,9 @@
                                 <xsl:attribute name="ID">LOG_<xsl:value-of select="$fileList/item/fn:position()"/></xsl:attribute>
                                 <xsl:attribute name="ORDER"><xsl:value-of select="$fileList/item/fn:position()"/></xsl:attribute>
                                 <xsl:attribute name="ORDERLABEL">file <xsl:value-of select="$fileList/item/fn:position()"/></xsl:attribute>
-                                <mets:mptr LOCTYPE="URL" xlink:href="http://LinkZumDatensatz.de/ID7777777_1.xml"/>
+                                <mets:mptr LOCTYPE="URL">
+                                    <xsl:attribute name="xlink:href"><xsl:value-of select="."/>.ocrd/data/mets.xml</xsl:attribute>
+                                </mets:mptr>
                             </mets:div>
                             
                         </xsl:for-each>
