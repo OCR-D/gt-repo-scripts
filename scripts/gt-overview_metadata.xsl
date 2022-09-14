@@ -3146,7 +3146,7 @@
         </xsl:if>
         
     
-        <xsl:if test="$output = 'METS'">
+        <xsl:if test="$output = 'METSvolume'">
             <mets:mets
                 xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/"
@@ -3181,11 +3181,6 @@
                                         </mods:role>
                                         </xsl:if>
                                     </mods:name>
-                                    
-                                    
-                                    
-                                    
-                                    
                                 </xsl:for-each>
                                 
                                 <mods:genre>Ground Truth</mods:genre>
@@ -3207,10 +3202,6 @@
                                     </xsl:for-each>
                                         
                                 </mods:language>
-                                
-                                
-                                
-                                
                                 <mods:recordInfo>
                                     <mods:recordIdentifier source="DE-666">7777777</mods:recordIdentifier>
                                 </mods:recordInfo>
