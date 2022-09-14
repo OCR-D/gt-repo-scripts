@@ -14,6 +14,7 @@
     
     <xsl:param name="repoName"/>
     <xsl:param name="repoBase"/>
+    <xsl:param name="bagitDumpNum"/>
     
     
     
@@ -3195,7 +3196,7 @@
                                         
                                 </mods:language>
                                 <mods:recordInfo>
-                                    <mods:recordIdentifier source="DE-666">7777777</mods:recordIdentifier>
+                                    <mods:recordIdentifier>OCR-D_bagitDumpNum-v<xsl:value-of select="$bagitDumpNum"/></mods:recordIdentifier>
                                 </mods:recordInfo>
                             </mods:mods>
                         </mets:xmlData>
@@ -3215,11 +3216,6 @@
                     </mets:rightsMD>
                     
                     
-                    tboenig/gt-guideline-examples
-                    
-                    
-                    
-                    https://tboenig.github.io/gt-guideline-examples/
                     
                     
                     
@@ -3245,10 +3241,10 @@
                         <xsl:for-each select="distinct-values($holeMetric//@key1)">
                             <xsl:variable name="filenum" select="position()"/>
                             <mets:div TYPE="volume">
-                                <xsl:attribute name="LABEL"><xsl:value-of select="."/></xsl:attribute>
+                                <xsl:attribute name="LABEL">Volume: <xsl:value-of select="."/></xsl:attribute>
                                 <xsl:attribute name="ID">LOG_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
                                 <xsl:attribute name="ORDER"><xsl:value-of select="$filenum"/></xsl:attribute>
-                                <xsl:attribute name="ORDERLABEL">file <xsl:value-of select="$filenum"/></xsl:attribute>
+                                <xsl:attribute name="ORDERLABEL">vol. <xsl:value-of select="$filenum"/></xsl:attribute>
                                 <mets:mptr LOCTYPE="URL">
                                     <xsl:attribute name="xlink:href"><xsl:value-of select="."/>.ocrd/data/mets.xml</xsl:attribute>
                                 </mets:mptr>
