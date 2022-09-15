@@ -18,7 +18,7 @@
     
     <xsl:variable name="DumpDownload">bagitDump-v<xsl:value-of select="$bagitDumpNum"/>.zip</xsl:variable>
     
-    <xsl:variable name="dat" select="format-date(current-date(), '[Y]-[M]-[D][Z][H]:[m]:[s]')"/>
+    <xsl:variable name="dat"><xsl:value-of select="format-date(current-date(), '[Y]-[M]-[D]')"/><xsl:value-of select="format-time(current-time(), '[Z][H]:[m]:[s]')"/>
     
     <xsl:variable name="docMETADATA">
         <xsl:copy-of select="json-to-xml(unparsed-text('../METADATA.json'))"/>
