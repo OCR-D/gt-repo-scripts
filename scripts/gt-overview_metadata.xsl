@@ -16,7 +16,9 @@
     <xsl:param name="repoBase"/>
     <xsl:param name="bagitDumpNum"/>
     
+    <xsl:variable name="DumpDownload">bagitDump-v<xsl:value-of select="$bagitDumpNum"/>.zip</xsl:variable>
     
+    <xsl:variable name="dat" select="format-date(current-date(), '[Y]-[M]-[D][Z][H]:[m]:[s]')"/>
     
     <xsl:variable name="docMETADATA">
         <xsl:copy-of select="json-to-xml(unparsed-text('../METADATA.json'))"/>
@@ -325,6 +327,15 @@
                         </dl>
                     </details>
                     </xsl:if>
+                </xsl:element>
+                
+                <xsl:element name="div">
+                    <xsl:attribute name="class">metadata</xsl:attribute>
+                    <h2>Download</h2>
+                    <xsl:element name="p">You can download the complete data here. 
+                        They contain a zip file in which the components of the collection are also in zip files.
+                        Metadata for the complete collection and the components are in METS format.</xsl:element>
+                    <a><xsl:attribute name="href">https://github.com/<xsl:value-of select="$repoName"/>/releases/download/v<xsl:value-of select="$bagitDumpNum"/>/<xsl:value-of select="$DumpDownload"/><xsl:value-of select="substring-after(@file, '/data/')"/></xsl:attribute>download</a>
                 </xsl:element>
                 
                 <xsl:element name="div">
@@ -3145,7 +3156,8 @@
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/"
                 xmlns:dv="http://dfg-viewer.de/" xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:mods="http://www.loc.gov/mods/v3">
-                <mets:metsHdr LASTMODDATE="2017-07-07T14:17:44">
+                <mets:metsHdr>
+                    <xsl:attribute name="LASTMODDATE"><xsl:value-of select="$dat"/></xsl:attribute>
                     <mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
                         <mets:name>ocrd</mets:name>
                     </mets:agent>
@@ -3196,7 +3208,7 @@
                                         
                                 </mods:language>
                                 <mods:recordInfo>
-                                    <mods:recordIdentifier>OCR-D_bagitDumpNum-v<xsl:value-of select="$bagitDumpNum"/></mods:recordIdentifier>
+                                    <mods:recordIdentifier>OCR-D_bagitDumpNum-v<xsl:value-of select="$bagitDumpNum"/><xsl:value-of select="generate-id(.)"/></mods:recordIdentifier>
                                 </mods:recordInfo>
                             </mods:mods>
                         </mets:xmlData>
