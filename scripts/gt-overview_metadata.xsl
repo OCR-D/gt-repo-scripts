@@ -334,7 +334,7 @@
                     <xsl:element name="p">You can download the complete data here. 
                         They contain a zip file in which the components of the collection are also in zip files.
                         Metadata for the complete collection and the components are in METS format.</xsl:element>
-                    <a><xsl:attribute name="href">https://github.com/<xsl:value-of select="$repoName"/>/releases/download/v<xsl:value-of select="$bagitDumpNum"/>/<xsl:value-of select="$DumpDownload"/><xsl:value-of select="substring-after(@file, '/data/')"/></xsl:attribute>download</a>
+                    <a><xsl:attribute name="href">https://github.com/<xsl:value-of select="$repoName"/>/releases/download/v<xsl:value-of select="$bagitDumpNum"/>/<xsl:value-of select="$DumpDownload"/></xsl:attribute>download <xsl:value-of select="$DumpDownload"/></a>
                 </xsl:element>
                 
                 <xsl:element name="div">
