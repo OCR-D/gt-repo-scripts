@@ -3217,6 +3217,29 @@
                     </mets:mdWrap>
                 </mets:dmdSec>
                 
+                <xsl:for-each select="distinct-values($holeMetric//@key1)">
+                    <xsl:variable name="filenum" select="position()"/>
+                    <mets:dmdSec>
+                        <xsl:attribute name="ID">dmgt_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
+                      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="GT">
+                        <mets:xmlData>
+                            <gt:gt  xmlns:gt="http://www.ocr-d.de/GT/">
+                                <gt:state prop="acquisition"/>
+                                <gt:state prop="granularity/physical/document-related/page"/>
+                                <gt:state prop="granularity/physical/document-related/region"/>
+                                <gt:state prop="granularity/physical/document-related/text-line"/>
+                                <gt:state prop="granularity/physical/document-related/word"/>
+                                <gt:state prop="condition/production-related/document-faults/ink-from-facing"/>
+                                <gt:state prop="condition/wear/additions/informative/stamps"/>
+                                <gt:state prop="data-attributes/document-related/visual/text/font/typeface/blackletter"/>
+                                <gt:state prop="data-attributes/document-related/visual/text/font/multi-font/font-sizes"/>
+                                <gt:state prop="data-attributes/document-related/visual/text/font/multi-font/typefaces"/>
+                            </gt:gt>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:dmdSec>
+                </xsl:for-each>
+                
                 <mets:amdSec ID="amd_01">
                     <!-- Informationen zu Rechten am Digitalisat -->
                     <mets:rightsMD ID="rights_01">
@@ -3228,8 +3251,6 @@
                             </mets:xmlData>
                         </mets:mdWrap>
                     </mets:rightsMD>
-                    
-                    
                     
                     
                     
@@ -3257,8 +3278,10 @@
                             <mets:div TYPE="volume">
                                 <xsl:attribute name="LABEL">Volume: <xsl:value-of select="."/></xsl:attribute>
                                 <xsl:attribute name="ID">LOG_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
+                                <xsl:attribute name="DMID">dmgt_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
                                 <xsl:attribute name="ORDER"><xsl:value-of select="$filenum"/></xsl:attribute>
                                 <xsl:attribute name="ORDERLABEL">vol. <xsl:value-of select="$filenum"/></xsl:attribute>
+                                
                                 <mets:mptr LOCTYPE="URL">
                                     <xsl:attribute name="xlink:href">file:///./<xsl:value-of select="."/>.ocrd/data/mets.xml</xsl:attribute>
                                 </mets:mptr>
