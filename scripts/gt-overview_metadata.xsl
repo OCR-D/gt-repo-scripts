@@ -3173,8 +3173,8 @@
                 </xsl:for-each>
                 </mets>
             </xsl:variable>
-            <!--<xsl:message select="distinct-values($sort_and_dist//mets/gt:state/@prop)"/>-->
-            <xsl:message select="$sort_and_dist"/>
+            <xsl:message select="distinct-values($sort_and_dist//mets/gt:state)"/>
+            <!--<xsl:message select="$sort_and_dist"/>-->
             <mets:mets
                 xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/"
