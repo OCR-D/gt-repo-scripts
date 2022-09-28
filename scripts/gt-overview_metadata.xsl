@@ -347,7 +347,7 @@
                    <xsl:for-each select="$labelling//dt[text() = $prop]">
                        <details>
                        <summary><xsl:value-of select=".[1]"/></summary>
-                       <p><b>Description:</b>Description: <xsl:value-of select=".[1]/following-sibling::dd"/></p>
+                       <p><b>Description:</b> <xsl:value-of select=".[1]/following-sibling::dd"/></p>
                        </details>   
                    </xsl:for-each>
                    
