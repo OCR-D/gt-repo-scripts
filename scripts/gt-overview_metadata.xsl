@@ -393,6 +393,7 @@
                see: <a href="=https://ocr-d.de/en/gt-guidelines/labeling/OCR-D_GT_labeling_schema_xsd_Element_gt_gt.html#gt_gt_state_prop">Labelings</a>.</xsl:element>
            
                <xsl:copy-of select="$dMetslabel"/>
+           <xsl:message select="$cMets"/>
            
        </xsl:element>
        
