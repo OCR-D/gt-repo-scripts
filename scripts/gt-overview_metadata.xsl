@@ -3153,26 +3153,7 @@
         
     
         <xsl:if test="$output = 'METSvolume'">
-            <xsl:variable name="cMets">
-                <mets>
-                    <xsl:for-each select="collection($conMets)">
-                        <test><xsl:copy-of select="//gt:state"/></test><xsl:copy-of select="//gt:state"/>
-                    </xsl:for-each>
-                </mets>
-            </xsl:variable>
             
-            <!--<xsl:variable name="dMetslabel">
-                
-                    <xsl:for-each select="distinct-values($cMets/mets/gt:state/@prop)">
-                    
-                    <gt:state>
-                        <xsl:attribute name="prop"><xsl:value-of select="."/></xsl:attribute>
-                    </gt:state>
-                </xsl:for-each>
-                
-            </xsl:variable>-->
-            
-            <xsl:message select="$cMets"/>
             <mets:mets
                 xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/"
@@ -3237,10 +3218,43 @@
                     </mets:mdWrap>
                 </mets:dmdSec>
                 
+                
+                
+                <xsl:variable name="cMets">
+                    <mets>
+                        <xsl:for-each select="collection($conMets)">
+                            <doc><xsl:copy-of select="//gt:state"/></doc>
+                        </xsl:for-each>
+                    </mets>
+                </xsl:variable>
+                
+                <!--<xsl:variable name="dMetslabel">
+                
+                    <xsl:for-each select="distinct-values($cMets/mets/gt:state/@prop)">
+                    
+                    <gt:state>
+                        <xsl:attribute name="prop"><xsl:value-of select="."/></xsl:attribute>
+                    </gt:state>
+                </xsl:for-each>
+                
+            </xsl:variable>-->
+                
+                
+                
+                
+                
+                
+                
+                
                 <xsl:for-each select="distinct-values($holeMetric//@key1)">
+                    <xsl:message select="$cMets"></xsl:message>
                     <xsl:variable name="filenum" select="position()"/>
+                    
                     <mets:dmdSec>
                         <xsl:attribute name="ID">dmgt_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
+                        <hallo>
+                            <xsl:value-of select="$cMets//test[fn:position() = $filenum]"/>
+                        </hallo>
                       <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="GT">
                         <mets:xmlData>
                             <gt:gt  xmlns:gt="http://www.ocr-d.de/GT/">
