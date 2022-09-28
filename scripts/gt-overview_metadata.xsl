@@ -3253,7 +3253,7 @@
                     <mets:dmdSec>
                         <xsl:attribute name="ID">dmgt_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
                         <hallo>
-                            <xsl:value-of select="$cMets//test[fn:position() = $filenum]"/>
+                            <xsl:copy-of select="$cMets//test[fn:position() = $filenum]"/>
                         </hallo>
                       <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="GT">
                         <mets:xmlData>
