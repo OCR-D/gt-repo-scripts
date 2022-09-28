@@ -345,8 +345,10 @@
                <xsl:for-each select="$cMets/mets/doc/gt:state/@prop">
                    <xsl:variable name="prop" select="distinct-values(.)"/>
                    <xsl:for-each select="$labelling//dt[text() = $prop]">
+                       <details>
                        <summary><xsl:value-of select=".[1]"/></summary>
                        <p><b>Description:</b>Description: <xsl:value-of select=".[1]/following-sibling::dd"/></p>
+                       </details>   
                    </xsl:for-each>
                    
                </xsl:for-each>
@@ -364,9 +366,9 @@
                The labeling metadata is created for each available page. The following labeling metadata is available for the complete collection.</xsl:element>
            <xsl:element name="p">For a description and explanation of the labeling metadata, 
                see: <a href="=https://ocr-d.de/en/gt-guidelines/labeling/OCR-D_GT_labeling_schema_xsd_Element_gt_gt.html#gt_gt_state_prop">Labelings</a>.</xsl:element>
-           <details>
+           
                <xsl:copy-of select="$dMetslabel"/>
-           </details>
+           
        </xsl:element>
        
        
