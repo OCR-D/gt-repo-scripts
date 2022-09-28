@@ -3153,7 +3153,14 @@
         
     
         <xsl:if test="$output = 'METSvolume'">
-            <xsl:message select="$conMets"/>
+            <xsl:variable name="cMets">
+                <mets>
+                    <xsl:for-each select="uri-collection($conMets)">
+                        <xsl:value-of select="substring-before(iri-to-uri(.), 'mets.xml')"/>
+                    </xsl:for-each>
+                </mets>
+            </xsl:variable>
+            <xsl:message select="$cMets"/>
             <mets:mets
                 xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/"
