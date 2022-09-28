@@ -3167,7 +3167,7 @@
                 </mets:metsHdr>
                 
                 <!-- Bibliographische Beschreibung des gesamten Dokuments (Gesamtaufnahme) -->
-                <mets:dmdSec ID="dmd_001">
+                <mets:dmdSec ID="dmd_000">
                     <mets:mdWrap MDTYPE="MODS">
                         <mets:xmlData>
                             <mods:mods>
@@ -3228,19 +3228,29 @@
                     </mets>
                 </xsl:variable>
                 
-                <!--<xsl:variable name="dMetslabel">
-                
-                    <xsl:for-each select="distinct-values($cMets/mets/gt:state/@prop)">
-                    
+                <xsl:variable name="dMetslabel">
+                    <xsl:for-each select="distinct-values($cMets/mets/doc/gt:state/@prop)">
                     <gt:state>
                         <xsl:attribute name="prop"><xsl:value-of select="."/></xsl:attribute>
                     </gt:state>
                 </xsl:for-each>
-                
-            </xsl:variable>-->
-                
+            </xsl:variable>
                 
                 
+                <mets:dmdSec>
+                    <xsl:attribute name="ID">dmgt_0000/></xsl:attribute>
+                    
+                    <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="GT">
+                        <mets:xmlData>
+                            <gt:gt xmlns:gt="http://www.ocr-d.de/GT/">
+                                <xsl:value-of select="$dMetslabel"/>
+                                    
+                                
+                                <!--<xsl:copy-of select="$cMets//doc[fn:position() = $filenum]/gt:state/distinct-values(@prop)"/>-->
+                            </gt:gt>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:dmdSec>
                 
                 
                 
@@ -3298,8 +3308,9 @@
                 
                 <!-- Die hierarchische Struktur des Mehrteiligen Dokuments -->
                 <mets:structMap TYPE="LOGICAL">
-                    <mets:div ADMID="amd_01" DMDID="dmd_001" ID="LOG_0000" TYPE="multivolume work">
+                    <mets:div ADMID="amd_01" DMDID="dmd_000" ID="LOG_00" TYPE="multivolume work">
                         <xsl:attribute name="LABEL"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></xsl:attribute>
+                        <mets:div DMDID="dmgt_0000" ID="LOG_001" TYPE="volume">
                         
                         <xsl:for-each select="distinct-values($holeMetric//@key1)">
                             <xsl:variable name="filenum" select="position()"/>
@@ -3314,12 +3325,11 @@
                                     <xsl:attribute name="xlink:href"><xsl:value-of select="."/>.ocrd/data/mets.xml</xsl:attribute>
                                 </mets:mptr>
                             </mets:div>
-                            
                         </xsl:for-each>
-                        
-                        
+                        </mets:div>
                     </mets:div>
                 </mets:structMap>
+                
             </mets:mets>
             
             
