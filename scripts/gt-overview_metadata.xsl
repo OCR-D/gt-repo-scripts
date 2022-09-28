@@ -3155,8 +3155,8 @@
         <xsl:if test="$output = 'METSvolume'">
             <xsl:variable name="cMets">
                 <mets>
-                    <xsl:for-each select="uri-collection($conMets)">
-                        <xsl:value-of select="substring-before(iri-to-uri(.), 'mets.xml')"/>
+                    <xsl:for-each select="collection($conMets)">
+                        <xsl:value-of select="//gt:state/@prop"/>
                     </xsl:for-each>
                 </mets>
             </xsl:variable>
