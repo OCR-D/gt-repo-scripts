@@ -3252,22 +3252,11 @@
                     
                     <mets:dmdSec>
                         <xsl:attribute name="ID">dmgt_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
-                        <hallo>
-                            <xsl:copy-of select="$cMets//doc[fn:position() = $filenum]/gt:state"/>
-                        </hallo>
+                        
                       <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="GT">
                         <mets:xmlData>
                             <gt:gt  xmlns:gt="http://www.ocr-d.de/GT/">
-                                <gt:state prop="acquisition"/>
-                                <gt:state prop="granularity/physical/document-related/page"/>
-                                <gt:state prop="granularity/physical/document-related/region"/>
-                                <gt:state prop="granularity/physical/document-related/text-line"/>
-                                <gt:state prop="granularity/physical/document-related/word"/>
-                                <gt:state prop="condition/production-related/document-faults/ink-from-facing"/>
-                                <gt:state prop="condition/wear/additions/informative/stamps"/>
-                                <gt:state prop="data-attributes/document-related/visual/text/font/typeface/blackletter"/>
-                                <gt:state prop="data-attributes/document-related/visual/text/font/multi-font/font-sizes"/>
-                                <gt:state prop="data-attributes/document-related/visual/text/font/multi-font/typefaces"/>
+                                <xsl:copy-of select="$cMets//doc[fn:position() = $filenum]/gt:state/distinct-values(@prop)"/>
                             </gt:gt>
                         </mets:xmlData>
                     </mets:mdWrap>
