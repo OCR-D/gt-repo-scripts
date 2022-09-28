@@ -336,14 +336,14 @@
            <xsl:variable name="cMets">
                <mets>
                    <xsl:for-each select="collection($conMets)">
-                       <doc><xsl:copy-of select="//gt:state"/></doc>
+                       <doc><xsl:value-of select="//gt:state/@prop"/></doc>
                    </xsl:for-each>
                </mets>
            </xsl:variable>
            
            <xsl:variable name="dMetslabel">
-               <xsl:for-each select="distinct-values($cMets/mets/doc/gt:state/@prop)">
-                   <xsl:variable name="prop" select="distinct-values(.)"/>
+               <xsl:for-each select="distinct-values($cMets/mets/doc)">
+                   <xsl:variable name="prop" select="."/>
                    <xsl:for-each select="$labelling//dlentry">
                        <xsl:variable name="prop2" select="distinct-values(dt[text() = $prop])"/>
                        <xsl:message select="$prop"/>
