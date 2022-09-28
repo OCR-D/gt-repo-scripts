@@ -3162,12 +3162,12 @@
             </xsl:variable>
             
             <xsl:variable name="sort_and_dist">
-                <xsl:for-each select="$cMets/mets">
+                <xsl:for-each select="$cMets/mets/gt:state">
                     <xsl:sort 
-                        select="*/@prop" 
+                        select="@prop" 
                         order="descending"/>
                     <gt:state>
-                        <xsl:attribute name="prop"><xsl:value-of select="gt:state/@prop"/></xsl:attribute>
+                        <xsl:attribute name="prop"><xsl:value-of select="@prop"/></xsl:attribute>
                     </gt:state>
                 </xsl:for-each>
             </xsl:variable>
