@@ -348,6 +348,7 @@
                    <xsl:variable name="items">
                    <item><xsl:value-of select="."/></item>
                    </xsl:variable>
+                   <xsl:message select="$items"/>
                    <xsl:for-each select="$labelling//dlentry/dt[text() = .]">
                        <details>
                            <summary><xsl:value-of select="distinct-values(.)"/></summary>
