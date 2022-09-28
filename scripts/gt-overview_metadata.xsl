@@ -3168,12 +3168,13 @@
                         select="@prop" 
                         order="descending"/>
                     <gt:state>
-                        <xsl:attribute name="prop"><xsl:value-of select="@prop"/></xsl:attribute>
+                        <xsl:attribute name="prop"><xsl:value-of select="distinct-values(@prop)"/></xsl:attribute>
                     </gt:state>
                 </xsl:for-each>
                 </mets>
             </xsl:variable>
-            <xsl:message select="distinct-values($sort_and_dist//mets/gt:state/@prop)"/>
+            <!--<xsl:message select="distinct-values($sort_and_dist//mets/gt:state/@prop)"/>-->
+            <xsl:message select="$sort_and_dist"/>
             <mets:mets
                 xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/"
