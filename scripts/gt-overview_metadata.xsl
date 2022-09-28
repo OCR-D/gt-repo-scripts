@@ -22,6 +22,9 @@
     <xsl:variable name="docMETADATA">
         <xsl:copy-of select="json-to-xml(unparsed-text('../METADATA.json'))"/>
     </xsl:variable>
+    <xsl:variable name="labelling">
+        <xsl:copy-of select="document('../OCR-D_GT_labeling_schema_xsd_Element_gt_gt.dita')"/>
+    </xsl:variable>
     
    
     
@@ -340,7 +343,12 @@
            
            <xsl:variable name="dMetslabel">
                <xsl:for-each select="distinct-values($cMets/mets/doc/gt:state/@prop)">
-                   <li><xsl:value-of select="."/></li>
+                   <xsl:variable name="prop" select="."/>
+                   <xsl:for-each select="$labelling//dt[text() = $prop]">
+                       <summary><xsl:value-of select=".[1]"/></summary>
+                       <p><xsl:value-of select=".[1]/following-sibling::dd"/></p>
+                   </xsl:for-each>
+                   
                </xsl:for-each>
            </xsl:variable>
            
@@ -356,9 +364,9 @@
                The labeling metadata is created for each available page. The following labeling metadata is available for the complete collection.</xsl:element>
            <xsl:element name="p">For a description and explanation of the labeling metadata, 
                see: <a href="=https://ocr-d.de/en/gt-guidelines/labeling/OCR-D_GT_labeling_schema_xsd_Element_gt_gt.html#gt_gt_state_prop">Labelings</a>.</xsl:element>
-           <ul>
+           <details>
                <xsl:copy-of select="$dMetslabel"/>
-           </ul>
+           </details>
        </xsl:element>
        
        
