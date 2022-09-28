@@ -3156,7 +3156,7 @@
             <xsl:variable name="cMets">
                 <mets>
                     <xsl:for-each select="collection($conMets)">
-                        <xsl:value-of select="//gt:state/@prop"/>
+                        <it><xsl:value-of select="//gt:state/@prop"/></it>
                     </xsl:for-each>
                 </mets>
             </xsl:variable>
