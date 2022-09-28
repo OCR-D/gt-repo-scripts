@@ -346,7 +346,7 @@
                    <xsl:variable name="prop" select="distinct-values(.)"/>
                    <xsl:for-each select="$labelling//dlentry">
                        <xsl:variable name="prop2" select="distinct-values(dt[text() = $prop])"/>
-                       <xsl:message select="$prop2"/>
+                       <xsl:message select="$prop"/>
                        <details>
                            <summary><xsl:value-of select="distinct-values(dt[text() = $prop])"/></summary>
                            <p><strong>Description:</strong> <xsl:value-of select="./following-sibling::dd"/></p>
