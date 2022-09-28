@@ -3156,11 +3156,11 @@
             <xsl:variable name="cMets">
                 <mets>
                     <xsl:for-each select="collection($conMets)">
-                        <it><xsl:value-of select="//gt:state/@prop"/></it>
+                        <it><xsl:value-of select="distinct-values(//gt:state/@prop)"/></it>
                     </xsl:for-each>
                 </mets>
             </xsl:variable>
-            <xsl:message select="distinct-values($cMets)"/>
+            <xsl:message select="$cMets"/>
             <mets:mets
                 xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/"
