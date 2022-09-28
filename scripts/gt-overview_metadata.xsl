@@ -333,7 +333,7 @@
        
        <xsl:element name="div">
            
-           <xsl:variable name="cMets">
+           <!--<xsl:variable name="cMets">
                <mets>
                    <xsl:for-each select="collection($conMets)">
                        <doc><xsl:copy-of select="//gt:state/@prop"/></doc>
@@ -356,7 +356,7 @@
                        </details>
                    </xsl:for-each>
                </xsl:for-each>
-           </xsl:variable>
+           </xsl:variable>-->
            
            
            
@@ -392,8 +392,8 @@
            <xsl:element name="p">For a description and explanation of the labeling metadata, 
                see: <a href="=https://ocr-d.de/en/gt-guidelines/labeling/OCR-D_GT_labeling_schema_xsd_Element_gt_gt.html#gt_gt_state_prop">Labelings</a>.</xsl:element>
            
-               <xsl:copy-of select="$dMetslabel"/>
-           <xsl:message select="$cMets"/>
+               <!--<xsl:copy-of select="$dMetslabel"/>
+           <xsl:message select="$cMets"/>-->
            
        </xsl:element>
        
@@ -3310,6 +3310,7 @@
                 
                 <!-- Informationen zum Labelling gesamte Sammlung-->
                 <mets:dmdSec>
+                    <xsl:message select="$cMets"/>
                     <xsl:attribute name="ID">dmgt_0000</xsl:attribute>
                     <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="GT">
                         <mets:xmlData>
