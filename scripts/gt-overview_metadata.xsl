@@ -3168,7 +3168,7 @@
                         select="@prop" 
                         order="descending"/>
                     <gt:state>
-                        <xsl:attribute name="prop"><xsl:value-of select="distinct-values(@prop)"/></xsl:attribute>
+                        <xsl:value-of select="@prop"/>
                     </gt:state>
                 </xsl:for-each>
                 </mets>
