@@ -7,7 +7,7 @@
     xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15"
     xmlns:pt="http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15"
     xmlns:in="http://www.intern.de"
-    
+    xmlns:gt="http://www.ocr-d.de/GT/"
     exclude-result-prefixes="#all"
     version="3.0">
     <xsl:output indent="yes" omit-xml-declaration="yes" method="xml"/>
@@ -3153,6 +3153,7 @@
         
     
         <xsl:if test="$output = 'METSvolume'">
+            <xsl:message select="$conMets//gt:state/@prop"/>
             <mets:mets
                 xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/"
