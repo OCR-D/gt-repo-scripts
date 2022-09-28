@@ -3156,30 +3156,23 @@
             <xsl:variable name="cMets">
                 <mets>
                     <xsl:for-each select="collection($conMets)">
-                        <xsl:copy-of select="//gt:state"/>
+                        <test><xsl:copy-of select="//gt:state"/></test><xsl:copy-of select="//gt:state"/>
                     </xsl:for-each>
                 </mets>
             </xsl:variable>
             
-            <xsl:variable name="sort">
-                <mets>
+            <!--<xsl:variable name="dMetslabel">
+                
                     <xsl:for-each select="distinct-values($cMets/mets/gt:state/@prop)">
                     
                     <gt:state>
                         <xsl:attribute name="prop"><xsl:value-of select="."/></xsl:attribute>
                     </gt:state>
                 </xsl:for-each>
-                </mets>
-            </xsl:variable>
-            <!--<xsl:variable name="dist">
-                <xsl:for-each select="">
-                    
-                </xsl:for-each>
-                <xsl:copy-of select="distinct-values($sort//mets/gt:state/@prop)"></xsl:copy-of>
+                
             </xsl:variable>-->
-            <!--<xsl:message select="distinct-values($sort_and_dist//mets/gt:state)"/>-->
-            <!--<xsl:message select="$sort_and_dist"/>-->
-            <xsl:message select="$sort"></xsl:message>
+            
+            <xsl:message select="$cMets"/>
             <mets:mets
                 xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/"
