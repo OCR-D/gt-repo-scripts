@@ -343,7 +343,7 @@
            
            
            
-           <!--<xsl:variable name="dMetslabel">
+           <xsl:variable name="dMetslabel">
                <xsl:for-each select="distinct-values($cMets/mets/gt:state/@prop)">
                    
                    <p><xsl:value-of select="."/></p>
@@ -356,7 +356,7 @@
                        </details>
                    </xsl:for-each>
                </xsl:for-each>
-           </xsl:variable>-->
+           </xsl:variable>
            
            
            
@@ -393,7 +393,7 @@
                see: <a href="=https://ocr-d.de/en/gt-guidelines/labeling/OCR-D_GT_labeling_schema_xsd_Element_gt_gt.html#gt_gt_state_prop">Labelings</a>.</xsl:element>
            
                <!--<xsl:copy-of select="$dMetslabel"/>-->
-           <xsl:message select="$cMets"/>
+           <xsl:message select="$dMetslabel"/>
            
        </xsl:element>
        
