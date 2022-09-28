@@ -355,7 +355,7 @@
                This normalized and semantic description of the OCR-GT data can be found in the METS metadata file. 
                The labeling metadata is created for each available page. The following labeling metadata is available for the complete collection.</xsl:element>
            <ul>
-               <xsl:value-of select="$dMetslabel"/>
+               <xsl:copy-of select="$dMetslabel"/>
            </ul>
        </xsl:element>
        
@@ -3253,7 +3253,7 @@
                 </mets:dmdSec>
                 
                 
-                
+                <!-- Informationen zum Labelling -->
                 <xsl:variable name="cMets">
                     <mets>
                         <xsl:for-each select="collection($conMets)">
@@ -3270,17 +3270,13 @@
                 </xsl:for-each>
             </xsl:variable>
                 
-                
+                <!-- Informationen zum Labelling gesamte Sammlung-->
                 <mets:dmdSec>
-                    <xsl:attribute name="ID">dmgt_0000/></xsl:attribute>
-                    
+                    <xsl:attribute name="ID">dmgt_0000</xsl:attribute>
                     <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="GT">
                         <mets:xmlData>
                             <gt:gt xmlns:gt="http://www.ocr-d.de/GT/">
                                 <xsl:copy-of select="$dMetslabel"/>
-                                    
-                                
-                                <!--<xsl:copy-of select="$cMets//doc[fn:position() = $filenum]/gt:state/distinct-values(@prop)"/>-->
                             </gt:gt>
                         </mets:xmlData>
                     </mets:mdWrap>
@@ -3291,9 +3287,9 @@
                 
                 
                 <xsl:for-each select="distinct-values($holeMetric//@key1)">
-                    
                     <xsl:variable name="filenum" select="position()"/>
                     
+                    <!-- Informationen zum Labelling einzelne Dokumente-->
                     <mets:dmdSec>
                         <xsl:attribute name="ID">dmgt_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
                         
@@ -3305,7 +3301,6 @@
                                         <xsl:attribute name="prop"><xsl:value-of select="."/></xsl:attribute>
                                     </gt:state>
                                 </xsl:for-each>
-                                <!--<xsl:copy-of select="$cMets//doc[fn:position() = $filenum]/gt:state/distinct-values(@prop)"/>-->
                             </gt:gt>
                         </mets:xmlData>
                     </mets:mdWrap>
@@ -3345,7 +3340,7 @@
                     <mets:div ADMID="amd_01" DMDID="dmd_000" ID="LOG_00" TYPE="multivolume work">
                         <xsl:attribute name="LABEL"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></xsl:attribute>
                         <mets:div DMDID="dmgt_0000" ID="LOG_001" TYPE="volume">
-                        
+                            <xsl:attribute name="LABEL">Collection: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></xsl:attribute>
                         <xsl:for-each select="distinct-values($holeMetric//@key1)">
                             <xsl:variable name="filenum" select="position()"/>
                             <mets:div TYPE="volume">
