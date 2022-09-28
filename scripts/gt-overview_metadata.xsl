@@ -341,7 +341,29 @@
                </mets>
            </xsl:variable>
            
+           
+           
            <xsl:variable name="dMetslabel">
+               <xsl:for-each select="distinct-values($cMets/mets/doc/gt:state/@prop)">
+                   <xsl:variable name="items">
+                   <item><xsl:value-of select="."/></item>
+                   </xsl:variable>
+                   <xsl:for-each select="$labelling//dlentry/dt[text() = $items]">
+                       <details>
+                           <summary><xsl:value-of select="distinct-values(.)"/></summary>
+                           <p><strong>Description:</strong> <xsl:value-of select=".[1]/following-sibling::dd"/></p>
+                       </details>
+                   </xsl:for-each>
+               </xsl:for-each>
+           </xsl:variable>
+           
+           
+           
+           
+           
+           
+           
+           <!--<xsl:variable name="dMetslabel">
                <xsl:for-each select="distinct-values($cMets/mets/doc/gt:state/@prop)">
                    <xsl:variable name="prop" select="."/>
                    <xsl:for-each select="$labelling//dlentry">
@@ -354,7 +376,7 @@
                    </xsl:for-each>
                    
                </xsl:for-each>
-           </xsl:variable>
+           </xsl:variable>-->
            
            
            
@@ -3282,7 +3304,7 @@
                         <xsl:attribute name="prop"><xsl:value-of select="."/></xsl:attribute>
                     </gt:state>
                 </xsl:for-each>
-            </xsl:variable>
+                </xsl:variable>
                 
                 <!-- Informationen zum Labelling gesamte Sammlung-->
                 <mets:dmdSec>
