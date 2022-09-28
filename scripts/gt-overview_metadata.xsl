@@ -346,7 +346,7 @@
            <xsl:variable name="dMetslabel">
                <xsl:for-each select="distinct-values($cMets/mets/doc/gt:state/@prop)">
                    <xsl:variable name="items">
-                   <item><xsl:value-of select="."/></item>
+                   <item><xsl:copy-of select="."/></item>
                    </xsl:variable>
                    <xsl:message select="$items"/>
                    <xsl:for-each select="$labelling//dlentry/dt[text() = .]">
