@@ -3255,8 +3255,13 @@
                         
                       <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="GT">
                         <mets:xmlData>
-                            <gt:gt  xmlns:gt="http://www.ocr-d.de/GT/">
-                                <xsl:copy-of select="$cMets//doc[fn:position() = $filenum]/gt:state/distinct-values(@prop)"/>
+                            <gt:gt xmlns:gt="http://www.ocr-d.de/GT/">
+                                <xsl:for-each select="$cMets//doc[fn:position() = $filenum]/gt:state/distinct-values(@prop)">
+                                    <gt:state>
+                                        <xsl:attribute name="prop"><xsl:value-of select="."/></xsl:attribute>
+                                    </gt:state>
+                                </xsl:for-each>
+                                <!--<xsl:copy-of select="$cMets//doc[fn:position() = $filenum]/gt:state/distinct-values(@prop)"/>-->
                             </gt:gt>
                         </mets:xmlData>
                     </mets:mdWrap>
