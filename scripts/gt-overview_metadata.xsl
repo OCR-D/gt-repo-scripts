@@ -3247,13 +3247,13 @@
                 
                 
                 <xsl:for-each select="distinct-values($holeMetric//@key1)">
-                    <xsl:message select="$cMets"></xsl:message>
+                    
                     <xsl:variable name="filenum" select="position()"/>
                     
                     <mets:dmdSec>
                         <xsl:attribute name="ID">dmgt_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
                         <hallo>
-                            <xsl:copy-of select="$cMets//test[fn:position() = $filenum]"/>
+                            <xsl:copy-of select="$cMets"/>
                         </hallo>
                       <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="GT">
                         <mets:xmlData>
