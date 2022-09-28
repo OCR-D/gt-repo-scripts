@@ -327,6 +327,23 @@
                     </details>
                     </xsl:if>
                 </xsl:element>
+       
+       <xsl:element name="div">
+           <xsl:attribute name="class">metadata</xsl:attribute>
+           <h2>Labelling</h2>
+           <xsl:element name="p">The GT data has been labeled. The labeling is 
+               based on an ontology defined by the Pattern Recognition and Image Analysis Research Lab 
+               (PRImA-Research-Lab) at the University of Salford. 
+               This normalized and semantic description of the OCR-GT data can be found in the METS metadata file. 
+               The labeling metadata is created for each available page. The following labeling metadata is available for the complete collection.</xsl:element>
+           <ul>
+               <li><a><xsl:attribute name="href">https://github.com/<xsl:value-of select="$repoName"/>/releases/download/v<xsl:value-of select="$bagitDumpNum"/>/<xsl:value-of select="$DumpDownload"/></xsl:attribute>Current version download: <xsl:value-of select="$DumpDownload"/></a></li>
+               <li><a><xsl:attribute name="href">https://github.com/<xsl:value-of select="$repoName"/>/releases</xsl:attribute>Version archive</a></li>
+           </ul>
+       </xsl:element>
+       
+       
+       
                 
                 <xsl:element name="div">
                     <xsl:attribute name="class">metadata</xsl:attribute>
