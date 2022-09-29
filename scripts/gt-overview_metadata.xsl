@@ -350,37 +350,8 @@
                    <summary><xsl:value-of select="."/></summary>
                        <p><strong>Description: </strong><xsl:value-of select="distinct-values($labelling//dlentry/dt[text() = $o]/following-sibling::dd)"/></p>
                    </details>
-                   <!--<xsl:for-each select="$labelling//dlentry/dt[text() = .]">
-                       <details>
-                           <summary><xsl:value-of select="distinct-values(.)"/></summary>
-                           <p><strong>Description:</strong> <xsl:value-of select=".[1]/following-sibling::dd"/></p>
-                       </details>
-                   </xsl:for-each>-->
-               </xsl:for-each>
+                </xsl:for-each>
            </xsl:variable>
-           
-           
-           
-           
-           
-           
-           
-           <!--<xsl:variable name="dMetslabel">
-               <xsl:for-each select="distinct-values($cMets/mets/doc/gt:state/@prop)">
-                   <xsl:variable name="prop" select="."/>
-                   <xsl:for-each select="$labelling//dlentry">
-                       <xsl:variable name="prop2" select="distinct-values(dt[text() = $prop])"/>
-                       <xsl:message select="$prop"/>
-                       <details>
-                           <summary><xsl:value-of select="distinct-values(dt[text() = $prop])"/></summary>
-                           <p><strong>Description:</strong> <xsl:value-of select="./following-sibling::dd"/></p>
-                       </details>   
-                   </xsl:for-each>
-                   
-               </xsl:for-each>
-           </xsl:variable>-->
-           
-           
            
            
            <xsl:attribute name="class">metadata</xsl:attribute>
@@ -390,11 +361,10 @@
                (PRImA-Research-Lab) at the University of Salford. 
                This normalized and semantic description of the OCR-GT data can be found in the METS metadata file. 
                The labeling metadata is created for each available page. The following labeling metadata is available for the complete collection.</xsl:element>
-           <xsl:element name="p">For a description and explanation of the labeling metadata, 
-               see: <a href="=https://ocr-d.de/en/gt-guidelines/labeling/OCR-D_GT_labeling_schema_xsd_Element_gt_gt.html#gt_gt_state_prop">Labelings</a>.</xsl:element>
+           <xsl:element name="p">Here you will find a description and explanation of the labeling metadata.</xsl:element>
            
-               <!--<xsl:copy-of select="$dMetslabel"/>-->
-           <xsl:message select="$dMetslabel"/>
+               <xsl:copy-of select="$dMetslabel"/>
+           
            
        </xsl:element>
        
