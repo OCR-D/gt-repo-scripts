@@ -33,7 +33,9 @@
                 box-shadow: inset 0px 1px 1px 0 #e2b603 !important;
             }
             
- 
+            h1.header {
+                font-size: 20px !important;
+            }
             
             #table_id.hide1 tr > *:nth-child(1) {
             display: none;
