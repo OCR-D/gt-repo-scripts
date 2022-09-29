@@ -347,7 +347,7 @@
                <xsl:for-each select="distinct-values($cMets/mets/gt:state/@prop)">
                    <xsl:sort 
                        select="." 
-                       order="descending"/>
+                       order="ascending"/>
                    <details>
                        <xsl:variable name="o" select="."/>
                    <summary><xsl:value-of select="."/></summary>
