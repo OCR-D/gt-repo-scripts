@@ -23,11 +23,6 @@ else
     cd ..
     sudo mv *.zip $path/ocrdzip_out/
     
-    # pwd;ls -l
-    
-    # mv $path/data/*.zip $path/ocrdzip_out/
-    
-    # mkdir $path/ghout/${PWD##*/};sudo mv mets.xml $path/ghout/${PWD##*/}/
 fi
 done
 
