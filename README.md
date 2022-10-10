@@ -33,7 +33,10 @@ Files in the format:
 - Analysis of the data structure, determination of the METS metadata file and afterwards creation of the Bagit files. For Bagit see: https://ocr-d.de/en/spec/ocrd_zip 
 
 **readmefolder.sh**
+- Archiving the original README file to the `readme_old` folder
 
 **xreadme.sh**
+- Determination of the README file and change of the filename extension from Markdown to XML
 
 **table_hide.css**
+- CSS stylesheet to customize the formatting of GH pages. The GH pages use the dinky template (https://pages-themes.github.io/dinky/).
