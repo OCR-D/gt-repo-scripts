@@ -30,12 +30,10 @@ Files in the format:
     - output=README ->creation of a customized README file
 
 **data_structure.sh**
-
+   Analysis of the data structure, determination of the METS metadata file and afterwards creation of the Bagit files. For Bagit see: https://ocr-d.de/en/spec/ocrd_zip 
 
 **readmefolder.sh**
 
+**xreadme.sh**
 
 **table_hide.css**
-
-
-**xreadme.sh**
