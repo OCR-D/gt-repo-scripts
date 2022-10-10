@@ -28,15 +28,33 @@ The format of the output files:
             - output=METS ->generate metadata for (METS)-Ingest in OCR-D workflow, mets.sh is generated
             - output=METSvolume->generate METS metadata for the whole corpus
             - output=README ->creation of a customized README file
+   - **:rocket: :wrench: general program call :wrench: :rocket:**
+      - ```shell
+        java -jar saxon-XX.jar -xsl:scripts/gt-overview_metadata.xsl \
+        output=XX repoBase=$GITHUB_REF_Name repoName=$GITHUB_REPOSITORY bagitDumpNum=$GITHUB_RUN_NUMBER \
+        -s:scripts/gt-overview_metadata.xsl -o:XX
+        ```  
 
 **data_structure.sh**
-- Analysis of the data structure, determination of the METS metadata file and afterwards creation of the Bagit files. For Bagit see: https://ocr-d.de/en/spec/ocrd_zip 
+- Analysis of the data structure, determination of the METS metadata file and afterwards creation of the Bagit files. For Bagit see: https://ocr-d.de/en/spec/ocrd_zip
+  - **:rocket: :wrench: general program call :wrench: :rocket:**
+      - ```shell
+         sh scripts/data_structure.sh
+        ``` 
 
 **readmefolder.sh**
 - Archiving the original README file to the `readme_old` folder
+  - **:rocket: :wrench: general program call :wrench: :rocket:**
+      - ```shell
+         sh scripts/readmefolder.sh
+        ```
 
 **xreadme.sh**
 - Determination of the README file and change of the filename extension from Markdown to XML
+  - **:rocket: :wrench: general program call :wrench: :rocket:**
+    - ```shell
+         sh scripts/xreadme.sh
+        ```
 
 **table_hide.css**
 - CSS stylesheet to customize the formatting of GH pages. The GH pages use the dinky template (https://pages-themes.github.io/dinky/).
