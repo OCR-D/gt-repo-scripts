@@ -22,8 +22,8 @@ These are centrally managed and can be used by all repositories created with the
 **Metadata parameter group:**
 - indicates that a metadata set is created for the GT corpus and the README and the README file is adapted.
     - output=METS ->generate metadata for (METS)-Ingest in OCR-D workflow, mets.sh is generated
-    - output=README ->creation of a customized README file
     - output=METSvolume->generate METS metadata for the whole corpus
+    - output=README ->creation of a customized README file
 
 **data_structure.sh**
 
