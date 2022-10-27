@@ -3378,12 +3378,19 @@
           <xsl:variable name="step1">
                <xsl:for-each select="$conMets">
                    <xsl:copy-of select="//*[not(self::fileGrp/@USE = 'DEFAULT')]"></xsl:copy-of>
-               </xsl:for-each>
- 
-              
+               </xsl:for-each>              
           </xsl:variable>
+
+
+            <xsl:variable name="cMets">
+                <mets>
+                    <xsl:for-each select="collection($conMets)">
+                        <xsl:copy-of select="//gt:state"/>
+                    </xsl:for-each>
+                </mets>
+            </xsl:variable>
            
-            <xsl:message select="$step1"></xsl:message>
+            <xsl:message select="$cMets"></xsl:message>
             
 
         </xsl:if>
