@@ -3383,15 +3383,16 @@
 
 
             <xsl:variable name="cMets">
-                <mets>
+                
+               <mets>
                     <xsl:for-each select="collection($conMets)">
-                        <xsl:value-of select="base-uri()"/>
+                        <file><xsl:copy-of select="//*[not(self::fileGrp/@USE = 'DEFAULT')]"/></file>
                     </xsl:for-each>
                 </mets>
             </xsl:variable>
 
-            <xsl:variable name="filename" select="base-uri()" />
-           <xsl:message select="$filename"></xsl:message>
+            
+
             <xsl:message select="$cMets"></xsl:message>
             
 
