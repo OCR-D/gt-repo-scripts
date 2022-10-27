@@ -3375,14 +3375,18 @@
                 
             </mets:mets>
           </xsl:if>
-        <xsl:if test="$output = 'METSdefault'">
+        
+
+      <xsl:if test="$output = 'METSdefault'">
           <xsl:variable name="cMets">
                 
                <mets>
                     <xsl:for-each select="collection($conMets)">
                         <file href="{$conMets}">
                         <xsl:attribute name="url" select="base-uri()"></xsl:attribute>
-                            <xsl:copy-of select="."/></file>
+                            <xsl:variable name="t"><xsl:copy-of select="."/></xsl:variable>
+                            <xsl:copy-of select="$t//mets:metsHdr | mets:dmdSec | mets:amdSec |  fileSec/child::*[@USE  != 'DEFAULT'] | mets:structMap | mets:structLink"/>
+                     </file>
                     </xsl:for-each>
                 </mets>
             </xsl:variable>
