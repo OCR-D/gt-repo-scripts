@@ -3376,7 +3376,7 @@
           </xsl:if>
         <xsl:if test="$output = 'METSdefault'">
           <xsl:variable name="step1">
-              <xsl:copy-of select="//$conMets//*[not(self::mets:fileGrp/@USE = 'DEFAULT')]"></xsl:copy-of>
+              <xsl:copy-of select="//$conMets//*[not(self::fileGrp/@USE = 'DEFAULT')]"></xsl:copy-of>
           </xsl:variable>
            
            <xsl:message select="$step1"></xsl:message>
