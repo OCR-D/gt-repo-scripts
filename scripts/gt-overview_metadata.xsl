@@ -3375,18 +3375,12 @@
             </mets:mets>
           </xsl:if>
         <xsl:if test="$output = 'METSdefault'">
-          <xsl:variable name="step1">
-               <xsl:for-each select="$conMets">
-                   <xsl:copy-of select="//*[not(self::fileGrp/@USE = 'DEFAULT')]"></xsl:copy-of>
-               </xsl:for-each>              
-          </xsl:variable>
-
-
-            <xsl:variable name="cMets">
+          <xsl:variable name="cMets">
                 
                <mets>
                     <xsl:for-each select="collection($conMets)">
-                        <file><xsl:copy-of select="//*[not(self::fileGrp/@USE = 'DEFAULT')]"/></file>
+                        <file href="{$conMets}">
+                            <xsl:copy-of select="//*[not(self::fileGrp/@USE = 'DEFAULT')]"/></file>
                     </xsl:for-each>
                 </mets>
             </xsl:variable>
