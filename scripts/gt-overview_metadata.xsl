@@ -8,6 +8,7 @@
     xmlns:pt="http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15"
     xmlns:in="http://www.intern.de"
     xmlns:gt="http://www.ocr-d.de/GT/"
+    xmlns:mets="http://www.loc.gov/METS/"
     exclude-result-prefixes="#all"
     version="3.0">
     <xsl:output indent="yes" omit-xml-declaration="yes" method="xml"/>
@@ -3381,7 +3382,7 @@
                     <xsl:for-each select="collection($conMets)">
                         <file href="{$conMets}">
                         <xsl:attribute name="url" select="base-uri()"></xsl:attribute>
-                            <xsl:copy-of select="//*[not(self::fileGrp/@USE = 'DEFAULT')]"/></file>
+                            <xsl:copy-of select="//*[not(self::mets:fileGrp/@USE = 'DEFAULT')]"/></file>
                     </xsl:for-each>
                 </mets>
             </xsl:variable>
