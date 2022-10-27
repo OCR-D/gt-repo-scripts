@@ -3395,7 +3395,7 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template match="fileGrp[@USE = 'DEFAULT']">
+    <xsl:template match="mets:fileGrp[@USE = 'DEFAULT']">
         <xsl:choose>
             <xsl:when test="$output = 'METSdefault'"/>
             <xsl:otherwise><xsl:apply-templates select="@* | node()"/></xsl:otherwise>
