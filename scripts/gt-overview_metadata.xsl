@@ -3385,7 +3385,7 @@
                         <file href="{$conMets}">
                         <xsl:attribute name="url" select="base-uri()"></xsl:attribute>
                             <xsl:variable name="t"><xsl:copy-of select="."/></xsl:variable>
-                            <xsl:copy-of select="$t//mets:metsHdr | $t//mets:dmdSec | $t//mets:amdSec |  $t//fileSec/child::*[@USE  != 'DEFAULT'] | $t//mets:structMap | $t//mets:structLink"/>
+                            <xsl:copy-of select="$t//mets:metsHdr | $t//mets:dmdSec | $t//mets:amdSec |  $t//mets:fileSec/child::*[@USE  != 'DEFAULT'] | $t//mets:structMap | $t//mets:structLink"/>
                      </file>
                     </xsl:for-each>
                 </mets>
