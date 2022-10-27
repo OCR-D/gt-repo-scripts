@@ -3380,6 +3380,7 @@
                <mets>
                     <xsl:for-each select="collection($conMets)">
                         <file href="{$conMets}">
+                        <xsl:attribute name="url" select="base-uri()"></xsl:attribute>
                             <xsl:copy-of select="//*[not(self::fileGrp/@USE = 'DEFAULT')]"/></file>
                     </xsl:for-each>
                 </mets>
