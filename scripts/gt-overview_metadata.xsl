@@ -3385,11 +3385,13 @@
             <xsl:variable name="cMets">
                 <mets>
                     <xsl:for-each select="collection($conMets)">
-                        <xsl:copy-of select="//gt:state"/>
+                        <xsl:value-of select="base-uri()"/>
                     </xsl:for-each>
                 </mets>
             </xsl:variable>
-           
+
+            <xsl:variable name="filename" select="base-uri()" />
+           <xsl:message select="$filename"></xsl:message>
             <xsl:message select="$cMets"></xsl:message>
             
 
