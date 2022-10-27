@@ -3382,7 +3382,7 @@
                     <xsl:for-each select="collection($conMets)">
                         <file href="{$conMets}">
                         <xsl:attribute name="url" select="base-uri()"></xsl:attribute>
-                            <xsl:copy-of select="//*[not(self::mets:fileGrp/@USE = 'DEFAULT')]"/></file>
+                            <xsl:copy-of select="."/></file>
                     </xsl:for-each>
                 </mets>
             </xsl:variable>
@@ -3394,6 +3394,16 @@
 
         </xsl:if>
     </xsl:template>
+
+    <xsl:template match="fileGrp[@USE = 'DEFAULT']">
+        <xsl:choose>
+            <xsl:when test="$output = 'METSdefault'"/>
+            <xsl:otherwise><xsl:apply-templates select="@* | node()"/></xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+
+
 </xsl:stylesheet>
 
 
