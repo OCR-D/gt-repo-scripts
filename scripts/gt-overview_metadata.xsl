@@ -3379,7 +3379,7 @@
               <xsl:copy-of select="$conMets//*[not(self::fileGrp/@USE = 'DEFAULT')]"></xsl:copy-of>
           </xsl:variable>
            
-           <xsl:message select="$step1"></xsl:message>
+            <xsl:message select="$conMets"></xsl:message>
             
 
         </xsl:if>
