@@ -3379,14 +3379,14 @@
 
       <xsl:if test="$output = 'METSdefault'">
           <xsl:variable name="cMets">
-                
                <mets>
                     <xsl:for-each select="collection($conMets)">
                         <file href="{$conMets}">
                         <xsl:attribute name="url" select="base-uri()"></xsl:attribute>
-                            <xsl:variable name="t"><xsl:copy-of select="."/></xsl:variable>
-                            <xsl:copy-of select="$t//mets:metsHdr | $t//mets:dmdSec | $t//mets:amdSec |  $t//mets:fileSec/child::*[@USE  != 'DEFAULT'] | $t//mets:structMap | $t//mets:structLink"/>
-                     </file>
+                            <xsl:variable name="t1"><xsl:copy-of select="."/></xsl:variable>
+                            <xsl:variable name="t2"><xsl:copy-of select="$t1//mets:metsHdr | $t1//mets:dmdSec | $t1//mets:amdSec |  $t1//mets:fileSec/child::*[@USE  != 'DEFAULT'] | $t1//mets:structMap | $t1//mets:structLink"/></xsl:variable>
+                            <xsl:copy-of select="$t2//*[not(self::mets:fptr/@FILEID [matches(. , 'DEFAULT_[0-9]+')])]"/>
+                        </file>
                     </xsl:for-each>
                 </mets>
             </xsl:variable>
