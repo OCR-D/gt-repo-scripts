@@ -2351,6 +2351,8 @@
                 </mets>
             </xsl:variable>
             
+
+<xsl:message select="$cMets"/>
             
             <xsl:if test="$cMets//mets = ''">
                 <xsl:for-each select="$holeMetric/array/array">
@@ -3392,14 +3394,11 @@
                         </mets:mets>
                     </xsl:result-document>
                     </xsl:for-each>
+
                 </xsl:if>
             </xsl:template>
 
-    <xsl:template match="mets:structLink">
-    <xsl:choose>
-        <xsl:when test="$output ='METSdefault'"/><xsl:otherwise><xsl:copy-of select="."/></xsl:otherwise>
-    </xsl:choose>
-    </xsl:template>
+    <xsl:template match="mets:structLink"/>
 
 
 </xsl:stylesheet>
