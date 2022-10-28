@@ -3392,16 +3392,14 @@
                         </mets:mets>
                     </xsl:result-document>
                     </xsl:for-each>
+                </xsl:if>
+            </xsl:template>
 
-            
-
-            
-            
-
-        </xsl:if>
+    <xsl:template match="mets:structLink">
+    <xsl:choose>
+        <xsl:when test="$output ='METSdefault'"/><xsl:otherwise><xsl:copy-of select="."/></xsl:otherwise>
+    </xsl:choose>
     </xsl:template>
-
-    
 
 
 </xsl:stylesheet>
