@@ -3377,10 +3377,11 @@
                 
             </mets:mets>
           </xsl:if>
+    </xsl:template>
         
-
-      <xsl:if test="$output = 'METSdefault'">
-                  <xsl:for-each select="collection($conMets)">
+<xsl:template match="/" priority="10">
+      <xsl:if test="$output = 'METSdefault'"> 
+                 <xsl:for-each select="collection($conMets)">
                       <xsl:variable name="filename" select="tokenize(base-uri(), '/')[last() - 1]"/>
                       <xsl:result-document href="ghout/test_{$filename}_mets.xml">
                         <mets:mets
@@ -3390,15 +3391,15 @@
                             xmlns:mods="http://www.loc.gov/mods/v3">
                             <xsl:variable name="t1"><xsl:copy-of select="."/></xsl:variable>
                             <xsl:variable name="t2"><xsl:copy-of copy-namespaces="no" select="$t1//mets:metsHdr | $t1//mets:dmdSec | $t1//mets:amdSec |  $t1//mets:fileSec/child::*[@USE  != 'DEFAULT'] | $t1//mets:structMap | $t1//mets:structLink"/></xsl:variable>
-                            <xsl:copy-of copy-namespaces="no" select="$t2//*[not(self::mets:fptr/@FILEID [matches(. , 'DEFAULT_[0-9]+')])]"/>
+                            <xsl:copy-of copy-namespaces="no" select="$t2//mets:fptr[@FILEID [matches(. , 'OCR[A-Z\-]+_[0-9]+')]]"/>
                         </mets:mets>
                     </xsl:result-document>
                     </xsl:for-each>
 
                 </xsl:if>
-            </xsl:template>
+</xsl:template>            
 
-    <xsl:template match="mets:structLink"/>
+    <xsl:template match="mets:structLink" priority="10"/>
 
 
 </xsl:stylesheet>
