@@ -3381,12 +3381,15 @@
                   <xsl:for-each select="collection($conMets)">
                     <xsl:variable name="filename" select="base-uri()"/>
                     <xsl:result-document href="$filname">
-                        <file href="{$conMets}">
-                        <xsl:attribute name="url" select="base-uri()"></xsl:attribute>
+                        <mets:mets
+                            xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/"
+                            xmlns:dv="http://dfg-viewer.de/" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xmlns:mods="http://www.loc.gov/mods/v3">
                             <xsl:variable name="t1"><xsl:copy-of select="."/></xsl:variable>
                             <xsl:variable name="t2"><xsl:copy-of select="$t1//mets:metsHdr | $t1//mets:dmdSec | $t1//mets:amdSec |  $t1//mets:fileSec/child::*[@USE  != 'DEFAULT'] | $t1//mets:structMap | $t1//mets:structLink"/></xsl:variable>
                             <xsl:copy-of select="$t2//*[not(self::mets:fptr/@FILEID [matches(. , 'DEFAULT_[0-9]+')])]"/>
-                        </file>
+                        </mets:mets>
                     </xsl:result-document>
                     </xsl:for-each>
 
@@ -3398,13 +3401,7 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template match="mets:fileGrp[@USE = 'DEFAULT']">
-        <xsl:choose>
-            <xsl:when test="$output = 'METSdefault'"/>
-            <xsl:otherwise><xsl:apply-templates select="@* | node()"/></xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-
+    
 
 
 </xsl:stylesheet>
