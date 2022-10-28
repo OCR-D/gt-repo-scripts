@@ -3381,8 +3381,8 @@
 
       <xsl:if test="$output = 'METSdefault'">
                   <xsl:for-each select="collection($conMets)">
-                    <xsl:variable name="filename" select="tokenize(base-uri(), '/')[last()]"/>
-                      <xsl:result-document href="ghout/test_{$filename}">
+                      <xsl:variable name="filename" select="tokenize(base-uri(), '/')[last() - 1]"/>
+                      <xsl:result-document href="ghout/test_{$filename}_mets.xml">
                         <mets:mets
                             xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
                             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/"
