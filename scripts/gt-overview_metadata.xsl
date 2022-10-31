@@ -3390,8 +3390,36 @@
                             xmlns:dv="http://dfg-viewer.de/" xmlns:xlink="http://www.w3.org/1999/xlink"
                             xmlns:mods="http://www.loc.gov/mods/v3">
                             <xsl:variable name="t1"><xsl:copy-of select="."/></xsl:variable>
-                            <xsl:variable name="t2"><xsl:copy-of copy-namespaces="no" select="$t1//mets:metsHdr | $t1//mets:dmdSec | $t1//mets:amdSec |  $t1//mets:fileSec/child::*[@USE  != 'DEFAULT'] | $t1//mets:structMap | $t1//mets:structLink"/></xsl:variable>
-                            <xsl:copy-of copy-namespaces="no" select="$t2//mets:fptr[@FILEID [matches(. , 'OCR[A-Z\-]+_[0-9]+')]]"/>
+                            <xsl:variable name="t2">
+                                <mets:structMap TYPE="PHYSICAL">
+                                    <mets:div TYPE="physSequence">
+                                        <xsl:attribute name="ID"></xsl:attribute>
+                                        <xsl:attribute name="DMDID"></xsl:attribute>
+                                        <xsl:for-each select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/mets:div[@TYPE='page']">
+                                            <mets:div TYPE="page">
+                                                <xsl:attribute name="ORDER"></xsl:attribute>
+                                                <xsl:attribute name="ID"></xsl:attribute>
+                                                <xsl:attribute name="DMDID"></xsl:attribute>
+                                                <xsl:for-each select="mets:fptr[@FILEID != .[matches(.,'DEFAULT[_0-9A-Z]+')]]">
+                                                    <mets:fptr>
+                                                        <xsl:attribute name="FILEID" select="@FILEID"/>
+                                                    </mets:fptr>
+                                                </xsl:for-each>
+                                            </mets:div>
+                                        </xsl:for-each>
+                                    </mets:div>
+                                </mets:structMap>
+                            </xsl:variable>
+                            <xsl:variable name="t3">
+                                <xsl:copy-of copy-namespaces="no" select="$t1//mets:metsHdr 
+                                    | $t1//mets:dmdSec 
+                                    | $t1//mets:amdSec 
+                                    | $t1//mets:fileSec/child::*[@USE  != 'DEFAULT'] 
+                                    | $t1//mets:structMap[@TYPE='LOGICAL']
+                                    | $t2
+                                    | $t1//mets:structLink"/>
+                            </xsl:variable>
+                            <xsl:message select="$t3"></xsl:message>
                         </mets:mets>
                     </xsl:result-document>
                     </xsl:for-each>
