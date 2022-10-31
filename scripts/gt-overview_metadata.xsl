@@ -3393,8 +3393,8 @@
                             <xsl:variable name="t2">
                                 <mets:structMap TYPE="PHYSICAL">
                                     <mets:div TYPE="physSequence">
-                                        <xsl:attribute name="ID"></xsl:attribute>
-                                        <xsl:attribute name="DMDID"></xsl:attribute>
+                                        <xsl:attribute name="ID" select="@ID"/>
+                                        <xsl:attribute name="DMDID" select="@DMDID"/>
                                         <xsl:for-each select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/mets:div[@TYPE='page']">
                                             <mets:div TYPE="page">
                                                 <xsl:attribute name="ORDER" select="@ORDER"/>
