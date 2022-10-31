@@ -3399,7 +3399,7 @@
                                             <mets:div TYPE="page">
                                                 <xsl:attribute name="ORDER" select="@ORDER"/>
                                                 <xsl:attribute name="ID" select="@ID"/>
-                                                <xsl:attribute name="DMDID" select="@DMID"/>
+                                                <xsl:attribute name="DMDID" select="@DMDID"/>
                                                 <xsl:for-each select="mets:fptr">
                                                     <xsl:choose>
                                                         <xsl:when test="fn:matches(./@FILEID, 'DEFAULT[_0-9A-Z]+')"/>
