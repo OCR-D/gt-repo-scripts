@@ -3382,13 +3382,15 @@
 <xsl:template match="/">
       <xsl:if test="$output = 'METSdefault'"> 
                  <xsl:for-each select="collection($conMets)">
+                      <xsl:variable name="file" select="base-uri()"/>
                       <xsl:variable name="filename" select="tokenize(base-uri(), '/')[last() - 1]"/>
                       <xsl:result-document href="ghout/test_{$filename}_mets.xml">
                         <mets:mets
                             xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
                             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/"
                             xmlns:dv="http://dfg-viewer.de/" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            xmlns:mods="http://www.loc.gov/mods/v3">
+                            xmlns:mods="http://www.loc.gov/mods/v3"
+                            url="{$file}">
                             <xsl:variable name="t1"><xsl:copy-of select="."/></xsl:variable>
                             <xsl:variable name="t2">
                                 <mets:structMap TYPE="PHYSICAL">
@@ -3397,7 +3399,7 @@
                                         <xsl:attribute name="DMDID" select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/@DMDID"/>
                                         <xsl:for-each select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/mets:div[@TYPE='page']">
                                             <mets:div TYPE="page">
-                                                <xsl:attribute name="url" select="base-uri()"/>
+                                                
                                                 <xsl:attribute name="ORDER" select="@ORDER"/>
                                                 <xsl:attribute name="ID" select="@ID"/>
                                                 <xsl:attribute name="DMDID" select="@DMDID"/>
