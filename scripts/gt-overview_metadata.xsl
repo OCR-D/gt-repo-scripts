@@ -3397,13 +3397,19 @@
                                         <xsl:attribute name="DMDID"></xsl:attribute>
                                         <xsl:for-each select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/mets:div[@TYPE='page']">
                                             <mets:div TYPE="page">
-                                                <xsl:attribute name="ORDER"></xsl:attribute>
-                                                <xsl:attribute name="ID"></xsl:attribute>
-                                                <xsl:attribute name="DMDID"></xsl:attribute>
-                                                <xsl:for-each select="mets:fptr[@FILEID != .[matches(.,'DEFAULT[_0-9A-Z]+')]]">
-                                                    <mets:fptr>
-                                                        <xsl:attribute name="FILEID" select="@FILEID"/>
-                                                    </mets:fptr>
+                                                <xsl:attribute name="ORDER" select="@ORDER"/>
+                                                <xsl:attribute name="ID" select="@ID"/>
+                                                <xsl:attribute name="DMDID" select="@DMID"/>
+                                                <xsl:for-each select="mets:fptr">
+                                                    <xsl:choose>
+                                                        <xsl:when test="fn:matches(./@FILEID, 'DEFAULT[_0-9A-Z]+')"/>
+                                                        <xsl:otherwise><mets:fptr>
+                                                            <xsl:attribute name="FILEID" select="@FILEID"/>
+                                                        </mets:fptr></xsl:otherwise>
+                                                    </xsl:choose>
+                                                    
+                                                    
+                                                    
                                                 </xsl:for-each>
                                             </mets:div>
                                         </xsl:for-each>
