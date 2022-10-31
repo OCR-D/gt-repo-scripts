@@ -3397,6 +3397,7 @@
                                         <xsl:attribute name="DMDID" select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/@DMDID"/>
                                         <xsl:for-each select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/mets:div[@TYPE='page']">
                                             <mets:div TYPE="page">
+                                                <xsl:attribute name="url" select="base-uri()"/>
                                                 <xsl:attribute name="ORDER" select="@ORDER"/>
                                                 <xsl:attribute name="ID" select="@ID"/>
                                                 <xsl:attribute name="DMDID" select="@DMDID"/>
@@ -3432,14 +3433,9 @@
                         </mets:mets>
                     </xsl:result-document>
                     </xsl:for-each>
-
-                </xsl:if>
-</xsl:template>            
-
-    <xsl:template match="mets:structLink" priority="10"/>
-
-
-</xsl:stylesheet>
+                    </xsl:if>
+                </xsl:template>            
+    </xsl:stylesheet>
 
 
 
