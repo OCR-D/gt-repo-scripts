@@ -3422,7 +3422,7 @@
                                     | $t1//mets:amdSec 
                                     | $t1//mets:fileSec/child::*[@USE  != 'DEFAULT'] 
                                     | $t1//mets:structMap[@TYPE='LOGICAL']
-                                    | $t2
+                                    | $t2//mets:structMap[@TYPE='PHYSICAL']
                                     | $t1//mets:structLink"/>
                             </xsl:variable>
                             <xsl:copy-of copy-namespaces="no" select="$t3"/>
