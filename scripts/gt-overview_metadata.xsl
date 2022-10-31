@@ -3419,7 +3419,7 @@
                                     | $t2
                                     | $t1//mets:structLink"/>
                             </xsl:variable>
-                            <xsl:message select="$t3"></xsl:message>
+                            <xsl:message select="$t2"></xsl:message>
                         </mets:mets>
                     </xsl:result-document>
                     </xsl:for-each>
