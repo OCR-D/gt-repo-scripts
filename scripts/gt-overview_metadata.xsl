@@ -3417,15 +3417,18 @@
                                 </mets:structMap>
                             </xsl:variable>
                             <xsl:variable name="t3">
+                                <xsl:copy-of copy-namespaces="no" select="$t1//mets:structLink"/>
+                            </xsl:variable>
+                            <xsl:variable name="t4">
                                 <xsl:copy-of copy-namespaces="no" select="$t1//mets:metsHdr 
                                     | $t1//mets:dmdSec 
                                     | $t1//mets:amdSec 
                                     | $t1//mets:fileSec/child::*[@USE  != 'DEFAULT'] 
                                     | $t1//mets:structMap[@TYPE='LOGICAL']
                                     | $t2//mets:structMap[@TYPE='PHYSICAL']
-                                    | $t1//mets:structLink"/>
+                                    | $t3//mets:structLink"/>
                             </xsl:variable>
-                            <xsl:copy-of copy-namespaces="no" select="$t3"/>
+                            <xsl:copy-of copy-namespaces="no" select="$t4"/>
                         </mets:mets>
                     </xsl:result-document>
                     </xsl:for-each>
