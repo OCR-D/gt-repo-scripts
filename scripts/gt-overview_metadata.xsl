@@ -3379,7 +3379,7 @@
           </xsl:if>
     </xsl:template>
         
-<xsl:template match="/" priority="10">
+<xsl:template match="/">
       <xsl:if test="$output = 'METSdefault'"> 
                  <xsl:for-each select="collection($conMets)">
                       <xsl:variable name="filename" select="tokenize(base-uri(), '/')[last() - 1]"/>
@@ -3425,7 +3425,7 @@
                                     | $t2
                                     | $t1//mets:structLink"/>
                             </xsl:variable>
-                            <xsl:message select="$t2"></xsl:message>
+                            <xsl:copy-of copy-namespaces="no" select="$t3"/>
                         </mets:mets>
                     </xsl:result-document>
                     </xsl:for-each>
