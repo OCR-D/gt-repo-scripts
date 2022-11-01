@@ -27,6 +27,7 @@ The format of the output files:
         - indicates that a metadata set is created for the GT corpus and the README and the README file is adapted.
             - output=METS ->generate metadata for (METS)-Ingest in OCR-D workflow, mets.sh is generated
             - output=METSvolume->generate METS metadata for the whole corpus
+            - output=METSdefault->generate METS metadata file without DEFAULT fileGrp (file Group), the METS file(s) contains only the Realease files
             - output=README ->creation of a customized README file
    - **:rocket: :wrench: general program call :wrench: :rocket:**
       - ```shell
