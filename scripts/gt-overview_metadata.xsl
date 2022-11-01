@@ -3377,9 +3377,9 @@
                 
             </mets:mets>
           </xsl:if>
-    </xsl:template>
+
         
-<xsl:template match="/">
+
       <xsl:if test="$output = 'METSdefault'"> 
                  <xsl:for-each select="collection($conMets)">
                       <xsl:variable name="file" select="base-uri()"/>
@@ -3436,7 +3436,7 @@
                     </xsl:result-document>
                     </xsl:for-each>
                     </xsl:if>
-                </xsl:template>            
+    </xsl:template>
     </xsl:stylesheet>
 
 
