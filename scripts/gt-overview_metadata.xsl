@@ -3325,25 +3325,24 @@
                                 <gt:state prop="content-type/corpus"/>
                                 <gt:state prop="platform/platform-independent"/>
                                 <gt:state prop="content-encoding/structured"/>
-                                
                                 <xsl:if test="$holeMetric//string[@key=$key17] ='true'"><gt:state prop="activityDomain/computing/visual/analysisRecognition/text"/></xsl:if>
                                 <xsl:if test="$holeMetric//string[@key=$key17] ='true'"><gt:state prop="activityDomain/computing/visual/analysisRecognition/ocr"/></xsl:if>
-                                <xsl:if test="$holeMetric//string[@key=$key5] !=''"><gt:state prop="activityDomain/computing/visual/analysisRecognition/tables"/></xsl:if>
-                                <xsl:if test="$holeMetric//string[@key=$key1] !=''"><gt:state prop="activityDomain/computing/visual/analysisRecognition/layoutAnalysis"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key5] !='0'"><gt:state prop="activityDomain/computing/visual/analysisRecognition/tables"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key1] !='0'"><gt:state prop="activityDomain/computing/visual/analysisRecognition/layoutAnalysis"/></xsl:if>
                                 <xsl:if test="$holeMetric//string[@key=$key17] ='true'"><gt:state prop="contentOfInterest/visual/text"/></xsl:if>
-                                <xsl:if test="$holeMetric//string[@key=$key4] !=''"><gt:state prop="contentOfInterest/visual/graphical"/></xsl:if>
-                                <xsl:if test="$holeMetric//string[@key=$key7] !=''"><gt:state prop="contentOfInterest/visual/graphical/separator"/></xsl:if>
-                                <xsl:if test="$holeMetric//string[@key=$key2] !=''"><gt:state prop="contentOfInterest/visual/image"/></xsl:if>
-                                <xsl:if test="$holeMetric//string[@key=$key3] !=''"><gt:state prop="contentOfInterest/visual/image/drawing"/></xsl:if>
-                                <xsl:if test="$holeMetric//string[@key=$key5] !=''"><gt:state prop="contentOfInterest/visual/composite/tables"/></xsl:if>
-                                <xsl:if test="$holeMetric//string[@key=$key18] !=''"><gt:state prop="contentOfInterest/visual/composite/maps"/></xsl:if>
-                                <xsl:if test="$holeMetric//string[@key=$key19] !=''"><gt:state prop="contentOfInterest/visual/composite/charts"/></xsl:if>
-                                <xsl:if test="$holeMetric//string[@key=$key8] !=''"><gt:state prop="contentOfInterest/visual/composite/maths"/></xsl:if>
-                                <xsl:if test="$holeMetric//string[@key=$key9] !=''"><gt:state prop="contentOfInterest/visual/composite/chem"/></xsl:if>
-                                <xsl:if test="$holeMetric//string[@key=$key10] !=''"><gt:state prop="contentOfInterest/visual/composite/music"/></xsl:if>
-                                <xsl:if test="$holeMetric//string[@key=$key16] !=''"><gt:state prop="granularity/physical/document-related/page"/></xsl:if>
-                                <xsl:if test="$holeMetric//string[@key=$key15] !=''"><gt:state prop="granularity/physical/document-related/text-line"/></xsl:if>
-                                <xsl:if test="$holeMetric//string[@key=$key20] !=''"><gt:state prop="granularity/physical/document-related/word"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key4] !='0'"><gt:state prop="contentOfInterest/visual/graphical"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key7] !='0'"><gt:state prop="contentOfInterest/visual/graphical/separator"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key2] !='0'"><gt:state prop="contentOfInterest/visual/image"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key3] !='0'"><gt:state prop="contentOfInterest/visual/image/drawing"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key5] !='0'"><gt:state prop="contentOfInterest/visual/composite/tables"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key18] !='0'"><gt:state prop="contentOfInterest/visual/composite/maps"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key19] !='0'"><gt:state prop="contentOfInterest/visual/composite/charts"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key8] !='0'"><gt:state prop="contentOfInterest/visual/composite/maths"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key9] !='0'"><gt:state prop="contentOfInterest/visual/composite/chem"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key10] !='0'"><gt:state prop="contentOfInterest/visual/composite/music"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key16] !='0'"><gt:state prop="granularity/physical/document-related/page"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key15] !='0'"><gt:state prop="granularity/physical/document-related/text-line"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key20] !='0'"><gt:state prop="granularity/physical/document-related/word"/></xsl:if>
                                 <xsl:if test="$holeMetric//string[@key=$key21] ='true'"><gt:state prop="granularity/logical/document-related/paragraph"/></xsl:if>
                                 <xsl:if test="$holeMetric//string[@key=$key22] ='true'"><gt:state prop="data-attributes/document-related/structural/footnotes"/></xsl:if>
                                 <xsl:if test="$holeMetric//string[@key=$key23] ='true'"><gt:state prop="data-attributes/document-related/structural/footnote-continued"/></xsl:if>
