@@ -80,7 +80,18 @@
     <xsl:variable name="key14">countCustomRegion</xsl:variable>
     <xsl:variable name="key15">countTextLine</xsl:variable>
     <xsl:variable name="key16">countPage</xsl:variable>
-    
+    <xsl:variable name="key17">identifyText</xsl:variable>
+    <xsl:variable name="key18">countMapRegion</xsl:variable>
+    <xsl:variable name="key19">countChartRegion</xsl:variable>
+    <xsl:variable name="key20">countWord</xsl:variable>
+    <xsl:variable name="key21">identifyParagraph</xsl:variable>
+    <xsl:variable name="key22">identifyFootnote</xsl:variable>
+    <xsl:variable name="key23">identifyFootnote-continued</xsl:variable>
+    <xsl:variable name="key24">identifyEndnote</xsl:variable>
+    <xsl:variable name="key25">identifyHeader</xsl:variable>
+    <xsl:variable name="key26">identifyDecorations</xsl:variable>
+    <xsl:variable name="key27">identifyStamp</xsl:variable>
+    <xsl:variable name="key28">identifyDrop-caps</xsl:variable>
     
     <xsl:variable name="tableHeader">
         <thead>                
@@ -159,6 +170,20 @@
                              <string key="{$key14}"><xsl:value-of select="count(document($filename)//*/*[local-name()='CustomRegion'])"/></string>
                              <string key="{$key15}"><xsl:value-of select="count(document($filename)//*/*[local-name()='TextLine'])"/></string>
                              <string key="{$key16}"><xsl:value-of select="count(document($filename)//*/*[local-name()='Page'])"/></string>
+                             <string key="{$key17}"><xsl:value-of select="document($filename)//*/*[local-name()='Unicode']/text() != ''"/></string>
+                             <string key="{$key18}"><xsl:value-of select="count(document($filename)//*/*[local-name()='MapRegion'])"/></string>
+                             <string key="{$key19}"><xsl:value-of select="count(document($filename)//*/*[local-name()='ChartRegion'])"/></string>
+                             <string key="{$key20}"><xsl:value-of select="count(document($filename)//*/*[local-name()='Word'])"/></string>
+                             <string key="{$key21}"><xsl:value-of select="document($filename)//*/*[local-name()='TextRegion']/@*[local-name()='type']='paragraph'"/></string>
+                             <string key="{$key22}"><xsl:value-of select="document($filename)//*/*[local-name()='TextRegion']/@*[local-name()='type']='footnote'"/></string>
+                             <string key="{$key23}"><xsl:value-of select="document($filename)//*/*[local-name()='TextRegion']/@*[local-name()='type']='footnote-continued'"/></string>
+                             <string key="{$key24}"><xsl:value-of select="document($filename)//*/*[local-name()='TextRegion']/@*[local-name()='type']='endnote'"/></string>
+                             <string key="{$key25}"><xsl:value-of select="document($filename)//*/*[local-name()='TextRegion']/@*[local-name()='type']='header'"/></string>
+                             <string key="{$key26}"><xsl:value-of select="document($filename)//*/*[local-name()='GraphicRegion']/@*[local-name()='type']='decorations'"/></string>
+                             <string key="{$key27}"><xsl:value-of select="document($filename)//*/*[local-name()='GraphicRegion']/@*[local-name()='type']='stamp'"/></string>
+                             <string key="{$key28}"><xsl:value-of select="document($filename)//*/*[local-name()='TextRegion']/@*[local-name()='type']='drop-capital'"/></string>
+                             
+                             
                             
                             
                         </xsl:element>
@@ -3285,6 +3310,11 @@
                 </xsl:for-each>
                 </xsl:variable>
                 
+                <!-- automatic labeling -->
+                
+
+
+
                 <!-- Informationen zum Labelling gesamte Sammlung-->
                 <mets:dmdSec>
                     <!--<xsl:message select="$cMets"/>-->
@@ -3292,6 +3322,54 @@
                     <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="GT">
                         <mets:xmlData>
                             <gt:gt xmlns:gt="http://www.ocr-d.de/GT/">
+                                <gt:state prop="content-type/corpus"/>
+                                <gt:state prop="platform/platform-independent"/>
+                                <gt:state prop="content-encoding/structured"/>
+                                
+                                <xsl:if test="$holeMetric//string[@key=$key17] ='true'"><gt:state prop="activityDomain/computing/visual/analysisRecognition/text"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key17] ='true'"><gt:state prop="activityDomain/computing/visual/analysisRecognition/ocr"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key5] !=''"><gt:state prop="activityDomain/computing/visual/analysisRecognition/tables"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key1] !=''"><gt:state prop="activityDomain/computing/visual/analysisRecognition/layoutAnalysis"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key17] ='true'"><gt:state prop="contentOfInterest/visual/text"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key4] !=''"><gt:state prop="contentOfInterest/visual/graphical"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key7] !=''"><gt:state prop="contentOfInterest/visual/graphical/separator"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key2] !=''"><gt:state prop="contentOfInterest/visual/image"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key3] !=''"><gt:state prop="contentOfInterest/visual/image/drawing"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key5] !=''"><gt:state prop="contentOfInterest/visual/composite/tables"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key18] !=''"><gt:state prop="contentOfInterest/visual/composite/maps"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key19] !=''"><gt:state prop="contentOfInterest/visual/composite/charts"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key8] !=''"><gt:state prop="contentOfInterest/visual/composite/maths"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key9] !=''"><gt:state prop="contentOfInterest/visual/composite/chem"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key10] !=''"><gt:state prop="contentOfInterest/visual/composite/music"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key16] !=''"><gt:state prop="granularity/physical/document-related/page"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key15] !=''"><gt:state prop="granularity/physical/document-related/text-line"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key20] !=''"><gt:state prop="granularity/physical/document-related/word"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key21] ='true'"><gt:state prop="granularity/logical/document-related/paragraph"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key22] ='true'"><gt:state prop="data-attributes/document-related/structural/footnotes"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key23] ='true'"><gt:state prop="data-attributes/document-related/structural/footnote-continued"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key24] ='true'"><gt:state prop="data-attributes/document-related/structural/endnote"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key25] ='true'"><gt:state prop="data-attributes/document-related/structural/running-titles"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key26] ='true'"><gt:state prop="data-attributes/document-related/visual/decorations"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key27] ='true'"><gt:state prop="condition/wear/additions/informative/stamps"/></xsl:if>
+                                <xsl:if test="$holeMetric//string[@key=$key28] ='true'"><gt:state prop="data-attributes/document-related/visual/text/drop-caps"/></xsl:if>
+
+                                
+                                
+                                
+                                   <!-- granularity/logical/table
+                                    granularity/logical/table/column
+                                    granularity/logical/table/row
+                                    granularity/logical/table/cell-->
+                                    
+
+                                                    
+                                                    
+                                                    
+                                                    
+
+
+
+
                                 <xsl:copy-of select="$dMetslabel"/>
                             </gt:gt>
                         </mets:xmlData>
