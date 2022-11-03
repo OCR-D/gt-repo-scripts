@@ -193,7 +193,7 @@
                     </xsl:element>
               </xsl:variable>
         
-        <!--<xsl:message select="$holeMetric"></xsl:message>-->
+        <xsl:message select="$holeMetric"></xsl:message>
         
             <xsl:variable name="k15">
                 <xsl:for-each select="$holeMetric/array">
