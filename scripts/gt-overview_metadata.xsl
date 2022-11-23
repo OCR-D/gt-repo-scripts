@@ -82,7 +82,6 @@
     <xsl:variable name="key16">countPage</xsl:variable>
     <xsl:variable name="key17">identifyText</xsl:variable>
     <xsl:variable name="key18">countMapRegion</xsl:variable>
-    <xsl:variable name="key19">countChartRegion</xsl:variable>
     <xsl:variable name="key20">countWord</xsl:variable>
     <xsl:variable name="key21">identifyParagraph</xsl:variable>
     <xsl:variable name="key22">identifyFootnote</xsl:variable>
@@ -172,7 +171,6 @@
                              <string key="{$key16}"><xsl:value-of select="count(document($filename)//*/*[local-name()='Page'])"/></string>
                              <string key="{$key17}"><xsl:value-of select="document($filename)//*/*[local-name()='Unicode']/text() != ''"/></string>
                              <string key="{$key18}"><xsl:value-of select="count(document($filename)//*/*[local-name()='MapRegion'])"/></string>
-                             <string key="{$key19}"><xsl:value-of select="count(document($filename)//*/*[local-name()='ChartRegion'])"/></string>
                              <string key="{$key20}"><xsl:value-of select="count(document($filename)//*/*[local-name()='Word'])"/></string>
                              <string key="{$key21}"><xsl:value-of select="document($filename)//*/*[local-name()='TextRegion']/@*[local-name()='type']='paragraph'"/></string>
                              <string key="{$key22}"><xsl:value-of select="document($filename)//*/*[local-name()='TextRegion']/@*[local-name()='type']='footnote'"/></string>
@@ -377,7 +375,7 @@
                        <xsl:if test="$holeMetric//string[@key=$key3] !='0'"><gt:state prop="contentOfInterest/visual/image/drawing"/></xsl:if>
                        <xsl:if test="$holeMetric//string[@key=$key5] !='0'"><gt:state prop="contentOfInterest/visual/composite/tables"/></xsl:if>
                        <xsl:if test="$holeMetric//string[@key=$key18] !='0'"><gt:state prop="contentOfInterest/visual/composite/maps"/></xsl:if>
-                       <xsl:if test="$holeMetric//string[@key=$key19] !='0'"><gt:state prop="contentOfInterest/visual/composite/charts"/></xsl:if>
+                       <xsl:if test="$holeMetric//string[@key=$key6] !='0'"><gt:state prop="contentOfInterest/visual/composite/charts"/></xsl:if>
                        <xsl:if test="$holeMetric//string[@key=$key8] !='0'"><gt:state prop="contentOfInterest/visual/composite/maths"/></xsl:if>
                        <xsl:if test="$holeMetric//string[@key=$key9] !='0'"><gt:state prop="contentOfInterest/visual/composite/chem"/></xsl:if>
                        <xsl:if test="$holeMetric//string[@key=$key10] !='0'"><gt:state prop="contentOfInterest/visual/composite/music"/></xsl:if>
@@ -3365,7 +3363,7 @@
                             <xsl:if test="$holeMetric//string[@key=$key3] !='0'"><gt:state prop="contentOfInterest/visual/image/drawing"/></xsl:if>
                             <xsl:if test="$holeMetric//string[@key=$key5] !='0'"><gt:state prop="contentOfInterest/visual/composite/tables"/></xsl:if>
                             <xsl:if test="$holeMetric//string[@key=$key18] !='0'"><gt:state prop="contentOfInterest/visual/composite/maps"/></xsl:if>
-                            <xsl:if test="$holeMetric//string[@key=$key19] !='0'"><gt:state prop="contentOfInterest/visual/composite/charts"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key6] !='0'"><gt:state prop="contentOfInterest/visual/composite/charts"/></xsl:if>
                             <xsl:if test="$holeMetric//string[@key=$key8] !='0'"><gt:state prop="contentOfInterest/visual/composite/maths"/></xsl:if>
                             <xsl:if test="$holeMetric//string[@key=$key9] !='0'"><gt:state prop="contentOfInterest/visual/composite/chem"/></xsl:if>
                             <xsl:if test="$holeMetric//string[@key=$key10] !='0'"><gt:state prop="contentOfInterest/visual/composite/music"/></xsl:if>
