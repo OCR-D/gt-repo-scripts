@@ -18,7 +18,6 @@ else
     cat $path/scripts/mets.sh # for GH actions log
     sh $path/scripts/mets.sh
     cd $p
-    ls
     ocrd zip bag -i ocrd_data_structur_${PWD##*/}
     cd $p
     cd ..
