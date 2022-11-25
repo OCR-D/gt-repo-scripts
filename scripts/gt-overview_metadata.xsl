@@ -2547,8 +2547,8 @@
                 
                 
                 <!-- Informationen zum Labelling -->
-                <xsl:variable name="cMets">
-                    <!--<mets>
+                <!--<xsl:variable name="cMets">
+                    <mets>
                         <xsl:for-each select="collection($conMets)">
                             <xsl:copy-of select="//gt:state"/>
                             <gt:state prop="content-type/corpus"/>
@@ -2592,16 +2592,16 @@
                             
                             
                         </xsl:for-each>
-                    </mets>-->
-                </xsl:variable>
+                    </mets>
+                </xsl:variable>-->
                 
-                <xsl:variable name="dMetslabel">
+                <!--<xsl:variable name="dMetslabel">
                     <xsl:for-each select="distinct-values($cMets/mets/gt:state/@prop)">
                         <gt:state>
                             <xsl:attribute name="prop"><xsl:value-of select="."/></xsl:attribute>
                         </gt:state>
                     </xsl:for-each>
-                </xsl:variable>
+                </xsl:variable>-->
                 
                 <!-- automatic labeling -->
                 
@@ -2615,7 +2615,7 @@
                     <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="GT">
                         <mets:xmlData>
                             <gt:gt xmlns:gt="http://www.ocr-d.de/GT/">
-                                <xsl:copy-of select="$dMetslabel"/>
+                                <!--<xsl:copy-of select="$dMetslabel"/>-->
                             </gt:gt>
                         </mets:xmlData>
                     </mets:mdWrap>
@@ -2632,7 +2632,7 @@
                     <mets:dmdSec>
                         <xsl:attribute name="ID">dmgt_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
                         
-                        <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="GT">
+                        <!--<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="GT">
                             <mets:xmlData>
                                 <gt:gt xmlns:gt="http://www.ocr-d.de/GT/">
                                     <xsl:for-each select="distinct-values($cMets//doc[fn:position() = $filenum]/gt:state/@prop)">
@@ -2642,7 +2642,7 @@
                                     </xsl:for-each>
                                 </gt:gt>
                             </mets:xmlData>
-                        </mets:mdWrap>
+                        </mets:mdWrap>-->
                     </mets:dmdSec>
                 </xsl:for-each>
                 
