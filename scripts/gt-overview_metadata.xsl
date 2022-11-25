@@ -2544,10 +2544,12 @@
                 </mets:dmdSec>
                 
                 
+                
+                
                 <!-- Informationen zum Labelling -->
                 <xsl:variable name="cMets">
                     <mets>
-                        <xsl:for-each select="collection($conMets)">
+                        <xsl:for-each select="collection(nets.xml)">
                             <xsl:copy-of select="//gt:state"/>
                             <gt:state prop="content-type/corpus"/>
                             <gt:state prop="platform/platform-independent"/>
