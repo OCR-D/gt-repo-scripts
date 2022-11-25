@@ -2548,8 +2548,8 @@
                 
                 <!-- Informationen zum Labelling -->
                 <xsl:variable name="cMets">
-                    <mets>
-                        <xsl:for-each select="collection(nets.xml)">
+                    <!--<mets>
+                        <xsl:for-each select="collection($conMets)">
                             <xsl:copy-of select="//gt:state"/>
                             <gt:state prop="content-type/corpus"/>
                             <gt:state prop="platform/platform-independent"/>
@@ -2585,14 +2585,14 @@
                             
                             
                             
-                            <!-- granularity/logical/table
+                            <!-\- granularity/logical/table
                                     granularity/logical/table/column
                                     granularity/logical/table/row
-                                    granularity/logical/table/cell-->
+                                    granularity/logical/table/cell-\->
                             
                             
                         </xsl:for-each>
-                    </mets>
+                    </mets>-->
                 </xsl:variable>
                 
                 <xsl:variable name="dMetslabel">
