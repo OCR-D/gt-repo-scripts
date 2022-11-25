@@ -2474,6 +2474,240 @@
                 </xsl:for-each>
             </xsl:if>
             </xsl:if>
+
+
+
+        <xsl:if test="$output = 'METSMETADATA'">
+            <mets:mets
+                xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/"
+                xmlns:dv="http://dfg-viewer.de/" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:mods="http://www.loc.gov/mods/v3">
+                <mets:metsHdr>
+                    <xsl:attribute name="LASTMODDATE"><xsl:value-of select="$dat"/></xsl:attribute>
+                    <mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+                        <mets:name>ocrd</mets:name>
+                    </mets:agent>
+                </mets:metsHdr>
+                
+                <!-- Bibliographische Beschreibung des gesamten Dokuments (Gesamtaufnahme) -->
+                <mets:dmdSec ID="dmd_000">
+                    <mets:mdWrap MDTYPE="MODS">
+                        <mets:xmlData>
+                            <mods:mods>
+                                <mods:typeOfResource>text</mods:typeOfResource>
+                                <mods:titleInfo>
+                                    <mods:title><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></mods:title>
+                                    
+                                </mods:titleInfo>
+                                <xsl:for-each select="$docMETADATA//fn:array[@key='authors']/fn:map">
+                                    <mods:name type="personal">
+                                        <mods:displayForm>
+                                            <xsl:value-of select="fn:string[@key='name']"/><xsl:text>, </xsl:text><xsl:value-of select="fn:string[@key='surname']"/>
+                                        </mods:displayForm>
+                                        <xsl:if test="$docMETADATA//fn:array[@key='authors']/fn:map/fn:array[@key='roles'] !=''">
+                                            <mods:role>
+                                                <xsl:for-each select="$docMETADATA//fn:array[@key='authors']/fn:map/fn:array[@key='roles']/fn:string">
+                                                    <mods:roleTerm authority="ocrdrelator" type="code" valueURI="https://raw.githubusercontent.com/tboenig/gt-metadata/master/schema/2022-03-15/schema.json"><xsl:value-of select="."/></mods:roleTerm>
+                                                </xsl:for-each>
+                                            </mods:role>
+                                        </xsl:if>
+                                    </mods:name>
+                                </xsl:for-each>
+                                
+                                <mods:genre>Ground Truth</mods:genre>
+                                <!--<mods:originInfo eventType="publication">
+                                    <mods:dateIssued encoding="iso8601" qualifier="approximate">1888</mods:dateIssued>
+                                    <mods:displayDate>wahrscheinlich 1888 erstmals erschienen</mods:displayDate>
+                                    <mods:place>
+                                        <mods:placeTerm type="text">Kuchenberg</mods:placeTerm>
+                                    </mods:place>
+                                    <mods:publisher>Verlag Küche und Keller</mods:publisher>
+                                </mods:originInfo>-->
+                                <mods:originInfo eventType="digitization">
+                                    <mods:dateCaptured encoding="iso8601"><xsl:value-of select="format-date(current-date(), '[Y]-[M]-[D]')"/></mods:dateCaptured>
+                                </mods:originInfo>
+                                <mods:language>
+                                    
+                                    <xsl:for-each select="$docMETADATA//fn:array[@key='language']/fn:string">
+                                        <mods:languageTerm authority="iso639-3" type="code"><xsl:value-of select="."/></mods:languageTerm>
+                                    </xsl:for-each>
+                                    
+                                </mods:language>
+                                <mods:recordInfo>
+                                    <mods:recordIdentifier>OCR-D_bagitDumpNum-v<xsl:value-of select="$bagitDumpNum"/><xsl:value-of select="generate-id(.)"/></mods:recordIdentifier>
+                                </mods:recordInfo>
+                            </mods:mods>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:dmdSec>
+                
+                
+                <!-- Informationen zum Labelling -->
+                <xsl:variable name="cMets">
+                    <mets>
+                        <xsl:for-each select="collection($conMets)">
+                            <xsl:copy-of select="//gt:state"/>
+                            <gt:state prop="content-type/corpus"/>
+                            <gt:state prop="platform/platform-independent"/>
+                            <gt:state prop="content-encoding/structured"/>
+                            <xsl:if test="$holeMetric//string[@key=$key17] ='true'"><gt:state prop="activityDomain/computing/visual/analysisRecognition/text"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key17] ='true'"><gt:state prop="activityDomain/computing/visual/analysisRecognition/ocr"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key5] !='0'"><gt:state prop="activityDomain/computing/visual/analysisRecognition/tables"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key1] !='0'"><gt:state prop="activityDomain/computing/visual/analysisRecognition/layoutAnalysis"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key17] ='true'"><gt:state prop="contentOfInterest/visual/text"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key4] !='0'"><gt:state prop="contentOfInterest/visual/graphical"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key7] !='0'"><gt:state prop="contentOfInterest/visual/graphical/separator"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key2] !='0'"><gt:state prop="contentOfInterest/visual/image"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key3] !='0'"><gt:state prop="contentOfInterest/visual/image/drawing"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key5] !='0'"><gt:state prop="contentOfInterest/visual/composite/tables"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key18] !='0'"><gt:state prop="contentOfInterest/visual/composite/maps"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key6] !='0'"><gt:state prop="contentOfInterest/visual/composite/charts"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key8] !='0'"><gt:state prop="contentOfInterest/visual/composite/maths"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key9] !='0'"><gt:state prop="contentOfInterest/visual/composite/chem"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key10] !='0'"><gt:state prop="contentOfInterest/visual/composite/music"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key16] !='0'"><gt:state prop="granularity/physical/document-related/page"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key15] !='0'"><gt:state prop="granularity/physical/document-related/text-line"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key20] !='0'"><gt:state prop="granularity/physical/document-related/word"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key21] ='true'"><gt:state prop="granularity/logical/document-related/paragraph"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key22] ='true'"><gt:state prop="data-attributes/document-related/structural/footnotes"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key23] ='true'"><gt:state prop="data-attributes/document-related/structural/footnote-continued"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key24] ='true'"><gt:state prop="data-attributes/document-related/structural/endnote"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key25] ='true'"><gt:state prop="data-attributes/document-related/structural/running-titles"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key26] ='true'"><gt:state prop="data-attributes/document-related/visual/decorations"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key27] ='true'"><gt:state prop="condition/wear/additions/informative/stamps"/></xsl:if>
+                            <xsl:if test="$holeMetric//string[@key=$key28] ='true'"><gt:state prop="data-attributes/document-related/visual/text/drop-caps"/></xsl:if>
+                            
+                            
+                            
+                            
+                            
+                            <!-- granularity/logical/table
+                                    granularity/logical/table/column
+                                    granularity/logical/table/row
+                                    granularity/logical/table/cell-->
+                            
+                            
+                        </xsl:for-each>
+                    </mets>
+                </xsl:variable>
+                
+                <xsl:variable name="dMetslabel">
+                    <xsl:for-each select="distinct-values($cMets/mets/gt:state/@prop)">
+                        <gt:state>
+                            <xsl:attribute name="prop"><xsl:value-of select="."/></xsl:attribute>
+                        </gt:state>
+                    </xsl:for-each>
+                </xsl:variable>
+                
+                <!-- automatic labeling -->
+                
+                
+                
+                
+                <!-- Informationen zum Labelling gesamte Sammlung-->
+                <mets:dmdSec>
+                    <!--<xsl:message select="$cMets"/>-->
+                    <xsl:attribute name="ID">dmgt_0000</xsl:attribute>
+                    <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="GT">
+                        <mets:xmlData>
+                            <gt:gt xmlns:gt="http://www.ocr-d.de/GT/">
+                                <xsl:copy-of select="$dMetslabel"/>
+                            </gt:gt>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:dmdSec>
+                
+                
+                
+                
+                
+                <xsl:for-each select="distinct-values($holeMetric//@key1)">
+                    <xsl:variable name="filenum" select="position()"/>
+                    
+                    <!-- Informationen zum Labelling einzelne Dokumente-->
+                    <mets:dmdSec>
+                        <xsl:attribute name="ID">dmgt_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
+                        
+                        <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="GT">
+                            <mets:xmlData>
+                                <gt:gt xmlns:gt="http://www.ocr-d.de/GT/">
+                                    <xsl:for-each select="distinct-values($cMets//doc[fn:position() = $filenum]/gt:state/@prop)">
+                                        <gt:state>
+                                            <xsl:attribute name="prop"><xsl:value-of select="."/></xsl:attribute>
+                                        </gt:state>
+                                    </xsl:for-each>
+                                </gt:gt>
+                            </mets:xmlData>
+                        </mets:mdWrap>
+                    </mets:dmdSec>
+                </xsl:for-each>
+                
+                <mets:amdSec ID="amd_01">
+                    <!-- Informationen zu Rechten am Digitalisat -->
+                    <mets:rightsMD ID="rights_01">
+                        <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="DVRIGHTS">
+                            <mets:xmlData>
+                                <dv:rights xmlns:dv="http://dfg-viewer.de/">
+                                    <dv:license><xsl:value-of select="$docMETADATA//fn:map/fn:array[@key='license']/fn:map/fn:string[@key='url']"/></dv:license>
+                                </dv:rights>
+                            </mets:xmlData>
+                        </mets:mdWrap>
+                    </mets:rightsMD>
+                    
+                    
+                    
+                    <!-- Links zu weiteren Repräsentationen der Daten -->
+                    <mets:digiprovMD ID="digiprov_01">
+                        <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="DVLINKS">
+                            <mets:xmlData>
+                                <dv:links xmlns:dv="http://dfg-viewer.de/">
+                                    <dv:presentation>https://<xsl:value-of select="fn:tokenize($repoName, '/')[1]"/>.github.io/<xsl:value-of select="fn:tokenize($repoName, '/')[2]"/></dv:presentation>
+                                </dv:links>
+                            </mets:xmlData>
+                        </mets:mdWrap>
+                    </mets:digiprovMD>
+                </mets:amdSec>
+                
+                
+                
+                <!-- Die hierarchische Struktur des Mehrteiligen Dokuments -->
+                <!--<mets:structMap TYPE="LOGICAL">
+                    <mets:div ADMID="amd_01" DMDID="dmd_000" ID="LOG_00" TYPE="multivolume work">
+                        <xsl:attribute name="LABEL"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></xsl:attribute>
+                        <mets:div DMDID="dmgt_0000" ID="LOG_001" TYPE="volume">
+                            <xsl:attribute name="LABEL">Collection: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></xsl:attribute>
+                            <xsl:for-each select="distinct-values($holeMetric//@key1)">
+                                <xsl:variable name="filenum" select="position()"/>
+                                <mets:div TYPE="volume">
+                                    <xsl:attribute name="LABEL">Volume: <xsl:value-of select="."/></xsl:attribute>
+                                    <xsl:attribute name="ID">LOG_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
+                                    <xsl:attribute name="DMID">dmgt_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
+                                    <xsl:attribute name="ORDER"><xsl:value-of select="$filenum"/></xsl:attribute>
+                                    <xsl:attribute name="ORDERLABEL">vol. <xsl:value-of select="$filenum"/></xsl:attribute>
+                                    
+                                    <mets:mptr LOCTYPE="URL">
+                                        <xsl:attribute name="xlink:href"><xsl:value-of select="."/>.ocrd/data/mets.xml</xsl:attribute>
+                                    </mets:mptr>
+                                </mets:div>
+                            </xsl:for-each>
+                        </mets:div>
+                    </mets:div>
+                </mets:structMap>-->
+                
+            </mets:mets>
+           
+        </xsl:if>
+
+
+
+
+
+
+
+
+
+
         <xsl:if test="$output = 'README'">
             <xsl:element name="div">
         <h1 id="title"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></h1>
