@@ -15,6 +15,9 @@ if test -f "mets.xml"; then
 
 else
     ocrd workspace --directory $p init
+    echo "hallo"
+    ls
+    echo "hallo"
     cat $path/scripts/mets.sh # for GH actions log
     sh $path/scripts/mets.sh
     cd $p
