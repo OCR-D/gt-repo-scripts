@@ -15,10 +15,11 @@ if test -f "mets.xml"; then
 
 else
     ocrd workspace --directory $p init
-    echo "hallo"
+    echo "hallo1"
     pwd
     cd ..
     ls
+    echo "hallo2"
     cd ..
     ls
     echo "hallo"
