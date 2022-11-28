@@ -394,6 +394,9 @@
                        <xsl:if test="$holeMetric//string[@key=$key26] ='true'"><gt:state prop="data-attributes/document-related/visual/decorations"/></xsl:if>
                        <xsl:if test="$holeMetric//string[@key=$key27] ='true'"><gt:state prop="condition/wear/additions/informative/stamps"/></xsl:if>
                        <xsl:if test="$holeMetric//string[@key=$key28] ='true'"><gt:state prop="data-attributes/document-related/visual/text/drop-caps"/></xsl:if>
+                       <xsl:if test="$docMETADATA//fn:map/fn:array[@key='script']/fn:string ='Goth'"><gt:state prop="data-attributes/document-related/visual/text/font/typeface/blackletter"/></xsl:if>
+                       <xsl:if test="$docMETADATA//fn:map/fn:array[@key='script']/fn:string ='Latn'"><gt:state prop="data-attributes/document-related/visual/text/font/typeface/antiqua"/></xsl:if>
+                       
                    </xsl:for-each>
                </mets>
            </xsl:variable>
