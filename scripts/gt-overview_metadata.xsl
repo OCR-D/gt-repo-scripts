@@ -2700,6 +2700,34 @@
                     </mets:div>
                 </mets:structMap>-->
                 
+                <xsl:variable name="t1"><xsl:copy-of select="."/></xsl:variable>
+                <mets:structMap TYPE="PHYSICAL">
+                    <mets:div TYPE="physSequence">
+                        <xsl:attribute name="ID" select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/@ID"/>
+                        <xsl:attribute name="DMDID" select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/@DMDID"/>
+                        <xsl:for-each select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/mets:div[@TYPE='page']">
+                            <mets:div TYPE="page">
+                                
+                                <xsl:attribute name="ORDER" select="@ORDER"/>
+                                <xsl:attribute name="ID" select="@ID"/>
+                                <xsl:attribute name="DMDID" select="@DMDID"/>
+                                <xsl:for-each select="mets:fptr">
+                                    <xsl:choose>
+                                        <xsl:when test="fn:matches(./@FILEID, 'DEFAULT[_0-9A-Z]+')"/>
+                                        <xsl:otherwise><mets:fptr>
+                                            <xsl:attribute name="FILEID" select="@FILEID"/>
+                                        </mets:fptr></xsl:otherwise>
+                                    </xsl:choose>
+                                    
+                                    
+                                    
+                                </xsl:for-each>
+                            </mets:div>
+                        </xsl:for-each>
+                    </mets:div>
+                </mets:structMap>
+                
+                
             </mets:mets>
            
         </xsl:if>
@@ -3750,7 +3778,7 @@
                             xmlns:mods="http://www.loc.gov/mods/v3">
                             <xsl:variable name="t1"><xsl:copy-of select="."/></xsl:variable>
                             <xsl:variable name="t2">
-                                <mets:structMap TYPE="PHYSICALY">
+                                <mets:structMap TYPE="PHYSICAL">
                                     <mets:div TYPE="physSequence">
                                         <xsl:attribute name="ID" select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/@ID"/>
                                         <xsl:attribute name="DMDID" select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/@DMDID"/>
