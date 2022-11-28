@@ -56,6 +56,8 @@
     
     <xsl:variable name="conMets"><xsl:value-of select="$path"/>/?select=mets.xml;recurse=yes</xsl:variable>
     
+    <xsl:variable name="conNets"><xsl:value-of select="$path"/>/?select=nets.xml;recurse=yes</xsl:variable>
+    
     <xsl:variable name="conPage"><xsl:value-of select="$path"/>/?select=*GT-PAGE/*.xml;recurse=yes</xsl:variable>
     
     <xsl:variable name="conImg"><xsl:value-of select="$path"/>/?select=*.[jpgtiffpng]+;recurse=yes</xsl:variable>
@@ -2547,9 +2549,9 @@
                 
                 
                 <!-- Informationen zum Labelling -->
-                <!--<xsl:variable name="cMets">
+                <xsl:variable name="cMets">
                     <mets>
-                        <xsl:for-each select="collection($conMets)">
+                        <xsl:for-each select="collection($conNets)">
                             <xsl:copy-of select="//gt:state"/>
                             <gt:state prop="content-type/corpus"/>
                             <gt:state prop="platform/platform-independent"/>
@@ -2585,15 +2587,15 @@
                             
                             
                             
-                            <!-\- granularity/logical/table
+                            <!-- granularity/logical/table
                                     granularity/logical/table/column
                                     granularity/logical/table/row
-                                    granularity/logical/table/cell-\->
+                                    granularity/logical/table/cell-->
                             
                             
                         </xsl:for-each>
                     </mets>
-                </xsl:variable>-->
+                </xsl:variable>
                 
                 <!--<xsl:variable name="dMetslabel">
                     <xsl:for-each select="distinct-values($cMets/mets/gt:state/@prop)">
