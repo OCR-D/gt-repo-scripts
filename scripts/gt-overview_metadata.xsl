@@ -323,6 +323,7 @@
         
         
    <xsl:if test="$output = 'METADATA'">
+       <xsl:message select="$docMETADATA"></xsl:message>
             <link rel="stylesheet" href="table_hide.css"/>
                 <xsl:element name="div">
                     
@@ -2524,7 +2525,7 @@
                                 </xsl:for-each>
                                 <xsl:for-each select="$docMETADATA//fn:array[@key='time']/fn:map">
                                 <mods:dateIssued point="start" keyDate="yes" encoding="iso8601"><xsl:value-of select="fn:string[@key='notBefore']"/></mods:dateIssued>
-                                <mods:dateIssued point="end" keyDate="yes" encoding="iso8601"><xsl:value-of select="fn:map/fn:string[@key='notAfter']"/></mods:dateIssued>
+                                <mods:dateIssued point="end" keyDate="yes" encoding="iso8601"><xsl:value-of select="fn:string[@key='notAfter']"/></mods:dateIssued>
                                 </xsl:for-each>
                                 <mods:genre>Ground Truth</mods:genre>
                                 <!--<mods:originInfo eventType="publication">
