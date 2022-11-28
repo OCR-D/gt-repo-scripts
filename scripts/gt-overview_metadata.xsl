@@ -2523,10 +2523,8 @@
                                         </xsl:if>
                                     </mods:name>
                                 </xsl:for-each>
-                                <xsl:for-each select="$docMETADATA//fn:array[@key='time']/fn:map">
-                                <mods:dateIssued point="start" keyDate="yes" encoding="iso8601"><xsl:value-of select="fn:string[@key='notBefore']"/></mods:dateIssued>
-                                <mods:dateIssued point="end" keyDate="yes" encoding="iso8601"><xsl:value-of select="fn:string[@key='notAfter']"/></mods:dateIssued>
-                                </xsl:for-each>
+                                <mods:dateIssued point="start" keyDate="yes" encoding="iso8601"><xsl:value-of select="$docMETADATA//fn:map[@key='time']/fn:string[@key='notBefore']"/></mods:dateIssued>
+                                <mods:dateIssued point="end" keyDate="yes" encoding="iso8601"><xsl:value-of select="$docMETADATA//fn:map[@key='time']/fn:string[@key='notAfter']"/></mods:dateIssued>
                                 <mods:genre>Ground Truth</mods:genre>
                                 <!--<mods:originInfo eventType="publication">
                                     <mods:dateIssued encoding="iso8601" qualifier="approximate">1888</mods:dateIssued>
