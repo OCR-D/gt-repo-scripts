@@ -2500,9 +2500,14 @@
                             <mods:mods>
                                 <mods:typeOfResource>text</mods:typeOfResource>
                                 <mods:titleInfo>
-                                    <mods:title><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></mods:title>
-                                    
+                                    <mods:title><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></mods:title>                                    
                                 </mods:titleInfo>
+                                <mods:language>
+                                    <xsl:for-each select="$docMETADATA//fn:array[@key='authors']/fn:map/fn:array[@key='language']/fn:string">
+                                        <mods:languageTerm authority="iso639-2b" type="code"><xsl:value-of select="."/></mods:languageTerm>
+                                    </xsl:for-each>
+                                 </mods:language>
+                                
                                 <xsl:for-each select="$docMETADATA//fn:array[@key='authors']/fn:map">
                                     <mods:name type="personal">
                                         <mods:displayForm>
