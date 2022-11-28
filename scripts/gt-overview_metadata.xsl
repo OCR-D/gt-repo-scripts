@@ -3591,7 +3591,8 @@
                                         </xsl:if>
                                     </mods:name>
                                 </xsl:for-each>
-                                
+                                <mods:dateIssued point="start" keyDate="yes" encoding="iso8601"><xsl:value-of select="$docMETADATA//fn:map[@key='time']/fn:string[@key='notBefore']"/></mods:dateIssued>
+                                <mods:dateIssued point="end" keyDate="yes" encoding="iso8601"><xsl:value-of select="$docMETADATA//fn:map[@key='time']/fn:string[@key='notAfter']"/></mods:dateIssued>
                                 <mods:genre>Ground Truth</mods:genre>
                                 <!--<mods:originInfo eventType="publication">
                                     <mods:dateIssued encoding="iso8601" qualifier="approximate">1888</mods:dateIssued>
@@ -3654,6 +3655,8 @@
                             <xsl:if test="$holeMetric//string[@key=$key26] ='true'"><gt:state prop="data-attributes/document-related/visual/decorations"/></xsl:if>
                             <xsl:if test="$holeMetric//string[@key=$key27] ='true'"><gt:state prop="condition/wear/additions/informative/stamps"/></xsl:if>
                             <xsl:if test="$holeMetric//string[@key=$key28] ='true'"><gt:state prop="data-attributes/document-related/visual/text/drop-caps"/></xsl:if>
+                            <xsl:if test="$docMETADATA//fn:map/fn:array[@key='script']/fn:string ='Goth'"><gt:state prop="data-attributes/document-related/visual/text/font/typeface/blackletter"/></xsl:if>
+                            <xsl:if test="$docMETADATA//fn:map/fn:array[@key='script']/fn:string ='Latn'"><gt:state prop="data-attributes/document-related/visual/text/font/typeface/antiqua"/></xsl:if>
                             
                             
                             
