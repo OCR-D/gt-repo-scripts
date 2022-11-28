@@ -3750,7 +3750,7 @@
                             xmlns:mods="http://www.loc.gov/mods/v3">
                             <xsl:variable name="t1"><xsl:copy-of select="."/></xsl:variable>
                             <xsl:variable name="t2">
-                                <mets:structMap TYPE="PHYSICAL">
+                                <mets:structMap TYPE="PHYSICALY">
                                     <mets:div TYPE="physSequence">
                                         <xsl:attribute name="ID" select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/@ID"/>
                                         <xsl:attribute name="DMDID" select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/@DMDID"/>
