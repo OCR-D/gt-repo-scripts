@@ -2597,13 +2597,13 @@
                     </mets>
                 </xsl:variable>
                 
-                <!--<xsl:variable name="dMetslabel">
+                <xsl:variable name="dMetslabel">
                     <xsl:for-each select="distinct-values($cMets/mets/gt:state/@prop)">
                         <gt:state>
                             <xsl:attribute name="prop"><xsl:value-of select="."/></xsl:attribute>
                         </gt:state>
                     </xsl:for-each>
-                </xsl:variable>-->
+                </xsl:variable>
                 
                 <!-- automatic labeling -->
                 
@@ -2617,7 +2617,7 @@
                     <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="GT">
                         <mets:xmlData>
                             <gt:gt xmlns:gt="http://www.ocr-d.de/GT/">
-                                <!--<xsl:copy-of select="$dMetslabel"/>-->
+                                <xsl:copy-of select="$dMetslabel"/>
                             </gt:gt>
                         </mets:xmlData>
                     </mets:mdWrap>
