@@ -3078,7 +3078,7 @@
                     -->
                     
                     <xsl:variable name="cMets">
-                        <fn:array>
+                        <fn:map>
                             <xsl:for-each select="collection($conNets)">
                                 <!--<xsl:copy-of select="//gt:state"/>-->
                                 <fn:string>content-type/corpus</fn:string>
@@ -3124,7 +3124,7 @@
                                 
                                 
                             </xsl:for-each>
-                        </fn:array>
+                        </fn:map>
                     </xsl:variable>
                     
                     <!--<xsl:variable name="dMetslabel">
