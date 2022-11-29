@@ -2750,7 +2750,8 @@
         <xsl:if test="$output = 'METAJSON'">
             
             <xsl:variable name="metaj">
-                <xsl:copy-of select="$docMETADATA"/>
+                <xsl:element name="map">
+                <xsl:copy-of select="$docMETADATA/fn:map"/>
                 
                 
                 <!-- volume -->
@@ -3215,6 +3216,7 @@
                 </xsl:variable>
                 </xsl:element>
             </xsl:if>-->
+                </xsl:element>
             </xsl:variable>
             
         <xsl:copy-of select="$metaj"/>
