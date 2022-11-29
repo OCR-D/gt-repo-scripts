@@ -2855,6 +2855,7 @@
             
             <xsl:variable name="metaj">
                 <xsl:element name="fn:map">
+                    <xsl:attribute name="key">labelling</xsl:attribute>
                 <xsl:copy-of select="$docMETADATA/fn:map/*"/>
                 
                 
