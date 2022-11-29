@@ -3136,7 +3136,7 @@
                         </xsl:for-each>
                     </xsl:variable>-->
                     
-                    <xsl:copy-of select="$cMets"/>
+                    <xsl:copy-of select="collection($conMets)"/>
                 </xsl:element>
           </xsl:variable>
             
