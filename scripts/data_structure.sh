@@ -15,6 +15,11 @@ if test -f "mets.xml"; then
 
 else
     ocrd workspace --directory $p init
+    echo "path"
+    pwd
+    ls
+    cd ..
+    ls
     echo "hallo1"
     cat mets.xml
     mv mets.xml nets.xml
