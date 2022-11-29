@@ -3079,7 +3079,7 @@
                     -->
                     
                     <xsl:variable name="cMets">
-                        <fn:map>
+                        <fn:array>
                             <xsl:attribute name="key">labelling</xsl:attribute>
                                 <!--<xsl:copy-of select="//gt:state"/>-->
                                 <fn:string>content-type/corpus</fn:string>
@@ -3124,7 +3124,7 @@
                                     granularity/logical/table/cell-->
                                 
                                 
-                        </fn:map>
+                        </fn:array>
                     </xsl:variable>
                     
                     <!--<xsl:variable name="dMetslabel">
@@ -3140,8 +3140,8 @@
                 </xsl:element>
           </xsl:variable>
             
-            <!--<xsl:copy-of select="xml-to-json($metaj)"/>-->
-            <xsl:copy-of select="$metaj"/>
+            <xsl:copy-of select="xml-to-json($metaj)"/>
+            <!--<xsl:copy-of select="$metaj"/>-->
         </xsl:if>
 
 
