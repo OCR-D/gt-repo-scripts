@@ -3079,7 +3079,7 @@
                     
                     <xsl:variable name="cMets">
                         <fn:map>
-                            <xsl:for-each select="collection($conNets)">
+                            <xsl:for-each select="collection($conMets)">
                                 <!--<xsl:copy-of select="//gt:state"/>-->
                                 <fn:string>content-type/corpus</fn:string>
                                 <fn:string>platform/platform-independent</fn:string>
