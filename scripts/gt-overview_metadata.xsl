@@ -2855,7 +2855,7 @@
             
             <xsl:variable name="metaj">
                 <xsl:element name="fn:map">
-                    <xsl:attribute name="key">labelling</xsl:attribute>
+                    
                 <xsl:copy-of select="$docMETADATA/fn:map/*"/>
                 
                 
@@ -3080,7 +3080,7 @@
                     
                     <xsl:variable name="cMets">
                         <fn:map>
-                            
+                            <xsl:attribute name="key">labelling</xsl:attribute>
                                 <!--<xsl:copy-of select="//gt:state"/>-->
                                 <fn:string>content-type/corpus</fn:string>
                                 <fn:string>platform/platform-independent</fn:string>
