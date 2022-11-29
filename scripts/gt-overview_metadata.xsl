@@ -3127,16 +3127,16 @@
                         </fn:array>
                     </xsl:variable>
                     
-                    <xsl:variable name="dMetslabel">
+                    <!--<xsl:variable name="dMetslabel">
                         <xsl:for-each select="distinct-values($cMets/fn:array/fn:string)">
                             <fn:array>
                                 <xsl:attribute name="key">label</xsl:attribute>
                                 <fn:string><xsl:value-of select="."/></fn:string>
                             </fn:array>
                         </xsl:for-each>
-                    </xsl:variable>
+                    </xsl:variable>-->
                     
-                    <xsl:copy-of select="$dMetslabel"/>
+                    <xsl:copy-of select="$cMets"/>
                 </xsl:element>
           </xsl:variable>
             
