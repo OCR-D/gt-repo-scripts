@@ -3140,7 +3140,8 @@
                 </xsl:element>
           </xsl:variable>
             
-            <xsl:copy-of select="xml-to-json($metaj)"/>
+            <!--<xsl:copy-of select="xml-to-json($metaj)"/>-->
+            <xsl:copy-of select="$metaj"/>
         </xsl:if>
 
 
