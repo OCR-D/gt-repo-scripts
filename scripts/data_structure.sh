@@ -16,6 +16,9 @@ if test -f "mets.xml"; then
 
 else
     ocrd workspace --directory $p init
+    echo "hallo0"
+    echo $jp
+    echo "hallo1"
     cat mets.xml
     mv mets.xml nets.xml
     sudo java -jar $jp/saxon-he-10.5.jar -xsl:$jp/scripts/gt-overview_metadata.xsl \
