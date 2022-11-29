@@ -3215,8 +3215,9 @@
                 </xsl:element>
         </xsl:if>
             
+            
 <xsl:copy-of select="xml-to-json($metaj)"/>
-
+        </xsl:if>
 
 
 
