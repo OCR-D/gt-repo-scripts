@@ -2751,7 +2751,7 @@
             
             <xsl:variable name="metaj">
                 <xsl:element name="map">
-                <xsl:copy-of select="$docMETADATA/fn:map"/>
+                <xsl:copy-of select="$docMETADATA/fn:map/*"/>
                 
                 
                 <!-- volume -->
