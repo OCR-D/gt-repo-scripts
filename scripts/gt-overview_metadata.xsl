@@ -3079,7 +3079,7 @@
                     
                     <xsl:variable name="cMets">
                         <fn:map>
-                            <xsl:for-each select="collection($conMets)">
+                            
                                 <!--<xsl:copy-of select="//gt:state"/>-->
                                 <fn:string>content-type/corpus</fn:string>
                                 <fn:string>platform/platform-independent</fn:string>
@@ -3123,7 +3123,6 @@
                                     granularity/logical/table/cell-->
                                 
                                 
-                            </xsl:for-each>
                         </fn:map>
                     </xsl:variable>
                     
@@ -3136,7 +3135,7 @@
                         </xsl:for-each>
                     </xsl:variable>-->
                     
-                    <xsl:copy-of select="collection($conMets)"/>
+                    <xsl:copy-of select="$cMets"/>
                 </xsl:element>
           </xsl:variable>
             
