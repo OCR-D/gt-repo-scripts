@@ -20,7 +20,7 @@ else
     echo $jp
     echo "hallo1"
     cat mets.xml
-    mv mets.xml nets.xml
+    cp mets.xml nets.xml
     sudo java -jar $jp/saxon-he-10.5.jar -xsl:$jp/scripts/gt-overview_metadata.xsl \
         output=METSMETADATA repoBase=$GITHUB_REF_NAME repoName=$GITHUB_REPOSITORY \
         -s:nets.xml -o:mets.xml  
