@@ -3049,11 +3049,12 @@
                     
                 </xsl:if>
             
-            </xsl:variable>
+            
             
             <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text()='data_line'">
                 <xsl:element name="map">
                     <xsl:attribute name="key">volume</xsl:attribute>
+                
                 <xsl:variable name="k15">
                     <xsl:for-each select="$holeMetric/array">
                         <xsl:element name="string">
@@ -3213,10 +3214,10 @@
                     </xsl:for-each>
                 </xsl:variable>
                 </xsl:element>
-        </xsl:if>
+            </xsl:if>
+            </xsl:variable>
             
-            
-<xsl:copy-of select="xml-to-json($metaj)"/>
+        <xsl:copy-of select="xml-to-json($metaj)"/>
         </xsl:if>
 
 
