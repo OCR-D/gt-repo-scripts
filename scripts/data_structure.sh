@@ -16,16 +16,9 @@ if test -f "mets.xml"; then
 
 else
     ocrd workspace --directory $p init
-    echo $jp
-
-    echo "pwd"
-    pwd
-    echo 'ls'
-    ls
-    echo "hallo1"
     cat mets.xml
     mv mets.xml nets.xml
-    sudo java -jar $path/saxon-he-10.5.jar -xsl:$path/scripts/gt-overview_metadata.xsl \
+    sudo java -jar $jp/saxon-he-10.5.jar -xsl:$jp/scripts/gt-overview_metadata.xsl \
         output=METSMETADATA repoBase=$GITHUB_REF_NAME repoName=$GITHUB_REPOSITORY \
         -s:nets.xml -o:mets.xml  
     echo "hallo"
