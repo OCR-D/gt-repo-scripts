@@ -3078,15 +3078,58 @@
                      </array>
                     -->
                     
+                    <xsl:variable name="CconMets">
+                        <xsl:for-each select="collection($conMets)"><xsl:value-of select="."/></xsl:for-each>
+                    </xsl:variable>
+                    
+                    
                     <xsl:variable name="cMets">
-                        <xsl:variable name="CconMets">
-                            <xsl:for-each select="collection($conMets)"><xsl:value-of select="."/></xsl:for-each>
-                        </xsl:variable>
                         <fn:array>
-                            <xsl:attribute name="key">labellings</xsl:attribute>
-                            <xsl:if test="$CconMets =''"><fn:string>ja</fn:string></xsl:if>
-                            <xsl:if test="$CconMets !=''"><fn:string>nein</fn:string></xsl:if>
-                                <!--<xsl:copy-of select="//gt:state"/>-->
+                            <xsl:attribute name="key">labelling</xsl:attribute>
+                             <xsl:if test="$CconMets !=''">
+                                 <xsl:for-each select="collection($conMets)">
+                                     <xsl:variable name="labels"><xsl:copy-of select="//gt:state"/></xsl:variable>
+                                     <xsl:for-each select="$labels//@prop">
+                                         <fn:string><xsl:value-of select="."/></fn:string>
+                                     </xsl:for-each>
+                                     <fn:string>content-type/corpus</fn:string>
+                                     <fn:string>platform/platform-independent</fn:string>
+                                     <fn:string>content-encoding/structured</fn:string>
+                                     <xsl:if test="$holeMetric//string[@key=$key17] ='true'"><fn:string>activityDomain/computing/visual/analysisRecognition/text</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key17] ='true'"><fn:string>activityDomain/computing/visual/analysisRecognition/ocr</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key5] !='0'"><fn:string>activityDomain/computing/visual/analysisRecognition/tables</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key1] !='0'"><fn:string>activityDomain/computing/visual/analysisRecognition/layoutAnalysis</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key17] ='true'"><fn:string>contentOfInterest/visual/text</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key4] !='0'"><fn:string>contentOfInterest/visual/graphical</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key7] !='0'"><fn:string>contentOfInterest/visual/graphical/separator</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key2] !='0'"><fn:string>contentOfInterest/visual/image</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key3] !='0'"><fn:string>contentOfInterest/visual/image/drawing</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key5] !='0'"><fn:string>contentOfInterest/visual/composite/tables</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key18] !='0'"><fn:string>contentOfInterest/visual/composite/maps</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key6] !='0'"><fn:string>contentOfInterest/visual/composite/charts</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key8] !='0'"><fn:string>contentOfInterest/visual/composite/maths</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key9] !='0'"><fn:string>contentOfInterest/visual/composite/chem</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key10] !='0'"><fn:string>contentOfInterest/visual/composite/music</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key16] !='0'"><fn:string>granularity/physical/document-related/page</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key15] !='0'"><fn:string>granularity/physical/document-related/text-line</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key20] !='0'"><fn:string>granularity/physical/document-related/word</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key21] ='true'"><fn:string>granularity/logical/document-related/paragraph</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key22] ='true'"><fn:string>data-attributes/document-related/structural/footnotes</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key23] ='true'"><fn:string>data-attributes/document-related/structural/footnote-continued</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key24] ='true'"><fn:string>data-attributes/document-related/structural/endnote</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key25] ='true'"><fn:string>data-attributes/document-related/structural/running-titles</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key26] ='true'"><fn:string>data-attributes/document-related/visual/decorations</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key27] ='true'"><fn:string>condition/wear/additions/informative/stamps</fn:string></xsl:if>
+                                     <xsl:if test="$holeMetric//string[@key=$key28] ='true'"><fn:string>data-attributes/document-related/visual/text/drop-caps</fn:string></xsl:if>
+                                     <xsl:if test="$docMETADATA//fn:map/fn:array[@key='script']/fn:string ='Goth'"><fn:string>data-attributes/document-related/visual/text/font/typeface/blackletter</fn:string></xsl:if>
+                                     <xsl:if test="$docMETADATA//fn:map/fn:array[@key='script']/fn:string ='Latn'"><fn:string>data-attributes/document-related/visual/text/font/typeface/antiqua</fn:string></xsl:if>
+                                  </xsl:for-each>
+                                 
+                                 
+                                 
+                             </xsl:if>
+                                
+                            <xsl:if test="$CconMets =''">
                                 <fn:string>content-type/corpus</fn:string>
                                 <fn:string>platform/platform-independent</fn:string>
                                 <fn:string>content-encoding/structured</fn:string>
@@ -3118,30 +3161,24 @@
                                 <xsl:if test="$holeMetric//string[@key=$key28] ='true'"><fn:string>data-attributes/document-related/visual/text/drop-caps</fn:string></xsl:if>
                                 <xsl:if test="$docMETADATA//fn:map/fn:array[@key='script']/fn:string ='Goth'"><fn:string>data-attributes/document-related/visual/text/font/typeface/blackletter</fn:string></xsl:if>
                                 <xsl:if test="$docMETADATA//fn:map/fn:array[@key='script']/fn:string ='Latn'"><fn:string>data-attributes/document-related/visual/text/font/typeface/antiqua</fn:string></xsl:if>
-                                
-                                
-                                
-                                
-                                
-                                <!-- granularity/logical/table
-                                    granularity/logical/table/column
-                                    granularity/logical/table/row
-                                    granularity/logical/table/cell-->
-                                
-                                
+                         </xsl:if>
                         </fn:array>
                     </xsl:variable>
                     
-                    <!--<xsl:variable name="dMetslabel">
-                        <xsl:for-each select="distinct-values($cMets/fn:array/fn:string)">
-                            <fn:array>
-                                <xsl:attribute name="key">label</xsl:attribute>
-                                <fn:string><xsl:value-of select="."/></fn:string>
-                            </fn:array>
-                        </xsl:for-each>
-                    </xsl:variable>-->
                     
-                    <xsl:copy-of select="$cMets"/>
+                        <xsl:choose>
+                            <xsl:when test="$conMets"><xsl:copy-of select="$cMets"/></xsl:when>
+                            <xsl:otherwise>
+                                <xsl:for-each select="distinct-values($cMets/fn:array/fn:string)">
+                                    <fn:array>
+                                        <xsl:attribute name="key">label</xsl:attribute>
+                                        <fn:string><xsl:value-of select="."/></fn:string>
+                                    </fn:array>
+                                </xsl:for-each>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    
+                    
                 </xsl:element>
           </xsl:variable>
             
