@@ -3166,17 +3166,12 @@
                     </xsl:variable>
                     
                     
-                        <xsl:choose>
-                            <xsl:when test="$conMets =''"><xsl:copy-of select="$cMets"/></xsl:when>
-                            <xsl:otherwise>
-                                <fn:array>
-                                    <xsl:attribute name="key">labellingy</xsl:attribute>
-                                <xsl:for-each select="distinct-values($cMets//fn:array/fn:string)">
-                                    <fn:string><xsl:value-of select="."/></fn:string>
-                                </xsl:for-each>
-                                </fn:array>
-                            </xsl:otherwise>
-                        </xsl:choose>
+                    <fn:array>
+                       <xsl:attribute name="key">labellinga</xsl:attribute>
+                        <xsl:for-each select="distinct-values($cMets//fn:array/fn:string)">
+                          <fn:string><xsl:value-of select="."/></fn:string>
+                        </xsl:for-each>
+                    </fn:array>
                     
                     
                 </xsl:element>
