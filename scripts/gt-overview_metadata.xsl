@@ -3079,10 +3079,13 @@
                     -->
                     
                     <xsl:variable name="cMets">
+                        <xsl:variable name="CconMets">
+                            <xsl:for-each select="collection($conMets)"><xsl:value-of select="."/></xsl:for-each>
+                        </xsl:variable>
                         <fn:array>
                             <xsl:attribute name="key">labellings</xsl:attribute>
-                            <xsl:if test="collection($conMets) =''"><fn:string>ja</fn:string></xsl:if>
-                            <xsl:if test="collection($conMets) !=''"><fn:string>nein</fn:string></xsl:if>
+                            <xsl:if test="$CconMets =''"><fn:string>ja</fn:string></xsl:if>
+                            <xsl:if test="$CconMets !=''"><fn:string>nein</fn:string></xsl:if>
                                 <!--<xsl:copy-of select="//gt:state"/>-->
                                 <fn:string>content-type/corpus</fn:string>
                                 <fn:string>platform/platform-independent</fn:string>
