@@ -3081,6 +3081,8 @@
                     <xsl:variable name="cMets">
                         <fn:array>
                             <xsl:attribute name="key">labelling</xsl:attribute>
+                            <xsl:if test="collection($conMets) =''"><fn:string>ja</fn:string></xsl:if>
+                            <xsl:if test="collection($conMets) !=''"><fn:string>nein</fn:string></xsl:if>
                                 <!--<xsl:copy-of select="//gt:state"/>-->
                                 <fn:string>content-type/corpus</fn:string>
                                 <fn:string>platform/platform-independent</fn:string>
