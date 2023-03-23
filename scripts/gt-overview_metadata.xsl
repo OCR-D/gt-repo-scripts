@@ -17,6 +17,7 @@
     <xsl:param name="repoName"/>
     <xsl:param name="repoBase"/>
     <xsl:param name="bagitDumpNum"/>
+    <xsl:param name="releaseTag"/>
     
     <xsl:variable name="DumpDownload">bagitDump-v<xsl:value-of select="$bagitDumpNum"/>.zip</xsl:variable>
     
@@ -465,7 +466,7 @@
                         They contain a zip file in which the components of the collection are also in zip files.
                         Metadata for the complete collection and the components are in METS format.</xsl:element>
                     <ul>
-                    <li><a><xsl:attribute name="href">https://github.com/<xsl:value-of select="$repoName"/>/releases/download/v<xsl:value-of select="$bagitDumpNum"/>/<xsl:value-of select="$DumpDownload"/></xsl:attribute>Current version download: <xsl:value-of select="$DumpDownload"/></a></li>
+                    <li><a><xsl:attribute name="href">https://github.com/<xsl:value-of select="$repoName"/>/releases/download/<xsl:value-of select="$releaseTag"/>/<xsl:value-of select="$DumpDownload"/></xsl:attribute>Current version download: <xsl:value-of select="$DumpDownload"/></a></li>
                     <li><a><xsl:attribute name="href">https://github.com/<xsl:value-of select="$repoName"/>/releases</xsl:attribute>Version archive</a></li>
                     </ul>
                 </xsl:element>
