@@ -29,7 +29,7 @@
                 
                 <xsl:if test="tokenize(u2, '_')[last()] ='simple'">
                     <div><details>
-                        <summary><h3>simple</h3></summary>
+                        <summary>simple</summary>
                         <ul>
                           <xsl:for-each select="a">
                             <xsl:variable name="o" select="."/>
@@ -42,7 +42,7 @@
                 </xsl:if>
                 <xsl:if test="tokenize(u2, '_')[last()] ='complex'">
                     <div><details>
-                        <summary><h3>complex</h3></summary>
+                        <summary>complex</summary>
                         <ul>
                             <xsl:for-each select="a">
                                 <xsl:variable name="o" select="."/>
