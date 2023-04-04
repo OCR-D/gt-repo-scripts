@@ -20,7 +20,7 @@
     </xsl:variable>
     
     <xsl:variable name="labelling">
-        <xsl:copy-of select="document('../OCR-D_GT_labeling_schema_xsd_Element_gt_gt.dita')"/>
+        <xsl:copy-of select="document('../gt-guidelines/de/labeling/OCR-D_GT_labeling_schema_xsd_Element_gt_gt.dita')"/>
     </xsl:variable>
     
     
