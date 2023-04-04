@@ -29,22 +29,26 @@
                 
                 <xsl:if test="tokenize(u2, '_')[last()] ='simple'">
                     <div><h3>simple</h3>
+                        <ul>
                           <xsl:for-each select="a">
                             <xsl:variable name="o" select="."/>
-                            <details><summary><xsl:value-of select="."/></summary>
+                            <li><details><summary><xsl:value-of select="."/></summary>
                                 <p><xsl:value-of select="distinct-values($labelling//dlentry/dt[text() = $o]/following-sibling::dd)"/></p>
-                            </details>
+                            </details></li>
                           </xsl:for-each>
+                        </ul>
                     </div>
                 </xsl:if>
                 <xsl:if test="tokenize(u2, '_')[last()] ='complex'">
                     <div><h3>complex</h3>
-                        <xsl:for-each select="a">
-                            <xsl:variable name="o" select="."/>
-                            <details><summary><xsl:value-of select="."/></summary>
-                                <p><xsl:value-of select="distinct-values($labelling//dlentry/dt[text() = $o]/following-sibling::dd)"/></p>
-                            </details>
-                        </xsl:for-each>
+                        <ul>
+                            <xsl:for-each select="a">
+                                <xsl:variable name="o" select="."/>
+                                <li><details><summary><xsl:value-of select="."/></summary>
+                                    <p><xsl:value-of select="distinct-values($labelling//dlentry/dt[text() = $o]/following-sibling::dd)"/></p>
+                                </details></li>
+                            </xsl:for-each>
+                        </ul>
                     </div>
                 </xsl:if>
             </xsl:for-each-group>
