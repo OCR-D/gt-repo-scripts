@@ -28,7 +28,8 @@
             <xsl:for-each-group select="fn:current-group()" group-by="u2">
                 
                 <xsl:if test="tokenize(u2, '_')[last()] ='simple'">
-                    <div><h3>simple</h3>
+                    <div><details>
+                        <summary><h3>simple</h3></summary>
                         <ul>
                           <xsl:for-each select="a">
                             <xsl:variable name="o" select="."/>
@@ -36,11 +37,12 @@
                                 <p><xsl:value-of select="distinct-values($labelling//dlentry/dt[text() = $o]/following-sibling::dd)"/></p>
                             </details></li>
                           </xsl:for-each>
-                        </ul>
+                        </ul></details>
                     </div>
                 </xsl:if>
                 <xsl:if test="tokenize(u2, '_')[last()] ='complex'">
-                    <div><h3>complex</h3>
+                    <div><details>
+                        <summary><h3>complex</h3></summary>
                         <ul>
                             <xsl:for-each select="a">
                                 <xsl:variable name="o" select="."/>
@@ -48,7 +50,7 @@
                                     <p><xsl:value-of select="distinct-values($labelling//dlentry/dt[text() = $o]/following-sibling::dd)"/></p>
                                 </details></li>
                             </xsl:for-each>
-                        </ul>
+                        </ul></details>
                     </div>
                 </xsl:if>
             </xsl:for-each-group>
