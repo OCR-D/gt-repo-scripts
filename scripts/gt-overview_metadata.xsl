@@ -2461,18 +2461,10 @@
                     </xsl:for-each>
             </xsl:variable>
             
-            <xsl:variable name="cccMets">
-                <xsl:variable name="ab"><xsl:value-of select="$ccMets"/>mets.xml</xsl:variable>
-                <xsl:copy-of select="document($ab)"/>
-                
-            </xsl:variable>
-            
-            
-            
- <xsl:message select="$cccMets"/>
-
-            
-            <xsl:if test="$cMets//mets = ''">
+            <xsl:variable name="cccMets"><xsl:value-of select="$ccMets"/>mets.xml</xsl:variable>
+             
+             
+                <xsl:if test="document($cccMets)//*/*[local-name()='fileGrp']/@*[local-name()='USE']='OCR-D-IMG' = ''">
                 <xsl:for-each select="$holeMetric/array/array">
                         <xsl:variable name="Image1" select="substring-before(map/image1, '.')"/>
                         <xsl:variable name="Image2" select="substring-before(map/image2, '.')"/>
