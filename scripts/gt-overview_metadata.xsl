@@ -10,6 +10,7 @@
     xmlns:gt="http://www.ocr-d.de/GT/"
     xmlns:mets="http://www.loc.gov/METS/"
     xmlns:mods="http://www.loc.gov/mods/v3"
+    xmlns:ns3="http://www.loc.gov/METS/"
     exclude-result-prefixes="#all"
     version="3.0">
     <xsl:output indent="yes" omit-xml-declaration="yes" method="xml"/>
@@ -342,7 +343,7 @@
                     </dl>
                     <xsl:if test="($docMETADATA//fn:map/fn:string[@key='transcription-guidelines'] !='') or ($docMETADATA//fn:map/fn:array[@key='license']/fn:map/fn:string[@key='name'] !='') or ($docMETADATA//fn:map/fn:string[@key='project-name'] !='') or ($docMETADATA//fn:map/fn:string[@key='project-website'] !='')">
                     <details>
-                        <summary>More Information</summary>                         
+                        <summary>More Information</summary>
                         <dl class="more-grid">
                             <xsl:if test="$docMETADATA//fn:map/fn:string[@key='transcription-guidelines'] !=''">
                             <dt>Transcription Guidelines:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='transcription-guidelines']"/></dd>
