@@ -2465,7 +2465,7 @@
              
             <xsl:variable name="ccccMets"><xsl:copy-of select="document($cccMets)"/></xsl:variable>
              
-            <xsl:if test="$ccccMets//*[local-name()='fileGrp']/@*[local-name()='USE']!='OCR-D-IMG'">
+            <xsl:if test="$ccccMets//*[local-name()='fileGrp']/@*[local-name()!='USE']!='OCR-D-IMG'">
                 <xsl:for-each select="$holeMetric/array/array">
                         <xsl:variable name="Image1" select="substring-before(map/image1, '.')"/>
                         <xsl:variable name="Image2" select="substring-before(map/image2, '.')"/>
