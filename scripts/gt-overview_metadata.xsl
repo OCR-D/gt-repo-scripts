@@ -2454,7 +2454,7 @@
                 </mets>
             </xsl:variable>
             
-
+ <xsl:message select="$cMets"/>
 
             
             <xsl:if test="$cMets//mets = ''">
