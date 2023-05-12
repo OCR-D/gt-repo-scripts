@@ -2454,7 +2454,20 @@
                 </mets>
             </xsl:variable>
             
- <xsl:message select="$cMets"/>
+            
+            <xsl:variable name="ccMets">
+                    <xsl:for-each select="uri-collection($conMets)">
+                        <xsl:value-of select="substring-before(iri-to-uri(.), 'mets.xml')"/>
+                    </xsl:for-each>
+            </xsl:variable>
+            
+            <xsl:variable name="cccMets">
+                <xsl:value-of select="$ccMets"/>mets.xml
+            </xsl:variable>
+            
+            
+            
+ <xsl:message select="document($cccMets)"/>
 
             
             <xsl:if test="$cMets//mets = ''">
