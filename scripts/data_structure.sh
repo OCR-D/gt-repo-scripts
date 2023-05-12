@@ -10,15 +10,15 @@ jp=`pwd`
 cd $path/$eachfile;cd ..
 p=`pwd`
 
-if test -f "amets.xml"; then
+if test -f "mets.xml"; then
     # if grep -Eq "PAGE;IMG" mets.xml; then
-    if grep -Eq "mets:fileGrp USE=\"OCR-D\-IMG" amets.xml; then
+    if grep -Eq "mets:fileGrp USE=\"OCR-D\-IMG" mets.xml; then
         pwd
         cd $p;ocrd zip bag -i ocrd_data_structur_${PWD##*/};cd ${PWD##*/};mv $path/data/*.zip $path/ocrdzip_out/
         # echo "gefunden!"
             else
                 pwd
-                rm amets.xml
+                rm mets.xml
                 ocrd workspace --directory $p init
                 cat $path/scripts/mets.sh # for GH actions log
                 sh $path/scripts/mets.sh
