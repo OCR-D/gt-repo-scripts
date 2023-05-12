@@ -2462,7 +2462,7 @@
             </xsl:variable>
             
             <xsl:variable name="cccMets">
-                <xsl:variable name="ab" select="$ccMets"/>mets.xml>
+                <xsl:variable name="ab"><xsl:value-of select="$ccMets"/>mets.xml</xsl:variable>
                 <xsl:copy-of select="document($ab)"/>
                 
             </xsl:variable>
