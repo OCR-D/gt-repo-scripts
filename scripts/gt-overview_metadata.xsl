@@ -2454,10 +2454,16 @@
                 </mets>
             </xsl:variable>
             
-            <xsl:variable name="filename" select="base-uri()" />
+            <xsl:variable name="ocrdMets">
+                <xsl:for-each select="collection($conMets)">
+                    <hallo1><xsl:copy-of select="//*[local-name()='fileGrp']/@*[local-name()!='USE']!='OCR-D-IMG'"/></hallo1>
+                    <hallo2><xsl:copy-of select="//*[local-name()='fileGrp']/@*[local-name()!='ID']!='PAGEXML'"/></hallo2>
+                    
+                </xsl:for-each>
+            </xsl:variable>
             
             <xsl:message select="$conMets"/>
-            <xsl:message select="$cMets"/>
+            <xsl:message select="$ocrdMets"/>
             
             
             <!--<xsl:variable name="ccMets">
