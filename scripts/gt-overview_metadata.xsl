@@ -2446,13 +2446,6 @@
             
             <!-- Mets Control -->
             
-            <xsl:variable name="cMets">
-                <mets>
-            <xsl:for-each select="uri-collection($conMets)">
-                <file><xsl:value-of select="substring-before(iri-to-uri(.), 'mets.xml')"/></file>
-            </xsl:for-each>
-                </mets>
-            </xsl:variable>
             
             <xsl:variable name="ocrdMets">
                 <xsl:for-each select="collection($conMets)">
@@ -2460,23 +2453,11 @@
                 </xsl:for-each>
             </xsl:variable>
             
-            <xsl:message select="$conMets"/>
-            <xsl:message select="$ocrdMets"/>
             
             
-            <!--<xsl:variable name="ccMets">
-                    <xsl:for-each select="uri-collection($conMets)">
-                        <xsl:value-of select="substring-before(iri-to-uri(.), 'mets.xml')"/>
-                    </xsl:for-each>
-            </xsl:variable>
             
-            <xsl:variable name="cccMets"><xsl:value-of select="$ccMets"/>mets.xml</xsl:variable>
-             
-            <xsl:variable name="ccccMets"><xsl:copy-of select="document($cccMets)"/></xsl:variable>-->
-             
-            <!--<xsl:if test="$ccccMets//*[local-name()='fileGrp']/@*[local-name()!='USE']!='OCR-D-IMG'">-->
+           
             <xsl:if test="$ocrdMets = 'true'">
-            <!--<xsl:if test="$cMets//mets != ''">-->
                 <xsl:for-each select="$holeMetric/array/array">
                         
                         <xsl:variable name="Image1" select="substring-before(map/image1, '.')"/>
