@@ -2454,7 +2454,7 @@
                 </mets>
             </xsl:variable>
             
-            
+            <xsl:message select="$cMets"/>
             <xsl:variable name="ccMets">
                     <xsl:for-each select="uri-collection($conMets)">
                         <xsl:value-of select="substring-before(iri-to-uri(.), 'mets.xml')"/>
@@ -2465,7 +2465,8 @@
              
             <xsl:variable name="ccccMets"><xsl:copy-of select="document($cccMets)"/></xsl:variable>
              
-            <xsl:if test="$ccccMets//*[local-name()='fileGrp']/@*[local-name()!='USE']!='OCR-D-IMG'">
+            <!--<xsl:if test="$ccccMets//*[local-name()='fileGrp']/@*[local-name()!='USE']!='OCR-D-IMG'">-->
+                <xsl:if test="$cMets//mets = ''">
                 <xsl:for-each select="$holeMetric/array/array">
                         <xsl:variable name="Image1" select="substring-before(map/image1, '.')"/>
                         <xsl:variable name="Image2" select="substring-before(map/image2, '.')"/>
