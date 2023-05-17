@@ -2472,7 +2472,7 @@
             <!--<xsl:if test="$ccccMets//*[local-name()='fileGrp']/@*[local-name()!='USE']!='OCR-D-IMG'">-->
                 <xsl:if test="$cMets//mets = ''">
                 <xsl:for-each select="$holeMetric/array/array">
-                        <xsl:variable name="metsFile" select="substring-before(map/@file, 'data')"/>
+                        <xsl:variable name="metsFile" select="map/@file"/>
                         <xsl:variable name="Image1" select="substring-before(map/image1, '.')"/>
                         <xsl:variable name="Image2" select="substring-before(map/image2, '.')"/>
                         <xsl:variable name="Image3" select="substring-before(map/image3, '.')"/>
