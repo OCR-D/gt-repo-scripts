@@ -2456,9 +2456,7 @@
             
             <xsl:variable name="ocrdMets">
                 <xsl:for-each select="collection($conMets)">
-                    <hallo1><xsl:copy-of select="//*[local-name()='fileGrp']/@*[local-name()!='USE']!='OCR-D-IMG'"/></hallo1>
-                    <hallo2><xsl:copy-of select="//*[local-name()='fileGrp']/@*[local-name()!='ID']!='PAGEXML'"/></hallo2>
-                    
+                    <xsl:copy-of select="//*[local-name()='fileGrp']/@*[local-name()!='USE']!='OCR-D-IMG'"/>
                 </xsl:for-each>
             </xsl:variable>
             
@@ -2477,7 +2475,8 @@
             <xsl:variable name="ccccMets"><xsl:copy-of select="document($cccMets)"/></xsl:variable>-->
              
             <!--<xsl:if test="$ccccMets//*[local-name()='fileGrp']/@*[local-name()!='USE']!='OCR-D-IMG'">-->
-                <xsl:if test="$cMets//mets != ''">
+            <xsl:if test="$ocrdMets = 'true'">
+            <!--<xsl:if test="$cMets//mets != ''">-->
                 <xsl:for-each select="$holeMetric/array/array">
                         
                         <xsl:variable name="Image1" select="substring-before(map/image1, '.')"/>
