@@ -2456,7 +2456,7 @@
             
             <xsl:variable name="filename" select="base-uri()" />
             
-            
+            <xsl:message select="$cMets"/>
             
             
             <!--<xsl:variable name="ccMets">
