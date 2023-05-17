@@ -2449,13 +2449,17 @@
             <xsl:variable name="cMets">
                 <mets>
             <xsl:for-each select="uri-collection($conMets)">
-                <xsl:value-of select="substring-before(iri-to-uri(.), 'mets.xml')"/>
+                <file><xsl:value-of select="substring-before(iri-to-uri(.), 'mets.xml')"/></file>
             </xsl:for-each>
                 </mets>
             </xsl:variable>
             
+            <xsl:variable name="filename" select="base-uri()" />
+            
             <xsl:message select="$cMets"/>
-            <xsl:variable name="ccMets">
+            <xsl:message select="$filename"/>
+            
+            <!--<xsl:variable name="ccMets">
                     <xsl:for-each select="uri-collection($conMets)">
                         <xsl:value-of select="substring-before(iri-to-uri(.), 'mets.xml')"/>
                     </xsl:for-each>
@@ -2463,7 +2467,7 @@
             
             <xsl:variable name="cccMets"><xsl:value-of select="$ccMets"/>mets.xml</xsl:variable>
              
-            <xsl:variable name="ccccMets"><xsl:copy-of select="document($cccMets)"/></xsl:variable>
+            <xsl:variable name="ccccMets"><xsl:copy-of select="document($cccMets)"/></xsl:variable>-->
              
             <!--<xsl:if test="$ccccMets//*[local-name()='fileGrp']/@*[local-name()!='USE']!='OCR-D-IMG'">-->
                 <xsl:if test="$cMets//mets = ''">
