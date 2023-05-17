@@ -2457,7 +2457,7 @@
             <xsl:variable name="filename" select="base-uri()" />
             
             <xsl:message select="$cMets"/>
-            <xsl:message select="$filename"/>
+            <xsl:message select="$holeMetric"/>
             
             <!--<xsl:variable name="ccMets">
                     <xsl:for-each select="uri-collection($conMets)">
