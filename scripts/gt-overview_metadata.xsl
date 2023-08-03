@@ -2455,7 +2455,7 @@
             
             <xsl:message select="$holeMetric"></xsl:message>
             
-            <xsl:if test="$ocrdMets = ''">
+            <xsl:if test="$ocrdMets = 'true'">
 Hallo            
 </xsl:if>
 
