@@ -2453,7 +2453,7 @@
                 </xsl:for-each>
             </xsl:variable>
             
-            
+            <xsl:message select="$ocrdMets"></xsl:message>
             
             
            
