@@ -2455,8 +2455,12 @@
             
             <xsl:message select="$holeMetric"></xsl:message>
             
+            <xsl:if test="$ocrdMets = ''">
+Hallo            
+</xsl:if>
+
            
-            <xsl:if test="$ocrdMets = 'false'">
+            <!--<xsl:if test="$ocrdMets = 'false'">
                 <xsl:for-each select="$holeMetric/array/array">
                     
                     <xsl:variable name="Image1" select="substring-before(map/image1, '.')"/>
@@ -2501,7 +2505,7 @@
                         </xsl:if>
                     </xsl:if>
                 </xsl:for-each>
-            </xsl:if>
+            </xsl:if>-->
 
 
            
