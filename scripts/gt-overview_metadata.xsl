@@ -2453,7 +2453,7 @@
                 </xsl:for-each>
             </xsl:variable>
             
-            <xsl:message select="$conMets"></xsl:message>
+            <xsl:message select="$holeMetric"></xsl:message>
             
            
             <xsl:if test="$ocrdMets = 'false'">
