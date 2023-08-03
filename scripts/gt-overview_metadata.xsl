@@ -2505,7 +2505,7 @@
 
 
            
-            <xsl:if test="$ocrdMets = 'true'">
+            <!--<xsl:if test="$ocrdMets = 'true'">
                 <xsl:for-each select="$holeMetric/array/array">
                         
                         <xsl:variable name="Image1" select="substring-before(map/image1, '.')"/>
@@ -2550,7 +2550,7 @@
                     </xsl:if>
                     </xsl:if>
                 </xsl:for-each>
-            </xsl:if>
+            </xsl:if>-->
             </xsl:if>
 
 
