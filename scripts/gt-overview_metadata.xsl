@@ -64,12 +64,6 @@
     
     <xsl:variable name="conImg"><xsl:value-of select="$path"/>/?select=*.[jpgtiffpng]+;recurse=yes</xsl:variable>
     
-    
-    
-    <xsl:variable name="swiftFiles" select="uri-collection($conImg)"/>
-    
-    
-    
     <!--<xsl:variable name="folder" select="base-uri()" />-->
     
     <xsl:param name="output"/>
@@ -2502,29 +2496,10 @@
                         <xsl:variable name="wget_img" select="map/image2"/>
                         cd <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>
                         <xsl:if test="$wget_img[contains(text(),'http')]">
-                        wget <xsl:value-of select="map/image2"/> -O GT-PAGE/<xsl:value-of select="map/image2"/>
+                           wget <xsl:value-of select="map/image2"/> -O GT-PAGE/<xsl:value-of select="map/image2"/>
                         </xsl:if>
                         
-                        
-                        <xsl:variable name="CconImg">
-                            <xsl:for-each 
-                                select="uri-collection($conImg)">
-                                <datei name="{iri-to-uri(.)}">
-                                    <xsl:value-of select="unparsed-text(.)"/>
-                                </datei>  
-                            </xsl:for-each>
-                        </xsl:variable>
-                        
-                        <xsl:message select="$swiftFiles"></xsl:message>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-IMG -i OCR-D-IMG_<xsl:number format="0001"/> -m image/<xsl:value-of select="substring-after(tokenize(map/image1, '/')[last()], '.')"/> GT-PAGE/<xsl:value-of select="map/image2"/>
+                        ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-IMG -i OCR-D-IMG_<xsl:number format="0001"/> -m image/<xsl:value-of select="substring-after(tokenize(map/image2, '/')[last()], '.')"/> GT-PAGE/<xsl:value-of select="map/image2"/>
                         ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-GT-SEG-PAGE -i OCR-D-GT-SEG-PAGE_<xsl:number format="0001"/> -m text/xml <xsl:value-of select="substring-after(map/@file, 'file:')"/>
                         ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-GT-SEG-BLOCK -i OCR-D-GT-SEG-BLOCK_<xsl:number format="0001"/> -m text/xml <xsl:value-of select="substring-after(map/@file, 'file:')"/>
                     </xsl:if>
