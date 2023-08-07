@@ -64,7 +64,7 @@
     
     <xsl:variable name="conImg"><xsl:value-of select="$path"/>/?select=*.[jpgtiffpng]+;recurse=yes</xsl:variable>
     
-    <xsl:variable name="folder" select="base-uri()" />
+    <!--<xsl:variable name="folder" select="base-uri()" />-->
     
     <xsl:param name="output"/>
     
@@ -2501,7 +2501,7 @@
                         
                         
                         <xsl:variable name="CconImg">
-                            <xsl:for-each select="collection($conImg)"><xsl:value-of select="."/></xsl:for-each>
+                            <xsl:for-each select="collection($conImg)"><xsl:value-of select="base-uri()"/></xsl:for-each>
                         </xsl:variable>
                         
                         <xsl:message select="$CconImg"></xsl:message>
