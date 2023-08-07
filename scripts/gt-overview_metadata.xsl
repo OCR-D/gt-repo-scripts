@@ -64,6 +64,8 @@
     
     <xsl:variable name="conImg"><xsl:value-of select="$path"/>/?select=*.[jpgtiffpng]+;recurse=yes</xsl:variable>
     
+    
+    
     <!--<xsl:variable name="folder" select="base-uri()" />-->
     
     <xsl:param name="output"/>
@@ -2501,10 +2503,21 @@
                         
                         
                         <xsl:variable name="CconImg">
-                            <xsl:for-each select="collection($conImg)"><xsl:value-of select="base-uri()"/></xsl:for-each>
+                            <xsl:for-each 
+                                select="uri-collection($conImg)">
+                                <datei name="{iri-to-uri(.)}">
+                                    <xsl:value-of select="unparsed-text(.)"/>
+                                </datei>  
+                            </xsl:for-each>
                         </xsl:variable>
                         
                         <xsl:message select="$CconImg"></xsl:message>
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         
                         ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-IMG -i OCR-D-IMG_<xsl:number format="0001"/> -m image/<xsl:value-of select="substring-after(tokenize(map/image1, '/')[last()], '.')"/> GT-PAGE/<xsl:value-of select="map/image2"/>
