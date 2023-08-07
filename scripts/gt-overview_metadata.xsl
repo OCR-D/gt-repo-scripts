@@ -66,6 +66,10 @@
     
     
     
+    <xsl:variable name="swiftFiles" select="uri-collection($conImg)"/>
+    
+    
+    
     <!--<xsl:variable name="folder" select="base-uri()" />-->
     
     <xsl:param name="output"/>
@@ -2511,7 +2515,7 @@
                             </xsl:for-each>
                         </xsl:variable>
                         
-                        <xsl:message select="$CconImg"></xsl:message>
+                        <xsl:message select="$swiftFiles"></xsl:message>
                         
                         
                         
