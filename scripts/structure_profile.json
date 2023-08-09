@@ -63,20 +63,6 @@
                 "StrokeWidth": 3
             }
         },
-        "LineDrawingRegion": {
-            "FillColor": "silver",
-            "FillOpacity": 0.3,
-            "StrokeColor": "darkblue",
-            "StrokeOpacity": 0.3,
-            "StrokeWidth": 5,
-            "TextLine": {
-                "FillColor": "crimson",
-                "FillOpacity": 0.3,
-                "StrokeColor": "darkred",
-                "StrokeOpacity": 0.3,
-                "StrokeWidth": 3
-            }
-        },
         "MapRegion": {
             "FillColor": "teal",
             "FillOpacity": 0.3,
@@ -133,20 +119,6 @@
                 "StrokeWidth": 3
             }
         },
-        "AdvertRegion ": {
-            "FillColor": "white",
-            "FillOpacity": 0.3,
-            "StrokeColor": "darkblue",
-            "StrokeOpacity": 0.3,
-            "StrokeWidth": 5,
-            "TextLine": {
-                "FillColor": "crimson",
-                "FillOpacity": 0.3,
-                "StrokeColor": "darkred",
-                "StrokeOpacity": 0.3,
-                "StrokeWidth": 3
-            }
-        },
         "NoiseRegion": {
             "FillColor": "blue",
             "FillOpacity": 0.3,
@@ -160,20 +132,6 @@
                 "StrokeOpacity": 0.3,
                 "StrokeWidth": 3
             }
-        },
-        "UnknownRegion": {
-            "FillColor": "red",
-            "FillOpacity": 0.3,
-            "StrokeColor": "darkblue",
-            "StrokeOpacity": 0.3,
-            "StrokeWidth": 5,
-            "TextLine": {
-                "FillColor": "crimson",
-                "FillOpacity": 0.3,
-                "StrokeColor": "darkred",
-                "StrokeOpacity": 0.3,
-                "StrokeWidth": 3
-            }
         }
-    }
+       }
 }
