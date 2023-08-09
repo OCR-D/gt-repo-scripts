@@ -2532,7 +2532,7 @@
                     
                     <xsl:if test="$Image1 != ''">
                         <xsl:if test="$Image2 = $Page">
-                            cd <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/> \
+                            cd <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/> 
                             page-xml-draw -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> -o ghout/drawImg<xsl:value-of select="substring-after(map/@file, 'file:')"/>.png -b GT-PAGE/<xsl:value-of select="map/image2"/> -p <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
                         </xsl:if>
                     </xsl:if>
@@ -2540,7 +2540,7 @@
                     
                     <xsl:if test="$Image3 != ''">
                         <xsl:if test="$Image2 = $Page">
-                            cd <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/> \
+                            cd <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/> 
                             page-xml-draw -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> -o ghout/drawImg<xsl:value-of select="substring-after(map/@file, 'file:')"/>.png -b GT-PAGE/<xsl:value-of select="map/image2"/> -p <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
                         </xsl:if>
                     </xsl:if>
@@ -2550,7 +2550,7 @@
                     
                     <xsl:if test="$Image1 = '' and $Image3 = ''">
                         <xsl:if test="$Image2 = $Page">
-                            cd <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/> \
+                            cd <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/> 
                             page-xml-draw -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> -o ghout/drawImg<xsl:value-of select="substring-after(map/@file, 'file:')"/>.png -b GT-PAGE/<xsl:value-of select="map/image2"/> -p <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
                         </xsl:if>
                     </xsl:if>
