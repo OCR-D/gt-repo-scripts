@@ -2537,7 +2537,7 @@
                             -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> \
                             -o ghout/drawImg<xsl:value-of select="substring-after(map/@file, 'file:')"/>.png \
                             -b GT-PAGE/<xsl:value-of select="map/image2"/>
-                            -p <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
+                            --profile <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
                             
                             
                             
@@ -2552,7 +2552,7 @@
                             -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> \
                             -o ghout/drawImg<xsl:value-of select="substring-after(map/@file, 'file:')"/>.png \
                             -b GT-PAGE/<xsl:value-of select="map/image2"/>
-                            -p <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
+                            --profile <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
                         </xsl:if>
                     </xsl:if>
                     
@@ -2566,7 +2566,7 @@
                             -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> \
                             -o ghout/drawImg<xsl:value-of select="substring-after(map/@file, 'file:')"/>.png \
                             -b GT-PAGE/<xsl:value-of select="map/image2"/>
-                            -p <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
+                            --profile <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
                         </xsl:if>
                     </xsl:if>
                 </xsl:for-each>
