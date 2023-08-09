@@ -2509,10 +2509,13 @@
             </xsl:if>
 
         <xsl:if test="$output = 'DrawImages'">
-            <a><xsl:attribute name="href">https://github.com/<xsl:value-of select="$repoName"/>/blob/<xsl:value-of select="$repoBase"/>/data/<xsl:value-of select="substring-after(@file, '/data/')"/></xsl:attribute><xsl:value-of select="@key2"/></a>
             
-            <!-- Mets Control -->
             
+            <!-- GT Type Control -->
+            <xsl:variable name="gtTypeJson">
+            <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp'] = 'data_structure'">structure_profile.json</xsl:if>
+            <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp'] = 'data_structure_and_text'">structure_text_profile.json</xsl:if>
+            </xsl:variable>
             
             <xsl:variable name="ocrdMets">
                 <xsl:for-each select="collection($conMets)">
@@ -2541,7 +2544,7 @@
                             -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> \
                             -o ghout/drawImg/<xsl:value-of select="substring-after(map/@file, 'file:')"/>.png \
                             --base-dir GT-PAGE/<xsl:value-of select="map/image2"/>
-                            --profile <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>/scripts/profile.json
+                            --profile <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>/scripts/<xsl:value-of select="$gtTypeJson"/>
                             
                             
                             
@@ -2552,10 +2555,11 @@
                     <xsl:if test="$Image3 != ''">
                         <xsl:if test="$Image2 = $Page">
                             cd <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>
-                            wget <xsl:value-of select="substring-before(map/image3, '&amp;fileType=view')"/> -O GT-PAGE/<xsl:value-of select="map/image2"/>
-                            ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-IMG -i OCR-D-IMG_<xsl:number format="0001"/> -m image/<xsl:value-of select="substring-after(tokenize(map/image1, '/')[last()], '.')"/> GT-PAGE/<xsl:value-of select="map/image2"/>
-                            ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-GT-SEG-PAGE -i OCR-D-GT-SEG-PAGE_<xsl:number format="0001"/> -m text/xml <xsl:value-of select="substring-after(map/@file, 'file:')"/>
-                            ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-GT-SEG-BLOCK -i OCR-D-GT-SEG-BLOCK_<xsl:number format="0001"/> -m text/xml <xsl:value-of select="substring-after(map/@file, 'file:')"/>
+                            page-xml-draw \
+                            -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> \
+                            -o ghout/drawImg/<xsl:value-of select="substring-after(map/@file, 'file:')"/>.png \
+                            --base-dir GT-PAGE/<xsl:value-of select="map/image2"/>
+                            --profile <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>/scripts/<xsl:value-of select="$gtTypeJson"/>
                         </xsl:if>
                     </xsl:if>
                     
@@ -2564,14 +2568,12 @@
                     
                     <xsl:if test="$Image1 = '' and $Image3 = ''">
                         <xsl:if test="$Image2 = $Page">
-                            <xsl:variable name="wget_img" select="map/image2"/>
                             cd <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>
-                            <xsl:if test="$wget_img[contains(text(),'http')]">
-                                wget <xsl:value-of select="map/image2"/> -O GT-PAGE/<xsl:value-of select="map/image2"/>
-                            </xsl:if>
-                            ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-IMG -i OCR-D-IMG_<xsl:number format="0001"/> -m image/<xsl:value-of select="substring-after(tokenize(map/image1, '/')[last()], '.')"/> GT-PAGE/<xsl:value-of select="map/image2"/>
-                            ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-GT-SEG-PAGE -i OCR-D-GT-SEG-PAGE_<xsl:number format="0001"/> -m text/xml <xsl:value-of select="substring-after(map/@file, 'file:')"/>
-                            ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-GT-SEG-BLOCK -i OCR-D-GT-SEG-BLOCK_<xsl:number format="0001"/> -m text/xml <xsl:value-of select="substring-after(map/@file, 'file:')"/>
+                            page-xml-draw \
+                            -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> \
+                            -o ghout/drawImg/<xsl:value-of select="substring-after(map/@file, 'file:')"/>.png \
+                            --base-dir GT-PAGE/<xsl:value-of select="map/image2"/>
+                            --profile <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>/scripts/<xsl:value-of select="$gtTypeJson"/>
                         </xsl:if>
                     </xsl:if>
                 </xsl:for-each>
