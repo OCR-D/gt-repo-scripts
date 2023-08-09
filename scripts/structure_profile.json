@@ -19,28 +19,16 @@
             "FillOpacity": 0.3,
             "StrokeColor": "darkblue",
             "StrokeOpacity": 0.3,
-            "StrokeWidth": 5,
-            "TextLine": {
-                "FillColor": "crimson",
-                "FillOpacity": 0.3,
-                "StrokeColor": "darkred",
-                "StrokeOpacity": 0.3,
-                "StrokeWidth": 3
-            }
+            "StrokeWidth": 5
+           
         },
         "GraphicRegion": {
             "FillColor": "olive",
             "FillOpacity": 0.3,
             "StrokeColor": "darkblue",
             "StrokeOpacity": 0.3,
-            "StrokeWidth": 5,
-            "TextLine": {
-                "FillColor": "crimson",
-                "FillOpacity": 0.3,
-                "StrokeColor": "darkred",
-                "StrokeOpacity": 0.3,
-                "StrokeWidth": 3
-            }
+            "StrokeWidth": 5
+            
         },
         "SeparatorRegion": {
             "FillColor": "fuchsia",
@@ -54,84 +42,48 @@
             "FillOpacity": 0.3,
             "StrokeColor": "darkblue",
             "StrokeOpacity": 0.3,
-            "StrokeWidth": 5,
-            "TextLine": {
-                "FillColor": "crimson",
-                "FillOpacity": 0.3,
-                "StrokeColor": "darkred",
-                "StrokeOpacity": 0.3,
-                "StrokeWidth": 3
-            }
+            "StrokeWidth": 5
+            
         },
         "MapRegion": {
             "FillColor": "teal",
             "FillOpacity": 0.3,
             "StrokeColor": "darkblue",
             "StrokeOpacity": 0.3,
-            "StrokeWidth": 5,
-            "TextLine": {
-                "FillColor": "crimson",
-                "FillOpacity": 0.3,
-                "StrokeColor": "darkred",
-                "StrokeOpacity": 0.3,
-                "StrokeWidth": 3
-            }
+            "StrokeWidth": 5
+            
         },
         "MathsRegion": {
             "FillColor": "purple",
             "FillOpacity": 0.3,
             "StrokeColor": "darkblue",
             "StrokeOpacity": 0.3,
-            "StrokeWidth": 5,
-            "TextLine": {
-                "FillColor": "crimson",
-                "FillOpacity": 0.3,
-                "StrokeColor": "darkred",
-                "StrokeOpacity": 0.3,
-                "StrokeWidth": 3
-            }
+            "StrokeWidth": 5
+            
         },
         "ChemRegion": {
             "FillColor": "navy",
             "FillOpacity": 0.3,
             "StrokeColor": "darkblue",
             "StrokeOpacity": 0.3,
-            "StrokeWidth": 5,
-            "TextLine": {
-                "FillColor": "crimson",
-                "FillOpacity": 0.3,
-                "StrokeColor": "darkred",
-                "StrokeOpacity": 0.3,
-                "StrokeWidth": 3
-            }
+            "StrokeWidth": 5
+            
         },
         "MusicRegion": {
             "FillColor": "maroon",
             "FillOpacity": 0.3,
             "StrokeColor": "darkblue",
             "StrokeOpacity": 0.3,
-            "StrokeWidth": 5,
-            "TextLine": {
-                "FillColor": "crimson",
-                "FillOpacity": 0.3,
-                "StrokeColor": "darkred",
-                "StrokeOpacity": 0.3,
-                "StrokeWidth": 3
-            }
+            "StrokeWidth": 5
+            
         },
         "NoiseRegion": {
             "FillColor": "blue",
             "FillOpacity": 0.3,
             "StrokeColor": "darkblue",
             "StrokeOpacity": 0.3,
-            "StrokeWidth": 5,
-            "TextLine": {
-                "FillColor": "crimson",
-                "FillOpacity": 0.3,
-                "StrokeColor": "darkred",
-                "StrokeOpacity": 0.3,
-                "StrokeWidth": 3
-            }
+            "StrokeWidth": 5
+            
         }
        }
 }
