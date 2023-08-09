@@ -13,7 +13,7 @@
                 "StrokeOpacity": 0.3,
                 "StrokeWidth": 3
             }
-        }
+        },
         "ImageRegion": {
             "FillColor": "yellow",
             "FillOpacity": 0.3,
@@ -27,7 +27,7 @@
                 "StrokeOpacity": 0.3,
                 "StrokeWidth": 3
             }
-        }
+        },
         "GraphicRegion": {
             "FillColor": "olive",
             "FillOpacity": 0.3,
@@ -41,15 +41,14 @@
                 "StrokeOpacity": 0.3,
                 "StrokeWidth": 3
             }
-        }
+        },
         "SeparatorRegion": {
-            "FillColor": "magenta",
+            "FillColor": "fuchsia",
             "FillOpacity": 0.3,
             "StrokeColor": "darkblue",
             "StrokeOpacity": 0.3,
-            "StrokeWidth": 5,
-            
-        }
+            "StrokeWidth": 5
+        },
         "TableRegion": {
             "FillColor": "green",
             "FillOpacity": 0.3,
@@ -63,7 +62,7 @@
                 "StrokeOpacity": 0.3,
                 "StrokeWidth": 3
             }
-        }
+        },
         "LineDrawingRegion": {
             "FillColor": "silver",
             "FillOpacity": 0.3,
@@ -77,7 +76,7 @@
                 "StrokeOpacity": 0.3,
                 "StrokeWidth": 3
             }
-        }
+        },
         "MapRegion": {
             "FillColor": "teal",
             "FillOpacity": 0.3,
@@ -91,7 +90,7 @@
                 "StrokeOpacity": 0.3,
                 "StrokeWidth": 3
             }
-        }
+        },
         "MathsRegion": {
             "FillColor": "purple",
             "FillOpacity": 0.3,
@@ -105,7 +104,7 @@
                 "StrokeOpacity": 0.3,
                 "StrokeWidth": 3
             }
-        }
+        },
         "ChemRegion": {
             "FillColor": "navy",
             "FillOpacity": 0.3,
@@ -119,7 +118,7 @@
                 "StrokeOpacity": 0.3,
                 "StrokeWidth": 3
             }
-        }
+        },
         "MusicRegion": {
             "FillColor": "maroon",
             "FillOpacity": 0.3,
@@ -133,7 +132,7 @@
                 "StrokeOpacity": 0.3,
                 "StrokeWidth": 3
             }
-        }
+        },
         "AdvertRegion ": {
             "FillColor": "white",
             "FillOpacity": 0.3,
@@ -147,7 +146,7 @@
                 "StrokeOpacity": 0.3,
                 "StrokeWidth": 3
             }
-        }
+        },
         "NoiseRegion": {
             "FillColor": "blue",
             "FillOpacity": 0.3,
@@ -161,7 +160,7 @@
                 "StrokeOpacity": 0.3,
                 "StrokeWidth": 3
             }
-        }
+        },
         "UnknownRegion": {
             "FillColor": "red",
             "FillOpacity": 0.3,
@@ -176,15 +175,5 @@
                 "StrokeWidth": 3
             }
         }
-
-
-
-
-
-
-
-
-
-
     }
 }
