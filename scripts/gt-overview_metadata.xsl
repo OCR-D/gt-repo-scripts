@@ -2517,16 +2517,9 @@
             <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp'] = 'data_structure_and_text'">structure_text_profile.json</xsl:if>
             </xsl:variable>
             
-            <xsl:variable name="ocrdMets">
-                <xsl:for-each select="collection($conMets)">
-                    <xsl:copy-of select="//*[local-name()='fileGrp']/@*[local-name()!='USE']!='OCR-D-IMG'"/>
-                </xsl:for-each>
-            </xsl:variable>
             
             
             
-            
-            <xsl:if test="$ocrdMets = ''">
                 <xsl:for-each select="$holeMetric/array/array">
                     
                     <xsl:variable name="Image1" select="substring-before(map/image1, '.')"/>
@@ -2539,12 +2532,11 @@
                     
                     <xsl:if test="$Image1 != ''">
                         <xsl:if test="$Image2 = $Page">
-                            cd <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>
                             page-xml-draw \
                             -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> \
                             -o ghout/drawImg/<xsl:value-of select="substring-after(map/@file, 'file:')"/>.png \
                             --base-dir GT-PAGE/<xsl:value-of select="map/image2"/>
-                            --profile <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>/scripts/<xsl:value-of select="$gtTypeJson"/>
+                            --profile <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
                             
                             
                             
@@ -2554,12 +2546,11 @@
                     
                     <xsl:if test="$Image3 != ''">
                         <xsl:if test="$Image2 = $Page">
-                            cd <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>
                             page-xml-draw \
                             -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> \
                             -o ghout/drawImg/<xsl:value-of select="substring-after(map/@file, 'file:')"/>.png \
                             --base-dir GT-PAGE/<xsl:value-of select="map/image2"/>
-                            --profile <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>/scripts/<xsl:value-of select="$gtTypeJson"/>
+                            --profile <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
                         </xsl:if>
                     </xsl:if>
                     
@@ -2568,16 +2559,14 @@
                     
                     <xsl:if test="$Image1 = '' and $Image3 = ''">
                         <xsl:if test="$Image2 = $Page">
-                            cd <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>
                             page-xml-draw \
                             -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> \
                             -o ghout/drawImg/<xsl:value-of select="substring-after(map/@file, 'file:')"/>.png \
                             --base-dir GT-PAGE/<xsl:value-of select="map/image2"/>
-                            --profile <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>/scripts/<xsl:value-of select="$gtTypeJson"/>
+                            --profile <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
                         </xsl:if>
                     </xsl:if>
                 </xsl:for-each>
-            </xsl:if>
         </xsl:if>
 
 
