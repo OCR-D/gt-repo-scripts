@@ -2466,6 +2466,17 @@
                         <xsl:variable name="Page" select="substring-before(map/page, '.')"/>
                     
                     
+                    <xsl:variable name="Image2Path">
+                        <xsl:choose>
+                            <xsl:when test="contains(map/image2,'..')">
+                                <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>/<xsl:value-of select="tokenize(substring-before(map/image2, tokenize(map/image2,'/')[last()]), '\.\./')[last()]"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>GT-PAGE/<xsl:value-of select="tokenize(substring-before(map/image2, tokenize(map/image2,'/')[last()]), '\.\./')[last()]"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
+                    
                     
                     
                     
@@ -2474,7 +2485,7 @@
                        <xsl:if test="$Image2 = $Page">
                             cd <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>
                             wget <xsl:value-of select="map/image1"/> -O GT-PAGE/<xsl:value-of select="map/image2"/>
-                            ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-IMG -i OCR-D-IMG_<xsl:number format="0001"/> -m image/<xsl:value-of select="substring-after(tokenize(map/image1, '/')[last()], '.')"/> GT-PAGE/<xsl:value-of select="map/image2"/>
+                            ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-IMG -i OCR-D-IMG_<xsl:number format="0001"/> -m image/<xsl:value-of select="substring-after(tokenize(map/image1, '/')[last()], '.')"/> <xsl:value-of select="$Image2Path"/><xsl:value-of select="tokenize(map/image2,'/')[last()]"/>
                             ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-GT-SEG-PAGE -i OCR-D-GT-SEG-PAGE_<xsl:number format="0001"/> -m text/xml <xsl:value-of select="substring-after(map/@file, 'file:')"/>
                             ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-GT-SEG-BLOCK -i OCR-D-GT-SEG-BLOCK_<xsl:number format="0001"/> -m text/xml <xsl:value-of select="substring-after(map/@file, 'file:')"/>
                         </xsl:if>
@@ -2485,7 +2496,7 @@
                         <xsl:if test="$Image2 = $Page">
                             cd <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>
                             wget <xsl:value-of select="substring-before(map/image3, '&amp;fileType=view')"/> -O GT-PAGE/<xsl:value-of select="map/image2"/>
-                            ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-IMG -i OCR-D-IMG_<xsl:number format="0001"/> -m image/<xsl:value-of select="substring-after(tokenize(map/image1, '/')[last()], '.')"/> GT-PAGE/<xsl:value-of select="map/image2"/>
+                            ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-IMG -i OCR-D-IMG_<xsl:number format="0001"/> -m image/<xsl:value-of select="substring-after(tokenize(map/image1, '/')[last()], '.')"/> <xsl:value-of select="$Image2Path"/><xsl:value-of select="map/image2"/>
                             ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-GT-SEG-PAGE -i OCR-D-GT-SEG-PAGE_<xsl:number format="0001"/> -m text/xml <xsl:value-of select="substring-after(map/@file, 'file:')"/>
                             ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-GT-SEG-BLOCK -i OCR-D-GT-SEG-BLOCK_<xsl:number format="0001"/> -m text/xml <xsl:value-of select="substring-after(map/@file, 'file:')"/>
                         </xsl:if>
@@ -2502,7 +2513,7 @@
                            wget <xsl:value-of select="map/image2"/> -O GT-PAGE/<xsl:value-of select="map/image2"/>
                         </xsl:if>
                         
-                        ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-IMG -i OCR-D-IMG_<xsl:number format="0001"/> -m image/<xsl:value-of select="substring-after(tokenize(map/image2, '/')[last()], '.')"/> GT-PAGE/<xsl:value-of select="map/image2"/>
+                        ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-IMG -i OCR-D-IMG_<xsl:number format="0001"/> -m image/<xsl:value-of select="substring-after(tokenize(map/image2, '/')[last()], '.')"/> <xsl:value-of select="$Image2Path"/><xsl:value-of select="tokenize(map/image2,'/')[last()]"/>
                         ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-GT-SEG-PAGE -i OCR-D-GT-SEG-PAGE_<xsl:number format="0001"/> -m text/xml <xsl:value-of select="substring-after(map/@file, 'file:')"/>
                         ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-GT-SEG-BLOCK -i OCR-D-GT-SEG-BLOCK_<xsl:number format="0001"/> -m text/xml <xsl:value-of select="substring-after(map/@file, 'file:')"/>
                     </xsl:if>
@@ -2537,12 +2548,23 @@
                     
                     <xsl:variable name="Page" select="substring-before(map/page, '.')"/>
                     
+                    <xsl:variable name="Image2Path">
+                        <xsl:choose>
+                            <xsl:when test="contains(map/image2,'..')">
+                                <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>/<xsl:value-of select="tokenize(substring-before(map/image2, tokenize(map/image2,'/')[last()]), '\.\./')[last()]"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>GT-PAGE/<xsl:value-of select="tokenize(substring-before(map/image2, tokenize(map/image2,'/')[last()]), '\.\./')[last()]"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
+                    
                     
                     
                     <xsl:if test="$Image1 != ''">
                         <xsl:if test="$Image2 = $Page">
                             
-                            page-xml-draw -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> -o <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'), 'data')"/>ghout/drawImg/<xsl:value-of select="substring-before(tokenize(map/image2, '/')[last()], '.')"/>.png -b <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>GT-PAGE -p <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
+                            page-xml-draw -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> -o <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'), 'data')"/>ghout/drawImg/<xsl:value-of select="substring-before(tokenize(map/image2, '/')[last()], '.')"/>.png -b <xsl:value-of select="$Image2Path"/> -p <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
                         </xsl:if>
                     </xsl:if>
                     
@@ -2550,7 +2572,7 @@
                     <xsl:if test="$Image3 != ''">
                         <xsl:if test="$Image2 = $Page">
                             
-                            page-xml-draw -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> -o <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'), 'data')"/>ghout/drawImg/<xsl:value-of select="substring-before(tokenize(map/image2, '/')[last()], '.')"/>.png -b <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>GT-PAGE -p <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
+                            page-xml-draw -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> -o <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'), 'data')"/>ghout/drawImg/<xsl:value-of select="substring-before(tokenize(map/image2, '/')[last()], '.')"/>.png -b <xsl:value-of select="$Image2Path"/> -p <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
                         </xsl:if>
                     </xsl:if>
                     
@@ -2560,7 +2582,7 @@
                     <xsl:if test="$Image1 = '' and $Image3 = ''">
                         <xsl:if test="$Image2 = $Page">
                             
-                            page-xml-draw -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> -o <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'), 'data')"/>ghout/drawImg/<xsl:value-of select="substring-before(tokenize(map/image2, '/')[last()], '.')"/>.png -b <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>GT-PAGE -p <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
+                            page-xml-draw -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> -o <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'), 'data')"/>ghout/drawImg/<xsl:value-of select="substring-before(tokenize(map/image2, '/')[last()], '.')"/>.png -b <xsl:value-of select="$Image2Path"/> -p <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
                         </xsl:if>
                     </xsl:if>
                 </xsl:for-each>
