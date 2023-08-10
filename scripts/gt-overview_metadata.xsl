@@ -2464,7 +2464,10 @@
                         <xsl:variable name="Image3" select="substring-before(map/image3, '.')"/>
                     
                         <xsl:variable name="Page" select="substring-before(map/page, '.')"/>
-                     
+                    
+                    
+                    
+                    
                     
                        
                     <xsl:if test="$Image1 != ''">
@@ -2510,6 +2513,11 @@
 
         <xsl:if test="$output = 'DrawImages'">
             <xsl:text>debug</xsl:text>
+            
+            
+            
+            
+            
             <xsl:message select="$holeMetric"/>
             <!-- GT Type Control -->
             <xsl:variable name="gtTypeJson">
@@ -2522,9 +2530,10 @@
             
                 <xsl:for-each select="$holeMetric/array/array">
                     
-                    <xsl:variable name="Image1" select="substring-before(map/image1, '.')"/>
-                    <xsl:variable name="Image2" select="substring-before(map/image2, '.')"/>
-                    <xsl:variable name="Image3" select="substring-before(map/image3, '.')"/>
+                    
+                    <xsl:variable name="Image1" select="substring-before(tokenize(map/image1, '/')[last()], '.')"/>
+                    <xsl:variable name="Image2" select="substring-before(tokenize(map/image2, '/')[last()], '.')"/>
+                    <xsl:variable name="Image3" select="substring-before(tokenize(map/image3, '/')[last()], '.')"/>
                     
                     <xsl:variable name="Page" select="substring-before(map/page, '.')"/>
                     
