@@ -2551,7 +2551,7 @@
                     <xsl:variable name="Image2Path">
                         <xsl:choose>
                             <xsl:when test="contains(map/image2,'..')">
-                                <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>/<xsl:value-of select="tokenize(substring-before(map/image2, tokenize(map/image2,'/')[last()]), '\.\./')[last()]"/>
+                                <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/><xsl:value-of select="tokenize(substring-before(map/image2, tokenize(map/image2,'/')[last()]), '\.\./')[last()]"/>
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>GT-PAGE/<xsl:value-of select="tokenize(substring-before(map/image2, tokenize(map/image2,'/')[last()]), '\.\./')[last()]"/>
