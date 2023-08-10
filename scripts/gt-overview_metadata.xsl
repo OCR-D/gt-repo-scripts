@@ -2510,7 +2510,7 @@
 
         <xsl:if test="$output = 'DrawImages'">
             
-            
+            <xsl:message select="$holeMetric"/>
             <!-- GT Type Control -->
             <xsl:variable name="gtTypeJson">
                 <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp'] = 'data_structure'">structure_profile.json</xsl:if>
