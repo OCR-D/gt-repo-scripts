@@ -2523,10 +2523,6 @@
             </xsl:if>
 
         <xsl:if test="$output = 'DrawImages'">
-            <xsl:text>debug</xsl:text>
-            
-            
-            
             
             
             <xsl:message select="$holeMetric"/>
