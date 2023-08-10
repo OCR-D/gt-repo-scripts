@@ -2561,7 +2561,7 @@
                         <xsl:if test="$Image2 = $Page">
                             
                             page-xml-draw -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> -o <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'), 'data')"/>ghout/drawImg/<xsl:value-of select="substring-before(tokenize(map/image2, '/')[last()], '.')"/>.png -b <xsl:value-of select="$Image2Path"/> -p <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
-                            mogrify -resize 50% *<xsl:value-of select="substring-before(substring-after(map/@file, 'file:'), 'data')"/>ghout/drawImg/<xsl:value-of select="substring-before(tokenize(map/image2, '/')[last()], '.')"/>.png
+                            mogrify -resize 50% <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'), 'data')"/>ghout/drawImg/<xsl:value-of select="substring-before(tokenize(map/image2, '/')[last()], '.')"/>.png
                         </xsl:if>
                     </xsl:if>
                     
@@ -2570,7 +2570,7 @@
                         <xsl:if test="$Image2 = $Page">
                             
                             page-xml-draw -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> -o <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'), 'data')"/>ghout/drawImg/<xsl:value-of select="substring-before(tokenize(map/image2, '/')[last()], '.')"/>.png -b <xsl:value-of select="$Image2Path"/> -p <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
-                            mogrify -resize 50% *<xsl:value-of select="substring-before(substring-after(map/@file, 'file:'), 'data')"/>ghout/drawImg/<xsl:value-of select="substring-before(tokenize(map/image2, '/')[last()], '.')"/>.png
+                            mogrify -resize 50% <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'), 'data')"/>ghout/drawImg/<xsl:value-of select="substring-before(tokenize(map/image2, '/')[last()], '.')"/>.png
                         </xsl:if>
                     </xsl:if>
                     
@@ -2581,7 +2581,7 @@
                         <xsl:if test="$Image2 = $Page">
                             
                             page-xml-draw -i <xsl:value-of select="substring-after(map/@file, 'file:')"/> -o <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'), 'data')"/>ghout/drawImg/<xsl:value-of select="substring-before(tokenize(map/image2, '/')[last()], '.')"/>.png -b <xsl:value-of select="$Image2Path"/> -p <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'),'data')"/>scripts/<xsl:value-of select="$gtTypeJson"/>
-                            mogrify -resize 50% *<xsl:value-of select="substring-before(substring-after(map/@file, 'file:'), 'data')"/>ghout/drawImg/<xsl:value-of select="substring-before(tokenize(map/image2, '/')[last()], '.')"/>.png
+                            mogrify -resize 50% <xsl:value-of select="substring-before(substring-after(map/@file, 'file:'), 'data')"/>ghout/drawImg/<xsl:value-of select="substring-before(tokenize(map/image2, '/')[last()], '.')"/>.png
                         </xsl:if>
                     </xsl:if>
                 </xsl:for-each>
