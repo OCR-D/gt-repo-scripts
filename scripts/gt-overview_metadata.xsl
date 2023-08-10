@@ -2514,7 +2514,7 @@
             <!-- GT Type Control -->
             <xsl:variable name="gtTypeJson">
                 <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp'] = 'data_structure'">structure_profile.json</xsl:if>
-            <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp'] = 'data_structure_and_text'">structure_text_profile.json</xsl:if>
+                <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp'] = 'data_structure_and_text'">structure_text_profile.json</xsl:if>
             </xsl:variable>
             
             
