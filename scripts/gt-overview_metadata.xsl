@@ -2451,8 +2451,8 @@
                 <xsl:for-each select="collection($conMets)">
                    <xsl:variable name="imgURL">
                        <img>
-                       <xsl:for-each select="//*[local-name()='fileGrp'][@*[local-name()='USE']='OCR-D-IMG']/*[local-name()='file']/*[local-name()='FLocat']/@*[namespace-uri()='http://www.w3.org/1999/xlink' and local-name()='href']">
-                           <test><xsl:value-of select="."/></test>
+                       <xsl:for-each select="//*[local-name()='fileGrp'][@*[local-name()='USE']='OCR-D-IMG']/*[local-name()='file']">
+                           <test><xsl:value-of select="*[local-name()='FLocat']/@*[namespace-uri()='http://www.w3.org/1999/xlink' and local-name()='href']"/></test>
                        </xsl:for-each>
                        </img>
                    </xsl:variable> 
