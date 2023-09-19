@@ -2455,7 +2455,7 @@
                            <test><xsl:value-of select="."/></test>
                        </xsl:for-each>
                        </img>
-                   </xsl:variable> select="//*[local-name()='fileGrp'][@*[local-name()='USE']='OCR-D-IMG']/*[local-name()='file']/*[local-name()='FLocat']/@*[namespace-uri()='http://www.w3.org/1999/xlink' and local-name()='href']" 
+                   </xsl:variable> 
                    <xsl:copy-of select="//*[local-name()='fileGrp']/@*[local-name()!='USE']!='OCR-D-IMG'"/>
                    <xsl:value-of select="$imgURL"/>
                 </xsl:for-each>
