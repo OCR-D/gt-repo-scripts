@@ -2449,9 +2449,15 @@
             
             <xsl:variable name="ocrdMets">
                 <xsl:for-each select="collection($conMets)">
-                   <xsl:variable name="imgURL" select="//*[local-name()='fileGrp'][@*[local-name()='USE']='OCR-D-IMG']/*[local-name()='file']/*[local-name()='FLocat']/@*[namespace-uri()='http://www.w3.org/1999/xlink' and local-name()='href']" />
+                   <xsl:variable name="imgURL">
+                       <img>
+                       <xsl:for-each select="//*[local-name()='fileGrp'][@*[local-name()='USE']='OCR-D-IMG']/*[local-name()='file']/*[local-name()='FLocat']/@*[namespace-uri()='http://www.w3.org/1999/xlink' and local-name()='href']">
+                           <test><xsl:value-of select="."/></test>
+                       </xsl:for-each>
+                       </img>
+                   </xsl:variable> select="//*[local-name()='fileGrp'][@*[local-name()='USE']='OCR-D-IMG']/*[local-name()='file']/*[local-name()='FLocat']/@*[namespace-uri()='http://www.w3.org/1999/xlink' and local-name()='href']" 
                    <xsl:copy-of select="//*[local-name()='fileGrp']/@*[local-name()!='USE']!='OCR-D-IMG'"/>
-                   <test><xsl:value-of select="$imgURL"/></test>
+                   <xsl:value-of select="$imgURL"/>
                 </xsl:for-each>
             </xsl:variable>
             
