@@ -2449,21 +2449,12 @@
             
             <xsl:variable name="ocrdMets">
                 <xsl:for-each select="collection($conMets)">
-                   <xsl:variable name="imgURL">
-                       <xsl:element name="img">Hallo</xsl:element>
-                       <!--<xsl:element name="img">
-                       <xsl:for-each select="//*[local-name()='fileGrp'][@*[local-name()='USE']='OCR-D-IMG']/*[local-name()='file']">
-                           <xsl:element name="text"><xsl:value-of select="*[local-name()='FLocat']/@*[namespace-uri()='http://www.w3.org/1999/xlink' and local-name()='href']"/></xsl:element>
-                       </xsl:for-each>
-                       </xsl:element>-->
-                   </xsl:variable> 
                    <xsl:copy-of select="//*[local-name()='fileGrp']/@*[local-name()!='USE']!='OCR-D-IMG'"/>
-                   <xsl:value-of select="$imgURL"/>
                 </xsl:for-each>
             </xsl:variable>
             
            
-            <xsl:message select="$ocrdMets"></xsl:message>
+           
             
             <xsl:if test="$ocrdMets = ''">
                 <xsl:for-each select="$holeMetric/array/array">
