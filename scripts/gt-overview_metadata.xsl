@@ -4402,14 +4402,19 @@
                             <xsl:variable name="t2">
                                 <mets:structMap TYPE="PHYSICAL">
                                     <mets:div TYPE="physSequence">
-                                        <xsl:attribute name="ID" select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/@ID"/>
-                                        <xsl:attribute name="DMDID" select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/@DMDID"/>
+                                        <xsl:if test="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/@ID !=''">
+                                            <xsl:attribute name="ID" select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/@ID"/>
+                                        </xsl:if>
+                                        <xsl:if test="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/@DMDID !=''">
+                                            <xsl:attribute name="DMDID" select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/@DMDID"/>
+                                        </xsl:if>
+                                        
+                                        
                                         <xsl:for-each select="$t1//mets:structMap[@TYPE='PHYSICAL']/mets:div[@TYPE='physSequence']/mets:div[@TYPE='page']">
                                             <mets:div TYPE="page">
-                                                
-                                                <xsl:attribute name="ORDER" select="@ORDER"/>
-                                                <xsl:attribute name="ID" select="@ID"/>
-                                                <xsl:attribute name="DMDID" select="@DMDID"/>
+                                                <xsl:if test="@ORDER !=''"><xsl:attribute name="ORDER" select="@ORDER"/></xsl:if>
+                                                <xsl:if test="@ID !=''"><xsl:attribute name="ID" select="@ID"/></xsl:if>
+                                                <xsl:if test="@DMDID !=''"><xsl:attribute name="DMDID" select="@DMDID"/></xsl:if>
                                                 <xsl:for-each select="mets:fptr">
                                                     <xsl:choose>
                                                         <xsl:when test="fn:matches(./@FILEID, 'DEFAULT[_0-9A-Z]+')"/>
@@ -4417,9 +4422,6 @@
                                                             <xsl:attribute name="FILEID" select="@FILEID"/>
                                                         </mets:fptr></xsl:otherwise>
                                                     </xsl:choose>
-                                                    
-                                                    
-                                                    
                                                 </xsl:for-each>
                                             </mets:div>
                                         </xsl:for-each>
