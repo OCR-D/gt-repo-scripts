@@ -4391,7 +4391,7 @@
                  <xsl:for-each select="collection($conMets)">
                       <xsl:variable name="file" select="base-uri()"/>
                       <xsl:variable name="filename" select="tokenize(base-uri(), '/')[last() - 1]"/>
-                      <!--<xsl:result-document href="ghout/test_{$filename}_mets.xml">-->
+                      
                      <xsl:result-document href="{$file}">
                         <mets:mets
                             xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
@@ -4430,10 +4430,11 @@
                                 <xsl:copy-of copy-namespaces="no" select="$t1//mets:structLink"/>
                             </xsl:variable>
                             <xsl:variable name="t4">
-                                <xsl:copy-of copy-namespaces="no" select="$t1//mets:metsHdr 
+                                <xsl:copy-of copy-namespaces="no" select="$t1//mets:metsHdr
                                     | $t1//mets:dmdSec 
-                                    | $t1//mets:amdSec 
-                                    
+                                    | $t1//mets:amdSec" />
+                                Hallo
+                                <xsl:copy-of copy-namespaces="no" select="$t1//mets:metsHdr
                                     | $t1//mets:fileSec 
                                     | $t1//mets:structMap[@TYPE='LOGICAL']
                                     | $t2//mets:structMap[@TYPE='PHYSICAL']
