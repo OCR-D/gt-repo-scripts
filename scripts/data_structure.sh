@@ -20,7 +20,7 @@ if test -f "mets.xml"; then
         ocrd zip bag -i ocrd_data_structur_${PWD##*/}
         pwd
         ls
-        cd ${PWD##*/}
+    # cd ${PWD##*/}
         pwd
         ls
         mv $path/data/*.zip $path/ocrdzip_out/
