@@ -17,6 +17,7 @@ if test -f "mets.xml"; then
         cd $p
         pwd
         ls
+        echo ${PWD##*/}
         ocrd zip bag -i ocrd_data_structur_${PWD##*/}
         pwd
         ls
