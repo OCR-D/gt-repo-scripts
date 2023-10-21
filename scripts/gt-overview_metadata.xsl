@@ -4373,7 +4373,7 @@
                             <mets:div TYPE="volume">
                                 <xsl:attribute name="LABEL">Volume: <xsl:value-of select="."/></xsl:attribute>
                                 <xsl:attribute name="ID">LOG_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
-                                <xsl:attribute name="DMID">dmgt_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
+                                <xsl:attribute name="DMDID">dmgt_<xsl:value-of select="format-number($filenum,'0000')"/></xsl:attribute>
                                 <xsl:attribute name="ORDER"><xsl:value-of select="$filenum"/></xsl:attribute>
                                 <xsl:attribute name="ORDERLABEL">vol. <xsl:value-of select="$filenum"/></xsl:attribute>
                                 
