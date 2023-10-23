@@ -20,7 +20,7 @@
     <xsl:param name="bagitDumpNum"/>
     <xsl:param name="releaseTag"/>
     
-    <xsl:variable name="DumpDownload">bagitDump-v<xsl:value-of select="$bagitDumpNum"/>.zip</xsl:variable>
+    
     
     <xsl:variable name="dat"><xsl:value-of select="format-date(current-date(), '[Y]-[M]-[D]')"/>T<xsl:value-of select="format-time(current-time(), '[H]:[m]:[s]')"/></xsl:variable>
     <xsl:variable name="docMETADATA">
@@ -485,7 +485,7 @@
                         They contain a zip file in which the components of the collection are also in zip files.
                         Metadata for the complete collection and the components are in METS format.</xsl:element>
                     <ul>
-                    <li><a><xsl:attribute name="href">https://github.com/<xsl:value-of select="$repoName"/>/releases/download/<xsl:value-of select="$releaseTag"/>/<xsl:value-of select="$DumpDownload"/></xsl:attribute>Current version download: <xsl:value-of select="$DumpDownload"/></a></li>
+                        <li><a><xsl:attribute name="href">https://github.com/<xsl:value-of select="$repoName"/>/releases/tag/<xsl:value-of select="$releaseTag"/></xsl:attribute>The BagIt 'ocrd.zip' files for the current version, please download them from the latest release.: Release <xsl:value-of select="$bagitDumpNum"/>_<xsl:value-of select="$releaseTag"/></a></li>
                     <li><a><xsl:attribute name="href">https://github.com/<xsl:value-of select="$repoName"/>/releases</xsl:attribute>Version archive</a></li>
                     </ul>
                 </xsl:element>
