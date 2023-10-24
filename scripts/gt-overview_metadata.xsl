@@ -4454,8 +4454,8 @@
                     </xsl:if>
         <xsl:if test="$output = 'download'">
             <xsl:for-each-group select="$holeMetric//*" group-by="@key1">
-                <xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>/releases/download/<xsl:value-of select="$releaseTag"/><xsl:value-of select="current-grouping-key()"/>
-            </xsl:for-each-group>   
+                <xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>/releases/download/<xsl:value-of select="$releaseTag"/>/<xsl:value-of select="current-grouping-key()"/>.ocrd.zip<xsl:text>&#xD;</xsl:text>
+            </xsl:for-each-group>
         </xsl:if>
        </xsl:template>
     </xsl:stylesheet>
