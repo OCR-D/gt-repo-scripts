@@ -15,10 +15,10 @@
     version="3.0">
     <xsl:output indent="yes" omit-xml-declaration="yes" method="xml"/>
     
-    <xsl:param name="repoName"/>
+    <!--<xsl:param name="repoName"/>
     <xsl:param name="repoBase"/>
     <xsl:param name="bagitDumpNum"/>
-    <xsl:param name="releaseTag"/>
+    <xsl:param name="releaseTag"/>-->
     
     
     <xsl:variable name="docMETADATA">
@@ -37,8 +37,8 @@
     <xsl:variable name="path">
         <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_document'">../data_document</xsl:if>
         <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_structure'">../data</xsl:if>
-        <!--<xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_structure_and_text'">../data</xsl:if>-->
-        <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_structure_and_text'">data</xsl:if>
+        <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_structure_and_text'">../data</xsl:if>
+        <!--<xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_structure_and_text'">data</xsl:if>-->
         <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_line'">../data</xsl:if>
      </xsl:variable>
     
@@ -57,7 +57,7 @@
     
     <xsl:variable name="conNets"><xsl:value-of select="$path"/>/?select=nets.xml;recurse=yes</xsl:variable>
     
-    <xsl:variable name="conPage"><xsl:value-of select="$path"/>/?select=*GT-PAGE/*.xml;recurse=yes</xsl:variable>
+    <xsl:variable name="conPage"><xsl:value-of select="$path"/>/?select=*/GT-PAGE/*.xml;recurse=yes</xsl:variable>
     
     <xsl:variable name="conImg"><xsl:value-of select="$path"/>/?select=*.[jpgtiffpng]+;recurse=yes</xsl:variable>
     
@@ -86,11 +86,34 @@
         
         <xsl:if test="$output = 'unitTest1'">
             <xsl:variable name="CconPage">
-                <xsl:for-each select="collection($conPage)"><xsl:value-of select="."/></xsl:for-each>
+                <xsl:for-each select="collection($coll)" >
+                    <xsl:element name='pf'>
+                        <xsl:value-of select="base-uri()"/>
+                    </xsl:element>
+                </xsl:for-each>
+                
             </xsl:variable>
             
             
-            <xsl:value-of select="$CconPage"/>
+            <xsl:variable name="CconPage2">
+            <xsl:for-each select="$CconPage//pf">
+                <xsl:if test="not(contains(.,'/GT-PAGE/'))">
+        
+                    <xsl:if test="not(contains(.,'mets.xml'))">
+                        <pathfile><xsl:value-of select="."/></pathfile>
+                    </xsl:if>
+                    
+                </xsl:if>
+            </xsl:for-each>
+            </xsl:variable>
+            
+            <xsl:if test="$CconPage2 !=''">
+                <xsl:text>## Path Log</xsl:text><xsl:text disable-output-escaping="no">&#10;</xsl:text>
+                <xsl:text>Please check the folder structure and the naming of your directories in your GT repository.</xsl:text><xsl:text disable-output-escaping="no">&#10;</xsl:text>
+                
+                <xsl:copy-of select="$CconPage2"/>
+            </xsl:if>
+            
         </xsl:if>
             
         
