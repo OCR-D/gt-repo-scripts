@@ -22,8 +22,8 @@
     
     
     <xsl:variable name="docMETADATA">
-        <!--<xsl:copy-of select="json-to-xml(unparsed-text('../METADATA.json'))"/>-->
-        <xsl:copy-of select="json-to-xml(unparsed-text('METADATA.json'))"/>
+        <xsl:copy-of select="json-to-xml(unparsed-text('../METADATA.json'))"/>
+        <!--<xsl:copy-of select="json-to-xml(unparsed-text('METADATA.json'))"/>-->
     </xsl:variable>
     
     
