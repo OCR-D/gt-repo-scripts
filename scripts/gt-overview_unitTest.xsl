@@ -60,7 +60,7 @@
     
     <xsl:variable name="conImg"><xsl:value-of select="$path"/>/?select=*.[jpgtiffpng]+;recurse=yes</xsl:variable>
     
-    <!--<xsl:variable name="folder" select="base-uri()" />-->
+    <xsl:variable name="folder" select="base-uri()" />
     
     <xsl:param name="output"/>
     
@@ -93,7 +93,7 @@
                 
             </xsl:variable>
             
-            <xsl:message select="$CconPage"></xsl:message>
+            <xsl:message select="$folder"></xsl:message>
             
             <xsl:variable name="CconPage2">
             <xsl:for-each select="$CconPage//pf">
