@@ -30,7 +30,7 @@
     
     
     
-    
+    <xsl:variable name="colly">./?select=*.xml; recurse=yes</xsl:variable>
     
     
     <xsl:variable name="path">
@@ -85,7 +85,7 @@
         
         <xsl:if test="$output = 'unitTest1'">
             <xsl:variable name="CconPage">
-                <xsl:for-each select="collection($coll)" >
+                <xsl:for-each select="collection($colly)" >
                     <xsl:element name='pf'>
                         <xsl:value-of select="base-uri()"/>
                     </xsl:element>
@@ -93,6 +93,7 @@
                 
             </xsl:variable>
             
+            <xsl:message select="$CconPage"></xsl:message>
             
             <xsl:variable name="CconPage2">
             <xsl:for-each select="$CconPage//pf">
