@@ -30,7 +30,7 @@
     
     
     
-    <xsl:variable name="colly">../?select=*.xml; recurse=yes</xsl:variable>
+    <xsl:variable name="colly">file:/home/runner/work/gt-test/gt-test/?select=*.xml; recurse=yes</xsl:variable>
     
     
     <xsl:variable name="path">
@@ -92,7 +92,7 @@
                 </xsl:for-each>
                 
             </xsl:variable>
-            
+            <xsl:message select="$CconPage"></xsl:message>
             <xsl:message select="$folder"></xsl:message>
             
             <xsl:variable name="CconPage2">
