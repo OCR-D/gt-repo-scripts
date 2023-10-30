@@ -89,21 +89,18 @@
                         <xsl:value-of select="base-uri()"/>
                     </xsl:element>
                 </xsl:for-each>
-                
             </xsl:variable>
             
-            
+            <xsl:message select="$colly"></xsl:message>
             
             <xsl:variable name="CconPage2">
             <xsl:for-each select="$CconPage//pf">
                 <xsl:choose>
                     <xsl:when test="not(contains(.,'/data/'))">
                         <xsl:if test="not(contains(.,'/GT-PAGE/'))">
-                            
                             <xsl:if test="not(contains(.,'mets.xml'))">
                                 <pathfile><xsl:value-of select="."/></pathfile>
                             </xsl:if>
-                            
                         </xsl:if>
                     </xsl:when>
                     <xsl:otherwise>
@@ -115,7 +112,6 @@
                         </xsl:if>
                     </xsl:otherwise>
                 </xsl:choose>
-                
             </xsl:for-each>
             </xsl:variable>
             
