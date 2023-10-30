@@ -84,7 +84,7 @@
     <xsl:template match="/">
         
         <xsl:if test="$output = 'unitTest1'">
-            <xsl:variable name="CconPage">
+            <xsl:variable name="CconPage">hallo
                 <xsl:for-each select="collection($colly)" >
                     <xsl:element name='pf'>
                         <xsl:value-of select="base-uri()"/>
@@ -93,7 +93,7 @@
                 
             </xsl:variable>
             
-            <xsl:message select="$colly"></xsl:message>
+            <xsl:message select="$CconPage"></xsl:message>
             
             <xsl:variable name="CconPage2">
             <xsl:for-each select="$CconPage//pf">
