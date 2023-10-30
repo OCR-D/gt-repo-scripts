@@ -93,7 +93,7 @@
                 
             </xsl:variable>
             
-            <xsl:message select="$CconPage"></xsl:message>
+            <xsl:message select="$colly"></xsl:message>
             
             <xsl:variable name="CconPage2">
             <xsl:for-each select="$CconPage//pf">
