@@ -33,7 +33,7 @@
     <xsl:variable name="colly">../?select=*.xml;recurse=yes</xsl:variable>
     
     
-    <xsl:variable name="path">
+    <xsl:variable name="data_path">
         <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_document'">../data_document</xsl:if>
         <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_structure'">../data</xsl:if>
         <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_structure_and_text'">../data</xsl:if>
@@ -50,18 +50,17 @@
     
     <xsl:variable name="gtFormat" select="$docMETADATA//fn:map/fn:string[@key='format']"/>
     
-    <xsl:variable name="coll"><xsl:value-of select="$path"/>/?select=*.xml;recurse=yes</xsl:variable>
+    <xsl:variable name="coll"><xsl:value-of select="$data_path"/>/?select=*.xml;recurse=yes</xsl:variable>
     
-    <xsl:variable name="conMets"><xsl:value-of select="$path"/>/?select=mets.xml;recurse=yes</xsl:variable>
+    <xsl:variable name="conMets"><xsl:value-of select="$data_path"/>/?select=mets.xml;recurse=yes</xsl:variable>
     
-    <xsl:variable name="conNets"><xsl:value-of select="$path"/>/?select=nets.xml;recurse=yes</xsl:variable>
+    <xsl:variable name="conNets"><xsl:value-of select="$data_path"/>/?select=nets.xml;recurse=yes</xsl:variable>
     
-    <xsl:variable name="conPage"><xsl:value-of select="$path"/>/?select=*/GT-PAGE/*.xml;recurse=yes</xsl:variable>
+    <xsl:variable name="conPage"><xsl:value-of select="$data_path"/>/?select=*/GT-PAGE/*.xml;recurse=yes</xsl:variable>
     
-    <xsl:variable name="conImg"><xsl:value-of select="$path"/>/?select=*.[jpgtiffpng]+;recurse=yes</xsl:variable>
+    <xsl:variable name="conImg"><xsl:value-of select="$data_path"/>/?select=*.[jpgtiffpng]+;recurse=yes</xsl:variable>
     
-    <xsl:variable name="folder" select="base-uri()" />
-    
+        
     <xsl:param name="output"/>
     
     
@@ -84,7 +83,7 @@
     <xsl:template match="/">
         
         <xsl:if test="$output = 'unitTest1'">
-            <xsl:variable name="CconPage">hallo
+            <xsl:variable name="CconPage">
                 <xsl:for-each select="collection($colly)" >
                     <xsl:element name='pf'>
                         <xsl:value-of select="base-uri()"/>
@@ -92,17 +91,19 @@
                 </xsl:for-each>
                 
             </xsl:variable>
-            <xsl:message select="$CconPage"></xsl:message>
-            <xsl:message select="$folder"></xsl:message>
+            
+            
             
             <xsl:variable name="CconPage2">
             <xsl:for-each select="$CconPage//pf">
+                <xsl:if test="not(contains(.,'/data/'))">
                 <xsl:if test="not(contains(.,'/GT-PAGE/'))">
         
                     <xsl:if test="not(contains(.,'mets.xml'))">
                         <pathfile><xsl:value-of select="."/></pathfile>
                     </xsl:if>
                     
+                </xsl:if>
                 </xsl:if>
             </xsl:for-each>
             </xsl:variable>
