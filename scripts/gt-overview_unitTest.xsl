@@ -30,7 +30,7 @@
     
     
     
-    <xsl:variable name="colly">../gt-test/?select=*.xml;recurse=yes</xsl:variable>
+    <xsl:variable name="colly">../?select=*.xml;recurse=yes</xsl:variable>
     
     
     <xsl:variable name="path">
