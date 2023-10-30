@@ -97,7 +97,9 @@
             <xsl:for-each select="$CconPage//pf">
                 <xsl:choose>
                     <xsl:when test="not(contains(.,'/data/'))">
+                        <xsl:text>You are not using the "data" directory.</xsl:text>
                         <xsl:if test="not(contains(.,'/GT-PAGE/'))">
+                        <xsl:text>You are not using the "GT-PAGE" directory.</xsl:text>    
                             <xsl:if test="not(contains(.,'mets.xml'))">
                                 <pathfile><xsl:value-of select="."/></pathfile>
                             </xsl:if>
@@ -111,6 +113,7 @@
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:if test="not(contains(.,'/GT-PAGE/'))">
+                            <xsl:text>You are not using the "GT-PAGE" directory.</xsl:text>    
                             <xsl:if test="not(contains(.,'mets.xml'))">
                                 <pathfile><xsl:value-of select="."/></pathfile>
                         </xsl:if>
