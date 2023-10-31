@@ -62,7 +62,7 @@
             <xsl:variable name="CconPage">
                 <xsl:for-each select="collection($colly)" >
                     <xsl:element name='pf'>
-                        <xsl:value-of select="base-uri()"/>
+                        <xsl:value-of select="substring-after(base-uri(), 'file:/')"/>
                     </xsl:element>
                 </xsl:for-each>
             </xsl:variable>
@@ -72,9 +72,11 @@
             <xsl:variable name="CconPage2">
             <xsl:for-each select="$CconPage//pf">
                     <xsl:if test="not(contains(.,'/data/')) or not(contains(.,'/GT-PAGE/'))">
+                        <xsl:if test="tokenize(.,'/')[position() != [6]] ='data' or tokenize(.,'/')[position() != [8]] ='GT-PAGE'">
                             <xsl:if test="not(contains(.,'mets.xml'))">
                                 <pathfile><xsl:value-of select="."/></pathfile>
                             </xsl:if>
+                        </xsl:if>
                     </xsl:if>
             </xsl:for-each>
             </xsl:variable>
