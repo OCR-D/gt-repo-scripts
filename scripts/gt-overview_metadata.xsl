@@ -39,18 +39,18 @@
     
     
     <xsl:variable name="path">
-        <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_document'">../data_document</xsl:if>
-        <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_structure'">../data</xsl:if>
-        <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_structure_and_text'">../data</xsl:if>
-        <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_line'">../data</xsl:if>
+        <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_document'">../data_document</xsl:if>
+        <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure'">../data</xsl:if>
+        <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure_and_text'">../data</xsl:if>
+        <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_line'">../data</xsl:if>
      </xsl:variable>
     
-    <xsl:variable name="gtTyp">
-        <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_document'">data_document/</xsl:if>
-        <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_structure'">data_structure/</xsl:if>
-        <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_structure_and_text'">data_structure_and_text/</xsl:if>
-        <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text() = 'data_line'">data_line/</xsl:if>
-    </xsl:variable>
+    <!--<xsl:variable name="gtTyp">
+        <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_document'">data_document/</xsl:if>
+        <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure'">data_structure/</xsl:if>
+        <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure_and_text'">data_structure_and_text/</xsl:if>
+        <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_line'">data_line/</xsl:if>
+    </xsl:variable>-->
     
     <xsl:variable name="gtFormat" select="$docMETADATA//fn:map/fn:string[@key='format']"/>
     
@@ -338,7 +338,7 @@
                         <dt>Format:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='format']"/></dd>
                         <xsl:if test="$docMETADATA//fn:map/fn:string[@key='production-software'] !=''"><dt>Production software:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='production-software']"/></dd></xsl:if>
                         <dt>Time:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:map[@key='time']/fn:string[@key='notBefore']"/>-<xsl:value-of select="$docMETADATA//fn:map/fn:map[@key='time']/fn:string[@key='notAfter']"/></dd>
-                        <dt>GT Type:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='gtTyp']"/></dd>
+                        <dt>GT Type:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]"/></dd>
                         
                     </dl>
                     <xsl:if test="($docMETADATA//fn:map/fn:string[@key='transcription-guidelines'] !='') or ($docMETADATA//fn:map/fn:array[@key='license']/fn:map/fn:string[@key='name'] !='') or ($docMETADATA//fn:map/fn:string[@key='project-name'] !='') or ($docMETADATA//fn:map/fn:string[@key='project-website'] !='')">
@@ -494,7 +494,7 @@
                     <xsl:attribute name="class">metadata</xsl:attribute>
                 <h2>Total view</h2>
                 
-                    <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text()='data_structure_and_text'">
+                    <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_structure_and_text'">
                         
                         
                         <!-- beginn columes -->
@@ -978,7 +978,7 @@
                     </xsl:if>
                     
                     
-                    <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text()='data_structure'">
+                    <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_structure'">
                     <table class="noStyle">
                         <tr><td>&#x1F4A1; You can show and hide individual columns of the table.<br/>Click the corresponding button.
                             <details>
@@ -1160,7 +1160,7 @@
                     
                     
                     
-                <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text()='data_line'">
+                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_line'">
                         
                         
                         <!-- beginn columes -->
@@ -1655,7 +1655,7 @@
                     
                     
                 
-                <xsl:if test="$docMETADATA//map/string[@key='gtTyp']/text()='text'">
+                <xsl:if test="$docMETADATA//map/string[@key/contains(.,'gtTyp')]/text()='text'">
                 
                     <!--<array key="volume_lines">
                     <map>
@@ -1671,7 +1671,7 @@
             
             
             
-            <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text()='data_structure_and_text'">
+            <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_structure_and_text'">
             
                     
                     <xsl:element name="div">
@@ -1693,7 +1693,7 @@
                             <dt>Language:</dt><dd><xsl:value-of separator=", " select="$docMETADATA//fn:map/fn:array[@key='language']/fn:string"/></dd>
                             <dt>Format:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='format']"/></dd>
                             <dt>Time:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:map[@key='time']/fn:string[@key='notBefore']"/>-<xsl:value-of select="$docMETADATA//fn:map/fn:map[@key='time']/fn:string[@key='notAfter']"/></dd>
-                            <dt>GT Type:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='gtTyp']"/></dd>
+                            <dt>GT Type:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]"/></dd>
                         </dl>
                         
                         <xsl:if test="($docMETADATA//fn:map/fn:string[@key='transcription-guidelines'] !='') or ($docMETADATA//fn:map/fn:array[@key='license']/fn:map/fn:string[@key='name'] !='') or ($docMETADATA//fn:map/fn:string[@key='project-name'] !='') or ($docMETADATA//fn:map/fn:string[@key='project-website'] !='')">
@@ -1903,7 +1903,7 @@
             
             
             
-            <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text()='data_structure'">
+            <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_structure'">
                 
                 <xsl:element name="div">
                     <xsl:element name="h2">Details</xsl:element>
@@ -1922,7 +1922,7 @@
                         <dt>Language:</dt><dd><xsl:value-of separator=", " select="$docMETADATA//fn:map/fn:array[@key='language']/fn:string"/></dd>
                         <dt>Format:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='format']"/></dd>
                         <dt>Time:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:map[@key='time']/fn:string[@key='notBefore']"/>-<xsl:value-of select="$docMETADATA//fn:map/fn:map[@key='time']/fn:string[@key='notAfter']"/></dd>
-                        <dt>GT Type:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='gtTyp']"/></dd>
+                        <dt>GT Type:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]"/></dd>
                     </dl>
                     
                     <xsl:if test="($docMETADATA//fn:map/fn:string[@key='transcription-guidelines'] !='') or ($docMETADATA//fn:map/fn:array[@key='license']/fn:map/fn:string[@key='name'] !='') or ($docMETADATA//fn:map/fn:string[@key='project-name'] !='') or ($docMETADATA//fn:map/fn:string[@key='project-website'] !='')">
@@ -2075,7 +2075,7 @@
             
             
             
-            <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text()='data_line'">
+            <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_line'">
                 
                 <xsl:element name="div">
                     
@@ -2096,7 +2096,7 @@
                         <dt>Language:</dt><dd><xsl:value-of separator=", " select="$docMETADATA//fn:map/fn:array[@key='language']/fn:string"/></dd>
                         <dt>Format:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='format']"/></dd>
                         <dt>Time:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:map[@key='time']/fn:string[@key='notBefore']"/>-<xsl:value-of select="$docMETADATA//fn:map/fn:map[@key='time']/fn:string[@key='notAfter']"/></dd>
-                        <dt>GT Type:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='gtTyp']"/></dd>
+                        <dt>GT Type:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]"/></dd>
                     </dl>
                     
                     <xsl:if test="($docMETADATA//fn:map/fn:string[@key='transcription-guidelines'] !='') or ($docMETADATA//fn:map/fn:array[@key='license']/fn:map/fn:string[@key='name'] !='') or ($docMETADATA//fn:map/fn:string[@key='project-name'] !='') or ($docMETADATA//fn:map/fn:string[@key='project-website'] !='')">
@@ -2601,8 +2601,8 @@
             <xsl:message select="$holeMetric"/>
             <!-- GT Type Control -->
             <xsl:variable name="gtTypeJson">
-                <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp'] = 'data_structure'">structure_profile.json</xsl:if>
-                <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp'] = 'data_structure_and_text'">structure_text_profile.json</xsl:if>
+                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')] = 'data_structure'">structure_profile.json</xsl:if>
+                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')] = 'data_structure_and_text'">structure_text_profile.json</xsl:if>
             </xsl:variable>
             
             
@@ -3041,7 +3041,7 @@
                 
                 
                 <!-- volume -->
-                <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text()='data_structure_and_text'">
+                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_structure_and_text'">
                     <xsl:element name="fn:map">
                         <xsl:attribute name="key">volume</xsl:attribute>
                                 <xsl:if test="$k1 > 0">
@@ -3111,7 +3111,7 @@
                             </xsl:element>
                 </xsl:if>
                 
-                <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text()='data_structure'">
+                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_structure'">
                     <xsl:element name="fn:map">
                         <xsl:attribute name="key">volume</xsl:attribute>
                         <xsl:if test="$k1 > 0">
@@ -3180,7 +3180,7 @@
                     </xsl:element>
                 </xsl:if>
             
-                <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text()='data_line'">
+                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_line'">
                 <xsl:element name="fn:map">
                     <xsl:attribute name="key">volume</xsl:attribute>
                 
@@ -3374,7 +3374,7 @@
                 <dt id="Language">Language:</dt><dd><xsl:value-of separator=", " select="$docMETADATA//fn:map/fn:array[@key='language']/fn:string"/></dd>
                 <dt id="Format">Format:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='format']"/></dd>
                 <dt id="Time">Time:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:map[@key='time']/fn:string[@key='notBefore']"/>-<xsl:value-of select="$docMETADATA//fn:map/fn:map[@key='time']/fn:string[@key='notAfter']"/></dd>
-                <dt id="GTT">GT Type:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='gtTyp']"/></dd>
+                <dt id="GTT">GT Type:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]"/></dd>
                 <dt id="License">License:</dt><dd><xsl:value-of select="$docMETADATA//fn:map/fn:array[@key='license']/fn:map/fn:string[@key='name']"/></dd>
                 
                 <xsl:if test="$docMETADATA//fn:map/fn:string[@key='transcription-guidelines'] !=''">
@@ -3392,7 +3392,7 @@
         <h2>Sources</h2>
             <h3>The volume of transcriptions:</h3>
         
-            <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text()='data_structure_and_text'">
+            <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_structure_and_text'">
                     
                     <xsl:variable name="k15">
                         <xsl:for-each select="$holeMetric/array">
@@ -3684,7 +3684,7 @@
         
         
         
-            <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text()='data_structure'">
+            <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_structure'">
             <xsl:element name="table">
                 <xsl:attribute name="id">table_id</xsl:attribute>
                 <xsl:element name="thead">
@@ -3799,7 +3799,7 @@
             </xsl:if>
         
         
-            <xsl:if test="$docMETADATA//fn:map/fn:string[@key='gtTyp']/text()='data_line'">
+            <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_line'">
                 
                 <xsl:variable name="k15">
                     <xsl:for-each select="$holeMetric/array">
