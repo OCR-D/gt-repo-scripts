@@ -2434,14 +2434,8 @@
                             </xsl:for-each>
                             </tbody>     
                         </table>
-                    
-            
-            
-            
-            
-            
-            
         </xsl:if>
+        
         <xsl:if test="$output = 'METS'">
             
             <!-- Mets Control -->
