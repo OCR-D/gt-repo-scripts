@@ -2448,8 +2448,51 @@
             </xsl:variable>
             
            
+           <xsl:variable name="worksspaceMets">
+               <xsl:if test="$ocrdMets = ''">
+                   <xsl:for-each select="$holeMetric/array/array">
+                       
+                       <xsl:variable name="Image1" select="substring-before(map/image1, '.')"/>
+                       <xsl:variable name="Image2" select="substring-before(map/image2, '.')"/>
+                       <xsl:variable name="Image3" select="substring-before(map/image3, '.')"/>
+                       
+                       <xsl:variable name="Page" select="substring-before(map/page, '.')"/>
+                       
+                       
+                       <xsl:if test="$Image1 != ''">
+                           <xsl:if test="$Image2 = $Page">
+                               <workspace>ocrd workspace --directory  <xsl:value-of select="substring-after(substring-before(map/@file, '/GT-PAGE'), 'file:')"/> init</workspace>
+                               
+                           </xsl:if>
+                       </xsl:if>
+                       
+                       
+                       <xsl:if test="$Image3 != ''">
+                           <xsl:if test="$Image2 = $Page">
+                               <workspace>ocrd workspace --directory  <xsl:value-of select="substring-after(substring-before(map/@file, '/GT-PAGE'), 'file:')"/> init</workspace>
+                               
+                           </xsl:if>
+                       </xsl:if>
+                       
+                       
+                       <xsl:if test="$Image1 = '' and $Image3 = ''">
+                           <xsl:if test="$Image2 = $Page">
+                               <xsl:variable name="wget_img" select="map/image2"/>
+                               <workspace>ocrd workspace --directory  <xsl:value-of select="substring-after(substring-before(map/@file, '/GT-PAGE'), 'file:')"/> init</workspace>
+                               
+                           </xsl:if>
+                       </xsl:if>
+                   </xsl:for-each>
+               </xsl:if>
+           </xsl:variable>
            
+           <xsl:variable name="test">
+           <xsl:value-of select="distinct-values($worksspaceMets/workspace)"/>
+           </xsl:variable>
             
+            <xsl:message select="$test"></xsl:message>
+           
+           
             <xsl:if test="$ocrdMets = ''">
                 <xsl:for-each select="$holeMetric/array/array">
                         
@@ -2504,7 +2547,7 @@
                         <xsl:variable name="wget_img" select="map/image2"/>
                         cd <xsl:value-of select="substring-after(substring-before(map/@file, 'GT-PAGE'), 'file:')"/>
                         <xsl:if test="$wget_img[contains(text(),'http')]">
-                           wget <xsl:value-of select="map/image2"/> -O GT-PAGE/<xsl:value-of select="map/image2"/>
+                        wget <xsl:value-of select="map/image2"/> -O GT-PAGE/<xsl:value-of select="map/image2"/>
                         </xsl:if>
                         
                         ocrd workspace add -g P<xsl:number format="0001"/> -G OCR-D-IMG -i OCR-D-IMG_<xsl:number format="0001"/> -m image/<xsl:value-of select="substring-after(tokenize(map/image2, '/')[last()], '.')"/><xsl:text>  </xsl:text><xsl:value-of select="$Image2Path"/><xsl:value-of select="tokenize(map/image2,'/')[last()]"/>
