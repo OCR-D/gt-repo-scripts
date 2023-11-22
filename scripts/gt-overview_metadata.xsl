@@ -2486,11 +2486,11 @@
                </xsl:if>
            </xsl:variable>
            
-           <xsl:variable name="test">
-           <xsl:value-of select="distinct-values($worksspaceMets/workspace)"/>
-           </xsl:variable>
-            
-            <xsl:message select="$test"></xsl:message>
+            <xsl:variable name="test">
+            <xsl:for-each select="distinct-values($worksspaceMets/workspace)">
+                <xsl:value-of select="."/>
+            </xsl:for-each>
+            </xsl:variable>
            
            
             <xsl:if test="$ocrdMets = ''">
