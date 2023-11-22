@@ -2489,8 +2489,9 @@
            
            
             <xsl:if test="$ocrdMets = ''">
-                <xsl:for-each select="distinct-values($worksspaceMets/workspace)">
-                    <xsl:value-of select="."/>
+                <xsl:for-each select="$worksspaceMets/workspace">
+                    <xsl:value-of select="distinct-values(.)"/>
+                    
                 </xsl:for-each>
                 
                 
