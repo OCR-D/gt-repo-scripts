@@ -2489,7 +2489,12 @@
            
            
             <xsl:if test="$ocrdMets = ''">
-                <xsl:value-of select="distinct-values($worksspaceMets/workspace)"/>
+                <xsl:for-each select="distinct-values($worksspaceMets/workspace)">
+                    <xsl:value-of select="."/>
+                </xsl:for-each>
+                
+                
+                
                 <xsl:for-each select="$holeMetric/array/array">
                         
                         <xsl:variable name="Image1" select="substring-before(map/image1, '.')"/>
