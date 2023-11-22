@@ -2491,6 +2491,8 @@
                 <xsl:value-of select="."/>
             </xsl:for-each>
             </xsl:variable>
+            
+            <xsl:message select="$test"></xsl:message>
            
            
             <xsl:if test="$ocrdMets = ''">
