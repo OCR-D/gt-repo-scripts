@@ -2878,7 +2878,7 @@
                                     <xsl:attribute name="ORDER"><xsl:value-of select="$filenum"/></xsl:attribute>
                                     <xsl:attribute name="ORDERLABEL">vol. <xsl:value-of select="$filenum"/></xsl:attribute>
                                     
-                                    <mets:mptr LOCTYPE="URL">
+                                    <mets:mptr LOCTYPE="OTHER" OTHERLOCTYPE="FILE">
                                         <xsl:attribute name="xlink:href"><xsl:value-of select="."/>.ocrd/data/mets.xml</xsl:attribute>
                                     </mets:mptr>
                                 </mets:div>
@@ -4371,7 +4371,7 @@
                                 <xsl:attribute name="ORDER"><xsl:value-of select="$filenum"/></xsl:attribute>
                                 <xsl:attribute name="ORDERLABEL">vol. <xsl:value-of select="$filenum"/></xsl:attribute>
                                 
-                                <mets:mptr LOCTYPE="URL">
+                                <mets:mptr LOCTYPE="OTHER" OTHERLOCTYPE="FILE">
                                     <xsl:attribute name="xlink:href"><xsl:value-of select="."/>.ocrd/data/mets.xml</xsl:attribute>
                                 </mets:mptr>
                             </mets:div>
