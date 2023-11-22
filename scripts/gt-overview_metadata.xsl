@@ -2461,7 +2461,8 @@
                        
                        <xsl:if test="$Image1 != ''">
                            <xsl:if test="$Image2 = $Page">
-                               <workspace>ocrd workspace --directory  <xsl:value-of select="substring-after(substring-before(map/@file, '/GT-PAGE'), 'file:')"/> init</workspace>
+                               <workspace>ocrd workspace --directory  <xsl:value-of select="substring-after(substring-before(map/@file, '/GT-PAGE'), 'file:')"/> init
+                               </workspace>
                                
                            </xsl:if>
                        </xsl:if>
@@ -2469,7 +2470,8 @@
                        
                        <xsl:if test="$Image3 != ''">
                            <xsl:if test="$Image2 = $Page">
-                               <workspace>ocrd workspace --directory  <xsl:value-of select="substring-after(substring-before(map/@file, '/GT-PAGE'), 'file:')"/> init</workspace>
+                               <workspace>ocrd workspace --directory  <xsl:value-of select="substring-after(substring-before(map/@file, '/GT-PAGE'), 'file:')"/> init
+                               </workspace>
                                
                            </xsl:if>
                        </xsl:if>
@@ -2478,7 +2480,8 @@
                        <xsl:if test="$Image1 = '' and $Image3 = ''">
                            <xsl:if test="$Image2 = $Page">
                                <xsl:variable name="wget_img" select="map/image2"/>
-                               <workspace>ocrd workspace --directory  <xsl:value-of select="substring-after(substring-before(map/@file, '/GT-PAGE'), 'file:')"/> init</workspace>
+                               <workspace>ocrd workspace --directory  <xsl:value-of select="substring-after(substring-before(map/@file, '/GT-PAGE'), 'file:')"/> init
+                               </workspace>
                                
                            </xsl:if>
                        </xsl:if>
@@ -2489,10 +2492,9 @@
            
            
             <xsl:if test="$ocrdMets = ''">
-                <xsl:for-each select="$worksspaceMets/workspace">
-                    <xsl:value-of select="distinct-values(.)"/>
-                    
-                </xsl:for-each>
+                
+                <xsl:value-of select="distinct-values($worksspaceMets/workspace)"/>
+                
                 
                 
                 
