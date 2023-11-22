@@ -2493,8 +2493,8 @@
            
             <xsl:if test="$ocrdMets = ''">
                 
-                <xsl:value-of select="distinct-values($worksspaceMets/workspace)"/>
-                
+                    <xsl:value-of select="distinct-values($worksspaceMets/workspace)"/>
+                    
                 
                 
                 
