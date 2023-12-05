@@ -4181,9 +4181,9 @@
         
                 
                 <xsl:choose>
-                <xsl:when test="$READSME//div[@id='extent']">
+                <xsl:when test="$READSME//div[@id='extent'] !=''">
                     <xsl:copy-of select="$READSME//div[@id='extent']"/>
-            </xsl:when>
+                </xsl:when>
                     <xsl:otherwise>
                         <xsl:element name="div">
                             <xsl:attribute name="id">extent</xsl:attribute>
