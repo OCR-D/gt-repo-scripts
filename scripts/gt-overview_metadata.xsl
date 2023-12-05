@@ -4498,17 +4498,15 @@
        
 <xsl:if test="$output = 'CITATION'">
     <xsl:variable name="Author">
-        /fn:map/fn:array[1]/fn:map[1]
-        /fn:map/fn:array[@key='authors']/fn:map
         <xsl:for-each select="$docMETADATA//fn:map/fn:array[@key='authors']/fn:map">
             <xsl:if test="fn:string[@key='name'] !=''">
-                - given-names: <xsl:value-of select="fn:string[@key='name']"/>
+  - given-names: <xsl:value-of select="fn:string[@key='name']"/>
             </xsl:if>
             <xsl:if test="fn:string[@key='surname'] !=''">
-                  family-names: <xsl:value-of select="fn:string[@key='surname']"/>
+    family-names: <xsl:value-of select="fn:string[@key='surname']"/>
             </xsl:if>
             <xsl:if test="fn:string[@key='orcid'] !=''">
-                  orcid: <xsl:value-of select="fn:string[@key='orcid']"/>
+    orcid: <xsl:value-of select="fn:string[@key='orcid']"/>
             </xsl:if>
         </xsl:for-each>
     </xsl:variable>
