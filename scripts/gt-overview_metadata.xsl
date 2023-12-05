@@ -4493,6 +4493,38 @@
                     </xsl:result-document>
                     </xsl:for-each>
                     </xsl:if>
+       
+        <xsl:if test="$output = 'CITATION'">
+        cff-version: 1.2.0
+        title: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/>
+        message: >-
+        If you use this dataset, please cite it using the metadata
+        from this file.
+        type: dataset
+        authors:
+        - given-names: Uwe
+        family-names: Hartwig
+        email: uwe.hartwig@bibliothek.uni-halle.de
+        orcid: 'https://orcid.org/0000-0001-7164-6376'
+        affiliation: Universitäts- und Landesbibliothek Sachsen-Anhalt
+        repository-code: '<xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>'
+            url: '<xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>'
+        abstract: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='description']"/>
+        keywords:
+        - ocr-d
+        - repository
+        - segmentation
+        - ground-truth
+        - <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]"/>
+        license: <xsl:value-of select="$docMETADATA//fn:map/fn:array[@key='license']/fn:map/fn:string[@key='name']"/>
+        commit: <xsl:value-of select="$releaseTag"/>
+        version: <xsl:value-of select="$bagitDumpNum"/>_<xsl:value-of select="$releaseTag"/>
+        date-released: '2023-12-04'
+        </xsl:if>
+        
+        
+        
+        
         <xsl:if test="$output = 'download'">
             <xsl:for-each-group select="$holeMetric//*" group-by="@key1">
                 <xsl:variable name="return"></xsl:variable>
