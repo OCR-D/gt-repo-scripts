@@ -27,6 +27,7 @@
     <xsl:variable name="docMETADATA">
         <xsl:copy-of select="json-to-xml(unparsed-text('../METADATA.json'))"/>
     </xsl:variable>
+   
     <xsl:variable name="labelling">
         <xsl:copy-of select="document('../gt-guidelines/de/labeling/OCR-D_GT_labeling_schema_xsd_Element_gt_gt.dita')"/>
     </xsl:variable>
@@ -4495,33 +4496,31 @@
                     </xsl:for-each>
                     </xsl:if>
        
-        <xsl:if test="$output = 'CITATION'">
-        cff-version: 1.2.0
-        title: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/>
-        message: &gt;-
-        If you use this dataset, please cite it using the metadata
-        from this file.
-        type: dataset
-        authors:
-        - given-names: Uwe
-        family-names: Hartwig
-        email: uwe.hartwig@bibliothek.uni-halle.de
-        orcid: 'https://orcid.org/0000-0001-7164-6376'
-        affiliation: Universitäts- und Landesbibliothek Sachsen-Anhalt
-        repository-code: '<xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>'
-            url: '<xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>'
-        abstract: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='description']"/>
-        keywords:
-        - ocr-d
-        - repository
-        - segmentation
-        - ground-truth
-        - <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]"/>
-        license: <xsl:value-of select="$docMETADATA//fn:map/fn:array[@key='license']/fn:map/fn:string[@key='name']"/>
-        commit: <xsl:value-of select="$releaseTag"/>
-        version: <xsl:value-of select="$bagitDumpNum"/>_<xsl:value-of select="$releaseTag"/>
-        date-released: '<xsl:value-of select="format-date(current-date(), '[Y]-[M]-[D]')"/>'
-        </xsl:if>
+<xsl:if test="$output = 'CITATION'">
+<xsl:message select="$docMETADATA"/>
+cff-version: 1.2.0
+title: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/>
+message: If you use this dataset, please cite it using the metadata from this file.
+type: dataset
+authors:
+  - given-names: Uwe
+    family-names: Hartwig
+    email: uwe.hartwig@bibliothek.uni-halle.de
+    orcid: 'https://orcid.org/0000-0001-7164-6376'
+    affiliation: Universitäts- und Landesbibliothek Sachsen-Anhalt
+repository-code: '<xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>'
+url: '<xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>'
+abstract: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='description']"/>
+keywords:
+  - ocr-d
+  - repository
+  - segmentation
+  - ground-truth
+  - <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]"/>
+license: <xsl:value-of select="$docMETADATA//fn:map/fn:array[@key='license']/fn:map/fn:string[@key='name']"/>
+commit: <xsl:value-of select="$releaseTag"/>
+version: <xsl:value-of select="$bagitDumpNum"/>_<xsl:value-of select="$releaseTag"/>
+date-released: '<xsl:value-of select="format-date(current-date(), '[Y]-[M]-[D]')"/>'</xsl:if>
         
         
         
