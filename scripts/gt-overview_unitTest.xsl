@@ -71,7 +71,7 @@
             
             <xsl:variable name="CconPage2">
             <xsl:for-each select="$CconPage//pf">
-                <xsl:if test="not(contains(.,'/data/')) or not(contains(.,'/GT-PAGE/')) or not(contains(.,'/OCR-D-BIN/')) or not(contains(.,'/OCR-D-LINESPROC/')) or tokenize(.,'/')[position() != [6]] ='data' or tokenize(.,'/')[position() != [8]] ='GT-PAGE'">
+                <xsl:if test="not(contains(.,'/data/')) or not(contains(.,'/GT-PAGE/')) or not(contains(.,'/OCR-D-BIN/')) or not(contains(.,'/OCR-D-LINESPROC/')) or tokenize(.,'/')[position() != [6]] ='data' or tokenize(.,'/')[position() != [8]] ='GT-PAGE' or tokenize(.,'/')[position() != [8]] ='OCR-D-BIN' or tokenize(.,'/')[position() != [8]] ='OCR-D-LINESPROC'">
                             <xsl:if test="not(contains(.,'mets.xml'))">
                                 <pathfile><xsl:value-of select="."/></pathfile>
                             </xsl:if>
