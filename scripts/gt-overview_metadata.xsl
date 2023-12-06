@@ -4498,7 +4498,9 @@
        
 <xsl:if test="$output = 'CITATION'">
     <xsl:variable name="Author">
-        <xsl:for-each select="$docMETADATA//fn:map/fn:array[@key='authors']/fn:map">
+        <xsl:if test="$docMETADATA//fn:map/fn:array/@key='authors'">
+authors:
+       <xsl:for-each select="$docMETADATA//fn:map/fn:array[@key='authors']/fn:map">
             <xsl:if test="fn:string[@key='name'] !=''">
   - given-names: <xsl:value-of select="fn:string[@key='name']"/>
             </xsl:if>
@@ -4508,7 +4510,7 @@
             <xsl:if test="fn:string[@key='orcid'] !=''">
     orcid: <xsl:value-of select="fn:string[@key='orcid']"/>
             </xsl:if>
-        </xsl:for-each>
+        </xsl:for-each></xsl:if>
     </xsl:variable>
     
 <xsl:message select="$docMETADATA"/>
@@ -4516,7 +4518,7 @@ cff-version: 1.2.0
 title: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/>
 message: If you use this dataset, please cite it using the metadata from this file.
 type: dataset
-authors:
+
   <xsl:value-of select="$Author"/>
 repository-code: '<xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>'
 url: '<xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>'
