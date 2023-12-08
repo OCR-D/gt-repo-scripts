@@ -4520,7 +4520,7 @@ type: dataset
 repository-code: '<xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>'
 url: '<xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>'
 abstract: |-
-    <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='description']"/>
+    <xsl:value-of select="normalize-space($docMETADATA//fn:map/fn:string[@key='description'])"/>
 keywords:
   - ocr-d
   - repository
