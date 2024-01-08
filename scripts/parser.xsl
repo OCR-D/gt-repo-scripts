@@ -379,11 +379,21 @@
                 </xsl:for-each>
        </xsl:variable>
 
-<xsl:variable name="vlevel">
-    <xsl:for-each select="distinct-values($tablepage//span[@class='level'])">
-<xsl:value-of select="."/>
-</xsl:for-each>
-</xsl:variable>
+        <xsl:variable name="vlevel">
+            <xsl:variable name="levelListing">
+            <xsl:for-each select="distinct-values($tablepage//span[@class='level'])">
+                <xsl:if test=". = 1"><l>1</l></xsl:if>
+                <xsl:if test=". = 2"><l>2</l></xsl:if>
+                <xsl:if test=". = 3"><l>3</l></xsl:if>
+                <xsl:if test=". = 4"><l>1</l><l>2</l></xsl:if>
+                <xsl:if test=". = 5"><l>2</l><l>3</l></xsl:if>
+                <xsl:if test=". = 6"><l>1</l><l>2</l><l>3</l></xsl:if>
+            </xsl:for-each>
+        </xsl:variable>
+        <xsl:for-each select="distinct-values($levelListing//l)">
+            <xsl:value-of  select="string-join(., ',')"/>
+        </xsl:for-each>
+        </xsl:variable>
 
         
 
