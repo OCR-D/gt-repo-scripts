@@ -390,8 +390,9 @@
                 <xsl:if test=". = 6"><l>1</l><l>2</l><l>3</l></xsl:if>
             </xsl:for-each>
         </xsl:variable>
+            <xsl:message select="$levelListing"></xsl:message>
         <xsl:for-each select="distinct-values($levelListing//l)">
-            <xsl:value-of  select="string-join($levelListing//l, ',')"/> 
+            <xsl:value-of  select="distinct-values(string-join($levelListing//l), ','))"/> 
         </xsl:for-each>
         </xsl:variable>
 
