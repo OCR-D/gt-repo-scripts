@@ -388,12 +388,11 @@
         
 
 
-<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;
-</xsl:text>
+
         <html>
             <head>
-                <script src="file:///E:/0_arbeit/OCR-D/LevelParserGT/script/lang.js"><xsl:text> </xsl:text></script>
-                <xsl:text disable-output-escaping='yes'>&lt;link rel="stylesheet" href="file:///E:/0_arbeit/OCR-D/LevelParserGT/script/levelparser.css"&gt;
+                <script src="lang.js"><xsl:text> </xsl:text></script>
+                <xsl:text disable-output-escaping='yes'>&lt;link rel="stylesheet" href="levelparser.css"&gt;
                 </xsl:text>
                 <title>Level Matrix Document Volume: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></title>
             </head>
