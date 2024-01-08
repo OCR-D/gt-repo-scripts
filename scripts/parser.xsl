@@ -457,9 +457,7 @@
                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_line'"><xsl:copy-of select="$tablepage"/></xsl:if>
                 
            </div>
-                <footer> <a href="https://ocr-d.de/"><img src="https://ocr-d.de/assets/ocrd-logo-small.png" height="50" width="50"/></a>
-                    
-                </footer>
+                
             </body>
         </html>
         </xsl:template>
