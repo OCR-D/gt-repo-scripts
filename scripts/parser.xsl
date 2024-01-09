@@ -391,8 +391,13 @@
             </xsl:for-each>
         </xsl:variable>
             
-            <xsl:for-each select="sort(distinct-values($levelListing/l))">
-                <xsl:value-of select="." separator=", "/>
+            <xsl:for-each select="distinct-values($levelListing/l)">
+                <xsl:value-of select="sort(.)" separator=", "/>
+k
+                <xsl:value-of select="sort(.)"/>
+                <xsl:if test="position() != last()">
+                    <xsl:text>, </xsl:text>
+                </xsl:if>
             </xsl:for-each>
         </xsl:variable>
 
