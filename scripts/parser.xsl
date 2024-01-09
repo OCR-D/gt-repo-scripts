@@ -156,7 +156,7 @@
                                  <summary>Level Matrix Page: <xsl:value-of select="substring-after($filename, '/GT-PAGE/')"/></summary>
                                  <table class="pagelevel">
                                      <tr><td class="dname" colspan="2"><xsl:value-of select="substring-after($filename, '/GT-PAGE/')"/></td></tr>
-                                     <tr><td class="sumchar" colspan="2"><xsl:value-of select="string-length(translate($TextRegionUnicode, ' ', ''))"/></td></tr>
+                                     <tr><td class="sumchar"><xsl:value-of select="string-length(translate($TextRegionUnicode, ' ', ''))"/></td></tr>
                                 <tr class="suml">
                                    <td class="sl1"><xsl:value-of select="$sumlevel1"/></td>
                                    <td class="sl2"><xsl:value-of select="$sumlevel2"/></td>
@@ -424,7 +424,7 @@
             <tr><td class="time" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='notBefore']"/> - <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='notAfter']"/></td></tr>
             <tr><td class="guidelines" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='transcription-guidelines']"/></td></tr>
             <xsl:variable name="vtanalyse">
-            <tr><td><p class="sumchar" colspan="2"><xsl:value-of select="sum($tablepage//td[@class='sumchar'])"/></p>
+                <tr  class="numchar"><td><p class="sumchar" colspan="2"><xsl:value-of select="sum($tablepage//td[@class='sumchar'])"/></p>
                     <ul>
                         <li class="ssl1"><xsl:value-of select="sum($tablepage//td[@class='sl1'])"/></li>
                         <li class="ssl2"><xsl:value-of select="sum($tablepage//td[@class='sl2'])"/></li>
@@ -442,7 +442,7 @@
             </xsl:variable>
             
             <xsl:variable name="vsanalyse">
-                <tr><td class="sumchar" colspan="2"><p class="sumchar" colspan="2"><xsl:value-of select="sum($tablepage//td[@class='sumchar'])"/></p>
+                <tr class="numchar"><td class="sumchar" colspan="2"><p class="sumchar" colspan="2"><xsl:value-of select="sum($tablepage//td[@class='sumchar'])"/></p>
                 <ul>
                     <li class="ssl1"><xsl:value-of select="sum($tablepage//td[@class='sl1'])"/></li>
                     <li class="ssl2"><xsl:value-of select="sum($tablepage//td[@class='sl2'])"/></li>
