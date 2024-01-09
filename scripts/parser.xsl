@@ -396,15 +396,13 @@
             </xsl:for-each>
         </xsl:variable>
 
-        <xsl:variable name="vlevel">h
+        <xsl:variable name="vlevel">
             <xsl:for-each select="$vlevel0">
-               
                 <xsl:value-of select="sort($vlevel0/l)" separator=", "/>
              </xsl:for-each>
-            
         </xsl:variable>
         
-        <xsl:message select="$vlevel"></xsl:message>
+        
 
 
 
