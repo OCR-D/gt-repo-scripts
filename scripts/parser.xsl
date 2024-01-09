@@ -396,7 +396,7 @@
 k
                 <xsl:value-of select="sort(.)"/>
                 <xsl:if test="position() != last()">
-                    <xsl:text>, </xsl:text>
+                    <xsl:text># </xsl:text>
                 </xsl:if>
             </xsl:for-each>
         </xsl:variable>
