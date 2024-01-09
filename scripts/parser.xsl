@@ -398,8 +398,8 @@
 
         <xsl:variable name="vlevel">h
             <xsl:for-each select="$vlevel0">
-                <xsl:sort select="$vlevel0/l" order="descending" data-type="number"/>
-                <xsl:value-of select="$vlevel0/l" separator=", "/>
+                <xsl:sort select="$vlevel0/l" />
+                <xsl:value-of select="$vlevel0/l" />
              </xsl:for-each>
             
         </xsl:variable>
