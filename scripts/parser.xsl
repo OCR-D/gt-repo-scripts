@@ -391,9 +391,9 @@
             </xsl:for-each>
         </xsl:variable>
             
-        <xsl:for-each select="$levelListing">
-             <xsl:sort select="l"/>
-            <xsl:value-of select="string-join(/*,', ')"/>
+            <xsl:for-each select="distinct-values($levelListing)">
+             <xsl:sort select="."/>
+            <xsl:value-of select="string-join(.,', ')"/>
         </xsl:for-each>
         </xsl:variable>
 
