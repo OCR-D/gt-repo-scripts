@@ -399,8 +399,8 @@
         <xsl:variable name="vlevel">
             <xsl:for-each select="$vlevel0/l">
                 <xsl:sort select="l"/>
-                <xsl:value-of  select="string-join(/*, ',')"/> 
-            </xsl:for-each>
+                <xsl:value-of select="." separator=", "/>
+             </xsl:for-each>
         </xsl:variable>
         
         <xsl:message select="$vlevel"></xsl:message>
