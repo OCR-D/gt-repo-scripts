@@ -156,60 +156,58 @@
                                  <summary>Level Matrix Page: <xsl:value-of select="substring-after($filename, '/GT-PAGE/')"/></summary>
                                  <table class="pagelevel">
                                      <tr><td class="dname" colspan="2"><xsl:value-of select="substring-after($filename, '/GT-PAGE/')"/></td></tr>
-                                     <tr><td class="sumchar"><xsl:value-of select="string-length(translate($TextRegionUnicode, ' ', ''))"/>
-                                <ul>
-                                   <li class="sl1"><xsl:value-of select="$sumlevel1"/></li>
-                                   <li class="sl2"><xsl:value-of select="$sumlevel2"/></li>
-                                   <li class="sl3"><xsl:value-of select="$sumlevel3"/></li>
-                                </ul>
-                                     </td>
-                                <td class="leveldesc">
+                                     <tr><td class="sumchar"><xsl:value-of select="string-length(translate($TextRegionUnicode, ' ', ''))"/></td></tr>
+                                <tr class="suml">
+                                   <td class="sl1"><xsl:value-of select="$sumlevel1"/></td>
+                                   <td class="sl2"><xsl:value-of select="$sumlevel2"/></td>
+                                   <td class="sl3"><xsl:value-of select="$sumlevel3"/></td>
+                                </tr>
+                                <tr>
                                     <xsl:choose>
                                         <xsl:when test="$sumlevel1 &gt;= $sumlevel2 and $sumlevel1 &gt;= $sumlevel3 and $sumlevel1 &gt;= ($sumlevel2 + $sumlevel3)">
-                                            
+                                            <td class="leveldesc">
                                                 <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
                                                 <p class="bilanguage" data-de="Transkription entspricht dem Level 1" data-en="Transcription corresponds to level 1"/><span class="level">1</span>
                                                 <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
-                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_1_4.html"><span class="bilanguage" data-de="Wie wird im Level 1 transkribiert." data-en="How to transcribe in Level 1."/></a></li></ul>
+                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_1_4.html"><span class="bilanguage" data-de="Wie wird im Level 1 transkribiert." data-en="How to transcribe in Level 1."/></a></li></ul></td>
                                         </xsl:when>
                                         <xsl:when test="$sumlevel2 &gt;= $sumlevel1 and $sumlevel2 &gt; $sumlevel3">
-                                            
+                                            <td  class="leveldesc">
                                                 <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
                                                 <p class="bilanguage" data-de="Transkription entspricht dem Level 2" data-en="Transcription corresponds to level 2"/><span class="level">2</span>
                                                 <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
-                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage" data-de="Wie wird im Level 2 transkribiert." data-en="How to transcribe in Level 2."/></a></li></ul>
+                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage" data-de="Wie wird im Level 2 transkribiert." data-en="How to transcribe in Level 2."/></a></li></ul></td>
                                         </xsl:when>
                                         <xsl:when test="$sumlevel2 = $sumlevel1 and $sumlevel2 = $sumlevel3">
-                                            
+                                            <td  class="leveldesc">
                                                 <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
                                                 <p class="bilanguage" data-de="Transkription entspricht dem Level 1, 2, 3" data-en="Transcription corresponds to levels 1, 2, 3"/><span class="level">6</span>
-                                                <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li></ul>
+                                                <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li></ul></td>
                                         </xsl:when>
                                         <xsl:when test="$sumlevel2 &gt;= $sumlevel1 and $sumlevel2 &gt;= $sumlevel3">
-                                            
+                                            <td  class="leveldesc">
                                                 <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
                                                 <p class="bilanguage" data-de="Transkription entspricht dem Level 2 und Level 3" data-en="Transcription corresponds to level 2 and level 3"/><span class="level">5</span>
                                                 <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
                                                     <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage" data-de="Wie wird im Level 2 transkribiert." data-en="How to transcribe in Level 2."/></a></li>
-                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_3_4.html"><span class="bilanguage" data-de="Wie wird im Level 3 transkribiert." data-en="How to transcribe in Level 3."/></a></li></ul>
+                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_3_4.html"><span class="bilanguage" data-de="Wie wird im Level 3 transkribiert." data-en="How to transcribe in Level 3."/></a></li></ul></td>
                                         </xsl:when>
                                         <xsl:when test="$sumlevel1_2  &gt; $sumlevel2_3">
-                                            
+                                            <td  class="leveldesc">
                                                 <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
                                                 <p class="bilanguage" data-de="Transkription entspricht dem Level 1 und Level 2" data-en="Transcription corresponds to level 1 and level 2"/><span class="level">4</span>
                                                 <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
                                                     <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_1_4.html"><span class="bilanguage" data-de="Wie wird im Level 1 transkribiert." data-en="How to transcribe in Level 1."/></a></li>
-                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage" data-de="Wie wird im Level 2 transkribiert." data-en="How to transcribe in Level 2."/></a></li></ul>
+                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage" data-de="Wie wird im Level 2 transkribiert." data-en="How to transcribe in Level 2."/></a></li></ul></td>
                                         </xsl:when>
                                         <xsl:otherwise>
-                                            
+                                            <td  class="leveldesc">
                                                 <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
                                                 <p class="bilanguage" data-de="Transkription entspricht dem Level 3" data-en="Transcription corresponds to level 3"/><span class="level">3</span>
                                                 <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
-                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_3_4.html"><span class="bilanguage" data-de="Wie wird im Level 3 transkribiert." data-en="How to transcribe in Level 3."/></a></li></ul>
+                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_3_4.html"><span class="bilanguage" data-de="Wie wird im Level 3 transkribiert." data-en="How to transcribe in Level 3."/></a></li></ul></td>
                                         </xsl:otherwise>
                                     </xsl:choose>
-                                </td>
                                 </tr>
                                 
                                 <xsl:copy-of select="$levels"/>
@@ -312,60 +310,58 @@
                                                 <summary>Level Matrix Page: <xsl:value-of select="substring-after($filename, '/GT-PAGE/')"/></summary>
                                                 <table class="pagelevel">
                                                     <tr><td class="dname" colspan="2"><xsl:value-of select="substring-after($filename, '/GT-PAGE/')"/></td></tr>
-                                                    <tr><td class="sumchar" colspan="2"><xsl:value-of select="string-length(translate($TextRegionUnicode, ' ', ''))"/>
-                                                    <ul>
-                                                        <li class="sl1"><xsl:value-of select="$sumlevel1"/></li>
-                                                        <li class="sl2"><xsl:value-of select="$sumlevel2"/></li>
-                                                        <li class="sl3"><xsl:value-of select="$sumlevel3"/></li>
-                                                    </ul>
-                                                    </td>
-                                                        <td class="leveldesc">
+                                                    <tr><td class="sumchar" colspan="2"><xsl:value-of select="string-length(translate($TextRegionUnicode, ' ', ''))"/></td></tr>
+                                                    <tr class="suml">
+                                                        <td class="sl1"><xsl:value-of select="$sumlevel1"/></td>
+                                                        <td class="sl2"><xsl:value-of select="$sumlevel2"/></td>
+                                                        <td class="sl3"><xsl:value-of select="$sumlevel3"/></td>
+                                                    </tr>
+                                                    <tr>
                                                         <xsl:choose>
                                                             <xsl:when test="$sumlevel1 &gt;= $sumlevel2 and $sumlevel1 &gt;= $sumlevel3 and $sumlevel1 &gt;= ($sumlevel2 + $sumlevel3)">
-                                                                
+                                                                <td  class="leveldesc">
                                                                     <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
                                                                     <p class="bilanguage" data-de="Transkription entspricht dem Level 1" data-en="Transcription corresponds to level 1"/><span class="level">1</span>
                                                                     <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
-                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_1_4.html"><span class="bilanguage" data-de="Wie wird im Level 1 transkribiert." data-en="How to transcribe in Level 1."/></a></li></ul>
+                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_1_4.html"><span class="bilanguage" data-de="Wie wird im Level 1 transkribiert." data-en="How to transcribe in Level 1."/></a></li></ul></td>
                                                             </xsl:when>
                                                             <xsl:when test="$sumlevel2 &gt;= $sumlevel1 and $sumlevel2 &gt; $sumlevel3">
-                                                                
+                                                                <td  class="leveldesc">
                                                                     <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
                                                                     <p class="bilanguage" data-de="Transkription entspricht dem Level 2" data-en="Transcription corresponds to level 2"/><span class="level">2</span>
                                                                     <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
-                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage" data-de="Wie wird im Level 2 transkribiert." data-en="How to transcribe in Level 2."/></a></li></ul>
+                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage" data-de="Wie wird im Level 2 transkribiert." data-en="How to transcribe in Level 2."/></a></li></ul></td>
                                                             </xsl:when>
                                                             <xsl:when test="$sumlevel2 = $sumlevel1 and $sumlevel2 = $sumlevel3">
-                                                                
+                                                                <td  class="leveldesc">
                                                                     <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
                                                                     <p class="bilanguage" data-de="Transkription entspricht dem Level 1, 2, 3" data-en="Transcription corresponds to levels 1, 2, 3"/><span class="level">6</span>
-                                                                    <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li></ul>
+                                                                    <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li></ul></td>
                                                             </xsl:when>
                                                             <xsl:when test="$sumlevel2 &gt;= $sumlevel1 and $sumlevel2 &gt;= $sumlevel3">
-                                                                
+                                                                <td  class="leveldesc">
                                                                     <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
                                                                     <p class="bilanguage" data-de="Transkription entspricht dem Level 2 und Level 3" data-en="Transcription corresponds to level 2 and level 3"/><span class="level">5</span>
                                                                     <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
                                                                         <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage" data-de="Wie wird im Level 2 transkribiert." data-en="How to transcribe in Level 2."/></a></li>
-                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_3_4.html"><span class="bilanguage" data-de="Wie wird im Level 3 transkribiert." data-en="How to transcribe in Level 3."/></a></li></ul>
+                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_3_4.html"><span class="bilanguage" data-de="Wie wird im Level 3 transkribiert." data-en="How to transcribe in Level 3."/></a></li></ul></td>
                                                             </xsl:when>
                                                             <xsl:when test="$sumlevel1_2  &gt; $sumlevel2_3">
-                                                                
+                                                                <td  class="leveldesc">
                                                                     <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
                                                                     <p class="bilanguage" data-de="Transkription entspricht dem Level 1 und Level 2" data-en="Transcription corresponds to level 1 and level 2"/><span class="level">4</span>
                                                                     <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
                                                                         <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_1_4.html"><span class="bilanguage" data-de="Wie wird im Level 1 transkribiert." data-en="How to transcribe in Level 1."/></a></li>
-                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage" data-de="Wie wird im Level 2 transkribiert." data-en="How to transcribe in Level 2."/></a></li></ul>
+                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage" data-de="Wie wird im Level 2 transkribiert." data-en="How to transcribe in Level 2."/></a></li></ul></td>
                                                             </xsl:when>
                                                             <xsl:otherwise>
-                                                                
+                                                                <td  class="leveldesc">
                                                                     <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
                                                                     <p class="bilanguage" data-de="Transkription entspricht dem Level 3" data-en="Transcription corresponds to level 3"/><span class="level">3</span>
                                                                     <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
-                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_3_4.html"><span class="bilanguage" data-de="Wie wird im Level 3 transkribiert." data-en="How to transcribe in Level 3."/></a></li></ul>
+                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_3_4.html"><span class="bilanguage" data-de="Wie wird im Level 3 transkribiert." data-en="How to transcribe in Level 3."/></a></li></ul></td>
                                                             </xsl:otherwise>
                                                         </xsl:choose>
-                                                        </td>
                                                     </tr>
                                                     
                                                     <xsl:copy-of select="$levels"/>
@@ -418,7 +414,8 @@
                 
             
            <div>
-               <h2>Level Matrix Document Volume: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></h2>
+        
+            <h2>Level Matrix Document Volume: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></h2>
             <table class="volumelevel">
             <tr><td class="vname" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></td></tr>
             <tr><td class="url" colspan="2"><a href="{$vurl}"><xsl:value-of select="$vurl"/></a></td></tr>
@@ -443,7 +440,7 @@
             </tr>
             </xsl:variable>
             
-            <xsl:variable name="vsanalyse">
+            <!--<xsl:variable name="vsanalyse">
                 <tr class="numchar"><td class="sumchar" colspan="2"><p class="sumchar" colspan="2"><xsl:value-of select="sum($tablepage//td[@class='sumchar'])"/></p>
                 <ul>
                     <li class="ssl1"><xsl:value-of select="sum($tablepage//td[@class='sl1'])"/></li>
@@ -459,7 +456,7 @@
                         <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_1_4.html"><span class="bilanguage"><xsl:attribute name="data-de">Transkribieren im Level <xsl:value-of select="$vlevel"/></xsl:attribute><xsl:attribute name="data-en">Transcribe in Level <xsl:value-of select="$vlevel"/></xsl:attribute></span></a></li></ul>
                 </td>
                 </tr>
-            </xsl:variable>
+            </xsl:variable>-->
             
             
             <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure'">
