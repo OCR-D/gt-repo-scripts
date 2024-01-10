@@ -428,8 +428,9 @@
             <tr><td class="time" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='notBefore']"/> - <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='notAfter']"/></td></tr>
             <tr><td class="guidelines" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='transcription-guidelines']"/></td></tr>
             <xsl:variable name="vtanalyse">
-                <tr><td class="char"><p class="sumchar" colspan="2"><xsl:value-of select="sum($tablepage//li[@class='sumchar'])"/></p>
+                <tr><td class="char">
                     <ul>
+                        <li class="sumchar"><xsl:value-of select="sum($tablepage//li[@class='sumchar'])"/></li>
                         <li class="ssl1"><xsl:value-of select="sum($tablepage//li[@class='sl1'])"/></li>
                         <li class="ssl2"><xsl:value-of select="sum($tablepage//li[@class='sl2'])"/></li>
                         <li class="ssl3"><xsl:value-of select="sum($tablepage//li[@class='sl3'])"/></li>
