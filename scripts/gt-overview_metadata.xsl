@@ -130,6 +130,7 @@
                 <xsl:element name="li"><a href="metadata">Metadata</a></xsl:element>
                 <xsl:element name="li"><a href="table">Compressed table view</a></xsl:element>
                 <xsl:element name="li"><a href="overview">Detailed table view</a></xsl:element>
+                <xsl:element name="li"><a href="overview-level">Level Matrix</a></xsl:element>
         </xsl:element>
         </xsl:element>
     </xsl:variable>
