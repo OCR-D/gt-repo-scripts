@@ -19,6 +19,7 @@ button.bilanguage {
     margin-left: auto;
     margin-right: 0;
     cursor: pointer;
+    float: none;
 }
 
 :root {
