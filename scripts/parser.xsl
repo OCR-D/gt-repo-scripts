@@ -447,23 +447,7 @@
             </tr>
             </xsl:variable>
             
-            <!--<xsl:variable name="vsanalyse">
-                <tr class="numchar"><td class="sumchar" colspan="2"><p class="sumchar" colspan="2"><xsl:value-of select="sum($tablepage//td[@class='sumchar'])"/></p>
-                <ul>
-                    <li class="ssl1"><xsl:value-of select="sum($tablepage//td[@class='sl1'])"/></li>
-                    <li class="ssl2"><xsl:value-of select="sum($tablepage//td[@class='sl2'])"/></li>
-                    <li class="ssl3"><xsl:value-of select="sum($tablepage//td[@class='sl3'])"/></li>
-                </ul>
-                </td>
-                
-                <td  class="leveldesc">
-                    <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
-                    <p class="bilanguage"><xsl:attribute name="data-de">Die Transkription des Korpus entspricht dem Level <xsl:value-of select="$vlevel"/>.</xsl:attribute><xsl:attribute name="data-en">The Transcription of volume corresponds to level <xsl:value-of select="$vlevel"/>.</xsl:attribute></p>
-                    <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
-                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_1_4.html"><span class="bilanguage"><xsl:attribute name="data-de">Transkribieren im Level <xsl:value-of select="$vlevel"/></xsl:attribute><xsl:attribute name="data-en">Transcribe in Level <xsl:value-of select="$vlevel"/></xsl:attribute></span></a></li></ul>
-                </td>
-                </tr>
-            </xsl:variable>-->
+            
             
             
             <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure'">
