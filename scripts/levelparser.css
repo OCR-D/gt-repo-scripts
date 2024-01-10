@@ -297,17 +297,6 @@ summary {
     padding: 5px;
 }
 
-footer {
-    position: sticky;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-footer p {
-    float: right;
-    margin: 0;
-}
 
 .main {
     display: block;
