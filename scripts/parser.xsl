@@ -218,7 +218,8 @@
                                  </table>
                             </details>
                             </xsl:variable>
-                        <xsl:copy-of select="$leveltable"/>
+                        
+                            <xsl:copy-of select="$leveltable"/>
                         </xsl:when>
                         
 
@@ -414,10 +415,8 @@
 
 
         
-            
-                <script src="lang.js"><xsl:text> </xsl:text></script>
-                <xsl:text disable-output-escaping='yes'>&lt;link rel="stylesheet" href="levelparser.css"&gt;
-                </xsl:text>
+        <script type="text/javascript" charset="utf8" src="lang.js"><xsl:text> </xsl:text></script>
+        <link rel="stylesheet" href="levelparser.css"/>
            
         <xsl:element name="div">
             <h2>Level Matrix Document Volume: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></h2>
