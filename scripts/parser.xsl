@@ -393,16 +393,18 @@
             
             <xsl:for-each select="sort(distinct-values($levelListing/l))">
                 <l><xsl:value-of select="."/></l>
+                <b>Hallo</b>
+                <xsl:value-of select="sort(.)" separator=", "/>
             </xsl:for-each>
         </xsl:variable>
 
         <xsl:variable name="vlevel">
-            <xsl:for-each select="$vlevel0">
+            <!--<xsl:for-each select="$vlevel0">
                 <xsl:value-of select="sort($vlevel0/l)" separator=", "/>
-             </xsl:for-each>
+             </xsl:for-each>-->Test
         </xsl:variable>
         
-        
+        <xsl:message select="$vlevel0"></xsl:message>
 
 
 
