@@ -213,7 +213,7 @@
                                     </xsl:choose>
                                 </td>
                                 </tr>
-                                
+                                <xsl:message select="$levels"/>
                                 <xsl:copy-of select="$levels"/>
                                  </table>
                             </details>
@@ -442,10 +442,16 @@
                 <p class="bilanguage"><xsl:attribute name="data-de">Die Transkription des Korpus entspricht dem Level <xsl:value-of select="$vlevel"/>.</xsl:attribute><xsl:attribute name="data-en">The Transcription of volume corresponds to level <xsl:value-of select="$vlevel"/>.</xsl:attribute></p>
                 <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
                     <li>
-                        <xsl:if test="$vlevel0/l = '1'"><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_1_4.html"><span class="bilanguage"><xsl:attribute name="data-de">Transkribieren im Level 1.</xsl:attribute><xsl:attribute name="data-en">Transcribe in Level 1.</xsl:attribute></span></a></xsl:if>
-                        <xsl:if test="$vlevel0/l = '2'"><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage"><xsl:attribute name="data-de">Transkribieren im Level 2.</xsl:attribute><xsl:attribute name="data-en">Transcribe in Level 2.</xsl:attribute></span></a></xsl:if>
-                        <xsl:if test="$vlevel0/l = '3'"><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_3_4.html"><span class="bilanguage"><xsl:attribute name="data-de">Transkribieren im Level 3.</xsl:attribute><xsl:attribute name="data-en">Transcribe in Level 3.</xsl:attribute></span></a></xsl:if>
+                        <xsl:if test="$vlevel0/l = '1'"><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_1_4.html"><span class="bilanguage"><xsl:attribute name="data-de">Transkribieren im Level 1.</xsl:attribute><xsl:attribute name="data-en">How to Transcribe in Level 1.</xsl:attribute></span></a></xsl:if>
+                        <xsl:if test="//l/preceding-sibling::* !=''"><br/></xsl:if>
+                        <xsl:if test="$vlevel0/l = '2'"><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage"><xsl:attribute name="data-de">Transkribieren im Level 2.</xsl:attribute><xsl:attribute name="data-en">How to Transcribe in Level 2.</xsl:attribute></span></a></xsl:if>
+                        <xsl:if test="//l/preceding-sibling::* !=''"><br/></xsl:if>
+                        <xsl:if test="$vlevel0/l = '3'"><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_3_4.html"><span class="bilanguage"><xsl:attribute name="data-de">Transkribieren im Level 3.</xsl:attribute><xsl:attribute name="data-en">How to Transcribe in Level 3.</xsl:attribute></span></a></xsl:if>
                     </li></ul>
+                <xsl:if test="position() != last()">
+                    <xsl:text>,</xsl:text>
+                </xsl:if>
+                
             </td>
             </tr>
             </xsl:variable>
