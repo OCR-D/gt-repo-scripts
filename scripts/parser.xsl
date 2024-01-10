@@ -412,9 +412,8 @@
                 <xsl:text disable-output-escaping='yes'>&lt;link rel="stylesheet" href="levelparser.css"&gt;
                 </xsl:text>
                 
-            <body>
-           <div>      
-        
+            
+           <div>
                <h2>Level Matrix Document Volume: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></h2>
             <table class="volumelevel">
             <tr><td class="vname" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></td></tr>
@@ -474,6 +473,5 @@
                 
            </div>
                 
-            </body>
         </xsl:template>
     </xsl:stylesheet>
