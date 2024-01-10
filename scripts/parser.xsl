@@ -419,7 +419,7 @@
                 <xsl:text disable-output-escaping='yes'>&lt;link rel="stylesheet" href="levelparser.css"&gt;
                 </xsl:text>
            
-           
+        <xsl:element name="div">
             <h2>Level Matrix Document Volume: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></h2>
             <table class="volumelevel">
             <tr><td class="vname" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></td></tr>
@@ -461,6 +461,6 @@
                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure_and_text'"><xsl:copy-of select="$tablepage"/></xsl:if>
                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_line'"><xsl:copy-of select="$tablepage"/></xsl:if>
                 
-                
+        </xsl:element>
         </xsl:template>
     </xsl:stylesheet>
