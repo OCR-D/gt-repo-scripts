@@ -441,7 +441,11 @@
                 <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
                 <p class="bilanguage"><xsl:attribute name="data-de">Die Transkription des Korpus entspricht dem Level <xsl:value-of select="$vlevel"/>.</xsl:attribute><xsl:attribute name="data-en">The Transcription of volume corresponds to level <xsl:value-of select="$vlevel"/>.</xsl:attribute></p>
                 <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
-                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_1_4.html"><span class="bilanguage"><xsl:attribute name="data-de">Transkribieren im Level <xsl:value-of select="$vlevel"/></xsl:attribute><xsl:attribute name="data-en">Transcribe in Level <xsl:value-of select="$vlevel"/></xsl:attribute></span></a></li></ul>
+                    <li>
+                        <xsl:if test="$vlevel0/l = '1'"><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_1_4.html"><span class="bilanguage"><xsl:attribute name="data-de">Transkribieren im Level 1.</xsl:attribute><xsl:attribute name="data-en">Transcribe in Level 1.</xsl:attribute></span></a></xsl:if>
+                        <xsl:if test="$vlevel0/l = '2'"><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage"><xsl:attribute name="data-de">Transkribieren im Level 2.</xsl:attribute><xsl:attribute name="data-en">Transcribe in Level 2.</xsl:attribute></span></a></xsl:if>
+                        <xsl:if test="$vlevel0/l = '3'"><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_3_4.html"><span class="bilanguage"><xsl:attribute name="data-de">Transkribieren im Level 3.</xsl:attribute><xsl:attribute name="data-en">Transcribe in Level 3.</xsl:attribute></span></a></xsl:if>
+                    </li></ul>
             </td>
             </tr>
             </xsl:variable>
