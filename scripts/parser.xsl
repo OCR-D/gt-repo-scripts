@@ -165,7 +165,7 @@
                                    <li class="sl3"><xsl:value-of select="$sumlevel3"/></li>
                                 </ul>
                                 </td>
-                                <td class="leveldesc">
+                                    <td class="leveldesc" colspan="3">
                                     <xsl:choose>
                                         <xsl:when test="$sumlevel1 &gt;= $sumlevel2 and $sumlevel1 &gt;= $sumlevel3 and $sumlevel1 &gt;= ($sumlevel2 + $sumlevel3)">
                                             
@@ -322,7 +322,7 @@
                                                         <li class="sl3"><xsl:value-of select="$sumlevel3"/></li>
                                                     </ul>
                                                     </td>    
-                                                        <td class="leveldesc">
+                                                        <td class="leveldesc" colspan="3">
                                                         <xsl:choose>
                                                             <xsl:when test="$sumlevel1 &gt;= $sumlevel2 and $sumlevel1 &gt;= $sumlevel3 and $sumlevel1 &gt;= ($sumlevel2 + $sumlevel3)">
                                                                 
@@ -418,10 +418,8 @@
                 <script src="lang.js"><xsl:text> </xsl:text></script>
                 <xsl:text disable-output-escaping='yes'>&lt;link rel="stylesheet" href="levelparser.css"&gt;
                 </xsl:text>
-                
-            
-           <div>
-        
+           
+           
             <h2>Level Matrix Document Volume: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></h2>
             <table class="volumelevel">
             <tr><td class="vname" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></td></tr>
@@ -430,7 +428,7 @@
             <tr><td class="time" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='notBefore']"/> - <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='notAfter']"/></td></tr>
             <tr><td class="guidelines" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='transcription-guidelines']"/></td></tr>
             <xsl:variable name="vtanalyse">
-                <tr><td class="sumchar"><p class="sumchar" colspan="2"><xsl:value-of select="sum($tablepage//li[@class='sumchar'])"/></p>
+                <tr><td class="char"><p class="sumchar" colspan="2"><xsl:value-of select="sum($tablepage//li[@class='sumchar'])"/></p>
                     <ul>
                         <li class="ssl1"><xsl:value-of select="sum($tablepage//li[@class='sl1'])"/></li>
                         <li class="ssl2"><xsl:value-of select="sum($tablepage//li[@class='sl2'])"/></li>
@@ -463,7 +461,6 @@
                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure_and_text'"><xsl:copy-of select="$tablepage"/></xsl:if>
                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_line'"><xsl:copy-of select="$tablepage"/></xsl:if>
                 
-           </div>
                 
         </xsl:template>
     </xsl:stylesheet>
