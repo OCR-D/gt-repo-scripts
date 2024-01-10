@@ -416,6 +416,7 @@
 
         
         <script type="text/javascript" charset="utf8" src="lang.js"><xsl:text> </xsl:text></script>
+        <link rel="stylesheet" href="table_hide.css"/>
         <link rel="stylesheet" href="levelparser.css"/>
            
         <xsl:element name="div">
