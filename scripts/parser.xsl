@@ -393,40 +393,37 @@
             
             <xsl:for-each select="sort(distinct-values($levelListing/l))">
                 <l><xsl:value-of select="."/></l>
-                <b>Hallo</b>
-                <xsl:value-of select="sort(.)" separator=", "/>
             </xsl:for-each>
         </xsl:variable>
 
         <xsl:variable name="vlevel">
-            <!--<xsl:for-each select="$vlevel0">
+            <xsl:for-each select="$vlevel0">
                 <xsl:value-of select="sort($vlevel0/l)" separator=", "/>
-             </xsl:for-each>-->Test
+             </xsl:for-each>
         </xsl:variable>
         
-        <xsl:message select="$vlevel0"></xsl:message>
+        
 
 
 
-        <html>
-            <head>
+        
+            
                 <script src="lang.js"><xsl:text> </xsl:text></script>
                 <xsl:text disable-output-escaping='yes'>&lt;link rel="stylesheet" href="levelparser.css"&gt;
                 </xsl:text>
-                <title>Level Matrix Document Volume: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></title>
-            </head>
+                
             <body>
-           <div class="main">      
-        <table class="volumelevel">
-            <caption>Level Matrix Document Volume: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></caption>
-                    
+           <div>      
+        
+               <h2>Level Matrix Document Volume: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></h2>
+            <table class="volumelevel">
             <tr><td class="vname" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></td></tr>
             <tr><td class="url" colspan="2"><a href="{$vurl}"><xsl:value-of select="$vurl"/></a></td></tr>
             <tr><td class="description" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='description']"/></td></tr>
             <tr><td class="time" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='notBefore']"/> - <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='notAfter']"/></td></tr>
             <tr><td class="guidelines" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='transcription-guidelines']"/></td></tr>
             <xsl:variable name="vtanalyse">
-                <tr  class="numchar"><td><p class="sumchar" colspan="2"><xsl:value-of select="sum($tablepage//td[@class='sumchar'])"/></p>
+                <tr><td class="sumchar"><p class="sumchar" colspan="2"><xsl:value-of select="sum($tablepage//td[@class='sumchar'])"/></p>
                     <ul>
                         <li class="ssl1"><xsl:value-of select="sum($tablepage//td[@class='sl1'])"/></li>
                         <li class="ssl2"><xsl:value-of select="sum($tablepage//td[@class='sl2'])"/></li>
@@ -478,6 +475,5 @@
            </div>
                 
             </body>
-        </html>
         </xsl:template>
     </xsl:stylesheet>
