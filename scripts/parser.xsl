@@ -422,7 +422,7 @@
         <link rel="stylesheet" href="levelparser.css"/>
            
         <xsl:element name="div">
-            <h2>Level Matrix Document Volume: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></h2>
+            <xsl:element name="h2">Level Matrix Document Volume: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></xsl:element>
             <xsl:element name="h3">Details about Ground Truth</xsl:element>
             <xsl:element name="ul">
                 <xsl:element name="li"><a href="metadata">Metadata</a></xsl:element>
