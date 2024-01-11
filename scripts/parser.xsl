@@ -423,6 +423,17 @@
            
         <xsl:element name="div">
             <h2>Level Matrix Document Volume: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></h2>
+            <xsl:element name="h3">Details about Ground Truth</xsl:element>
+            <xsl:element name="ul">
+                <xsl:element name="li"><a href="metadata">Metadata</a></xsl:element>
+                <xsl:element name="li"><a href="table">Compressed table view about Regions</a></xsl:element>
+                <xsl:element name="li"><a href="overview">Detailed table view about Regions</a></xsl:element>
+            </xsl:element>
+        </xsl:element>
+           
+           
+        <xsl:element name="div">
+            <h3>Level Matrix</h3>
             <table class="volumelevel">
             <tr><td class="vname" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></td></tr>
             <tr><td class="url" colspan="2"><a href="{$vurl}"><xsl:value-of select="$vurl"/></a></td></tr>
