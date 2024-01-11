@@ -219,7 +219,7 @@
                                         <typ><xsl:value-of select="."/></typ>
                                     </xsl:for-each>
                                     </xsl:variable>
-                                    <xsl:for-each select="fn:distinct-values($list/type)">
+                                    <xsl:for-each select="fn:distinct-values($list/typ)">
                                         <typ><xsl:value-of select="."/></typ>
                                     </xsl:for-each>
                                 </xsl:variable>
