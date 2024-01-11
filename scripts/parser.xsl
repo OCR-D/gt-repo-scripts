@@ -426,8 +426,8 @@
             <xsl:element name="h3">Details about Ground Truth</xsl:element>
             <xsl:element name="ul">
                 <xsl:element name="li"><a href="metadata">Metadata</a></xsl:element>
-                <xsl:element name="li"><a href="table">Compressed table view about Regions</a></xsl:element>
-                <xsl:element name="li"><a href="overview">Detailed table view about Regions</a></xsl:element>
+                <xsl:element name="li"><a href="table">Compressed table view about regions</a></xsl:element>
+                <xsl:element name="li"><a href="overview">Detailed table view about regions</a></xsl:element>
             </xsl:element>
         </xsl:element>
            
