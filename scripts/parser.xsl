@@ -64,7 +64,7 @@
     
 
     <xsl:template match="/">
-        
+        <!-- page level -->
         <xsl:variable name="tablepage">
          <xsl:for-each select="collection($coll)">
             <xsl:variable name="filename" select="base-uri()" />
@@ -213,22 +213,13 @@
                                     </xsl:choose>
                                 </td>
                                 </tr>
-                                <xsl:variable name="volumelevelstype">
-                                    <xsl:variable name="list">
-                                    <xsl:for-each select="$levels//tr/@title">
-                                        <typ><xsl:value-of select="."/></typ>
-                                    </xsl:for-each>
-                                    </xsl:variable>
-                                    <xsl:for-each select="fn:distinct-values($list/typ)">
-                                        <typ><xsl:value-of select="."/></typ>
-                                    </xsl:for-each>
-                                </xsl:variable>
-                                     <xsl:message select="$volumelevelstype"/>
-                                     
+                                                                                                          
                                      <xsl:copy-of select="$levels"/>
                                  </table>
                             </details>
                             </xsl:variable>
+                        
+                        
                         
                             <xsl:copy-of select="$leveltable"/>
                         </xsl:when>
@@ -479,10 +470,13 @@
             </table>
 
                 
-               
+               <xsl:variable name="levelanalyse">
+                   <test>
                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure_and_text'"><xsl:copy-of select="$tablepage"/></xsl:if>
                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_line'"><xsl:copy-of select="$tablepage"/></xsl:if>
-                
+               </test></xsl:variable>
+            
+            <xsl:copy-of select="$levelanalyse//test"/>
         </xsl:element>
         </xsl:template>
     </xsl:stylesheet>
