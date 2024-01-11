@@ -487,7 +487,7 @@
             
             <xsl:variable name="volumeanalyse">
                 <details>
-                    <summary>Level Matrix Volume: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></summary>
+                    <summary class="volume">Level Matrix Volume: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/></summary>
                 <xsl:variable name="titles">
                     <xsl:for-each select="distinct-values($levelanalysetitle//tr/@title)">
                         <tit><xsl:value-of select="."/></tit>
