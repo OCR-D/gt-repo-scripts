@@ -470,14 +470,30 @@
             </table>
 
                 
-               <xsl:variable name="levelanalyse">
+               <xsl:variable name="levelanalysetitle">
                 <analyse>
                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure_and_text'"><xsl:copy-of select="$tablepage"/></xsl:if>
                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_line'"><xsl:copy-of select="$tablepage"/></xsl:if>
                </analyse>
                </xsl:variable>
-            <xsl:message select="$levelanalyse"/>
-            <xsl:copy-of select="$levelanalyse//analyse/*"/>
+            <xsl:message select="$levelanalysetitle"/>
+            <!--volume begin-->
+            
+            <xsl:variable name="volumeanalyse">
+                <xsl:variable name="titles">
+                <xsl:for-each select="distinct-values($levelanalysetitle//tr/@title)">
+                    <tit><xsl:value-of select="."/></tit>
+                </xsl:for-each>
+                </xsl:variable>
+                <xsl:copy-of select="$titles"></xsl:copy-of>
+                
+            </xsl:variable>
+            
+            <xsl:message select="$volumeanalyse"></xsl:message>
+            <!-- volume ende -->
+            
+            
+            <xsl:copy-of select="$levelanalysetitle//analyse/*"/>
         </xsl:element>
         </xsl:template>
     </xsl:stylesheet>
