@@ -485,9 +485,26 @@
                     <tit><xsl:value-of select="."/></tit>
                 </xsl:for-each>
                 </xsl:variable>
-                <xsl:copy-of select="$titles"></xsl:copy-of>
+                <xsl:for-each select="$titles">
+                    <tr><xsl:attribute name="title"><xsl:value-of select="."/></xsl:attribute>
+                        <td class="l1" char="ff"><xsl:value-of select="sum($levelanalysetitle//tr[@title = $titles]/td[@class='l1'])"/></td>
+                        <td class="l2" char="ff">34</td>
+                        <td class="l3" char="ﬀ">0</td>
+                    </tr>
+                </xsl:for-each>
+                    <tr><xsl:attribute name="title"><xsl:value-of select="."/></xsl:attribute>
+                        <td class="l1" char="ff"><xsl:value-of select="."/>34</td>
+                        <td class="l2" char="ff">34</td>
+                        <td class="l3" char="ﬀ">0</td>
+                    </tr>
                 
-            </xsl:variable>
+                </xsl:variable>
+                
+                
+               
+            
+        
+            
             
             <xsl:message select="$volumeanalyse"></xsl:message>
             <!-- volume ende -->
