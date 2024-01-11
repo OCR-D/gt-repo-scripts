@@ -485,9 +485,9 @@
                     <tit><xsl:value-of select="."/></tit>
                 </xsl:for-each>
                 </xsl:variable>
-                <xsl:for-each select="$titles">
-                    <xsl:variable name="t" select="tit"/>
-                    <tr><xsl:attribute name="title"><xsl:value-of select="tit"/></xsl:attribute>
+                <xsl:for-each select="$titles/tit">
+                    <xsl:variable name="t" select="."/>
+                    <tr><xsl:attribute name="title"><xsl:value-of select="."/></xsl:attribute>
                         <td class="l1" char="ff"><xsl:value-of select="sum($levelanalysetitle//tr[@title = $t]/td[@class='l1'])"/></td>
                     </tr>
                 </xsl:for-each>
