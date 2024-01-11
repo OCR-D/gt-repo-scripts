@@ -127,11 +127,11 @@
         <xsl:element name="div">
             <xsl:element name="h2">Details</xsl:element>
             <xsl:element name="ul">
-                <xsl:element name="li"><a href="metadata">Metadata</a></xsl:element>
-                <xsl:element name="li"><a href="table">Compressed table view</a></xsl:element>
-                <xsl:element name="li"><a href="overview">Detailed table view</a></xsl:element>
+                <xsl:element name="li"><a href="metadata">Metadata about Ground Truth</a></xsl:element>
+                <xsl:element name="li"><a href="table">Compressed table view about regions</a></xsl:element>
+                <xsl:element name="li"><a href="overview">Detailed table view about regions</a></xsl:element>
                 <xsl:element name="li"><a href="overview-level">Level Matrix</a></xsl:element>
-        </xsl:element>
+            </xsl:element>
         </xsl:element>
     </xsl:variable>
     
@@ -1683,6 +1683,7 @@
                         <xsl:element name="ul">
                             <xsl:copy-of select="$details//li[1]"/>
                             <xsl:copy-of select="$details//li[3]"/>
+                            <xsl:copy-of select="$details//li[4]"/>
                         </xsl:element>
                     </xsl:element>
                     
@@ -1913,6 +1914,7 @@
                     <xsl:element name="ul">
                         <xsl:copy-of select="$details//li[1]"/>
                         <xsl:copy-of select="$details//li[3]"/>
+                        <xsl:copy-of select="$details//li[4]"/>
                     </xsl:element>
                 </xsl:element>
                 
@@ -2086,6 +2088,7 @@
                     <xsl:element name="ul">
                         <xsl:copy-of select="$details//li[1]"/>
                         <xsl:copy-of select="$details//li[3]"/>
+                        <xsl:copy-of select="$details//li[4]"/>
                     </xsl:element>
                 </xsl:element>
                 
@@ -2343,6 +2346,7 @@
                 <xsl:element name="ul">
                     <xsl:copy-of select="$details//li[1]"/>
                     <xsl:copy-of select="$details//li[2]"/>
+                    <xsl:copy-of select="$details//li[4]"/>
                 </xsl:element>
             </xsl:element>
             
