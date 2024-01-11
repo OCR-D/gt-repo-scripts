@@ -474,6 +474,7 @@
                         <tit><xsl:value-of select="."/></tit>
                     </xsl:for-each>
                 </xsl:variable>
+                    <table>
                 <xsl:for-each select="$titles/tit">
                     <xsl:variable name="t" select="."/>
                     <xsl:variable name="c1" select="distinct-values($levelanalysetitle//tr[@title = $t]/td[@class='l1']/@char)"/>
@@ -485,7 +486,8 @@
                         <td class="l3" char="{$c3}"><xsl:value-of select="sum($levelanalysetitle//tr[@title = $t]/td[@class='l3'])"/></td>
                     </tr>
                 </xsl:for-each>
-                </details>     
+                    </table>
+                </details>
             </xsl:variable>
             
             
