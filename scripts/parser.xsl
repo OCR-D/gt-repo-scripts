@@ -471,12 +471,13 @@
 
                 
                <xsl:variable name="levelanalyse">
-                   <test>
+                <analyse>
                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure_and_text'"><xsl:copy-of select="$tablepage"/></xsl:if>
                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_line'"><xsl:copy-of select="$tablepage"/></xsl:if>
-               </test></xsl:variable>
+               </analyse>
+               </xsl:variable>
             <xsl:message select="$levelanalyse"/>
-            <xsl:copy-of select="$levelanalyse//test"/>
+            <xsl:copy-of select="$levelanalyse//analyse/*"/>
         </xsl:element>
         </xsl:template>
     </xsl:stylesheet>
