@@ -214,8 +214,8 @@
                                 </td>
                                 </tr>
                                 <xsl:variable name="volumelevelstype">
-                                    <xsl:for-each select="$levels//tr">
-                                        <typ><xsl:value-of select="distinct-values(@title)"/></typ>
+                                    <xsl:for-each select="distinct-values($levels//tr/@title)">
+                                        <typ><xsl:value-of select="."/></typ>
                                     </xsl:for-each>
                                 </xsl:variable>
                                      <xsl:message select="$volumelevelstype"/>
