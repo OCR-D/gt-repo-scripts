@@ -482,7 +482,7 @@
                         <tit><xsl:value-of select="."/></tit>
                     </xsl:for-each>
                 </xsl:variable>
-                    <table>
+                    <table class="volumelevel">
                 <xsl:for-each select="$titles/tit">
                     <xsl:variable name="t" select="."/>
                     <xsl:variable name="c1" select="distinct-values($levelanalysetitle//tr[@title = $t]/td[@class='l1']/@char)"/>
