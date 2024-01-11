@@ -457,6 +457,14 @@
             </td>
             </tr>
             </xsl:variable>
+                
+                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure'"><xsl:apply-imports/><!-- structure analyse with LevelGTStructure.xsl --></xsl:if>
+                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure_and_text'"><xsl:copy-of select="$vtanalyse"/></xsl:if>
+                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure' or $docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_structure_and_text'"><xsl:apply-imports/></xsl:if>
+                <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_line'"><xsl:copy-of select="$vtanalyse"/></xsl:if>
+            </table>
+                
+                
             
             <xsl:variable name="levelanalysetitle">
                 <analyse>
@@ -491,16 +499,12 @@
             </xsl:variable>
             
             
-            <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure'"><xsl:apply-imports/><!-- structure analyse with LevelGTStructure.xsl --></xsl:if>
-            <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure_and_text'"><xsl:copy-of select="$vtanalyse"/></xsl:if>
-            <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure' or $docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_structure_and_text'"><xsl:apply-imports/></xsl:if>
-            <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_line'"><xsl:copy-of select="$vtanalyse"/></xsl:if>
+            
             
             <xsl:copy-of select="$volumeanalyse"/>
-            </table>
+            <xsl:copy-of select="$levelanalysetitle//analyse/*"/>
+                        
             
-            <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure_and_text'"><xsl:copy-of select="$tablepage"/></xsl:if>
-            <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_line'"><xsl:copy-of select="$tablepage"/></xsl:if>
         </xsl:element>
         </xsl:template>
     </xsl:stylesheet>
