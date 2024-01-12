@@ -10,6 +10,13 @@ jp=`pwd`
 cd $path/$eachfile;cd ..
 p=`pwd`
 
+activate_venv() {
+    if [[ -e $HOME/venv ]]; then
+        source $HOME/venv/bin/activate
+    fi
+}
+
+activate_venv
 if test -f "mets.xml"; then
     # if grep -Eq "PAGE;IMG" mets.xml; then
     if grep -Eq "mets:fileGrp USE=\"OCR-D\-IMG" mets.xml; then
