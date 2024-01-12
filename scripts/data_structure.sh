@@ -11,9 +11,7 @@ cd $path/$eachfile;cd ..
 p=`pwd`
 
 activate_venv() {
-    if [[ -e $HOME/venv ]]; then
-        source $HOME/venv/bin/activate
-    fi
+    source $HOME/venv/bin/activate
 }
 
 
@@ -23,6 +21,7 @@ if test -f "mets.xml"; then
         cd $p
         pwd
         activate_venv
+        ocrd --version
         ocrd zip bag -i ocrd_data_structur_${PWD##*/}
         mv $path/data/*.zip $path/ocrdzip_out/
         
