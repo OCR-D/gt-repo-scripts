@@ -511,8 +511,8 @@
             
             
             
-            
-            <xsl:copy-of select="$volumeanalyse"/>
+            <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure_and_text'"><xsl:copy-of select="$volumeanalyse"/></xsl:if>
+            <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_line'"><xsl:copy-of select="$volumeanalyse"/></xsl:if>
             <xsl:copy-of select="$levelanalysetitle//analyse/*"/>
                         
             
