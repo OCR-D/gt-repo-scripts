@@ -75,10 +75,10 @@
                         <xsl:if test="not(contains(.,'/data/'))">
                             <xsl:if test="not(contains(.,'/GT-PAGE/'))">
                                 <xsl:copy-of select="."/></xsl:if></xsl:if></xsl:if>
-                
-                <!--<xsl:if test="tokenize(.,'/')[position() != [6]] ='data'"><xsl:copy-of select="."/></xsl:if>
-                <xsl:if test="tokenize(.,'/')[position() != [6]] ='scripts'"><xsl:copy-of select="."/></xsl:if> 
-                <xsl:if test="tokenize(.,'/')[position() != [8]] ='GT-PAGE'"><xsl:copy-of select="."/></xsl:if>-->
+                <xsl:if test="tokenize(.,'/')[position() != [6]] ='scripts'">
+                    <xsl:if test="tokenize(.,'/')[position() != [6]] ='data'">
+                        <xsl:if test="tokenize(.,'/')[position() != [8]] ='GT-PAGE'">
+                            <xsl:copy-of select="."/></xsl:if></xsl:if></xsl:if>
             </xsl:for-each>
             </xsl:variable>
             
