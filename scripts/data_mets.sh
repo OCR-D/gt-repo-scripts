@@ -6,11 +6,7 @@ path=`pwd`
 
 for eachfile in $page
 do
-jp=`pwd`
 cd $path/$eachfile;cd ..
-p=`pwd`
-
-
 
 if test -f "mets.xml"; then
     # if grep -Eq "PAGE;IMG" mets.xml; then
