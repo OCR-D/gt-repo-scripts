@@ -32,9 +32,6 @@
         <xsl:copy-of select="document('../gt-guidelines/de/labeling/OCR-D_GT_labeling_schema_xsd_Element_gt_gt.dita')"/>
     </xsl:variable>
     
-   
-    
-    
     <xsl:variable name="READSME">
         <xsl:copy-of select="document('../README.xml')"/>
     </xsl:variable>
@@ -145,13 +142,10 @@
                       <xsl:variable name="filename" select="base-uri()" />
                       <xsl:variable name="gtdocument">
                           <xsl:if test="$gtFormat = 'Page-XML'"><xsl:value-of select="substring-after(substring-before($filename, '/GT-PAGE/')[1],$gtTypPath)"/></xsl:if>
-                          
                       </xsl:variable>
                       
                       
                         <xsl:if test="$gtdocument !=''">
-                            
-                     
                          <xsl:element name="array"><xsl:attribute name="key">volume_region</xsl:attribute>
                          <xsl:element name="map">
                              <xsl:attribute name="key1" select="substring-after(substring-before($filename, '/GT-PAGE/')[1], 'data/')"/>
@@ -188,10 +182,6 @@
                              <string key="{$key26}"><xsl:value-of select="document($filename)//*/*[local-name()='GraphicRegion']/@*[local-name()='type']='decorations'"/></string>
                              <string key="{$key27}"><xsl:value-of select="document($filename)//*/*[local-name()='GraphicRegion']/@*[local-name()='type']='stamp'"/></string>
                              <string key="{$key28}"><xsl:value-of select="document($filename)//*/*[local-name()='TextRegion']/@*[local-name()='type']='drop-capital'"/></string>
-                             
-                             
-                            
-                            
                         </xsl:element>
                     </xsl:element>
                         </xsl:if>
@@ -241,7 +231,6 @@
                     <xsl:value-of select="sum($holeMetric//string[@key=$key5])"/>
                 </xsl:for-each>
             </xsl:variable>
-            
             
             <xsl:variable name="k6">
                 <xsl:for-each select="$holeMetric/array">
@@ -299,7 +288,7 @@
             
             
         <xsl:variable name="tableHeader0">
-            <thead>                
+            <thead>
                 <tr>
                     <th>document</th>
                     <xsl:if test="$k1 >0"><th>TxtRegion</th></xsl:if>
