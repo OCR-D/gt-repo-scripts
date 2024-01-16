@@ -61,7 +61,7 @@
         <xsl:if test="$output = 'unitTest1'">
             <xsl:variable name="CconPage">
                 <xsl:for-each select="collection($colly)" >
-                    <xsl:element name='pf'>
+                    <xsl:element name='pathfile'>
                         <xsl:value-of select="substring-after(base-uri(), 'file:/')"/>
                     </xsl:element>
                 </xsl:for-each>
@@ -70,12 +70,12 @@
     <xsl:message select="$CconPage"/>        
             
             <xsl:variable name="CconPage2">
-            <xsl:for-each select="$CconPage//pf">
-                <xsl:if test="not(contains(.,'/data/'))"><pathfile><xsl:copy-of select="."/></pathfile></xsl:if>
-                <xsl:if test="not(contains(.,'/GT-PAGE/'))"><pathfile><xsl:copy-of select="."/></pathfile></xsl:if>
-                <xsl:if test="tokenize(.,'/')[position() != [6]] ='data'"><pathfile><xsl:copy-of select="."/></pathfile></xsl:if>
-                <xsl:if test="tokenize(.,'/')[position() != [6]] ='scripts'"><pathfile><xsl:copy-of select="."/></pathfile></xsl:if> 
-                <xsl:if test="tokenize(.,'/')[position() != [8]] ='GT-PAGE'"><pathfile><xsl:copy-of select="."/></pathfile></xsl:if>
+                <xsl:for-each select="$CconPage//pathfile">
+                <xsl:if test="not(contains(.,'/data/'))"><xsl:copy-of select="."/></xsl:if>
+                <xsl:if test="not(contains(.,'/GT-PAGE/'))"><xsl:copy-of select="."/></xsl:if>
+                <!--<xsl:if test="tokenize(.,'/')[position() != [6]] ='data'"><xsl:copy-of select="."/></xsl:if>-->
+                <xsl:if test="tokenize(.,'/')[position() != [6]] ='scripts'"><xsl:copy-of select="."/></xsl:if> 
+                <xsl:if test="tokenize(.,'/')[position() != [8]] ='GT-PAGE'"><xsl:copy-of select="."/></xsl:if>
             </xsl:for-each>
             </xsl:variable>
             
