@@ -71,7 +71,10 @@
             
             <xsl:variable name="CconPage2">
                 <xsl:for-each select="$CconPage//pathfile">
-                    <xsl:if test="not(contains(.,'/data/')) or not(contains(.,'/scripts/'))"><xsl:copy-of select="."/></xsl:if>
+                    <xsl:if test="not(contains(.,'/scripts/'))">
+                        <xsl:if test="not(contains(.,'/data/'))">
+                            <xsl:if test="not(contains(.,'/GT-PAGE/'))">
+                                <xsl:copy-of select="."/></xsl:if></xsl:if></xsl:if>
                 
                 <!--<xsl:if test="tokenize(.,'/')[position() != [6]] ='data'"><xsl:copy-of select="."/></xsl:if>
                 <xsl:if test="tokenize(.,'/')[position() != [6]] ='scripts'"><xsl:copy-of select="."/></xsl:if> 
