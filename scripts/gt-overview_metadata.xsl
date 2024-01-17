@@ -307,7 +307,6 @@
                     <xsl:if test="$k14 >0"><th>CustomRegion</th></xsl:if>
                     <xsl:if test="$k15 >0"><th>TextLine</th></xsl:if>
                     <xsl:if test="$k16 >0"><th>Page</th></xsl:if>
-                        
                 </tr>
             </thead>
         </xsl:variable>
