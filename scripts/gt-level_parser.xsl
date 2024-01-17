@@ -14,7 +14,7 @@
     exclude-result-prefixes="#all"
     version="3.0">
     <xsl:output indent="yes" omit-xml-declaration="yes" method="xml"/>
-    <xsl:import href="LevelGtStructure.xsl"/>
+    <xsl:import href="gt-level_structure.xsl.xsl"/>
     
     <xsl:param name="repoName"/>
     <xsl:param name="repoBase"/>
