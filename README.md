@@ -59,7 +59,7 @@ The format of the output files:
        - ```shell
          java -jar saxon-XX.jar -xsl:scripts/gt-level_parser.xsl \
          repoName=$GITHUB_REPOSITORY \
-         -s:scripts/parser.xsl -o:ghout/overview-level.md
+         -s:scripts/gt-level_parser.xsl -o:ghout/overview-level.md
          ```
 
 **gt-coll_metadata.xsl**
