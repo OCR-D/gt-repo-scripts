@@ -49,15 +49,15 @@ The format of the output files:
           -s:scripts/gt-overview_metadata.xsl -o:XX
           ```  
 
-**parser.xsl**
+**gt-level_parser.xsl**
    - It is a rule-based parser for determining the transcription and structure level of a page file and the corpus of page files.
      The transcription level distinguishes three and the structure two levels.
    - The parser determines the frequencies of characters and structures (regions) that are defined in the rules. Based on this analysis, a specific level is determined for the page and for the corpus.
-   - The parser.xsl include LevelGtStructure.xsl. **LevelGtStructure.xsl** specialises in determining the regions used in the Page-XML files. An independent call of this stylesheet is not provided.
+   - The parser.xsl include LevelGtStructure.xsl. **gt-level_structure.xsl** specialises in determining the regions used in the Page-XML files. An independent call of this stylesheet is not provided.
    - The output file is overview-level.md, it is the level matrix, the analysis result.
      - **:rocket: :wrench: general program call :wrench: :rocket:**
        - ```shell
-         java -jar saxon-XX.jar -xsl:scripts/parser.xsl \
+         java -jar saxon-XX.jar -xsl:scripts/gt-level_parser.xsl \
          repoName=$GITHUB_REPOSITORY \
          -s:scripts/parser.xsl -o:ghout/overview-level.md
          ```
