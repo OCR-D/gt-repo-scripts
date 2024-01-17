@@ -62,12 +62,24 @@ The format of the output files:
          -s:scripts/parser.xsl -o:ghout/overview-level.md
          ```
 
+**gt-coll_metadata.xsl**
+  - gt-coll_metadata.xsl automatically creates a readme file for a collection/corpus of Ground Truth repositories. 
+    - **:rocket: :wrench: general program call :wrench: :rocket:**
+       - ```shell
+         java -jar saxon-xx.jar -xsl:scripts/gt-coll_metadata.xsl \
+         -s:scripts/gt-coll_metadata.xsl -o:README.md
+         ```
+
+
 **data_structure.sh**
    - Analysis of the data structure, determination of the METS metadata file and afterwards creation of the Bagit files. For Bagit see: https://ocr-d.de/en/spec/ocrd_zip
      - **:rocket: :wrench: general program call :wrench: :rocket:**
        - ```shell
            sh scripts/data_structure.sh
          ``` 
+**data_mets.sh**
+   - During the Github action workflow, METS files that do not contain `OCR-D-IMG fileGrp` are deleted. 
+
 
 **readmefolder.sh**
    - Archiving the original README file to the `readme_old` folder
