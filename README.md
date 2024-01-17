@@ -77,6 +77,9 @@ The format of the output files:
        - ```shell
            sh scripts/data_structure.sh
          ``` 
+**data_mets.sh**
+   - During the Github action workflow, METS files that do not contain `OCR-D-IMG fileGrp` are deleted. 
+
 
 **readmefolder.sh**
    - Archiving the original README file to the `readme_old` folder
