@@ -10,6 +10,8 @@ The format of the output files:
 - METS (XML) 
 - Shell scripts
 
+## Overview of scripts or programs
+
 **gt-overview_unitTest.xsl**
 
 - It lists all files in the Ground Truth (GT) directory. In a second step, the xsl checks whether the specified GT directory   structure with the data and GT-PAGE directories is present. If other directories or a different directory structure are present, an error is output (pathtest.md). 
