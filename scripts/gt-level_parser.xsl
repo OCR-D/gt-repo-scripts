@@ -20,7 +20,7 @@
     <xsl:param name="repoBase"/>
     <xsl:param name="bagitDumpNum"/>
     <xsl:param name="releaseTag"/>
-    <xsl:param name="rulesetxml">megalevelrules.xml</xsl:param>
+    <xsl:param name="rulesetxml">megalevelrules2.xml</xsl:param>
     <xsl:param name="rulesetPath">..</xsl:param>
     
     
