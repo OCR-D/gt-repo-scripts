@@ -3079,7 +3079,7 @@
                 <!-- volume -->
                 <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_structure_and_text'">
                     <xsl:element name="fn:map">
-                        <xsl:attribute name="key">volume</xsl:attribute>
+                        <xsl:attribute name="key">gtvolume</xsl:attribute>
                                 <xsl:if test="$k1 > 0">
                                     <fn:string key="TxtRegion"><xsl:value-of select="$k1"/></fn:string>
                                 </xsl:if>
@@ -3149,7 +3149,7 @@
                 
                 <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_structure'">
                     <xsl:element name="fn:map">
-                        <xsl:attribute name="key">volume</xsl:attribute>
+                        <xsl:attribute name="key">gtvolume</xsl:attribute>
                         <xsl:if test="$k1 > 0">
                             <fn:string key="TxtRegion"><xsl:value-of select="$k1"/></fn:string>
                         </xsl:if>
@@ -3218,7 +3218,7 @@
             
                 <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text()='data_line'">
                 <xsl:element name="fn:map">
-                    <xsl:attribute name="key">volume</xsl:attribute>
+                    <xsl:attribute name="key">gtvolume</xsl:attribute>
                 
                     <xsl:if test="$k1 > 0">
                         <fn:string key="TxtRegion"><xsl:value-of select="$k1"/></fn:string>
