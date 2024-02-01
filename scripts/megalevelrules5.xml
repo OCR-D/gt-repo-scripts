@@ -930,7 +930,7 @@
    <ruleset>
       <range>CurrSymb</range>
       <desc>GERMAN PENNY SIGN</desc>
-      <rule>₰</rule>
+      <rule>Pf</rule>
       <rule>₰</rule>
       <rule>₰</rule>
       <type>level</type>
