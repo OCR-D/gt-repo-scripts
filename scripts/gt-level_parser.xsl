@@ -122,7 +122,7 @@
                                                             <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="(string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l1, '')))" />
                                                         </xsl:when>
                                                         <xsl:otherwise>
-<xsl:message select="$l1"></xsl:message>
+                                                            <xsl:message select="$rdesc"></xsl:message>
                                                             <xsl:choose>
                                                                 <xsl:when test="$l1 !=''">
                                                                     <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l1, ''))" />
