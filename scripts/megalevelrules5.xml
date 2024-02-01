@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <levelrules>
    <ruleset>
       <range>AlphPresForm</range>
@@ -959,23 +960,7 @@
       <rule>❧</rule>
       <type>level</type>
    </ruleset>
-   <ruleset>
-      <range>GenPunct</range>
-      <desc>EN QUAD</desc>
-      <rule> </rule>
-      <rule> </rule>
-      <rule> </rule>
-      <type>level</type>
-   </ruleset>
-   <ruleset>
-      <range>GenPunct</range>
-      <desc>EM QUAD</desc>
-      <rule> </rule>
-      <rule> </rule>
-      <rule> </rule>
-      <type>level</type>
-   </ruleset>
-   <ruleset>
+     <ruleset>
       <range>GenPunct</range>
       <desc>BULLET</desc>
       <rule>•</rule>

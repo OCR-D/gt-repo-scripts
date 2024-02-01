@@ -20,7 +20,7 @@
     <xsl:param name="repoBase"/>
     <xsl:param name="bagitDumpNum"/>
     <xsl:param name="releaseTag"/>
-    <xsl:param name="rulesetxml">megalevelrules4.xml</xsl:param>
+    <xsl:param name="rulesetxml">megalevelrules5.xml</xsl:param>
     <xsl:param name="rulesetPath">..</xsl:param>
     
     
@@ -122,6 +122,7 @@
                                                             <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="(string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l1, '')))" />
                                                         </xsl:when>
                                                         <xsl:otherwise>
+<xsl:message select="$l1"></xsl:message>
                                                             <xsl:choose>
                                                                 <xsl:when test="$l1 !=''">
                                                                     <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l1, ''))" />
