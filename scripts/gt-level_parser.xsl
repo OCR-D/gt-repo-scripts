@@ -103,14 +103,7 @@
                                         <xsl:variable name="l3" select="rule[3]"/>
                                         <xsl:variable name="pattern" select="'(.)\1'" />
                                         <xsl:variable name="pattern2" select="'(.){2}'" />
-                                        <xsl:message select="$l2"></xsl:message>
-
                                         
-
-
-
-
-
                                         
                                         <xsl:variable name="test">
                                             <xsl:for-each select="matches($l1, $pattern)">
