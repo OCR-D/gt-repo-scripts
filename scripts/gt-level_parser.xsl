@@ -20,7 +20,7 @@
     <xsl:param name="repoBase"/>
     <xsl:param name="bagitDumpNum"/>
     <xsl:param name="releaseTag"/>
-    <xsl:param name="rulesetxml">megalevelrules5.xml</xsl:param>
+    <xsl:param name="rulesetxml">megalevelrules_new.xml</xsl:param>
     <xsl:param name="rulesetPath">..</xsl:param>
     
     
@@ -62,7 +62,6 @@
     <xsl:variable name="vurl" select="$docMETADATA//*[not(ancestor::fn:array[@key='license'])]/fn:string[@key='url']"/>
     
     
-
     <xsl:template match="/">
         <!-- page level -->
         <xsl:variable name="tablepage">
@@ -103,36 +102,100 @@
                                         <xsl:variable name="l2" select="rule[2]"/>
                                         <xsl:variable name="l3" select="rule[3]"/>
                                         <xsl:variable name="pattern" select="'(.)\1'" />
+                                        <xsl:variable name="pattern2" select="'(.){2}'" />
+                                        <xsl:message select="$l2"></xsl:message>
+
                                         
-                                        
+
+
+
+
+
                                         
                                         <xsl:variable name="test">
                                             <xsl:for-each select="matches($l1, $pattern)">
                                                 <xsl:value-of select="." />
                                             </xsl:for-each>
                                         </xsl:variable>
+
+                                        <xsl:variable name="test2">
+                                            <xsl:for-each select="matches($l2, $pattern2)">
+                                                <xsl:value-of select="." />
+                                            </xsl:for-each>
+                                        </xsl:variable>
+
                                         <xsl:choose>
                                             <xsl:when test="$l1 = $l2 and $l2 = $l3 "/>
                                             <xsl:otherwise>
                                                 <xsl:variable name="trLevel">
                                                 <tr>
                                                     <xsl:attribute name="title"><xsl:value-of select="$rdesc"/></xsl:attribute>
-                                                    <td class="l1"><xsl:choose>
+                                                
+                                                <!-- Level 1 -->    
+                                                <td class="l1">
+                                                    <xsl:choose>
                                                         <xsl:when test="$test ='true'">
-                                                            <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="(string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l1, '')))" />
-                                                        </xsl:when>
-                                                        <xsl:otherwise>
-                                                            <xsl:message select="$rdesc"></xsl:message>
+                                                           
+                                                    <xsl:choose>
+                                                        <xsl:when test="$l1 = '++'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\+\+', ''))) div 2)"/></xsl:when>
+                                                        <xsl:when test="$l1 = '***'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute>
                                                             <xsl:choose>
-                                                                <xsl:when test="$l1 !=''">
-                                                                    <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l1, ''))" />
-                                                                </xsl:when><xsl:otherwise><xsl:attribute name="char">[N. N.]</xsl:attribute>0</xsl:otherwise>
-                                                            </xsl:choose>
+                                                                <xsl:when test="round((string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\*\*\*', ''))) div 2)-1 = -1">
+                                                                    <xsl:value-of select="round((string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\*\*\*', ''))) div 2)"/>
+                                                            </xsl:when>
+                                                                <xsl:otherwise><xsl:value-of select="round((string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\*\*\*', ''))) div 2)-1"/></xsl:otherwise>
+                                                            </xsl:choose></xsl:when>
+                                                        <xsl:when test="$l1 = '||'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\|\|', ''))) div 2)"/></xsl:when>
+                                                        <xsl:when test="$l1 = ' // '"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '//', ''))) div 2)"/></xsl:when>
+                                                    <xsl:otherwise>
+                                                    <xsl:choose>
+                                                        <xsl:when test="$l1[contains(.,'))')]">
+                                                            <xsl:variable name="clean"><xsl:value-of select="replace($l1, '\)\)', '\\)\\)')"/></xsl:variable>
+                                                            <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $clean, ''))"/></xsl:when>
+                                                        <xsl:otherwise>
+                                                            <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l1, ''))"/>
                                                         </xsl:otherwise>
                                                     </xsl:choose>
+                                                    </xsl:otherwise>
+                                                    </xsl:choose>
+                                                    </xsl:when>
+                                                        <xsl:otherwise>
+                                                             <xsl:choose>
+                                                                <xsl:when test="$l1 !=''">
+                                                                   <xsl:choose>
+                                                                    <xsl:when test="$l1 = '+'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round(string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\+', '')))"/></xsl:when>
+                                                                    <xsl:when test="$l1 = '*'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round(string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\*', '')))"/></xsl:when>                                                                    
+                                                                    <xsl:when test="$l1 = '|'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round(string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\|', '')))"/></xsl:when>                                                                    
+                                                                    <xsl:otherwise>
+                                                                       <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="string-length(replace[$TextRegionUnicode, $l1, ''])"/>
+                                                                    </xsl:otherwise>
+                                                                   </xsl:choose>
+                                                                </xsl:when>
+                                                                    <xsl:otherwise><xsl:attribute name="char">[N. N.]</xsl:attribute>0</xsl:otherwise>
+                                                            </xsl:choose>
+                                                        </xsl:otherwise>
+                                                    </xsl:choose></td>
+
+                                                    <!-- Level 2 -->
+
+
+                                                    <td class="l2">
+                                                        <xsl:choose>
+                                                            <xsl:when test="$test2 ='true'">
+                                                                <xsl:attribute name="char"><xsl:value-of select="$l2"/></xsl:attribute><xsl:value-of select="round((string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l2, ''))) div 2)" />
+                                                            </xsl:when>
+                                                            <xsl:otherwise>
+                                                                <xsl:choose>
+                                                                    <xsl:when test="$l2 !=''">
+                                                                        <xsl:attribute name="char"><xsl:value-of select="$l2"/></xsl:attribute><xsl:value-of select="string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l2, ''))" />
+                                                                    </xsl:when><xsl:otherwise><xsl:attribute name="char">[N. N.]</xsl:attribute>0</xsl:otherwise></xsl:choose>
+                                                            </xsl:otherwise>
+                                                        </xsl:choose>
                                                     </td>
-                                                    <td class="l2"><xsl:attribute name="char"><xsl:value-of select="$l2"/></xsl:attribute><xsl:value-of select="string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l2, ''))" /></td>
-                                                    <td class="l3"><xsl:attribute name="char"><xsl:value-of select="$l3"/></xsl:attribute><xsl:value-of select="string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l3, ''))" /></td>
+
+<!-- Level 3 -->
+
+                                                   <td class="l3"><xsl:attribute name="char"><xsl:value-of select="$l3"/></xsl:attribute><xsl:value-of select="string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l3, ''))" /></td>
                                                 </tr>
                                                 </xsl:variable>
                                                <xsl:choose>
