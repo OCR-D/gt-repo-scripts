@@ -101,8 +101,10 @@
                                         <xsl:variable name="l1" select="rule[1]"/>
                                         <xsl:variable name="l2" select="rule[2]"/>
                                         <xsl:variable name="l3" select="rule[3]"/>
+                                        <xsl:variable name="cleanlengh" select="string-length($l1)"/>
+
                                         <xsl:variable name="pattern" select="'(.)\1'" />
-                                        <xsl:variable name="pattern2" select="'(.){2}'" />
+                                        <xsl:variable name="pattern2" select="'(.){2,}'" />
                                         
                                         
                                         <xsl:variable name="test">
@@ -117,6 +119,12 @@
                                             </xsl:for-each>
                                         </xsl:variable>
 
+                                        <xsl:variable name="test3">
+                                            <xsl:for-each select="matches($l1, $pattern2)">
+                                                <xsl:value-of select="." />
+                                            </xsl:for-each>
+                                        </xsl:variable>
+
                                         <xsl:choose>
                                             <xsl:when test="$l1 = $l2 and $l2 = $l3 "/>
                                             <xsl:otherwise>
@@ -126,8 +134,9 @@
                                                 
                                                 <!-- Level 1 -->    
                                                 <td class="l1">
+
                                                     <xsl:choose>
-                                                        <xsl:when test="$test ='true'">
+                                                        <xsl:when test="$test3 ='true'">
                                                            
                                                     <xsl:choose>
                                                         <xsl:when test="$l1 = '++'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\+\+', ''))) div 2)"/></xsl:when>
@@ -140,13 +149,29 @@
                                                             </xsl:choose></xsl:when>
                                                         <xsl:when test="$l1 = '||'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\|\|', ''))) div 2)"/></xsl:when>
                                                         <xsl:when test="$l1 = ' // '"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '//', ''))) div 2)"/></xsl:when>
+                                                        
                                                     <xsl:otherwise>
                                                     <xsl:choose>
                                                         <xsl:when test="$l1[contains(.,'))')]">
                                                             <xsl:variable name="clean"><xsl:value-of select="replace($l1, '\)\)', '\\)\\)')"/></xsl:variable>
-                                                            <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $clean, ''))"/></xsl:when>
+                                                            
+                                                            <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $clean, ''))) div $cleanlengh)"/></xsl:when>
                                                         <xsl:otherwise>
-                                                            <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l1, ''))"/>
+                                                            <xsl:choose>
+                                                                <xsl:when test="$l1 = '-['"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '-\[', ''))) div $cleanlengh)"/></xsl:when>
+                                                                <xsl:when test="$l1 =']-'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\]-', ''))) div $cleanlengh)"/></xsl:when>
+                                                                <xsl:when test="$l1 ='D)'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, 'D\)', ''))) div $cleanlengh)"/></xsl:when>
+                                                                <xsl:when test="$l1 ='+/-'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\+/\-', ''))) div $cleanlengh)"/></xsl:when>
+                                                                
+                                                                
+                                                            <xsl:otherwise>
+                                                                <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l1, ''))) div $cleanlengh)"/>
+                                                            </xsl:otherwise>
+                                                            </xsl:choose>
+                                                            
+
+
+                                                            
                                                         </xsl:otherwise>
                                                     </xsl:choose>
                                                     </xsl:otherwise>
@@ -158,7 +183,8 @@
                                                                    <xsl:choose>
                                                                     <xsl:when test="$l1 = '+'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round(string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\+', '')))"/></xsl:when>
                                                                     <xsl:when test="$l1 = '*'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round(string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\*', '')))"/></xsl:when>                                                                    
-                                                                    <xsl:when test="$l1 = '|'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round(string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\|', '')))"/></xsl:when>                                                                    
+                                                                    <xsl:when test="$l1 = '|'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round(string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\|', '')))"/></xsl:when>
+                                                                    <xsl:when test="$l1 = '-'"><xsl:attribute name="chari"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round(string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, '\-', '')))"/></xsl:when>                                                                    
                                                                     <xsl:otherwise>
                                                                        <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="string-length(replace[$TextRegionUnicode, $l1, ''])"/>
                                                                     </xsl:otherwise>
@@ -186,7 +212,7 @@
                                                         </xsl:choose>
                                                     </td>
 
-<!-- Level 3 -->
+                                                    <!-- Level 3 -->
 
                                                    <td class="l3"><xsl:attribute name="char"><xsl:value-of select="$l3"/></xsl:attribute><xsl:value-of select="string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l3, ''))" /></td>
                                                 </tr>
