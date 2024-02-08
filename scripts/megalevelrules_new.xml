@@ -152,14 +152,14 @@
       <rule>←</rule>
       <type>level</type>
    </ruleset>
-   <!--<ruleset>
+   <ruleset>
       <range>Arrows</range>
       <desc>UPWARDS ARROW</desc>
       <rule>|</rule>
       <rule>↑</rule>
       <rule>↑</rule>
       <type>level</type>
-   </ruleset>-->
+   </ruleset>
    <ruleset>
       <range>Arrows</range>
       <desc>RIGHTWARDS ARROW</desc>
@@ -168,14 +168,14 @@
       <rule>→</rule>
       <type>level</type>
    </ruleset>
-   <!--<ruleset>
+   <ruleset>
       <range>Arrows</range>
       <desc>DOWNWARDS ARROW</desc>
       <rule>|</rule>
       <rule>↓</rule>
       <rule>↓</rule>
       <type>level</type>
-   </ruleset>-->
+   </ruleset>
    <ruleset>
       <range>BasLat</range>
       <desc>LATIN CAPITAL LETTER A</desc>
@@ -808,14 +808,14 @@
       <rule>{</rule>
       <type>level</type>
    </ruleset>
-  <!--<ruleset>
+  <ruleset>
       <range>BasLat</range>
       <desc>VERTICAL LINE</desc>
       <rule>|</rule>
       <rule>|</rule>
       <rule>|</rule>
       <type>level</type>
-   </ruleset>-->
+   </ruleset>
     <ruleset>
       <range>BasLat</range>
       <desc>RIGHT CURLY BRACKET</desc>
@@ -1024,14 +1024,14 @@
       <rule>―</rule>
       <type>level</type>
    </ruleset>
-   <!--<ruleset>
+   <ruleset>
       <range>GenPunct</range>
       <desc>DOUBLE VERTICAL LINE</desc>
       <rule>||</rule>
       <rule>‖</rule>
       <rule>‖</rule>
       <type>level</type>
-   </ruleset>-->
+   </ruleset>
    <ruleset>
       <range>GenPunct</range>
       <desc>LEFT SINGLE QUOTATION MARK</desc>
