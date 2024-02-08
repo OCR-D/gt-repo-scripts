@@ -522,7 +522,8 @@
             <tr><td class="url" colspan="2"><a href="{$vurl}"><xsl:value-of select="$vurl"/></a></td></tr>
             <tr><td class="description" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='description']"/></td></tr>
             <tr><td class="time" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='notBefore']"/> - <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='notAfter']"/></td></tr>
-            <tr><td class="guidelines" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='transcription-guidelines']"/></td></tr>
+            <xsl:if test="$docMETADATA//fn:map/fn:string[@key='transcription-guidelines'] !=''"><tr><td class="guidelines" colspan="2"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='transcription-guidelines']"/></td></tr></xsl:if>
+            
             <xsl:variable name="vtanalyse">
                 <tr><td class="char">
                     <ul>
