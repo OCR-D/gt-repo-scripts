@@ -313,156 +313,245 @@
                         <xsl:otherwise>
                             <!-- only for Textline analyse-->
                             <xsl:choose>
-                                <xsl:when test="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextLine/pc:TextEquiv/pc:Unicode/text() or document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextLine/pt:TextEquiv/pt:Unicode/text()">
-                                        <xsl:variable name="numFile">
-                                            <pc:tst>
-                                                <xsl:for-each select="document($filename)//pc:PcGts">
+                                
+                                <xsl:when test="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextLine/pc:TextEquiv[1]/pc:Unicode/text() !='' or document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextLine[1]/pt:TextEquiv/pt:Unicode/text() !=''">
+                                    <xsl:variable name="numFile">
+                                        <pc:tst>
+                                            <xsl:for-each select="document($filename)//pc:PcGts">
+                                                
+                                                <pc:File><xsl:number count="."/>--<xsl:value-of select="normalize-space(.)"/></pc:File>
+                                            </xsl:for-each>
+                                            <xsl:for-each select="document($filename)//pt:PcGts">
+                                                <pc:File><xsl:value-of select="normalize-space(.)"/></pc:File>
+                                            </xsl:for-each>
+                                        </pc:tst>
+                                    </xsl:variable>
+                                    <xsl:variable name="TextLineUnicode">
+                                        <pc:Unicode>
+                                            <xsl:for-each select="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextLine/pc:TextEquiv[1]/pc:Unicode">
+                                                <xsl:value-of select="normalize-space(.)"/>
+                                            </xsl:for-each>
+                                            <xsl:for-each select="document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextLine/pt:TextEquiv[1]/pt:Unicode">
+                                                <xsl:value-of select="normalize-space(.)"/>
+                                            </xsl:for-each>
+                                        </pc:Unicode>
+                                    </xsl:variable>
+                                    
+                                    
+                                    <xsl:variable name="leveltable">
+                                        <details>
+                                            <xsl:variable name="levels">
+                                                <xsl:for-each select="$ruleset//ruleset">
+                                                    <xsl:variable name="rdesc" select="desc"/>
+                                                    <xsl:variable name="l1" select="rule[1]"/>
+                                                    <xsl:variable name="l2" select="rule[2]"/>
+                                                    <xsl:variable name="l3" select="rule[3]"/>
+                                                    <xsl:variable name="cleanlengh" select="string-length($l1)"/>
                                                     
-                                                    <pc:File><xsl:number count="."/>--<xsl:value-of select="normalize-space(.)"/></pc:File>
-                                                </xsl:for-each>
-                                                <xsl:for-each select="document($filename)//pt:PcGts">
-                                                    <pc:File><xsl:value-of select="normalize-space(.)"/></pc:File>
-                                                </xsl:for-each>
-                                            </pc:tst>
-                                        </xsl:variable>
-                                        <xsl:variable name="TextRegionUnicode">
-                                            <pc:Unicode>
-                                                <xsl:for-each select="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextLine/pc:TextEquiv/pc:Unicode">
-                                                    <xsl:value-of select="normalize-space(.)"/>
-                                                </xsl:for-each>
-                                                <xsl:for-each select="document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextLine/pt:TextEquiv/pt:Unicode">
-                                                    <xsl:value-of select="normalize-space(.)"/>
-                                                </xsl:for-each>
-                                            </pc:Unicode>
-                                        </xsl:variable>
-                                        
-                                        
-                                        <xsl:variable name="leveltable">
-                                            <details>
-                                                <xsl:variable name="levels">
-                                                    <xsl:for-each select="$ruleset//ruleset">
-                                                        <xsl:variable name="rdesc" select="desc"/>
-                                                        <xsl:variable name="l1" select="rule[1]"/>
-                                                        <xsl:variable name="l2" select="rule[2]"/>
-                                                        <xsl:variable name="l3" select="rule[3]"/>
-                                                        <xsl:variable name="pattern" select="'(.)\1'" />
-                                                        
-                                                        
-                                                        
-                                                        <xsl:variable name="test">
-                                                            <xsl:for-each select="matches($l1, $pattern)">
-                                                                <xsl:value-of select="." />
-                                                            </xsl:for-each>
-                                                        </xsl:variable>
-                                                        <xsl:choose>
-                                                            <xsl:when test="$l1 = $l2 and $l2 = $l3 "/>
-                                                            <xsl:otherwise>
-                                                                <xsl:variable name="trLevel">
-                                                                    <tr>
-                                                                        <xsl:attribute name="title"><xsl:value-of select="$rdesc"/></xsl:attribute>
-                                                                        <td class="l1"><xsl:choose>
-                                                                            <xsl:when test="$test ='true'">
-                                                                                <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="(string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l1, '')))" />
+                                                    <xsl:variable name="pattern" select="'(.)\1'" />
+                                                    <xsl:variable name="pattern2" select="'(.){2,}'" />
+                                                    
+                                                    
+                                                    <xsl:variable name="test">
+                                                        <xsl:for-each select="matches($l1, $pattern)">
+                                                            <xsl:value-of select="." />
+                                                        </xsl:for-each>
+                                                    </xsl:variable>
+                                                    
+                                                    <xsl:variable name="test2">
+                                                        <xsl:for-each select="matches($l2, $pattern2)">
+                                                            <xsl:value-of select="." />
+                                                        </xsl:for-each>
+                                                    </xsl:variable>
+                                                    
+                                                    <xsl:variable name="test3">
+                                                        <xsl:for-each select="matches($l1, $pattern2)">
+                                                            <xsl:value-of select="." />
+                                                        </xsl:for-each>
+                                                    </xsl:variable>
+                                                    
+                                                    <xsl:choose>
+                                                        <xsl:when test="$l1 = $l2 and $l2 = $l3 "/>
+                                                        <xsl:otherwise>
+                                                            <xsl:variable name="trLevel">
+                                                                <tr>
+                                                                    <xsl:attribute name="title"><xsl:value-of select="$rdesc"/></xsl:attribute>
+                                                                    
+                                                                    <!-- Level 1 -->    
+                                                                    <td class="l1">
+                                                                        
+                                                                        <xsl:choose>
+                                                                            <xsl:when test="$test3 ='true'">
+                                                                                
+                                                                                <xsl:choose>
+                                                                                    <xsl:when test="$l1 = '++'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, '\+\+', ''))) div 2)"/></xsl:when>
+                                                                                    <xsl:when test="$l1 = '***'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute>
+                                                                                        <xsl:choose>
+                                                                                            <xsl:when test="round((string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, '\*\*\*', ''))) div 2)-1 = -1">
+                                                                                                <xsl:value-of select="round((string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, '\*\*\*', ''))) div 2)"/>
+                                                                                            </xsl:when>
+                                                                                            <xsl:otherwise><xsl:value-of select="round((string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, '\*\*\*', ''))) div 2)-1"/></xsl:otherwise>
+                                                                                        </xsl:choose></xsl:when>
+                                                                                    <xsl:when test="$l1 = '||'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, '\|\|', ''))) div 2)"/></xsl:when>
+                                                                                    <xsl:when test="$l1 = ' // '"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, '//', ''))) div 2)"/></xsl:when>
+                                                                                    
+                                                                                    <xsl:otherwise>
+                                                                                        <xsl:choose>
+                                                                                            <xsl:when test="$l1[contains(.,'))')]">
+                                                                                                <xsl:variable name="clean"><xsl:value-of select="replace($l1, '\)\)', '\\)\\)')"/></xsl:variable>
+                                                                                                
+                                                                                                <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextLineUnicode) - string-length(replace($TextRegionUnicode, $clean, ''))) div $cleanlengh)"/></xsl:when>
+                                                                                            <xsl:otherwise>
+                                                                                                <xsl:choose>
+                                                                                                    <xsl:when test="$l1 = '-['"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, '-\[', ''))) div $cleanlengh)"/></xsl:when>
+                                                                                                    <xsl:when test="$l1 =']-'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, '\]-', ''))) div $cleanlengh)"/></xsl:when>
+                                                                                                    <xsl:when test="$l1 ='D)'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, 'D\)', ''))) div $cleanlengh)"/></xsl:when>
+                                                                                                    <xsl:when test="$l1 ='+/-'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, '\+/\-', ''))) div $cleanlengh)"/></xsl:when>
+                                                                                                    
+                                                                                                    
+                                                                                                    <xsl:otherwise>
+                                                                                                        <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, $l1, ''))) div $cleanlengh)"/>
+                                                                                                    </xsl:otherwise>
+                                                                                                </xsl:choose>
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                            </xsl:otherwise>
+                                                                                        </xsl:choose>
+                                                                                    </xsl:otherwise>
+                                                                                </xsl:choose>
                                                                             </xsl:when>
                                                                             <xsl:otherwise>
                                                                                 <xsl:choose>
                                                                                     <xsl:when test="$l1 !=''">
-                                                                                        <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l1, ''))" />
-                                                                                    </xsl:when><xsl:otherwise><xsl:attribute name="char">[N. N.]</xsl:attribute>0</xsl:otherwise>
+                                                                                        <xsl:choose>
+                                                                                            <xsl:when test="$l1 = '+'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round(string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, '\+', '')))"/></xsl:when>
+                                                                                            <xsl:when test="$l1 = '*'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round(string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, '\*', '')))"/></xsl:when>
+                                                                                            <xsl:when test="$l1 = '|'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round(string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, '\|', '')))"/></xsl:when>
+                                                                                            <xsl:when test="$l1 = '-'"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round(string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, '\-', '')))"/></xsl:when>
+                                                                                            <xsl:otherwise>
+                                                                                                <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="string-length(replace[$TextLineUnicode, $l1, ''])"/>
+                                                                                            </xsl:otherwise>
+                                                                                        </xsl:choose>
+                                                                                    </xsl:when>
+                                                                                    <xsl:otherwise><xsl:attribute name="char">[N. N.]</xsl:attribute>0</xsl:otherwise>
                                                                                 </xsl:choose>
                                                                             </xsl:otherwise>
+                                                                        </xsl:choose></td>
+                                                                    
+                                                                    <!-- Level 2 -->
+                                                                    
+                                                                    
+                                                                    <td class="l2">
+                                                                        <xsl:choose>
+                                                                            <xsl:when test="$test2 ='true'">
+                                                                                <xsl:attribute name="char"><xsl:value-of select="$l2"/></xsl:attribute><xsl:value-of select="round((string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, $l2, ''))) div 2)" />
+                                                                            </xsl:when>
+                                                                            <xsl:otherwise>
+                                                                                <xsl:choose>
+                                                                                    <xsl:when test="$l2 !=''">
+                                                                                        <xsl:attribute name="char"><xsl:value-of select="$l2"/></xsl:attribute><xsl:value-of select="string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, $l2, ''))" />
+                                                                                    </xsl:when><xsl:otherwise><xsl:attribute name="char">[N. N.]</xsl:attribute>0</xsl:otherwise></xsl:choose>
+                                                                            </xsl:otherwise>
                                                                         </xsl:choose>
-                                                                        </td>
-                                                                        <td class="l2"><xsl:attribute name="char"><xsl:value-of select="$l2"/></xsl:attribute><xsl:value-of select="string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l2, ''))" /></td>
-                                                                        <td class="l3"><xsl:attribute name="char"><xsl:value-of select="$l3"/></xsl:attribute><xsl:value-of select="string-length($TextRegionUnicode) - string-length(replace($TextRegionUnicode, $l3, ''))" /></td>
-                                                                    </tr>
-                                                                </xsl:variable>
-                                                                <xsl:choose>
-                                                                    <xsl:when test="$trLevel//td[@class='l1'] = $trLevel//td[@class='l2'] and $trLevel//td[@class='l2'] = $trLevel//td[@class='l3']"/>
-                                                                    <xsl:otherwise><xsl:copy-of select="$trLevel"/></xsl:otherwise>
-                                                                </xsl:choose>
-                                                            </xsl:otherwise>
-                                                        </xsl:choose>
-                                                        
-                                                        
-                                                        
-                                                    </xsl:for-each>
-                                                </xsl:variable>
-                                                
-                                                
-                                                <xsl:variable name="sumlevel1" select="sum($levels//tr/td[@class='l1'])"/>
-                                                <xsl:variable name="sumlevel2" select="sum($levels//tr/td[@class='l2'])"/>
-                                                <xsl:variable name="sumlevel3" select="sum($levels//tr/td[@class='l3'])"/>
-                                                <xsl:variable name="sumlevel1_2" select="sum($sumlevel1, $sumlevel2)"/>
-                                                <xsl:variable name="sumlevel2_3" select="sum($sumlevel2, $sumlevel3)"/>
-                                                
-                                                
-                                                <summary>Level Matrix Page: <xsl:value-of select="substring-after($filename, '/GT-PAGE/')"/></summary>
-                                                <table class="pagelevel">
-                                                    <tr><td class="dname" colspan="2"><xsl:value-of select="substring-after($filename, '/GT-PAGE/')"/></td></tr>
-                                                    <tr><td class="char">
+                                                                    </td>
+                                                                    
+                                                                    <!-- Level 3 -->
+                                                                    
+                                                                    <td class="l3"><xsl:attribute name="char"><xsl:value-of select="$l3"/></xsl:attribute><xsl:value-of select="string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, $l3, ''))" /></td>
+                                                                </tr>
+                                                            </xsl:variable>
+                                                            <xsl:choose>
+                                                                <xsl:when test="$trLevel//td[@class='l1'] = $trLevel//td[@class='l2'] and $trLevel//td[@class='l2'] = $trLevel//td[@class='l3']"/>
+                                                                <xsl:otherwise><xsl:copy-of select="$trLevel"/></xsl:otherwise>
+                                                            </xsl:choose>
+                                                        </xsl:otherwise>
+                                                    </xsl:choose>
+                                                    
+                                                    
+                                                    
+                                                </xsl:for-each>
+                                            </xsl:variable>
+                                            
+                                            
+                                            <xsl:variable name="sumlevel1" select="sum($levels//tr/td[@class='l1'])"/>
+                                            <xsl:variable name="sumlevel2" select="sum($levels//tr/td[@class='l2'])"/>
+                                            <xsl:variable name="sumlevel3" select="sum($levels//tr/td[@class='l3'])"/>
+                                            <xsl:variable name="sumlevel1_2" select="sum($sumlevel1, $sumlevel2)"/>
+                                            <xsl:variable name="sumlevel2_3" select="sum($sumlevel2, $sumlevel3)"/>
+                                            
+                                            
+                                            <summary>Level Matrix Page: <xsl:value-of select="substring-after($filename, '/GT-PAGE/')"/></summary>
+                                            <table class="pagelevel">
+                                                <tr><td class="dname" colspan="2"><xsl:value-of select="substring-after($filename, '/GT-PAGE/')"/></td></tr>
+                                                <tr><td class="char">
                                                     <ul class="suml">
-                                                        <li class="sumchar"><xsl:value-of select="string-length(translate($TextRegionUnicode, ' ', ''))"/></li>
+                                                        <li class="sumchar"><xsl:value-of select="string-length(translate($TextLineUnicode, ' ', ''))"/></li>
                                                         <li class="sl1"><xsl:value-of select="$sumlevel1"/></li>
                                                         <li class="sl2"><xsl:value-of select="$sumlevel2"/></li>
                                                         <li class="sl3"><xsl:value-of select="$sumlevel3"/></li>
                                                     </ul>
-                                                    </td>    
-                                                        <td class="leveldesc" colspan="3">
+                                                </td>
+                                                    <td class="leveldesc" colspan="3">
                                                         <xsl:choose>
                                                             <xsl:when test="$sumlevel1 &gt;= $sumlevel2 and $sumlevel1 &gt;= $sumlevel3 and $sumlevel1 &gt;= ($sumlevel2 + $sumlevel3)">
                                                                 
-                                                                    <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
-                                                                    <p class="bilanguage" data-de="Transkription entspricht dem Level 1" data-en="Transcription corresponds to level 1"/><span class="level">1</span>
-                                                                    <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
-                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_1_4.html"><span class="bilanguage" data-de="Wie wird im Level 1 transkribiert." data-en="How to transcribe in Level 1."/></a></li></ul>
+                                                                <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
+                                                                <p class="bilanguage" data-de="Transkription entspricht dem Level 1" data-en="Transcription corresponds to level 1"/><span class="level">1</span>
+                                                                <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
+                                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_1_4.html"><span class="bilanguage" data-de="Wie wird im Level 1 transkribiert." data-en="How to transcribe in Level 1."/></a></li></ul>
                                                             </xsl:when>
                                                             <xsl:when test="$sumlevel2 &gt;= $sumlevel1 and $sumlevel2 &gt; $sumlevel3">
                                                                 
-                                                                    <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
-                                                                    <p class="bilanguage" data-de="Transkription entspricht dem Level 2" data-en="Transcription corresponds to level 2"/><span class="level">2</span>
-                                                                    <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
-                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage" data-de="Wie wird im Level 2 transkribiert." data-en="How to transcribe in Level 2."/></a></li></ul>
+                                                                <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
+                                                                <p class="bilanguage" data-de="Transkription entspricht dem Level 2" data-en="Transcription corresponds to level 2"/><span class="level">2</span>
+                                                                <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
+                                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage" data-de="Wie wird im Level 2 transkribiert." data-en="How to transcribe in Level 2."/></a></li></ul>
                                                             </xsl:when>
                                                             <xsl:when test="$sumlevel2 = $sumlevel1 and $sumlevel2 = $sumlevel3">
                                                                 
-                                                                    <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
-                                                                    <p class="bilanguage" data-de="Transkription entspricht dem Level 1, 2, 3" data-en="Transcription corresponds to levels 1, 2, 3"/><span class="level">6</span>
-                                                                    <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li></ul>
+                                                                <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
+                                                                <p class="bilanguage" data-de="Transkription entspricht dem Level 1, 2, 3" data-en="Transcription corresponds to levels 1, 2, 3"/><span class="level">6</span>
+                                                                <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li></ul>
                                                             </xsl:when>
                                                             <xsl:when test="$sumlevel2 &gt;= $sumlevel1 and $sumlevel2 &gt;= $sumlevel3">
                                                                 
-                                                                    <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
-                                                                    <p class="bilanguage" data-de="Transkription entspricht dem Level 2 und Level 3" data-en="Transcription corresponds to level 2 and level 3"/><span class="level">5</span>
-                                                                    <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
-                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage" data-de="Wie wird im Level 2 transkribiert." data-en="How to transcribe in Level 2."/></a></li>
-                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_3_4.html"><span class="bilanguage" data-de="Wie wird im Level 3 transkribiert." data-en="How to transcribe in Level 3."/></a></li></ul>
+                                                                <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
+                                                                <p class="bilanguage" data-de="Transkription entspricht dem Level 2 und Level 3" data-en="Transcription corresponds to level 2 and level 3"/><span class="level">5</span>
+                                                                <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
+                                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage" data-de="Wie wird im Level 2 transkribiert." data-en="How to transcribe in Level 2."/></a></li>
+                                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_3_4.html"><span class="bilanguage" data-de="Wie wird im Level 3 transkribiert." data-en="How to transcribe in Level 3."/></a></li></ul>
                                                             </xsl:when>
                                                             <xsl:when test="$sumlevel1_2  &gt; $sumlevel2_3">
                                                                 
-                                                                    <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
-                                                                    <p class="bilanguage" data-de="Transkription entspricht dem Level 1 und Level 2" data-en="Transcription corresponds to level 1 and level 2"/><span class="level">4</span>
-                                                                    <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
-                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_1_4.html"><span class="bilanguage" data-de="Wie wird im Level 1 transkribiert." data-en="How to transcribe in Level 1."/></a></li>
-                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage" data-de="Wie wird im Level 2 transkribiert." data-en="How to transcribe in Level 2."/></a></li></ul>
+                                                                <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
+                                                                <p class="bilanguage" data-de="Transkription entspricht dem Level 1 und Level 2" data-en="Transcription corresponds to level 1 and level 2"/><span class="level">4</span>
+                                                                <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
+                                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_1_4.html"><span class="bilanguage" data-de="Wie wird im Level 1 transkribiert." data-en="How to transcribe in Level 1."/></a></li>
+                                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_2_4.html"><span class="bilanguage" data-de="Wie wird im Level 2 transkribiert." data-en="How to transcribe in Level 2."/></a></li></ul>
                                                             </xsl:when>
                                                             <xsl:otherwise>
                                                                 
-                                                                    <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
-                                                                    <p class="bilanguage" data-de="Transkription entspricht dem Level 3" data-en="Transcription corresponds to level 3"/><span class="level">3</span>
-                                                                    <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
-                                                                        <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_3_4.html"><span class="bilanguage" data-de="Wie wird im Level 3 transkribiert." data-en="How to transcribe in Level 3."/></a></li></ul>
+                                                                <button type="button" class="bilanguage" onclick="changeLanguage()" data-en="Deutsch" data-de="English"><xsl:text> </xsl:text></button>
+                                                                <p class="bilanguage" data-de="Transkription entspricht dem Level 3" data-en="Transcription corresponds to level 3"/><span class="level">3</span>
+                                                                <ul><li><a href="https://ocr-d.de/en/gt-guidelines/trans/trGrundsaetze.html"><span class="bilanguage" data-de="Allgemeines zu den Transkriptionslevel" data-en="General explanation of the ground truth levels"/></a></li>
+                                                                    <li><a href="https://ocr-d.de/en/gt-guidelines/trans/tr_level_3_4.html"><span class="bilanguage" data-de="Wie wird im Level 3 transkribiert." data-en="How to transcribe in Level 3."/></a></li></ul>
                                                             </xsl:otherwise>
                                                         </xsl:choose>
-                                                        </td>
-                                                    </tr>
-                                                    
-                                                    <xsl:copy-of select="$levels"/>
-                                                </table>
-                                            </details>
-                                        </xsl:variable>
-                                        <xsl:copy-of select="$leveltable"/>
-                                    </xsl:when>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <xsl:copy-of select="$levels"/>
+                                            </table>
+                                        </details>
+                                    </xsl:variable>
+                                    
+                                    
+                                    
+                                    <xsl:copy-of select="$leveltable"/>
+                                </xsl:when>
+                                
                                     
                                     
                                 <xsl:otherwise/>
