@@ -400,7 +400,7 @@
                                                                                             <xsl:when test="$l1[contains(.,'))')]">
                                                                                                 <xsl:variable name="clean"><xsl:value-of select="replace($l1, '\)\)', '\\)\\)')"/></xsl:variable>
                                                                                                 
-                                                                                                <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextLineUnicode) - string-length(replace($TextRegionUnicode, $clean, ''))) div $cleanlengh)"/></xsl:when>
+                                                                                                <xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, $clean, ''))) div $cleanlengh)"/></xsl:when>
                                                                                             <xsl:otherwise>
                                                                                                 <xsl:choose>
                                                                                                     <xsl:when test="$l1 = '-['"><xsl:attribute name="char"><xsl:value-of select="$l1"/></xsl:attribute><xsl:value-of select="round((string-length($TextLineUnicode) - string-length(replace($TextLineUnicode, '-\[', ''))) div $cleanlengh)"/></xsl:when>
