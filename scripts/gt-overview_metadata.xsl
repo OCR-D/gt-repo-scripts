@@ -27,6 +27,8 @@
     <xsl:variable name="docMETADATA">
         <xsl:copy-of select="json-to-xml(unparsed-text('../METADATA.json'))"/>
     </xsl:variable>
+    
+    
    
     <xsl:variable name="labelling">
         <xsl:copy-of select="document('../gt-guidelines/de/labeling/OCR-D_GT_labeling_schema_xsd_Element_gt_gt.dita')"/>
@@ -44,12 +46,7 @@
         <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_line'">../data</xsl:if>
      </xsl:variable>
     
-    <!--<xsl:variable name="gtTyp">
-        <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_document'">data_document/</xsl:if>
-        <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure'">data_structure/</xsl:if>
-        <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_structure_and_text'">data_structure_and_text/</xsl:if>
-        <xsl:if test="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]/text() = 'data_line'">data_line/</xsl:if>
-    </xsl:variable>-->
+    
     
     <xsl:variable name="gtFormat" select="$docMETADATA//fn:map/fn:string[@key='format']"/>
     
@@ -134,6 +131,7 @@
     
     
     <xsl:template match="/">
+        <xsl:message select="$docMETADATA"></xsl:message>
         <xsl:variable name="holeMetric">
                 <xsl:element name="array">
                   <xsl:for-each select="collection($coll)">
