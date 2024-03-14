@@ -1,0 +1,47 @@
+schema: https://tboenig.github.io/gt-metadata/schema/2023-10-25/schema.json
+title: gt_structure_text
+url: https://github.com/OCR-D/gt_structure_text
+authors:
+  - name: Matthias
+    surname: Boenig
+    orcid: 0000-0003-4615-4753
+    roles:
+      - transcriber
+      - aligner
+      - project-manager
+      - quality-control
+      - digitization
+      - support
+description: >-
+  The OCR-D Ground Truth text and structure corpus was created between 2015
+  -2017. In the years since 2017, this corpus has been further curated and
+  supplemented with metadata where appropriate. The corpus includes page XML
+  files within annotations of the text and structure include. The data is based
+  on transcription data stored in the German Text Archive (DTA)
+  (https://www.deutschestextarchiv.de/).
+project-name: OCR-D
+project-website: https://ocr-d.de/
+language:
+  - eng
+  - fra
+  - deu
+  - heb
+  - lat
+production-software: Aletheia
+script:
+  - iso: Latn
+  - iso: Goth
+script-type: print
+time:
+  notBefore: '1500'
+  notAfter: '1900'
+hands:
+  count: '3'
+  level: levelmix
+license:
+  - name: CC-BY-SA 4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+gtType: data_structure_and_text
+format: Page-XML
+citation-file-link: https://github.com/OCR-D/gt_structure_text/blob/main/CITATION.cff
+transcription-guidelines: OCR-D Ground Truth Guidelines https://ocr-d.de/en/gt-guidelines/trans/
