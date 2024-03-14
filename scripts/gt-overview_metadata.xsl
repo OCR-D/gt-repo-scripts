@@ -27,9 +27,7 @@
     <xsl:variable name="docMETADATA">
         <xsl:copy-of select="json-to-xml(unparsed-text('../METADATA.json'))"/>
     </xsl:variable>
-    <xsl:variable name="docMETADATA_htr">
-        <xsl:copy-of select="json-to-xml(unparsed-text('../METADATA_htr_united.json'))"/>
-    </xsl:variable>
+    
     
     
    
@@ -134,8 +132,8 @@
     
     
     <xsl:template match="/">
-        <xsl:message select="$docMETADATA"></xsl:message>
-        <xsl:message select="$docMETADATA_htr"></xsl:message>
+        
+        
         <xsl:variable name="holeMetric">
                 <xsl:element name="array">
                   <xsl:for-each select="collection($coll)">
