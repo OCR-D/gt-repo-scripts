@@ -4430,7 +4430,6 @@
       <xsl:if test="$output = 'METSdefault'"> 
                  <xsl:for-each select="collection($conMets)">
                       <xsl:variable name="file" select="base-uri()"/>
-                      <!--<xsl:variable name="filename" select="tokenize(base-uri(), '/')[last() - 1]"/>-->
                       
                      <xsl:result-document href="{$file}">
                         <mets:mets
@@ -4439,7 +4438,7 @@
                             xmlns:dv="http://dfg-viewer.de/" xmlns:xlink="http://www.w3.org/1999/xlink"
                             xmlns:mods="http://www.loc.gov/mods/v3">
                             <xsl:variable name="t1"><xsl:copy-of select="."/></xsl:variable>
-                            <xsl:message select="$t1"></xsl:message>
+                            
                             <xsl:variable name="t2">
                                 <mets:structMap TYPE="PHYSICAL">
                                     <mets:div TYPE="physSequence">
