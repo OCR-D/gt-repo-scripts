@@ -4477,7 +4477,7 @@
                                     | $t1//mets:dmdSec 
                                     | $t1//mets:amdSec" />
                                 <xsl:if test="$t1//mets:fileSec/child::*[@USE  != 'DEFAULT']">
-                                    <xsl:copy-of copy-namespaces="no" select="$t1//mets:fileSec"/>
+                                    <xsl:copy-of copy-namespaces="no" select="$t1//mets:fileSec/child::*[@USE  != 'DEFAULT']"/>
                                 </xsl:if>
                                 <xsl:copy-of copy-namespaces="no" select="$t1//mets:structMap[@TYPE='LOGICAL']
                                     | $t2//mets:structMap[@TYPE='PHYSICAL']
