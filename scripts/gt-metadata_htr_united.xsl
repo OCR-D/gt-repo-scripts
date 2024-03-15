@@ -291,7 +291,7 @@ format: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='format']"/>
 volume:
 - count: 640976
   metric: characters
-  - count: <xsl:value-of select="$k14"/>
+  - count: <xsl:value-of select="$k16"/>
   metric: files
   - count: <xsl:value-of select="$k15"/>
   metric: lines
