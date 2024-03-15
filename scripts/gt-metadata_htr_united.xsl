@@ -250,7 +250,7 @@
         
         
         <xsl:message select="$docMETADATA"></xsl:message>
-<xsl:result-document format="txt_out" href="../METADATA_htr_united.yml">schema: https://htr-united.github.io/schema/2023-06-27/schema.json
+schema: https://htr-united.github.io/schema/2023-06-27/schema.json
 title: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/>
 url: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='url']"/>
 authors:
@@ -300,6 +300,5 @@ volume:
 citation-file-link: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='citation-file-link']"/>
 transcription-guidelines: >-
   <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='transcription-guidelines']"/>
-</xsl:result-document>
 </xsl:template>
 </xsl:stylesheet>
