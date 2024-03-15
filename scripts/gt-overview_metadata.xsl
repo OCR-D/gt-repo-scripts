@@ -4190,14 +4190,10 @@
                         </xsl:element>
                     </xsl:otherwise>
                 </xsl:choose>
-        
-        
-        
-        
             </xsl:element>
         </xsl:if>
         
-    
+
         <xsl:if test="$output = 'METSvolume'">
             
             <mets:mets
