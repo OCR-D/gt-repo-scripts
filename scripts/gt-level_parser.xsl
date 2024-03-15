@@ -70,17 +70,7 @@
             <xsl:choose>
                 <!-- only for TextRegion analyse -->
                         <xsl:when test="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextEquiv/pc:Unicode/text() !='' or document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextEquiv/pt:Unicode/text() !=''">
-                            <xsl:variable name="numFile">
-                                <pc:tst>
-                                    <xsl:for-each select="document($filename)//pc:PcGts">
-                                        
-                                        <pc:File><xsl:number count="."/>--<xsl:value-of select="normalize-space(.)"/></pc:File>
-                                    </xsl:for-each>
-                                    <xsl:for-each select="document($filename)//pt:PcGts">
-                                        <pc:File><xsl:value-of select="normalize-space(.)"/></pc:File>
-                                    </xsl:for-each>
-                                </pc:tst>
-                             </xsl:variable>
+                            
                             <xsl:variable name="TextRegionUnicode">
                                 <pc:Unicode>
                                     <xsl:for-each select="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextEquiv/pc:Unicode">
@@ -315,17 +305,7 @@
                             <xsl:choose>
                                 
                                 <xsl:when test="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextLine/pc:TextEquiv[1]/pc:Unicode/text() !='' or document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextLine[1]/pt:TextEquiv/pt:Unicode/text() !=''">
-                                    <xsl:variable name="numFile">
-                                        <pc:tst>
-                                            <xsl:for-each select="document($filename)//pc:PcGts">
-                                                
-                                                <pc:File><xsl:number count="."/>--<xsl:value-of select="normalize-space(.)"/></pc:File>
-                                            </xsl:for-each>
-                                            <xsl:for-each select="document($filename)//pt:PcGts">
-                                                <pc:File><xsl:value-of select="normalize-space(.)"/></pc:File>
-                                            </xsl:for-each>
-                                        </pc:tst>
-                                    </xsl:variable>
+                                    
                                     <xsl:variable name="TextLineUnicode">
                                         <pc:Unicode>
                                             <xsl:for-each select="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextLine/pc:TextEquiv[1]/pc:Unicode">

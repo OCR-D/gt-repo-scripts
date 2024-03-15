@@ -108,7 +108,7 @@
                                                 
                                             </pc:Unicode>
                                         </xsl:variable>
-                                        <cC><xsl:value-of select="$TextRegionUnicode//pc:Unicode"/></cC>
+                                        <cC><xsl:value-of select="$TextRegionUnicode//pc:Unicode"/>-</cC>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <xsl:choose>
@@ -120,7 +120,7 @@
                                                         </xsl:for-each>
                                                     </pc:Unicode>
                                                 </xsl:variable>
-                                                <cC><xsl:value-of select="$TextLineUnicode//pc:Unicode"/></cC>
+                                                <cC><xsl:value-of select="$TextLineUnicode//pc:Unicode"/>-</cC>
                                             </xsl:when>
                                         </xsl:choose>
                                     </xsl:otherwise>
