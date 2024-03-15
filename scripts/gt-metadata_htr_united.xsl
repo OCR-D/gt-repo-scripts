@@ -43,7 +43,7 @@
     
     <xsl:variable name="conImg"><xsl:value-of select="$path"/>/?select=*.[jpgtiffpng]+;recurse=yes</xsl:variable>
     
-    
+    <xsl:variable name="key0">countChar</xsl:variable>
     <xsl:variable name="key1">countTextRegion</xsl:variable>
     <xsl:variable name="key2">countImageRegion</xsl:variable>
     <xsl:variable name="key3">countLineDrawingRegion</xsl:variable>
@@ -130,6 +130,43 @@
                                 <image2><xsl:value-of select="document($filename)//*/*[local-name()='Page']/@*[local-name()='imageFilename']"/></image2>
                                 <image3><xsl:value-of select="document($filename)//*/*[local-name()='Metadata']/*[local-name()='TranskribusMetadata']/@*[local-name()='imgUrl']"/></image3>
                                 <page><xsl:value-of select="substring-after($filename, '/GT-PAGE/')"/></page>
+                                
+                                <xsl:choose>
+                                    <xsl:when test="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextEquiv/pc:Unicode/text() !='' or document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextEquiv/pt:Unicode/text() !=''">
+                                        <xsl:variable name="TextRegionUnicode">
+                                            <pc:Unicode>
+                                                <xsl:for-each select="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextEquiv/pc:Unicode">
+                                                    <xsl:value-of select="normalize-space(.)"/>
+                                                </xsl:for-each>
+                                                <xsl:for-each select="document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextEquiv/pt:Unicode">
+                                                    <xsl:value-of select="normalize-space(.)"/>
+                                                </xsl:for-each>
+                                            </pc:Unicode>
+                                        </xsl:variable>
+                                        <cC><xsl:value-of select="string-length($TextRegionUnicode//pc:Unicode)"/></cC>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:choose>
+                                            <xsl:when test="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextLine/pc:TextEquiv[1]/pc:Unicode/text() !='' or document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextLine[1]/pt:TextEquiv/pt:Unicode/text() !=''">
+                                                <xsl:variable name="TextLineUnicode">
+                                                    <pc:Unicode>
+                                                        <xsl:for-each select="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextLine/pc:TextEquiv[1]/pc:Unicode">
+                                                            <xsl:value-of select="normalize-space(.)"/>
+                                                        </xsl:for-each>
+                                                        <xsl:for-each select="document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextLine/pt:TextEquiv[1]/pt:Unicode">
+                                                            <xsl:value-of select="normalize-space(.)"/>
+                                                        </xsl:for-each>
+                                                    </pc:Unicode>
+                                                </xsl:variable>
+                                                <cC><xsl:value-of select="string-length($TextLineUnicode//pc:Unicode)"/></cC>
+                                            </xsl:when>
+                                        </xsl:choose>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                                
+                                
+                                
+                                
                                 <string key="{$key1}"><xsl:value-of select="count(document($filename)//*/*[local-name()='TextRegion'])"/></string>
                                 <string key="{$key2}"><xsl:value-of select="count(document($filename)//*/*[local-name()='ImageRegion'])"/></string>
                                 <string key="{$key3}"><xsl:value-of select="count(document($filename)//*/*[local-name()='LineDrawingRegion'])"/></string>
