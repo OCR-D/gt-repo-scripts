@@ -85,6 +85,39 @@
                     <xsl:variable name="gtdocument">
                         <xsl:if test="$gtFormat = 'Page-XML'"><xsl:value-of select="substring-after(substring-before($filename, '/GT-PAGE/')[1],$gtTypPath)"/></xsl:if>
                     </xsl:variable>
+                    <xsl:variable name="countChar">
+                    <xsl:choose>
+                        <xsl:when test="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextEquiv/pc:Unicode/text() !='' or document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextEquiv/pt:Unicode/text() !=''">
+                        <xsl:variable name="TextRegionUnicode">
+                        <pc:Unicode>
+                            <xsl:for-each select="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextEquiv/pc:Unicode">
+                                <xsl:value-of select="normalize-space(.)"/>
+                            </xsl:for-each>
+                            <xsl:for-each select="document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextEquiv/pt:Unicode">
+                                <xsl:value-of select="normalize-space(.)"/>
+                            </xsl:for-each>
+                        </pc:Unicode>
+                       </xsl:variable>
+                            <cC><xsl:value-of select="string-length($TextRegionUnicode)"/></cC>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:variable name="TextLineUnicode">
+                        <pc:Unicode>
+                            <xsl:for-each select="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextLine/pc:TextEquiv[1]/pc:Unicode">
+                                <xsl:value-of select="normalize-space(.)"/>
+                            </xsl:for-each>
+                            <xsl:for-each select="document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextLine/pt:TextEquiv[1]/pt:Unicode">
+                                <xsl:value-of select="normalize-space(.)"/>
+                            </xsl:for-each>
+                        </pc:Unicode>
+                    </xsl:variable>
+                            <cC><xsl:value-of select="string-length($TextLineUnicode)"/></cC>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    </xsl:variable>
+                    
+                    <xsl:copy-of select="$countChar"/>
+                    
                     
                     
                     <xsl:if test="$gtdocument !=''">
@@ -286,7 +319,7 @@ license:
   url: <xsl:value-of select="$docMETADATA//fn:map/fn:array[@key='license']//fn:string[@key='url']"/>
 format: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='format']"/>
 volume:
-- count: 640976
+- count: 640976-<xsl:value-of select="$holeMetric/fn:array/fn:cC"/>
   metric: characters
   - count: <xsl:value-of select="$k16"/>
   metric: files
