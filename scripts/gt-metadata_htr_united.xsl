@@ -99,28 +99,23 @@
                                 <page><xsl:value-of select="substring-after($filename, '/GT-PAGE/')"/></page>
                                 
                                 <xsl:choose>
-                                    <xsl:when test="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextEquiv/pc:Unicode/text() !='' or document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextEquiv/pt:Unicode/text() !=''">
+                                    <xsl:when test="document($filename)//*/*[local-name()='TextRegion']/*[local-name()='TextEquiv']/*[local-name()='Unicode']/text() !=''">
                                         <xsl:variable name="TextRegionUnicode">
                                             <pc:Unicode>
-                                                <xsl:for-each select="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextEquiv/pc:Unicode">
+                                                <xsl:for-each select="document($filename)//*/*[local-name()='TextRegion']/*[local-name()='TextEquiv']/*[local-name()='Unicode']">
                                                     <xsl:value-of select="string-length(normalize-space(.))"/>
                                                 </xsl:for-each>
-                                                <xsl:for-each select="document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextEquiv/pt:Unicode">
-                                                    <xsl:value-of select="string-length(normalize-space(.))"/>
-                                                </xsl:for-each>
+                                                
                                             </pc:Unicode>
                                         </xsl:variable>
                                         <cC><xsl:value-of select="$TextRegionUnicode//pc:Unicode"/></cC>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <xsl:choose>
-                                            <xsl:when test="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextLine/pc:TextEquiv[1]/pc:Unicode/text() !='' or document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextLine[1]/pt:TextEquiv/pt:Unicode/text() !=''">
+                                            <xsl:when test="document($filename)//*/*[local-name()='TextRegion']/*[local-name()='TextLine']/*[local-name()='TextEquiv']/*[local-name()='Unicode']/text() !=''">
                                                 <xsl:variable name="TextLineUnicode">
                                                     <pc:Unicode>
-                                                        <xsl:for-each select="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextLine/pc:TextEquiv[1]/pc:Unicode">
-                                                            <xsl:value-of select="string-length(normalize-space(.))"/>
-                                                        </xsl:for-each>
-                                                        <xsl:for-each select="document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextLine/pt:TextEquiv[1]/pt:Unicode">
+                                                        <xsl:for-each select="document($filename)//*/*[local-name()='TextRegion']/*[local-name()='TextLine']/*[local-name()='TextEquiv']/*[local-name()='Unicode']">
                                                             <xsl:value-of select="string-length(normalize-space(.))"/>
                                                         </xsl:for-each>
                                                     </pc:Unicode>
