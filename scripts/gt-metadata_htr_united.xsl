@@ -103,12 +103,12 @@
                                         <xsl:variable name="TextRegionUnicode">
                                             <pc:Unicode>
                                                 <xsl:for-each select="document($filename)//*/*[local-name()='TextRegion']/*[local-name()='TextEquiv']/*[local-name()='Unicode']">
-                                                    <xsl:value-of select="string-length(normalize-space(.))"/>
+                                                    <xsl:value-of select="string-length(replace(normalize-space(.), ' ',''))"/>
                                                 </xsl:for-each>
                                                 
                                             </pc:Unicode>
                                         </xsl:variable>
-                                        <cC><xsl:value-of select="$TextRegionUnicode//pc:Unicode"/>-</cC>
+                                        <cC><xsl:value-of select="$TextRegionUnicode//pc:Unicode"/></cC>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <xsl:choose>
@@ -116,11 +116,11 @@
                                                 <xsl:variable name="TextLineUnicode">
                                                     <pc:Unicode>
                                                         <xsl:for-each select="document($filename)//*/*[local-name()='TextRegion']/*[local-name()='TextLine']/*[local-name()='TextEquiv']/*[local-name()='Unicode']">
-                                                            <xsl:value-of select="string-length(normalize-space(.))"/>
+                                                            <xsl:value-of select="string-length(replace(normalize-space(.), ' ',''))"/>
                                                         </xsl:for-each>
                                                     </pc:Unicode>
                                                 </xsl:variable>
-                                                <cC><xsl:value-of select="$TextLineUnicode//pc:Unicode"/>-</cC>
+                                                <cC><xsl:value-of select="$TextLineUnicode//pc:Unicode"/></cC>
                                             </xsl:when>
                                         </xsl:choose>
                                     </xsl:otherwise>
