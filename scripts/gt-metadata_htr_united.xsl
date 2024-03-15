@@ -252,9 +252,8 @@
         <xsl:message select="$docMETADATA"></xsl:message>
 <xsl:result-document format="txt_out" href="METADATA_htr_united.yml">schema: https://htr-united.github.io/schema/2023-06-27/schema.json
 title: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/>
-url: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='url']"/>
-authors:
-    <xsl:for-each select="$docMETADATA//fn:map/fn:array[@key='authors']/fn:map">
+    url: <xsl:value-of select="$docMETADATA//fn:map[not(@key='license')]/fn:string[@key='url']"/>
+authors:<xsl:for-each select="$docMETADATA//fn:map/fn:array[@key='authors']/fn:map">
       - name: <xsl:value-of select="fn:string[@key='name']"/> 
         surname: <xsl:value-of select="fn:string[@key='surname']"/>
         orcid: <xsl:value-of select="fn:string[@key='orcid']"/>
@@ -262,8 +261,6 @@ authors:
           - <xsl:value-of select="."/>
         </xsl:for-each>
         </xsl:for-each>
-
-
 institutions: []
 description: >-
   <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='description']"/>
@@ -272,7 +269,7 @@ project-website: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='proj
 language:<xsl:for-each select="$docMETADATA//fn:map/fn:array[@key='language']/fn:string">
   - <xsl:value-of select="."/>
 </xsl:for-each>
-production-software: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='project-software']"/>
+production-software: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='production-software']"/>
 automatically-aligned: false
 script:<xsl:for-each select="$docMETADATA//fn:map/fn:array[@key='script']//fn:string">
   - iso: <xsl:value-of select="."/>
