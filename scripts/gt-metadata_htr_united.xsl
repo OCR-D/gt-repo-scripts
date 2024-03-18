@@ -167,8 +167,8 @@
         
         
         <xsl:variable name="sumCharVolume">
-            <xsl:for-each select="$holeMetric//sumCharPage">
-                <xsl:value-of select="sum(.)"/>
+            <xsl:for-each select="$holeMetric">
+                <sum><xsl:value-of select="sum(//sumCharPage)"/></sum>
             </xsl:for-each>
         </xsl:variable>
         
