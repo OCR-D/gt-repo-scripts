@@ -318,12 +318,15 @@ automatically-aligned: false
 script:<xsl:for-each select="$docMETADATA//fn:map/fn:array[@key='script']//fn:string">
   - iso: <xsl:value-of select="."/>
     </xsl:for-each>
-script-type: only-typed
+script-type: 
+    <xsl:if test="$docMETADATA//fn:map/fn:string[@key='script-type']/.[.='print']">only-typed</xsl:if>
+    <xsl:if test="$docMETADATA//fn:map/fn:string[@key='script-type']/.[.!='print']"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='script-type']"/></xsl:if>
+
 time:
   notAfter: '<xsl:value-of select="$docMETADATA//fn:map/fn:map[@key='time']/fn:string[@key='notAfter']"/>'
   notBefore: '<xsl:value-of select="$docMETADATA//fn:map/fn:map[@key='time']/fn:string[@key='notBefore']"/>'
 hands:
-  count: less-than-11
+  count: unknown
   precision: exact
 license:
   name: <xsl:value-of select="$docMETADATA//fn:map/fn:array[@key='license']//fn:string[@key='name']"/>
