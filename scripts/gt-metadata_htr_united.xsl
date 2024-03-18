@@ -102,13 +102,15 @@
                                     <xsl:when test="document($filename)//*/*[local-name()='TextRegion']/*[local-name()='TextEquiv']/*[local-name()='Unicode']/text() !=''">
                                         <xsl:variable name="TextRegionUnicode">
                                             <pc:Unicode>
-                                                <xsl:for-each select="document($filename)//*/*[local-name()='TextRegion']/*[local-name()='TextEquiv']/*[local-name()='Unicode']">
-                                                    <xsl:value-of select="string-length(replace(normalize-space(.), ' ',''))"/>
+                                                <xsl:for-each select="document($filename)//pc:PcGts/pc:Page/pc:TextRegion/pc:TextEquiv/pc:Unicode">
+                                                    <xsl:value-of select="normalize-space(.)"/>
                                                 </xsl:for-each>
-                                                
+                                                <xsl:for-each select="document($filename)//pt:PcGts/pt:Page/pt:TextRegion/pt:TextEquiv/pt:Unicode">
+                                                    <xsl:value-of select="normalize-space(.)"/>
+                                                </xsl:for-each>
                                             </pc:Unicode>
                                         </xsl:variable>
-                                        <cC><xsl:value-of select="$TextRegionUnicode//pc:Unicode"/></cC>
+                                        <cC><xsl:value-of select="string-length(translate($TextRegionUnicode, ' ', ''))"/></cC>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <xsl:choose>
