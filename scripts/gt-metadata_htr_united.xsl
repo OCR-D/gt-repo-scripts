@@ -167,14 +167,14 @@
         
         
         <xsl:variable name="sumCharVolume">
-            <xsl:for-each select="$holeMetric//fn:sumCharPage">
-                <xsl:value-of select="sum(.)"/>
+            <xsl:for-each select="$holeMetric//sumCharPage">
+                <xsl:copy-of select="."/>
             </xsl:for-each>
         </xsl:variable>
         
         <xsl:message select="$sumCharVolume"></xsl:message>
         
-        <xsl:message select="$holeMetric"></xsl:message>
+        <!--<xsl:message select="$holeMetric"></xsl:message>-->
         
         <xsl:variable name="k15">
             <xsl:for-each select="$holeMetric/array">
@@ -293,7 +293,7 @@
         
         
         
-        <xsl:message select="$docMETADATA"></xsl:message>
+        <!--<xsl:message select="$docMETADATA"></xsl:message>-->
 <xsl:result-document format="txt_out" href="METADATA_htr_united.yml">schema: https://htr-united.github.io/schema/2023-06-27/schema.json
 title: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/>
     url: <xsl:value-of select="$docMETADATA//fn:map[not(@key='license')]/fn:string[@key='url']"/>
