@@ -321,7 +321,6 @@ script:<xsl:for-each select="$docMETADATA//fn:map/fn:array[@key='script']//fn:st
 script-type: 
     <xsl:if test="$docMETADATA//fn:map/fn:string[@key='script-type']/.[.='print']">only-typed</xsl:if>
     <xsl:if test="$docMETADATA//fn:map/fn:string[@key='script-type']/.[.!='print']"><xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='script-type']"/></xsl:if>
-
 time:
   notAfter: '<xsl:value-of select="$docMETADATA//fn:map/fn:map[@key='time']/fn:string[@key='notAfter']"/>'
   notBefore: '<xsl:value-of select="$docMETADATA//fn:map/fn:map[@key='time']/fn:string[@key='notBefore']"/>'
