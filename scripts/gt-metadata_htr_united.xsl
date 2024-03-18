@@ -110,7 +110,7 @@
                                                 </xsl:for-each>
                                             </pc:Unicode>
                                         </xsl:variable>
-                                        <cC><xsl:value-of select="string-length(translate($TextRegionUnicode, ' ', ''))"/></cC>
+                                        <sumCharPage><xsl:value-of select="string-length(translate($TextRegionUnicode, ' ', ''))"/></sumCharPage>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <xsl:choose>
@@ -122,7 +122,7 @@
                                                         </xsl:for-each>
                                                     </pc:Unicode>
                                                 </xsl:variable>
-                                                <cC><xsl:value-of select="$TextLineUnicode//pc:Unicode"/></cC>
+                                                <sumCharPage><xsl:value-of select="string-length(translate($TextLineUnicode, ' ', ''))"/></sumCharPage>
                                             </xsl:when>
                                         </xsl:choose>
                                     </xsl:otherwise>
@@ -164,6 +164,15 @@
                 </xsl:for-each>
             </xsl:element>
         </xsl:variable>
+        
+        
+        <xsl:variable name="sumCharVolume">
+            <xsl:for-each select="$holeMetric//fn:sumCharPage">
+                <xsl:value-of select="sum(.)"/>
+            </xsl:for-each>
+        </xsl:variable>
+        
+        <xsl:message select="$sumCharVolume"></xsl:message>
         
         <xsl:message select="$holeMetric"></xsl:message>
         
