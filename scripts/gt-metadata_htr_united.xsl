@@ -168,11 +168,11 @@
         
         <xsl:variable name="sumCharVolume">
             <xsl:for-each select="$holeMetric">
-                <sum><xsl:value-of select="sum(//sumCharPage)"/></sum>
+                <xsl:value-of select="sum(//sumCharPage)"/>
             </xsl:for-each>
         </xsl:variable>
         
-        <xsl:message select="$sumCharVolume"></xsl:message>
+        
         
         <!--<xsl:message select="$holeMetric"></xsl:message>-->
         
@@ -330,7 +330,7 @@ license:
   url: <xsl:value-of select="$docMETADATA//fn:map/fn:array[@key='license']//fn:string[@key='url']"/>
 format: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='format']"/>
 volume:
-- count: 640976-<xsl:value-of select="$holeMetric/fn:array/fn:cC"/>
+- count: <xsl:value-of select="$sumCharVolume"/>
   metric: characters
   - count: <xsl:value-of select="$k16"/>
   metric: files
