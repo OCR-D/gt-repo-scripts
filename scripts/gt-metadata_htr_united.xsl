@@ -296,7 +296,7 @@
         <!--<xsl:message select="$docMETADATA"></xsl:message>-->
         <xsl:result-document format="txt_out" href="{$repoName}_METADATA_htr_united.yml">schema: https://htr-united.github.io/schema/2023-06-27/schema.json
 title: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/>
-    url: <xsl:value-of select="$docMETADATA/fn:map/fn:string[@key='url']"/>
+url: <xsl:value-of select="$docMETADATA/fn:map/fn:string[@key='url']"/>
 authors:<xsl:for-each select="$docMETADATA//fn:map/fn:array[@key='authors']/fn:map">
       - name: <xsl:value-of select="fn:string[@key='name']"/> 
         surname: <xsl:value-of select="fn:string[@key='surname']"/>
