@@ -16,7 +16,7 @@
     <xsl:output name="txt_out" indent="yes" omit-xml-declaration="yes" method="text"
         normalization-form="none"/>
     
-    
+    <xsl:param name="repoName"/>
     
     <xsl:variable name="docMETADATA">
         <xsl:copy-of select="json-to-xml(unparsed-text('../METADATA.json'))"/>
@@ -294,7 +294,7 @@
         
         
         <!--<xsl:message select="$docMETADATA"></xsl:message>-->
-<xsl:result-document format="txt_out" href="METADATA_htr_united.yml">schema: https://htr-united.github.io/schema/2023-06-27/schema.json
+        <xsl:result-document format="txt_out" href="{$repoName}_METADATA_htr_united.yml">schema: https://htr-united.github.io/schema/2023-06-27/schema.json
 title: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/>
     url: <xsl:value-of select="$docMETADATA/fn:map/fn:string[@key='url']"/>
 authors:<xsl:for-each select="$docMETADATA//fn:map/fn:array[@key='authors']/fn:map">
