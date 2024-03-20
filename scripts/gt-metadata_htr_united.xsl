@@ -332,7 +332,7 @@ license:
   url: <xsl:value-of select="$docMETADATA//fn:map/fn:array[@key='license']//fn:string[@key='url']"/>
 format: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='format']"/>
 volume:
-- count: <xsl:value-of select="$sumCharVolume"/>
+  - count: <xsl:value-of select="$sumCharVolume"/>
   metric: characters
   - count: <xsl:value-of select="$k16"/>
   metric: files
