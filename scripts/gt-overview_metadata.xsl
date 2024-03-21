@@ -14,8 +14,7 @@
     exclude-result-prefixes="#all"
     version="3.0">
     <xsl:output indent="yes" omit-xml-declaration="yes" method="xml"/>
-    <xsl:output name="txt_out" indent="yes" omit-xml-declaration="yes" method="text"
-        normalization-form="none"/>
+   
     
     <xsl:param name="repoName"/>
     <xsl:param name="repoBase"/>
@@ -4525,14 +4524,13 @@ date-released: '<xsl:value-of select="format-date(current-date(), '[Y]-[M]-[D]')
         
         
         <xsl:if test="$output = 'download'">
-            <xsl:result-document format="txt_out" href="ghout/download.txt">
+            
             <xsl:for-each-group select="$holeMetric//*" group-by="@key1">
-                <xsl:variable name="return"></xsl:variable>
+                <xsl:variable name="return">&#10;</xsl:variable>
                 <xsl:variable name="ocrdZIP"><xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>/releases/download/<xsl:value-of select="$releaseTag"/>/<xsl:value-of select="current-grouping-key()"/>.ocrd.zip</xsl:variable>
                     <xsl:value-of select="$ocrdZIP"/>
                     <xsl:value-of select="$return"/>
             </xsl:for-each-group>
-            </xsl:result-document>
         </xsl:if>
        </xsl:template>
     </xsl:stylesheet>
