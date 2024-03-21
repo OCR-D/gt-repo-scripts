@@ -4524,12 +4524,9 @@ date-released: '<xsl:value-of select="format-date(current-date(), '[Y]-[M]-[D]')
         
         
         <xsl:if test="$output = 'download'">
-            
             <xsl:for-each-group select="$holeMetric//*" group-by="@key1">
-                <xsl:variable name="return">&#10;</xsl:variable>
-                <xsl:variable name="ocrdZIP"><xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>/releases/download/<xsl:value-of select="$releaseTag"/>/<xsl:value-of select="current-grouping-key()"/>.ocrd.zip</xsl:variable>
-                    <xsl:value-of select="$ocrdZIP"/>
-                    <xsl:value-of select="$return"/>
+                <xsl:variable name="ocrdZIP" select="concat('https://github.com/', $repoName, '/releases/download/', $releaseTag, '/', current-grouping-key(), '.ocrd.zip')"/>
+                <xsl:value-of select="$ocrdZIP"/><xsl:text>&#10;</xsl:text>
             </xsl:for-each-group>
         </xsl:if>
        </xsl:template>
