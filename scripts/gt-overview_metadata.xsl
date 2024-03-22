@@ -4517,7 +4517,7 @@ keywords:
 license: <xsl:value-of select="$docMETADATA//fn:map/fn:array[@key='license']/fn:map/fn:string[@key='name']"/>
 commit: <xsl:value-of select="$releaseTag"/>
 version: <xsl:value-of select="$bagitDumpNum"/>_<xsl:value-of select="$releaseTag"/>
-    date-released: '<xsl:value-of select="format-date(current-date(), '[Y0001]-[M01]-[D01]')"/>'</xsl:if>
+date-released: '<xsl:value-of select="format-date(current-date(), '[Y]-[M]-[D]')"/>'</xsl:if>
         
         
         
