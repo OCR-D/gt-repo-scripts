@@ -29,21 +29,7 @@
         <xsl:copy-of select="json-to-xml(unparsed-text('../METADATA.json'))"/>
     </xsl:variable>
     
-<xsl:variable name="Author">
-    <xsl:if test="$docMETADATA//fn:map/fn:array/@key='authors'">
-        authors:
-        <xsl:for-each select="$docMETADATA//fn:map/fn:array[@key='authors']/fn:map">
-            <xsl:if test="fn:string[@key='name'] !=''">
-                - given-names: <xsl:value-of select="fn:string[@key='name']"/>
-            </xsl:if>
-            <xsl:if test="fn:string[@key='surname'] !=''">
-                family-names: <xsl:value-of select="fn:string[@key='surname']"/>
-            </xsl:if>
-            <xsl:if test="fn:string[@key='orcid'] !=''">
-                orcid: <xsl:value-of select="fn:string[@key='orcid']"/>
-            </xsl:if>
-        </xsl:for-each></xsl:if>
-</xsl:variable>
+    
     
    
     <xsl:variable name="labelling">
@@ -4498,7 +4484,23 @@
                     </xsl:for-each>
                     </xsl:if>
        
-<xsl:if test="$output = 'CITATION'">cff-version: 1.2.0
+<xsl:if test="$output = 'CITATION'">
+<xsl:variable name="Author">
+        <xsl:if test="$docMETADATA//fn:map/fn:array/@key='authors'">
+authors:
+       <xsl:for-each select="$docMETADATA//fn:map/fn:array[@key='authors']/fn:map">
+            <xsl:if test="fn:string[@key='name'] !=''">
+  - given-names: <xsl:value-of select="fn:string[@key='name']"/>
+            </xsl:if>
+            <xsl:if test="fn:string[@key='surname'] !=''">
+    family-names: <xsl:value-of select="fn:string[@key='surname']"/>
+            </xsl:if>
+            <xsl:if test="fn:string[@key='orcid'] !=''">
+    orcid: <xsl:value-of select="fn:string[@key='orcid']"/>
+            </xsl:if>
+        </xsl:for-each></xsl:if>
+</xsl:variable>
+cff-version: 1.2.0
 title: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/>
 message: If you use this dataset, please cite it using the metadata from this file.
 type: dataset
