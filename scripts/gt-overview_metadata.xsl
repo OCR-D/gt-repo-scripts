@@ -4499,8 +4499,7 @@ authors:
     orcid: <xsl:value-of select="fn:string[@key='orcid']"/>
             </xsl:if>
         </xsl:for-each></xsl:if>
-</xsl:variable>
-cff-version: 1.2.0
+</xsl:variable>cff-version: 1.2.0
 title: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/>
 message: If you use this dataset, please cite it using the metadata from this file.
 type: dataset
