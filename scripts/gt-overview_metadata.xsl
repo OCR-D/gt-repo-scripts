@@ -4496,12 +4496,14 @@
     orcid: 'https://orcid.org/<xsl:value-of select="fn:string[@key='orcid']"/>'</xsl:if>
 </xsl:for-each></xsl:if>
 </xsl:variable>cff-version: 1.2.0
-title: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/>
 message: If you use this dataset, please cite it using the metadata from this file.
-type: dataset
 <xsl:value-of select="$Author"/>
-repository-code: '<xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>'
+title: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='title']"/>
+version: <xsl:value-of select="$bagitDumpNum"/>_<xsl:value-of select="$releaseTag"/>
+date-released: '<xsl:value-of select="format-date(current-date(), '[Y0001]-[M01]-[D01]')"/>'</xsl:if>
 url: '<xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>'
+type: dataset
+repository-code: '<xsl:text>https://github.com/</xsl:text><xsl:value-of select="$repoName"/>'
 abstract: |-
     <xsl:value-of select="normalize-space($docMETADATA//fn:map/fn:string[@key='description'])"/>
 keywords:
@@ -4512,9 +4514,8 @@ keywords:
   - <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key/contains(.,'gtTyp')]"/>
 license: <xsl:value-of select="$docMETADATA//fn:map/fn:array[@key='license']/fn:map/fn:string[@key='name']"/>
 commit: <xsl:value-of select="$releaseTag"/>
-version: <xsl:value-of select="$bagitDumpNum"/>_<xsl:value-of select="$releaseTag"/>
-date-released: '<xsl:value-of select="format-date(current-date(), '[Y0001]-[M01]-[D01]')"/>'</xsl:if>
-        
+
+
         <xsl:if test="$output = 'download'">
             <xsl:for-each-group select="$holeMetric//*" group-by="@key1">
                 <xsl:variable name="ocrdZIP" select="concat('https://github.com/', $repoName, '/releases/download/', $releaseTag, '/', current-grouping-key(), '.ocrd.zip')"/>
