@@ -79,7 +79,7 @@
     <xsl:variable name="key10">countMusicRegion</xsl:variable>
     <xsl:variable name="key11">countAdvertRegion</xsl:variable>
     <xsl:variable name="key12">countNoiseRegion</xsl:variable>
-    <xsl:variable name="key13">countUnkownRegion</xsl:variable>
+    <xsl:variable name="key13">countUnknownRegion</xsl:variable>
     <xsl:variable name="key14">countCustomRegion</xsl:variable>
     <xsl:variable name="key15">countTextLine</xsl:variable>
     <xsl:variable name="key16">countPage</xsl:variable>
@@ -111,7 +111,7 @@
                 <th>MusicRegion</th>
                 <th>AdRegion</th>
                 <th>NoiseRegion</th>
-                <th>UnkownRegion</th>
+                <th>UnknownRegion</th>
                 <th>CustomRegion</th>
                 <th>TextLine</th>
                 <th>Page</th>
@@ -168,7 +168,7 @@
                              <string key="{$key10}"><xsl:value-of select="count(document($filename)//*/*[local-name()='MusicRegion'])"/></string>
                              <string key="{$key11}"><xsl:value-of select="count(document($filename)//*/*[local-name()='AdvertRegion'])"/></string>
                              <string key="{$key12}"><xsl:value-of select="count(document($filename)//*/*[local-name()='NoiseRegion'])"/></string>
-                             <string key="{$key13}"><xsl:value-of select="count(document($filename)//*/*[local-name()='UnkownRegion'])"/></string>
+                             <string key="{$key13}"><xsl:value-of select="count(document($filename)//*/*[local-name()='UnknownRegion'])"/></string>
                              <string key="{$key14}"><xsl:value-of select="count(document($filename)//*/*[local-name()='CustomRegion'])"/></string>
                              <string key="{$key15}"><xsl:value-of select="count(document($filename)//*/*[local-name()='TextLine'])"/></string>
                              <string key="{$key16}"><xsl:value-of select="count(document($filename)//*/*[local-name()='Page'])"/></string>
@@ -304,7 +304,7 @@
                     <xsl:if test="$k10 >0"><th>MusicRegion</th></xsl:if>
                     <xsl:if test="$k11 >0"><th>AdRegion</th></xsl:if>
                     <xsl:if test="$k12 >0"><th>NoiseRegion</th></xsl:if>
-                    <xsl:if test="$k13 >0"><th>UnkownRegion</th></xsl:if>
+                    <xsl:if test="$k13 >0"><th>UnknownRegion</th></xsl:if>
                     <xsl:if test="$k14 >0"><th>CustomRegion</th></xsl:if>
                     <xsl:if test="$k15 >0"><th>TextLine</th></xsl:if>
                     <xsl:if test="$k16 >0"><th>Page</th></xsl:if>
@@ -681,7 +681,7 @@
                                         
                                         <xsl:if test="$k13 > 0">
                                         <dt><xsl:value-of select="$tableHeader//th[14]"/></dt>
-                                        <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lySonstiges.html" target="_blank">UnkownRegion</a></dd>
+                                        <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lySonstiges.html" target="_blank">UnknownRegion</a></dd>
                                         </xsl:if>
                                         
                                         <xsl:if test="$k14 > 0">
@@ -845,7 +845,7 @@
                                     </xsl:if>
                                     
                                     <xsl:if test="$k13 > 0">
-                                        <th>UnkownRegion</th>
+                                        <th>UnknownRegion</th>
                                     </xsl:if>
                                     
                                     <xsl:if test="$k14 > 0">
@@ -1001,7 +1001,7 @@
                                     <dt><xsl:value-of select="$tableHeader//th[13]"/></dt>
                                     <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lyRauschen.html" target="_blank">NoiseRegion</a></dd>
                                     <dt><xsl:value-of select="$tableHeader//th[14]"/></dt>
-                                    <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lySonstiges.html" target="_blank">UnkownRegion</a></dd>
+                                    <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lySonstiges.html" target="_blank">UnknownRegion</a></dd>
                                     <dt><xsl:value-of select="$tableHeader//th[15]"/></dt>
                                     <dd>CustomRegion</dd>
                                     <dt><xsl:value-of select="$tableHeader//th[16]"/></dt>
@@ -1347,7 +1347,7 @@
                                         
                                         <xsl:if test="$k13 > 0">
                                         <dt><xsl:value-of select="$tableHeader//th[14]"/></dt>
-                                        <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lySonstiges.html" target="_blank">UnkownRegion</a></dd>
+                                        <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lySonstiges.html" target="_blank">UnknownRegion</a></dd>
                                         </xsl:if>
                                         
                                         <xsl:if test="$k14 > 0">
@@ -1511,7 +1511,7 @@
                                     </xsl:if>
                                     
                                     <xsl:if test="$k13 > 0">
-                                        <th>UnkownRegion</th>
+                                        <th>UnknownRegion</th>
                                     </xsl:if>
                                     
                                     <xsl:if test="$k14 > 0">
@@ -1746,7 +1746,7 @@
                                             <dt><xsl:value-of select="$tableHeader//th[13]"/></dt>
                                             <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lyRauschen.html" target="_blank">NoiseRegion</a></dd>
                                             <dt><xsl:value-of select="$tableHeader//th[14]"/></dt>
-                                            <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lySonstiges.html" target="_blank">UnkownRegion</a></dd>
+                                            <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lySonstiges.html" target="_blank">UnknownRegion</a></dd>
                                             <dt><xsl:value-of select="$tableHeader//th[15]"/></dt>
                                             <dd>CustomRegion</dd>
                                         </dl>
@@ -1794,7 +1794,7 @@
                                         <th>MusicRegion</th>
                                         <th>AdRegion</th>
                                         <th>NoiseRegion</th>
-                                        <th>UnkownRegion</th>
+                                        <th>UnknownRegion</th>
                                         <th>CustomRegion</th>
                                         
                                     </tr>
@@ -1853,7 +1853,7 @@
                                                             <th>MusicRegion</th>
                                                             <th>AdRegion</th>
                                                             <th>NoiseRegion</th>
-                                                            <th>UnkownRegion</th>
+                                                            <th>UnknownRegion</th>
                                                             <th>CustomRegion</th>
                                                             
                                                         </tr>
@@ -1972,7 +1972,7 @@
                                     <dt><xsl:value-of select="$tableHeader//th[13]"/></dt>
                                     <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lyRauschen.html" target="_blank">NoiseRegion</a></dd>
                                     <dt><xsl:value-of select="$tableHeader//th[14]"/></dt>
-                                    <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lySonstiges.html" target="_blank">UnkownRegion</a></dd>
+                                    <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lySonstiges.html" target="_blank">UnknownRegion</a></dd>
                                     <dt><xsl:value-of select="$tableHeader//th[15]"/></dt>
                                     <dd>CustomRegion</dd>
                                 </dl>
@@ -2151,7 +2151,7 @@
                                         <dt><xsl:value-of select="$tableHeader//th[13]"/></dt>
                                         <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lyRauschen.html" target="_blank">NoiseRegion</a></dd>
                                         <dt><xsl:value-of select="$tableHeader//th[14]"/></dt>
-                                        <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lySonstiges.html" target="_blank">UnkownRegion</a></dd>
+                                        <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lySonstiges.html" target="_blank">UnknownRegion</a></dd>
                                         <dt><xsl:value-of select="$tableHeader//th[15]"/></dt>
                                         <dd>CustomRegion</dd>
                                     </dl>
@@ -2199,7 +2199,7 @@
                                     <th>MusicRegion</th>
                                     <th>AdRegion</th>
                                     <th>NoiseRegion</th>
-                                    <th>UnkownRegion</th>
+                                    <th>UnknownRegion</th>
                                     <th>CustomRegion</th>
                                     
                                 </tr>
@@ -2258,7 +2258,7 @@
                                                         <th>MusicRegion</th>
                                                         <th>AdRegion</th>
                                                         <th>NoiseRegion</th>
-                                                        <th>UnkownRegion</th>
+                                                        <th>UnknownRegion</th>
                                                         <th>CustomRegion</th>
                                                         
                                                     </tr>
@@ -2381,7 +2381,7 @@
                                 <dt><xsl:value-of select="$tableHeader//th[13]"/></dt>
                                 <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lyRauschen.html" target="_blank">NoiseRegion</a></dd>
                                 <dt><xsl:value-of select="$tableHeader//th[14]"/></dt>
-                                <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lySonstiges.html" target="_blank">UnkownRegion</a></dd>
+                                <dd><a href="https://ocr-d.de/de/gt-guidelines/trans/lySonstiges.html" target="_blank">UnknownRegion</a></dd>
                                 <dt><xsl:value-of select="$tableHeader//th[15]"/></dt>
                                 <dd>CustomRegion</dd>
                             </dl>
@@ -3130,7 +3130,7 @@
                                 </xsl:if>
                                 
                                 <xsl:if test="$k13 > 0">
-                                    <fn:string key="UnkownRegion"><xsl:value-of select="$k13"/></fn:string>
+                                    <fn:string key="UnknownRegion"><xsl:value-of select="$k13"/></fn:string>
                                 </xsl:if>
                                 
                                 <xsl:if test="$k14 > 0">
@@ -3200,7 +3200,7 @@
                         </xsl:if>
                         
                         <xsl:if test="$k13 > 0">
-                            <fn:string key="UnkownRegion"><xsl:value-of select="$k13"/></fn:string>
+                            <fn:string key="UnknownRegion"><xsl:value-of select="$k13"/></fn:string>
                         </xsl:if>
                         
                         <xsl:if test="$k14 > 0">
@@ -3270,7 +3270,7 @@
                     </xsl:if>
                     
                     <xsl:if test="$k13 > 0">
-                        <fn:string key="UnkownRegion"><xsl:value-of select="$k13"/></fn:string>
+                        <fn:string key="UnknownRegion"><xsl:value-of select="$k13"/></fn:string>
                     </xsl:if>
                     
                     <xsl:if test="$k14 > 0">
@@ -3598,7 +3598,7 @@
                                 </xsl:if>
                                 
                                 <xsl:if test="$k13 > 0">
-                                    <th>UnkownRegion</th>
+                                    <th>UnknownRegion</th>
                                 </xsl:if>
                                 
                                 <xsl:if test="$k14 > 0">
@@ -4005,7 +4005,7 @@
                         </xsl:if>
                         
                         <xsl:if test="$k13 > 0">
-                            <th>UnkownRegion</th>
+                            <th>UnknownRegion</th>
                         </xsl:if>
                         
                         <xsl:if test="$k14 > 0">
