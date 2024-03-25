@@ -56,7 +56,7 @@
     <xsl:variable name="key10">countMusicRegion</xsl:variable>
     <xsl:variable name="key11">countAdvertRegion</xsl:variable>
     <xsl:variable name="key12">countNoiseRegion</xsl:variable>
-    <xsl:variable name="key13">countUnkownRegion</xsl:variable>
+    <xsl:variable name="key13">countUnknownRegion</xsl:variable>
     <xsl:variable name="key14">countCustomRegion</xsl:variable>
     <xsl:variable name="key15">countTextLine</xsl:variable>
     <xsl:variable name="key16">countPage</xsl:variable>
@@ -143,7 +143,7 @@
                                 <string key="{$key10}"><xsl:value-of select="count(document($filename)//*/*[local-name()='MusicRegion'])"/></string>
                                 <string key="{$key11}"><xsl:value-of select="count(document($filename)//*/*[local-name()='AdvertRegion'])"/></string>
                                 <string key="{$key12}"><xsl:value-of select="count(document($filename)//*/*[local-name()='NoiseRegion'])"/></string>
-                                <string key="{$key13}"><xsl:value-of select="count(document($filename)//*/*[local-name()='UnkownRegion'])"/></string>
+                                <string key="{$key13}"><xsl:value-of select="count(document($filename)//*/*[local-name()='UnknownRegion'])"/></string>
                                 <string key="{$key14}"><xsl:value-of select="count(document($filename)//*/*[local-name()='CustomRegion'])"/></string>
                                 <string key="{$key15}"><xsl:value-of select="count(document($filename)//*/*[local-name()='TextLine'])"/></string>
                                 <string key="{$key16}"><xsl:value-of select="count(document($filename)//*/*[local-name()='Page'])"/></string>
