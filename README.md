@@ -15,7 +15,7 @@ The format of the output files:
 
 ## Overview of scripts or programs
 
-**🚀 gt-overview_unitTest.xsl**
+### **🚀 gt-overview_unitTest.xsl**
 
 - It lists all files in the Ground Truth (GT) directory. In a second step, the xsl checks whether the specified GT directory   structure with the data and GT-PAGE directories is present. If other directories or a different directory structure are present, an error is output (pathtest.md). 
   - It is part of the gtrepo github-action workflow.
@@ -27,7 +27,7 @@ The format of the output files:
          ```
 
 
-**🚀 gt-overview_metadata.xsl**
+### **🚀 gt-overview_metadata.xsl**
 
    - **Environment parameters group**
         - Analysis of ground truth, GitHub page creation, following parameters are to be followed. Use environment variables https://docs.github.com/en/actions/learn-github-actions/environment-variables
@@ -54,7 +54,7 @@ The format of the output files:
           -s:scripts/gt-overview_metadata.xsl -o:XX
           ```  
 
-**🚀 gt-level_parser.xsl**
+### **🚀 gt-level_parser.xsl**
    - It is a rule-based parser for determining the transcription and structure level of a page file and the corpus of page files.
      The transcription level distinguishes three and the structure two levels.
    - The parser determines the frequencies of characters and structures (regions) that are defined in the rules. Based on this analysis, a specific level is determined for the page and for the corpus.
@@ -67,7 +67,7 @@ The format of the output files:
          -s:scripts/gt-level_parser.xsl -o:ghout/overview-level.md
          ```
 
-**🚀 gt-coll_metadata.xsl**
+### **🚀 gt-coll_metadata.xsl**
   - gt-coll_metadata.xsl automatically creates a readme file for a collection/corpus of Ground Truth repositories. 
     - **:wrench: general program call**
        - ```shell
@@ -76,24 +76,24 @@ The format of the output files:
          ```
 
 
-**🚀 data_structure.sh**
+### **🚀 data_structure.sh**
    - Analysis of the data structure, determination of the METS metadata file and afterwards creation of the Bagit files. For Bagit see: https://ocr-d.de/en/spec/ocrd_zip
      - **:wrench: general program call**
        - ```shell
            sh scripts/data_structure.sh
          ``` 
-**🚀 data_mets.sh**
+### **🚀 data_mets.sh**
    - During the Github action workflow, METS files that do not contain `OCR-D-IMG fileGrp` are deleted. 
 
 
-**🚀 readmefolder.sh**
+### **🚀 readmefolder.sh**
    - Archiving the original README file to the `readme_old` folder
      - **:wrench: general program call**
        - ```shell
            sh scripts/readmefolder.sh
          ```
 
-**🚀 xreadme.sh**
+### **🚀 xreadme.sh**
    - Determination of the README file and change of the filename extension from Markdown to XML
      - **:wrench: general program call**
        - ```shell
