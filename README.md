@@ -99,7 +99,7 @@ The format of the output files:
        - ```shell
            sh scripts/xreadme.sh
          ```
-**🚀 lang.js**
+**🌻 lang.js**
    - Javascript for the automated language conversion (German/English) of the level description and the links to the OCR-D-GT Guidelines.
      
 **🌻 table_hide.css**
