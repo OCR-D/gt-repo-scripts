@@ -4472,7 +4472,7 @@
                                 <xsl:copy-of copy-namespaces="no" select="$t1//mets:metsHdr
                                     | $t1//mets:dmdSec 
                                     | $t1//mets:amdSec" />
-                                <xsl:copy-of copy-namespaces="no" select="$t1//mets:fileSec/child::*[@USE  != 'DEFAULT']"/>
+                                <mets:fileSec><xsl:copy-of copy-namespaces="no" select="$t1//mets:fileSec/child::*[@USE  != 'DEFAULT']"/></mets:fileSec>
                                 <xsl:copy-of copy-namespaces="no" select="$t1//mets:structMap[@TYPE='LOGICAL']
                                     | $t2//mets:structMap[@TYPE='PHYSICAL']
                                     | $t3//mets:structLink"/>
