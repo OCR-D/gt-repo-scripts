@@ -4476,7 +4476,6 @@
                                 <xsl:copy-of copy-namespaces="no" select="$t1//mets:structMap[@TYPE='LOGICAL']
                                     | $t2//mets:structMap[@TYPE='PHYSICAL']
                                     | $t3//mets:structLink"/>
-                                <!--| $t1//mets:fileSec/child::*[@USE  != 'DEFAULT'] -->
                             </xsl:variable>
                             <xsl:copy-of copy-namespaces="no" select="$t4"/>
                         </mets:mets>
