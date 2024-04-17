@@ -72,7 +72,7 @@ jobs:
             The file gt-repo-scripts-package-v${{ github.run_number }}.zip is a zip archive file.<br/>
             <ul><li>If you wish to use the rules, this file must first be unpacked.</li>
             <li>The archive file contains several XSLT files and shell scripts.</li>
-            <li>It is recommended to read the [readme file](https://github.com/tboenig/gt-repo-scripts/blob/main/README.md) to understand the functionality and handling of the scripts.</li>
+            <li>It is recommended to read the <a href="https://github.com/tboenig/gt-repo-scripts/blob/main/README.md">readme file</a> to understand the functionality and handling of the scripts.</li>
             <li>The XSLT files and shell scripts are optimized for implementation within a GitHub action workflow.</li></ul>
             </dd>
             </dl>
