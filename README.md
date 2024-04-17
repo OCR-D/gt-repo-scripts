@@ -105,9 +105,16 @@ The format of the output files:
 **🌻 table_hide.css**
    - CSS stylesheet to customize the formatting of GH pages. The GH pages use the dinky template (https://pages-themes.github.io/dinky/).
 
-
 **🌻 levelparser.css**
    - CSS stylesheet for customising the formatting of GH pages, in particular for determining the transcription and structure levels.
+
+## Overview of additional files
+
+**🖹 megalevelrules.xml**
+  -  Megalevelrules.xml file contains all OCR-D Ground-Truth Transcription Level Rules. These rules are based on the encodings published by the Medieval Unicode Font Initiative (MUFI). 
+  - These rules are used for so-called level parsing. 
+  - The megalevelrules are generated automatically. See also: https://github.com/OCR-D/gt-MufiLevelRules  
+  - The file available here is a copy of: https://raw.githubusercontent.com/OCR-D/gt-MufiLevelRules/gh-pages/rules/megalevelrules.xml
 
 ## Github Action Template
 
