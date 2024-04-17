@@ -1,0 +1,36 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: gt-repo-scripts
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Matthias
+    family-names: Boenig
+    orcid: >-
+      https://orcid.org/https://orcid.org/https://orcid.org/0000-0003-4615-4753
+repository-code: 'https://github.com/tboenig/gt-repo-scripts'
+url: 'https://github.com/tboenig/gt-repo-scripts'
+abstract: >-
+  XSLT and shell scripts for analyzing and creating GitHub
+  pages of a ground truth repository. These are centrally
+  managed and can be used by all repositories created with
+  gt-repo-template
+  (https://github.com/OCR-D/gt-repo-template).
+keywords:
+  - ocr-d
+  - repository
+  - ground-truth
+  - level classification
+  - level checks
+  - guidelines
+  - transcription
+  - page-xml
+  - template
+license: CC-BY-SA-4.0
+commit: v1.2.0
+version: 60_v1.2.0
+date-released: '2024-04-17'
