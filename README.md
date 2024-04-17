@@ -116,6 +116,10 @@ The format of the output files:
   - The megalevelrules are generated automatically. See also: https://github.com/OCR-D/gt-MufiLevelRules  
   - The file available here is a copy of: https://raw.githubusercontent.com/OCR-D/gt-MufiLevelRules/gh-pages/rules/megalevelrules.xml
 
+
+**🌻 metadata.xsl**
+  - The Metadata.xsl file updates the metadata file CITATION.cff of the repo **gt-repo-scripts**. The update is performed by a GitHub action workflow.
+
 ## Github Action Template
 
 In combination or individually, the individual programs and stylesheets can also be used in a Github Action Workflow.
