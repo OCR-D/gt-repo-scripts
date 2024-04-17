@@ -70,28 +70,15 @@ jobs:
             <dt>Info:</dt>
             <dd>
             The file gt-repo-scripts-package-v${{ github.run_number }}.zip is a zip archive file.<br/>
-            If you wish to use the rules, this file must first be unpacked.<br/><br/>
-            
-            The archive file contains several XSLT files and shell scripts.<br/>
-            It is recommended to read the [readme file](https://github.com/tboenig/gt-repo-scripts/blob/main/README.md) to understand the functionality and handling of the scripts.<br/>
-            The XSLT files and shell scripts are optimized for implementation within a GitHub action workflow.
+            <ul><li>If you wish to use the rules, this file must first be unpacked.</li>
+            <li>The archive file contains several XSLT files and shell scripts.</li>
+            <li>It is recommended to read the [readme file](https://github.com/tboenig/gt-repo-scripts/blob/main/README.md) to understand the functionality and handling of the scripts.</li>
+            <li>The XSLT files and shell scripts are optimized for implementation within a GitHub action workflow.</li></ul>
             </dd>
             </dl>
             </dl>
           draft: false
-          prerelease: false
-
-
-    - name: Upload asset to GitHub release
-      uses: actions/upload-release-asset@v1
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-          upload_url: ${{ steps.create-new-release.outputs.upload_url }}
-          asset_path: ./gt-repo-scripts-package-v${{ github.run_number }}.zip
-          asset_name: gt-repo-scripts-package-v${{ github.run_number }}.zip
-          asset_content_type: application/zip
-   
+          prerelease: false  
 
     
     - name: Commit CITATION.cff
