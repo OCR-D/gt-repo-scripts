@@ -24,8 +24,11 @@
     <xsl:param name="rulesetPath">..</xsl:param>
     
     
+    <xsl:variable name="rulesetxmlFile">./?select=<xsl:value-of select="$rulesetxml"/></xsl:variable>
+    
+    
     <xsl:variable name="ruleset">
-        <xsl:copy-of select="document($rulesetPath/$rulesetxml)"/>
+        <xsl:copy-of select="document($rulesetxmlFile)"/>
     </xsl:variable>
 
     <xsl:variable name="docMETADATA">
