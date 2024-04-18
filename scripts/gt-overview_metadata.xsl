@@ -191,7 +191,7 @@
               </xsl:variable>
         
         
-        
+        <xsl:message select="$holeMetric"/>
             <xsl:variable name="k15">
                 <xsl:for-each select="$holeMetric/array">
                     <xsl:value-of select="sum($holeMetric//string[@key=$key15])"/>
