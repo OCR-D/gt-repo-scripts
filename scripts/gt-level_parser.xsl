@@ -24,7 +24,7 @@
     <xsl:param name="rulesetPath">..</xsl:param>
     
     
-    <xsl:variable name="rulesetxmlFile">./?select=<xsl:value-of select="$rulesetxml"/></xsl:variable>
+    <xsl:variable name="rulesetxmlFile">./?select=<xsl:value-of select="$rulesetxml"/>;recurse=yes</xsl:variable>
     
     
     <xsl:variable name="ruleset">
