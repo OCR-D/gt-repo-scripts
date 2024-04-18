@@ -21,10 +21,10 @@ jobs:
    # Installation and Directories
 
     - name: install CITATION.cff update
-            run: | 
-                git clone https://github.com/tboenig/CITATIONupdate.git
-                mv CITATIONupdate/scripts scripts/
-                rm -r CITATIONupdate
+      run: | 
+          git clone https://github.com/tboenig/CITATIONupdate.git
+          mv CITATIONupdate/scripts scripts/
+          rm -r CITATIONupdate
 
 
 
