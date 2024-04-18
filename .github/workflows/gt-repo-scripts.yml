@@ -44,7 +44,7 @@ jobs:
     
    # Transformation and analysis
 
-    - name: generate CITATION.cff
+    - name: update CITATION.cff
       run: |
         java -jar saxon-he-12.3.jar -xsl:CITATIONupdate/scripts/citationupdate.xsl \
         output=CITATION repoBase=$GITHUB_REF_Name repoName=$GITHUB_REPOSITORY bagitDumpNum=$GITHUB_RUN_NUMBER releaseTag=$GITHUB_REF_NAME \
@@ -62,14 +62,19 @@ jobs:
              
    
    
-    - name: Create GitHub release
+    - name: Create Upload GitHub release
       id: create-new-release
-      uses: actions/create-release@v1
+      uses: ncipollo/release-action@v1
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          tag_name: ${{ github.ref_name }}
-          release_name: gt-repo-scripts-package (Release${{ github.run_number }})
+          allowUpdates: true
+          artifacts: 'gt-repo-scripts-package-v${{ github.run_number }}.zip'
+          artifactContentType: application/zip
+          tag: ${{ github.ref_name }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: gt-repo-scripts-package (Release${{ github.run_number }})
+          omitNameDuringUpdate: true
           body: |
             <dl>
             <dt>Version:</dt> 
@@ -84,8 +89,7 @@ jobs:
             </dd>
             </dl>
             </dl>
-          draft: false
-          prerelease: false  
+            
 
     
     - name: Commit CITATION.cff
