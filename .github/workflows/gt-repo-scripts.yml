@@ -23,8 +23,7 @@ jobs:
     - name: install CITATION.cff update
       run: | 
           git clone https://github.com/tboenig/CITATIONupdate.git
-          mv CITATIONupdate/scripts scripts/
-          rm -r CITATIONupdate
+          
 
 
 
@@ -47,9 +46,9 @@ jobs:
 
     - name: generate CITATION.cff
       run: |
-        java -jar saxon-he-12.3.jar -xsl:scripts/citationupdate.xsl \
+        java -jar saxon-he-12.3.jar -xsl:CITATIONupdate/scripts/citationupdate.xsl \
         output=CITATION repoBase=$GITHUB_REF_Name repoName=$GITHUB_REPOSITORY bagitDumpNum=$GITHUB_RUN_NUMBER releaseTag=$GITHUB_REF_NAME \
-        -s:scripts/citationupdate.xsl -o:rawCITATION.cff
+        -s:CITATIONupdate/scripts/citationupdate.xsl -o:rawCITATION.cff
       shell: bash
 
 
