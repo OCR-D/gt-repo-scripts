@@ -19,7 +19,7 @@ if test -f "mets.xml"; then
     if grep -Eq "mets:fileGrp USE=\"OCR-D\-IMG" mets.xml; then
         cd $p
         pwd
-        ocrd zip bag -i ocrd_data_structur_$var_path
+        ocrd zip bag -i ocrd_data_$var_path_${PWD##*/}
         mv $path/data/*.zip $path/ocrdzip_out/
     fi
 fi
