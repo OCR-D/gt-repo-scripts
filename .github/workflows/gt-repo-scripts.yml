@@ -20,6 +20,14 @@ jobs:
    
    # Installation and Directories
 
+    - name: install CITATION.cff update
+            run: | 
+                git clone https://github.com/tboenig/CITATIONupdate.git
+                mv CITATIONupdate/scripts scripts/
+                rm -r CITATIONupdate
+
+
+
     - name: Get SDK Version from config
       id: lookupSdkVersion
       uses: mikefarah/yq@master
@@ -39,9 +47,9 @@ jobs:
 
     - name: generate CITATION.cff
       run: |
-        java -jar saxon-he-12.3.jar -xsl:scripts/metadata.xsl \
+        java -jar saxon-he-12.3.jar -xsl:scripts/citationupdate.xsl \
         output=CITATION repoBase=$GITHUB_REF_Name repoName=$GITHUB_REPOSITORY bagitDumpNum=$GITHUB_RUN_NUMBER releaseTag=$GITHUB_REF_NAME \
-        -s:scripts/metadata.xsl -o:rawCITATION.cff
+        -s:scripts/citationupdate.xsl -o:rawCITATION.cff
       shell: bash
 
 
