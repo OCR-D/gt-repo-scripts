@@ -2,7 +2,7 @@
 metsfiles=`ls data/`
 page=`find -name 'GT-PAGE'`
 path=`pwd`
-var_path=$(basename "$PWD")
+var_path1=$(basename "$PWD")
 
 
 for eachfile in $page
@@ -19,7 +19,8 @@ if test -f "mets.xml"; then
     if grep -Eq "mets:fileGrp USE=\"OCR-D\-IMG" mets.xml; then
         cd $p
         pwd
-        ocrd zip bag -i ocrd_data_$var_path__${PWD##*/}
+        var_path2=$(basename "$PWD")
+        ocrd zip bag -i ocrd_data_$var_path1__$var_path2
         mv $path/data/*.zip $path/ocrdzip_out/
     fi
 fi
