@@ -27,8 +27,7 @@ jobs:
 
 
 
-    - name: Get SDK Version from config
-      id: lookupSdkVersion
+    - name: transform yml to json
       uses: mikefarah/yq@master
       with:
         cmd: |
@@ -54,7 +53,6 @@ jobs:
 
          
     - name: formating CITATION.cff
-      id: lookupSdkVersion2
       uses: mikefarah/yq@master
       with:
         cmd: |
@@ -89,7 +87,7 @@ jobs:
             </dd>
             </dl>
             </dl>
-            
+           
 
     
     - name: Commit CITATION.cff
