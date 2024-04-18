@@ -21,14 +21,11 @@
     <xsl:param name="bagitDumpNum"/>
     <xsl:param name="releaseTag"/>
     <xsl:param name="rulesetxml">megalevelrules.xml</xsl:param>
-    <xsl:param name="rulesetPath">..</xsl:param>
     
-    
-    <xsl:variable name="rulesetxmlFile">./?select=<xsl:value-of select="$rulesetxml"/>;recurse=yes</xsl:variable>
     
     
     <xsl:variable name="ruleset">
-        <xsl:copy-of select="document($rulesetxmlFile)"/>
+        <xsl:copy-of select="document($rulesetxml)"/>
     </xsl:variable>
 
     <xsl:variable name="docMETADATA">
