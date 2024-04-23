@@ -20,7 +20,7 @@ if test -f "mets.xml"; then
         cd $p
         pwd
         var_path2=$(basename "$PWD")
-        ocrd zip bag -i ocrd_data_${var_path1}_${var_path2} -q OCR-D-IMG,GT-PAGE
+        ocrd zip bag -i ocrd_data_${var_path1}_${var_path2}
         mv $path/data/*.zip $path/ocrdzip_out/
     fi
 fi
