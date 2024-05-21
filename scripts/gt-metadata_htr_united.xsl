@@ -342,7 +342,7 @@ volume:
     metric: regions
 citation-file-link: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='citation-file-link']"/>
 transcription-guidelines: >-
-  <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='transcription-guidelines']"/>
+  <xsl:value-of select="normalize-space(translate($docMETADATA//fn:map/fn:string[@key='transcription-guidelines'], '&#10;&#13;', '  '))"/>
 </xsl:result-document>
 </xsl:template>
 </xsl:stylesheet>
