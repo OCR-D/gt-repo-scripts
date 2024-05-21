@@ -333,13 +333,13 @@ license:
 format: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='format']"/>
 volume:
   - count: <xsl:value-of select="$sumCharVolume"/>
-  metric: characters
+    metric: characters
   - count: <xsl:value-of select="$k16"/>
-  metric: files
+    metric: files
   - count: <xsl:value-of select="$k15"/>
-  metric: lines
+    metric: lines
   - count: <xsl:value-of select="sum($k1 + $k2 + $k3 + $k4 + $k5 + $k6 + $k7 + $k8 + $k9 + $k10 + $k11 + $k12 + $k13 + $k14)"/>
-  metric: regions
+    metric: regions
 citation-file-link: <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='citation-file-link']"/>
 transcription-guidelines: >-
   <xsl:value-of select="$docMETADATA//fn:map/fn:string[@key='transcription-guidelines']"/>
